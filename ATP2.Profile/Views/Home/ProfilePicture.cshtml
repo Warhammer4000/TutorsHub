@@ -1,0 +1,21 @@
+﻿@model ATP2.Profile.Models.ProfilePictureModel
+<fieldset>
+    <legend><b>PROFILE PICTURE</b></legend>
+    <form method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td>:</td>
+                <td><input name="UserName" type="text" value=@Model.UserName></td>
+            </tr>
+            <tr>
+                <td>Picture</td>
+                <td>:</td>
+                <td><input name="Picture" type="file" value="@Model.Picture"></td>
+            </tr>
+        </table>
+        <label style="color: red">@ViewData["ErrorMessage"]</label> 
+        <hr />
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>

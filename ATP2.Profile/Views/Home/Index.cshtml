@@ -1,102 +1,27 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model ATP2.Profile.Models.LoginModel
 
-<html>
 <fieldset>
-    <legend>Person Profile</legend>
-   
-    <table border="2">
-        <tr>
-            <td>
-                Name:
-            </td>
-            <td>
-                <input id="Name" type="text" value="@ViewBag.Name">
-                <span id="idLable">
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Email:
-            </td>
-            <td>
-                <input id="Email" type="text" value="@ViewBag.Email">
-            </td>
-        </tr>
-  
-        <tr>
-            <td>
-                Gender:
-            </td>
-            <td>
-                <input type="radio" name="toggle" value="m" checked="@ViewBag.Gender0"><span>Male</span>
-                <input type="radio" name="toggle" value="f" checked="@ViewBag.Gender1"><span>Female</span>
-                <input type="radio" name="toggle" value="o" checked="@ViewBag.Gender2"><span>Other</span>
-            </td>
-        </tr>
-  
-        <tr>
-            <td>
-                Date Of Birth:
-            </td>
-            <td>
-                <input type="text" width name="DD /" value="@ViewBag.Day">/
-                <input type="text" name="MM /" value="@ViewBag.Month"/>/
-                <input type="text" name="YYYY /" value="@ViewBag.Year">(DD/MM/YYYY)
-            </td>
-        </tr>
-  
-        <tr>
-            <td>
-                Blood Group:
-            </td>
-            <td>
-                <select>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Degree:
-            </td>
-            <td>
-                <input type="checkbox" value="SSC" checked="@ViewBag.Degree0"> SSC.
-                <input type="checkbox" value="HSC" checked="@ViewBag.Degree1"> HSC.
-                <input type="checkbox" value="BSc"checked="@ViewBag.Degree2"> BSc.
-                <input type="checkbox" value="BSc"checked="@ViewBag.Degree3"> MSc.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Photo:
-            </td>
-            <td>
-                <input type="File">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" height="25"></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="RIGHT">
-                <input type="Submit" >
-                <input type="Button" value="Reset" >
-            </td>
-        </tr>
-
-    </table>
+    <legend><b>LOGIN</b></legend>
+    <form method="post" >
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td>:</td>
+                <td><input name="UserName" type="text" value=@Model.UserName></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>:</td>
+                <td><input name="Password" type="password" value=@Model.Password></td>
+            </tr>
+        </table>
+        
+         <label style="color: red">@ViewData["ErrorMessage"]</label> 
+        
+        <hr />
+        <input name="remember" type="checkbox">Remember Me
+        <br/><br/>
+        <input type="submit" value="Submit">        
+        <a href="#">Forgot Password?</a>
+    </form>
 </fieldset>
-
-<html>
-
