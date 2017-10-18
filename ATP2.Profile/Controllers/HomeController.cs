@@ -1,29 +1,57 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using Entity;
 
 namespace ATP2.Profile.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
+        [HttpGet]
         public ActionResult Index()
+        {
+            User user = new User()
+            {
+                DateOfBirth = DateTime.Now.ToString("DD-MM-YYYY"),
+                Email = "tkhan@iquantile.com",
+                Name = "tazim",
+                UserName = "tazim",
+                Password = "darks1d1erS!",
+                Gender = "Male"
+            };
+
+            Session["User"] = user;
+
+            return View();
+        }
+
+
+        public ActionResult Login()
         {
             return View(new LoginModel());
         }
 
         [HttpPost]
-        public ActionResult Index(LoginModel loginModel)
+        public ActionResult Login(LoginModel loginModel)
         {
-            string errormessage;
-            if (loginModel.Validation(out errormessage))
+          
+            if (ModelState.IsValid)
             {
-                //Should be some action to go to next page 
-            }
+                User user = (User) Session["User"];
 
-            ViewData["ErrorMessage"] = errormessage;
+                if (loginModel.UserName == user?.UserName && loginModel.Password == user?.Password)
+                {
+                    return RedirectToAction("Dashboard");
+                }
+                ModelState.AddModelError("Invalid","Invalid User");
+                return View(loginModel);
+            }
+            
             return View(loginModel);
         }
 
@@ -36,18 +64,15 @@ namespace ATP2.Profile.Controllers
         [HttpPost]
         public ActionResult EditPassword(EditPasswordModel editPasswordModel)
         {
-            string errorMessage;
-            if (editPasswordModel.Validate(out errorMessage))
+            if (ModelState.IsValid)
             {
-                //Should be some action to go to next page 
+                
             }
 
-
-            ViewData["ErrorMessage"] = errorMessage;
             return View(editPasswordModel);
         }
 
-
+        [HttpGet]
         public ActionResult ProfilePicture()
         {
             return View(new ProfilePictureModel());
@@ -59,13 +84,14 @@ namespace ATP2.Profile.Controllers
             string errorMessage;
             if (profilePictureModel.Validation(out errorMessage))
             {
-                //Should be some action to go to next page 
+                errorMessage = "Success!!!";
             }
             ViewData["ErrorMessage"] = errorMessage;
             return View(profilePictureModel);
 
         }
 
+        [HttpGet]
         public ActionResult Registration()
         {
             return View(new RegistrationModel());
@@ -76,16 +102,109 @@ namespace ATP2.Profile.Controllers
         public ActionResult Registration(RegistrationModel registrationModel)
         {
 
-            string errorMessage;
-            if (registrationModel.Validation(out errorMessage))
+            if (ModelState.IsValid)
             {
-                //Should be some action to go to next page 
+                //Temporary Session to hold data
+                User user= new User()
+                {
+                    DateOfBirth = registrationModel.DateOfBirth,
+                    Email = registrationModel.Email,
+                    Name = registrationModel.Name,
+                    UserName = registrationModel.UserName,
+                    Password = registrationModel.Password,
+                    Gender = registrationModel.Gender
+                };
+
+                Session["User"] = user; 
+
+                return RedirectToAction("Login");
             }
-            ViewData["ErrorMessage"] = errorMessage;
+           
             return View(registrationModel);
 
             
         }
+
+        [HttpGet]
+        public ActionResult UserProfile()
+        {
+            User user = (User)Session["User"];
+            ProfileModel profileModel= new ProfileModel()
+            {
+                DateOfBirth = user.DateOfBirth,
+                Email = user.Email,
+                Gender = user.Gender,
+                Name = user.Name
+            };
+
+            return View("Profile",profileModel);
+        }
+
+
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            User user = (User)Session["User"];
+            EditProfileModel editprofileModel = new EditProfileModel()
+            {
+                DateOfBirth = user.DateOfBirth,
+                Email = user.Email,
+                Gender = user.Gender,
+                Name = user.Name
+            };
+
+            switch (editprofileModel.Gender)
+            {
+                case "Male":
+                    ViewBag.Male = true;
+                    break;
+
+                case "Female":
+                    ViewBag.Female = true;
+                    break;
+
+                case "Other":
+                    ViewBag.Other = true;
+                    break;
+
+            }
+
+            return View(editprofileModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(EditProfileModel editProfile)
+        {
+            switch (editProfile.Gender)
+            {
+                case "Male":
+                    ViewBag.Male = true;
+                    break;
+
+                case "Female":
+                    ViewBag.Female = true;
+                    break;
+
+                case "Other":
+                    ViewBag.Other = true;
+                    break;
+
+            }
+
+            
+
+            return View(editProfile);
+        }
+
+
+        [HttpGet]
+        public ActionResult Dashboard()
+        {
+            User user = (User)Session["User"];
+            Session["UserName"] = user.UserName;
+            return View();
+        }
+
 
 
     }

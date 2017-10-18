@@ -1,27 +1,6 @@
-﻿@model ATP2.Profile.Models.LoginModel
+﻿@{
+    Layout = "~/Views/Shared/Public_Layout.cshtml";
+}
 
-<fieldset>
-    <legend><b>LOGIN</b></legend>
-    <form method="post" >
-        <table>
-            <tr>
-                <td>User Name</td>
-                <td>:</td>
-                <td><input name="UserName" type="text" value=@Model.UserName></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td><input name="Password" type="password" value=@Model.Password></td>
-            </tr>
-        </table>
-        
-         <label style="color: red">@ViewData["ErrorMessage"]</label> 
-        
-        <hr />
-        <input name="remember" type="checkbox">Remember Me
-        <br/><br/>
-        <input type="submit" value="Submit">        
-        <a href="#">Forgot Password?</a>
-    </form>
-</fieldset>
+
+<h3>Welcome to xCompany</h3>

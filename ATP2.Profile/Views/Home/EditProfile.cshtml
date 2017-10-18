@@ -1,0 +1,67 @@
+﻿@model ATP2.Profile.Models.EditProfileModel
+
+@{
+    Layout = "../Shared/Loggedin_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+</head>
+<body>
+<div>
+    
+    <fieldset>
+        <legend><b>EDIT PROFILE</b></legend>
+        <form method="post">
+            <br/>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><input name="name" type="text" value=@Model.Name></td>
+                    <td style="color: red">@Html.ValidationMessageFor(a=>a.Name)</td>
+                </tr>		
+                <tr><td colspan="4"><hr/></td></tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>
+                        <input name="email" type="text" value=@Model.Email>
+                        <abbr title="hint: sample@example.com"><b>i</b></abbr>
+                    </td>
+                    <td style="color: red">@Html.ValidationMessageFor(a => a.Email)</td>
+                </tr>				
+                <tr><td colspan="4"><hr/></td></tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>:</td>
+                    <td> 
+                        
+                        <input name="gender" type="radio" checked=@ViewBag.Male>Male
+                        <input name="gender" type="radio" checked=@ViewBag.Female>Female
+                        <input name="gender" type="radio" checked=@ViewBag.Other>Other
+                    </td>
+                    <td></td>
+                </tr>		
+                <tr><td colspan="4"><hr/></td></tr>
+                <tr>
+                    <td valign="top">Date of Birth</td>
+                    <td valign="top">:</td>
+                    <td>
+                        <input name="DateOfBirth" type="date" value="@Model.DateOfBirth">
+                        <br/>
+                        <font size="2"><i>(dd/mm/yyyy)</i></font>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+            <hr/>
+            <input type="submit" value="Submit">		
+        </form>
+    </fieldset>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model ATP2.Profile.Models.ProfileModel
+
+@{
+    Layout = "../Shared/Loggedin_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+<div>
+    <fieldset>
+        <legend><b>PROFILE</b></legend>
+        <form>
+            <br/>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>@Model.Name</td>
+                    <td rowspan="7" align="center">
+                        <img width="128" src="../image/user.png"/>
+                        <br/>
+                        @Html.ActionLink("Edit Profile Picture", "ProfilePicture", "Home")
+                    </td>
+                </tr>		
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>@Model.Email</td>
+                </tr>		
+                <tr><td colspan="3"><hr/></td></tr>			
+                <tr>
+                    <td>Gender</td>
+                    <td>:</td>
+                    <td>@Model.Gender</td>
+                </tr>
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>:</td>
+                    <td>@Model.DateOfBirth</td>
+                </tr>
+            </table>	
+            <hr/>
+            @Html.ActionLink("Edit Profile", "EditProfile", "Home")
+        </form>
+    </fieldset>
+</div>
+</body>
+</html>

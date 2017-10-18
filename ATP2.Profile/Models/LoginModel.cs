@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -8,75 +9,17 @@ namespace ATP2.Profile.Models
 {
     public class LoginModel
     {
+        [Required,RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         public string UserName { get; set; }
+
+
+        [Required]
+        [DataType(DataType.Password)]
+        [StringLength(18, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
+        [Display(Name = "Password")]
+        [RegularExpression("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{8,}", ErrorMessage = "Password must contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         public string Password { get; set; }
-        private string ErrorMessage { get; set; }
 
-        public LoginModel()
-        {
-            UserName = "";
-            Password = "";
-            ErrorMessage = "";
-        }
-
-        public bool Validation(out string errorMessage)
-        {
-            errorMessage = "";
-            if ( ValidateUserName(UserName) && ValidatePassword(Password))
-            {
-                return true;
-            }
-            errorMessage = ErrorMessage;
-            return false;
-        }
-
-
-        private bool HasSpecialChar(string input)
-        {
-            string specialChar = @"#$%";
-            return input != null && specialChar.Any(input.Contains);
-        }
-
-        private bool ValidatePassword(string password)
-        {
-            bool flag = true;
-            if (password?.Length<8)
-            {
-                ErrorMessage += " Password must not be less than eight (8) characters </br>";
-                flag = false;
-            }
-
-            if (!HasSpecialChar(password))
-            {
-                ErrorMessage += " Password must contain at least one of the special characters (@, #, $, %) </br>";
-                flag = false;
-            }
-
-            return flag;
-        }
-
-
-       
-
-
-        private bool ValidateUserName(string userName)
-        {
-            bool flag = true;
-            if (userName?.Length < 2)
-            {
-                ErrorMessage += " User Name must contain at least two (2) characters </br>";
-                flag = false;
-            }
-
-            if (userName != null && Regex.IsMatch(userName, "[^A-Za-z0-9._-]"))
-            {
-                ErrorMessage += " User Name can contain alpha numeric characters, period, dash or underscore only </br>";
-                flag = false;
-            }
-
-            return flag;
-        }
-
-
+        public bool RememberMe { get; set; }
     }
 }

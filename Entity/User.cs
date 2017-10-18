@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ATP2.Profile.Models
+namespace Entity
 {
-    public class RegistrationModel
+    public class User
     {
         [Required, RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         [MinLength(2)]
@@ -23,10 +23,7 @@ namespace ATP2.Profile.Models
         [RegularExpression("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{8,}", ErrorMessage = "Password must contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         public string Password { get; set; }
 
-        [Display(Name = "Confirm Password")]
-        [Required(ErrorMessage = "Confirm Password is required")]
-        [Compare("Password",ErrorMessage = "Pasword Doesn't Match")]
-        public string ConfirmPassword { get; set; }
+       
 
         [Display(Name = "Email address")]
         [Required(ErrorMessage = "The email address is required")]
@@ -37,10 +34,5 @@ namespace ATP2.Profile.Models
 
         [Display(Name = "Date Of Birth")]
         public string DateOfBirth { get; set; }
-
-    
-
-
-
     }
 }
