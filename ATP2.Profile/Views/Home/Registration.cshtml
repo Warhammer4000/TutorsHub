@@ -49,9 +49,9 @@
                 <td>Gender</td>
                 <td>:</td>
                 <td>   
-                    <input name="Gender" type="radio" checked="checked">Male
-                    <input name="Gender" type="radio">Female
-                    <input name="Gender" type="radio">Other
+                    <input name="Gender" type="radio" checked="checked" value="Male">Male
+                    <input name="Gender" type="radio" value="Female">Female
+                    <input name="Gender" type="radio" value="Other">Other
                 </td>
                 <td></td>
             </tr>		
@@ -66,7 +66,7 @@
                 <td style="color: red">@Html.ValidationMessageFor(x => x.DateOfBirth)</td>
             </tr>
         </table>
-        @*<label style="color: red">@Html.ValidationSummary()</label>*@ 
+      
         <hr/>
         <input type="submit" value="Submit">
         <input type="reset">

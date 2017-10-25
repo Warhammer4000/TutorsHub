@@ -36,7 +36,7 @@ namespace ATP2.Profile.Models
         public string Gender { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
     
 

@@ -40,9 +40,9 @@
                     <td>:</td>
                     <td> 
                         
-                        <input name="gender" type="radio" checked=@ViewBag.Male>Male
-                        <input name="gender" type="radio" checked=@ViewBag.Female>Female
-                        <input name="gender" type="radio" checked=@ViewBag.Other>Other
+                        <input name="gender" type="radio" value="Male" checked=@ViewBag.Male>Male
+                        <input name="gender" type="radio" value="Female" checked=@ViewBag.Female>Female
+                        <input name="gender" type="radio" value="Other" checked=@ViewBag.Other>Other
                     </td>
                     <td></td>
                 </tr>		
@@ -51,7 +51,7 @@
                     <td valign="top">Date of Birth</td>
                     <td valign="top">:</td>
                     <td>
-                        <input name="DateOfBirth" type="date" value="@Model.DateOfBirth">
+                        <input name="DateOfBirth" type="date" value="@Model.DateOfBirth.ToString("yyyy-MM-dd")">
                         <br/>
                         <font size="2"><i>(dd/mm/yyyy)</i></font>
                     </td>
@@ -59,7 +59,7 @@
                 </tr>
             </table>
             <hr/>
-            <input type="submit" value="Submit">		
+            <input type="submit" value="Save">		
         </form>
     </fieldset>
 </div>

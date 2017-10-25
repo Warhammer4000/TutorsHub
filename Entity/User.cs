@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
+    public enum Role { Admin, Executive, User }
+    public enum Status { Active, Pending, Blocked }
+
     public class User
     {
         [Required, RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
@@ -33,6 +36,11 @@ namespace Entity
         public string Gender { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
+
+        public Role Role { get; set; }
+        public Status Status { get; set; }
+        public DateTime UserSince { get; set; }
+
     }
 }

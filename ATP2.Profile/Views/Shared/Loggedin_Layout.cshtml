@@ -19,7 +19,7 @@
                         <tr>
                             <td>
                                 <a href="#">
-                                    <img height="48" src="~/Views/image/logo.png">
+                                    <img height="48" src="../image/logo.png">
                                 </a>
                             </td>
                             <td align="right">
@@ -34,12 +34,28 @@
                 <td width="190" valign="top">
                     <b>&nbsp;Account</b><hr />
                     <ul>
-                        <li>@Html.ActionLink("DashBoard", "Dashboard", "Home")</li>
-                        <li>@Html.ActionLink("View Profile", "UserProfile", "Home")</li>
-                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Home")</li>
-                        <li>@Html.ActionLink("Change Profile Picture", "ProfilePicture", "Home")</li>
-                        <li>@Html.ActionLink("Change Password", "EditPassword", "Home")</li>
+                        <li>@Html.ActionLink("DashBoard", "Dashboard", "Account")</li>
+                        <li>@Html.ActionLink("View Profile", "UserProfile", "Account")</li>
+                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Account")</li>
+                        <li>@Html.ActionLink("Change Profile Picture", "ProfilePicture", "Account")</li>
+                        <li>@Html.ActionLink("Change Password", "EditPassword", "Account")</li>
                         <li>@Html.ActionLink("Logout", "Index", "Home")</li>
+                    </ul>
+                    <hr /><b>&nbsp;User</b><hr />
+                    <ul>                
+                        <li>@Html.ActionLink("Search", "Search", "User")</li>
+                        <li>@Html.ActionLink("Create New", "CreateNew", "User")</li>
+                   
+                    </ul>
+                    <hr /><b>&nbsp;Report</b><hr />
+                    <ul>                
+                        <li>User Reports
+                            <ul>
+                                <li>@Html.ActionLink("Statistics Report", "StatisticReport", "Report")</li>
+                                <li>@Html.ActionLink("Activity Report", "ActivityReport", "Report")</li>
+                             
+                            </ul>
+                        </li>
                     </ul>
                 </td>
                 <td valign="top">

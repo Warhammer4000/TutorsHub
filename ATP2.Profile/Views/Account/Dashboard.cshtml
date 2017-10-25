@@ -1,0 +1,37 @@
+﻿@model ATP2.Profile.Models.DashboardModel
+
+@{
+    Layout = "../Shared/Loggedin_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+    <div>
+        Welcome @ViewBag.UserName
+        
+        <table>
+            <tr>
+                <td><b>User Since</b></td>
+                <td>:</td>
+                <td>
+                    @Model.Usersince
+                    
+                </td>
+            </tr>
+            <tr>
+                <td><b>Last Login</b></td>
+                <td>:</td>
+                <td>@Model.LastLogin</td>
+            </tr>
+        </table>
+        
+
+    </div>
+</body>
+</html>

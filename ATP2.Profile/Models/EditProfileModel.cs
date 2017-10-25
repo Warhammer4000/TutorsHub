@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Entity;
 
 namespace ATP2.Profile.Models
 {
+   
     public class EditProfileModel
     {
         [Required]
@@ -19,6 +21,11 @@ namespace ATP2.Profile.Models
         public string Gender { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
+
+        public Role Role { get; set; }
+        public Status Status { get; set; }
+
+
     }
 }

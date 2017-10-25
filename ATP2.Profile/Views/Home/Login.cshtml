@@ -7,27 +7,44 @@
 }
 
 <fieldset>
-    <legend><b>LOGIN</b></legend>
-    <form method="post" >
-        <table>
-            <tr>
-                <td>User Name</td>
-                <td>:</td>
-                <td><input name="UserName" type="text" value=@Model.UserName></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td><input name="Password" type="password" value=@Model.Password></td>
-            </tr>
-        </table>
+    <legend>
+        <b>LOGIN</b>
+    </legend>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+    
+
+        <div class="label">
+            @Html.LabelFor(e => e.UserName)
+        </div>
+        <div class="input-lg">
+            @Html.EditorFor(e => e.UserName)
+        </div>
+        <div class="label">
+            @Html.LabelFor(e => e.Password)
+        </div>
+        <div class="input-lg">
+            @Html.PasswordFor(e => e.Password)
+        </div>
+
+        <div style="color: red">
+            @Html.ValidationSummary()
+        </div>
+        <hr/>
         
+        <div >
+            @Html.LabelFor(e => e.RememberMe)
+            @Html.CheckBoxFor(e=>e.RememberMe)
+            <input type="submit" value="Log In">
+        </div>
+        
+        @Html.ActionLink("Forgot Password?", "ForgotPassword", "Home")
+    }
+        
+        
+      
        
-        <label style="color: red">@Html.ValidationSummary()</label> 
-        <hr />
-        <input name="RememberMe" type="checkbox">Remember Me
-        <br/><br/>
-        <input type="submit" value="Submit">        
-        <a href="#">Forgot Password?</a>
-    </form>
+      
+
 </fieldset>

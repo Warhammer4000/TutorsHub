@@ -25,7 +25,7 @@
                     <td rowspan="7" align="center">
                         <img width="128" src="../image/user.png"/>
                         <br/>
-                        @Html.ActionLink("Edit Profile Picture", "ProfilePicture", "Home")
+                        @Html.ActionLink("Edit Profile Picture", "ProfilePicture", "Account")
                     </td>
                 </tr>		
                 <tr><td colspan="3"><hr/></td></tr>
@@ -44,11 +44,30 @@
                 <tr>
                     <td>Date of Birth</td>
                     <td>:</td>
-                    <td>@Model.DateOfBirth</td>
+                    <td>@Model.DateOfBirth.ToString("yyyy-MM-dd")</td>
                 </tr>
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td>Role</td>
+                    <td>:</td>
+                    <td>@Model.Role</td>
+                </tr>
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td>Status</td>
+                    <td>:</td>
+                    <td>@Model.Status</td>
+                </tr>
+                <tr><td colspan="3"><hr/></td></tr>
+                <tr>
+                    <td>User Since</td>
+                    <td>:</td>
+                    <td>@Model.UserSince.ToString("yyyy-MM-dd")</td>
+                </tr>
+               
             </table>	
             <hr/>
-            @Html.ActionLink("Edit Profile", "EditProfile", "Home")
+            @Html.ActionLink("Edit Profile", "EditProfile", "Account")
         </form>
     </fieldset>
 </div>
