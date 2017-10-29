@@ -14,6 +14,7 @@ namespace Entity
     {
         [Required, RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         [MinLength(2)]
+        [Key]
         public string UserName { get; set; }
 
         [Required]

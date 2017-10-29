@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DLL.Service;
 using Entity;
 
 
@@ -60,8 +61,12 @@ namespace ATP2.Profile
             };
 
             List<User> users = new List<User> {user, user2, user3};
+            string x;
+            new UserService().AddUser(user,out x);
+            new UserService().AddUser(user2, out x);
+            new UserService().AddUser(user3, out x);
 
-            Session["Users"] = users;
+
         }
 
     }

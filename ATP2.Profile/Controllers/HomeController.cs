@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web.ModelBinding;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using DLL.Service;
 using Entity;
 
 namespace ATP2.Profile.Controllers
@@ -20,7 +21,7 @@ namespace ATP2.Profile.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult Login()
         {
             return View(new LoginModel());
@@ -33,15 +34,11 @@ namespace ATP2.Profile.Controllers
             if (ModelState.IsValid)
             {
 
-                List<User> users = (List<User>) Session["Users"];
-
-                var User = (from user in users
-                    where user.UserName == loginModel.UserName && user.Password == loginModel.Password
-                    select user).FirstOrDefault();
-                Session["User"] = User;
-
-                if (User!=null)
+                User user = new UserService().GetUserByUserName(loginModel.UserName);
+               
+                if (user!=null)
                 {
+                    Session["User"] = user;
                     return RedirectToAction("Dashboard", "Account");
                 }
                 ModelState.AddModelError("Invalid","Invalid User");
@@ -66,28 +63,20 @@ namespace ATP2.Profile.Controllers
         [HttpPost]
         public ActionResult Registration(RegistrationModel registrationModel)
         {
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(registrationModel);
+            User user= new User()
             {
-                //Temporary Session to hold data
-                User user= new User()
-                {
-                    DateOfBirth = registrationModel.DateOfBirth,
-                    Email = registrationModel.Email,
-                    Name = registrationModel.Name,
-                    UserName = registrationModel.UserName,
-                    Password = registrationModel.Password,
-                    Gender = registrationModel.Gender
-                };
+                DateOfBirth = registrationModel.DateOfBirth,
+                Email = registrationModel.Email,
+                Name = registrationModel.Name,
+                UserName = registrationModel.UserName,
+                Password = registrationModel.Password,
+                Gender = registrationModel.Gender
+            };
 
-                Session["User"] = user; 
-
-                return RedirectToAction("Login");
-            }
-           
-            return View(registrationModel);
-
-            
+            string x;
+            new UserService().AddUser(user,out x);
+            return RedirectToAction("Login");
         }
 
         [HttpGet]

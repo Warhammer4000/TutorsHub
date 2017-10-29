@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using DLL.Service;
 using Entity;
 
 namespace ATP2.Profile.Controllers
@@ -19,7 +20,7 @@ namespace ATP2.Profile.Controllers
         public ActionResult Search(UserSearchModel searchModel)
         {
             //Actually would search using searchmodel.searchtext then fill the model with users
-            searchModel.Users = (List<User>)Session["Users"];
+            searchModel.Users = new UserService().GetUsers();
             return View(searchModel);
         }
 
