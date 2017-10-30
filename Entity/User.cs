@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public enum Role { Admin, Executive, User }
-    public enum Status { Active, Pending, Blocked }
+    public enum Role { Admin=1, Executive=2, User =3}
+    public enum Status { Active=1, Pending=2, Blocked=3 }
 
     public class User
     {
@@ -42,6 +42,8 @@ namespace Entity
         public Role Role { get; set; }
         public Status Status { get; set; }
         public DateTime UserSince { get; set; }
+
+        public DateTime LastLogin { get; set; }
 
     }
 }

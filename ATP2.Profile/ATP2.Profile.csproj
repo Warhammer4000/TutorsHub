@@ -113,15 +113,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DashboardModel.cs" />
-    <Compile Include="Models\EditPasswordModel.cs" />
-    <Compile Include="Models\EditProfileModel.cs" />
-    <Compile Include="Models\ForgotPasswordModel.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\ProfileModel.cs" />
-    <Compile Include="Models\ProfilePictureModel.cs" />
-    <Compile Include="Models\RegistrationModel.cs" />
-    <Compile Include="Models\UserSearchModel.cs" />
+    <Compile Include="Models\AccountModels\DashboardModel.cs" />
+    <Compile Include="Models\AccountModels\EditPasswordModel.cs" />
+    <Compile Include="Models\AccountModels\EditProfileModel.cs" />
+    <Compile Include="Models\HomeModels\ForgotPasswordModel.cs" />
+    <Compile Include="Models\HomeModels\LoginModel.cs" />
+    <Compile Include="Models\AccountModels\ProfileModel.cs" />
+    <Compile Include="Models\AccountModels\ProfilePictureModel.cs" />
+    <Compile Include="Models\HomeModels\RegistrationModel.cs" />
+    <Compile Include="Models\ReportModels\StatisticReport.cs" />
+    <Compile Include="Models\UserModels\UserSearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

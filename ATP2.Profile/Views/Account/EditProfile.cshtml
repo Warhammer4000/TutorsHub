@@ -1,4 +1,4 @@
-﻿@model ATP2.Profile.Models.EditProfileModel
+﻿@model ATP2.Profile.Models.AccountModels.EditProfileModel
 
 @{
     Layout = "../Shared/Loggedin_Layout.cshtml";
@@ -21,7 +21,7 @@
                 <tr>
                     <td>Name</td>
                     <td>:</td>
-                    <td><input name="name" type="text" value=@Model.Name></td>
+                    <td><input name="name" type="text" value="@Model.Name"></td>
                     <td style="color: red">@Html.ValidationMessageFor(a=>a.Name)</td>
                 </tr>		
                 <tr><td colspan="4"><hr/></td></tr>
@@ -29,7 +29,7 @@
                     <td>Email</td>
                     <td>:</td>
                     <td>
-                        <input name="email" type="text" value=@Model.Email>
+                        <input name="email" type="text" value="@Model.Email">
                         <abbr title="hint: sample@example.com"><b>i</b></abbr>
                     </td>
                     <td style="color: red">@Html.ValidationMessageFor(a => a.Email)</td>

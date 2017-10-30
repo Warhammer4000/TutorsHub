@@ -1,4 +1,4 @@
-﻿
+﻿@model ATP2.Profile.Models.ReportModels.StatisticReport
 @{
     Layout = "../Shared/Loggedin_Layout.cshtml";
 }
@@ -31,19 +31,19 @@
         </tr>
         <tr>
             <td>Admin</td>
-            <td align="center">7</td>        
+            <td align="center">@Model.Admin</td>        
         </tr>
         <tr>
             <td>Executive</td>
-            <td align="center">43</td>        
+            <td align="center">@Model.Executive</td>        
         </tr>
         <tr>
             <td>User</td>
-            <td align="center">296</td>        
+            <td align="center">@Model.User</td>        
         </tr>
         <tr>
             <td align="right"><b>Total</b></td>
-            <td align="center"><b>347</b></td>        
+            <td align="center"><b>@Model.Total</b></td>        
         </tr>
     </table>
 </div>

@@ -2,6 +2,8 @@
 using System;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using ATP2.Profile.Models.AccountModels;
+using DLL.Service;
 using Entity;
 
 namespace ATP2.Profile.Controllers
@@ -14,8 +16,8 @@ namespace ATP2.Profile.Controllers
         public ActionResult Dashboard()
         {
             User user = (User)Session["User"];
+            
             Session["UserName"] = user.UserName;
-            //UPDATE DATABASE For last login
             return View(new DashboardModel(){Usersince = user.UserSince,LastLogin = DateTime.Now});
         }
 
@@ -85,7 +87,16 @@ namespace ATP2.Profile.Controllers
 
             }
 
-
+            if (ModelState.IsValid)
+            {
+                var user = (User) Session["User"];
+                user.Name = editProfile.Name;
+                user.Email = editProfile.Email;
+                user.Gender = editProfile.Gender;
+                user.DateOfBirth = editProfile.DateOfBirth;
+                string x;
+                new UserService().Update(user,out x);
+            }
 
             return View(editProfile);
         }
@@ -104,7 +115,10 @@ namespace ATP2.Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                var user = (User)Session["User"];
+                user.Password = editPasswordModel.RNewPassword;
+                string x;
+                new UserService().Update(user, out x);
             }
 
             return View(editPasswordModel);

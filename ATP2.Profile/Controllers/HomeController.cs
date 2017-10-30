@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Web.ModelBinding;
+
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using ATP2.Profile.Models.HomeModels;
 using DLL.Service;
 using Entity;
 
@@ -38,7 +34,13 @@ namespace ATP2.Profile.Controllers
                
                 if (user!=null)
                 {
+                    user.LastLogin = DateTime.Now;
+                    string x;
+                    new UserService().Update(user, out  x);
                     Session["User"] = user;
+                    
+                   
+                    
                     return RedirectToAction("Dashboard", "Account");
                 }
                 ModelState.AddModelError("Invalid","Invalid User");

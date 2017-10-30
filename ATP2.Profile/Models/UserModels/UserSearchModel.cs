@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Entity;
 
-namespace ATP2.Profile.Models
+namespace ATP2.Profile.Models.UserModels
 {
     public enum FilterBy { Any,Name,Email,Status}
     public class UserSearchModel

@@ -31,7 +31,9 @@ namespace ATP2.Profile
                 Gender = "Male",
                 Role = Role.Admin,
                 Status = Status.Active,
-                UserSince = new DateTime(2002,4,10)
+                UserSince = new DateTime(2002,4,10),
+                LastLogin = DateTime.Now
+                
             };
 
             User user2 = new User()
@@ -44,7 +46,8 @@ namespace ATP2.Profile
                 Gender = "Male",
                 Role = Role.User,
                 Status = Status.Pending,
-                UserSince = new DateTime(2004, 1, 10)
+                UserSince = new DateTime(2004, 1, 10),
+                LastLogin = DateTime.Now
             };
 
             User user3 = new User()
@@ -57,7 +60,8 @@ namespace ATP2.Profile
                 Gender = "Male",
                 Role = Role.Executive,
                 Status = Status.Blocked,
-                UserSince = new DateTime(2010, 11, 12)
+                UserSince = new DateTime(2010, 11, 12),
+                LastLogin = DateTime.Now
             };
 
             List<User> users = new List<User> {user, user2, user3};

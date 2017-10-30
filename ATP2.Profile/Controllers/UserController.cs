@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
+using ATP2.Profile.Models.UserModels;
 using DLL.Service;
 using Entity;
 

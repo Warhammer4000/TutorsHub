@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ATP2.Profile.Models.ReportModels;
 
 namespace ATP2.Profile.Controllers
 {
@@ -11,7 +12,7 @@ namespace ATP2.Profile.Controllers
         // GET: Report
         public ActionResult StatisticReport()
         {
-            return View();
+            return View(new StatisticReport());
         }
 
         public ActionResult ActivityReport()
