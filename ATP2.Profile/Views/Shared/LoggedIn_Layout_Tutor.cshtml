@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Public_Layout</title>
+</head>
+<body>
+<div>
+    <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
+        <tr>
+            <td colspan="2" valign="middle" height="70">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img height="48" src="../image/logo.png">
+                            </a>
+                        </td>
+                        <td align="right">
+                            Logged in as <a href="#">@Session["UserName"]</a>&nbsp;|
+                            @Html.ActionLink("Logout", "Index", "Home")
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td width="190" valign="top">
+                <b>&nbsp;Account</b><hr />
+                <ul>
+                    <li>@Html.ActionLink("DashBoard", "Dashboard", "Account")</li>
+                    <li>@Html.ActionLink("View Profile", "UserProfile", "Account")</li>
+                    <li>@Html.ActionLink("Edit Profile", "EditProfile", "Account")</li>                
+                    <li>@Html.ActionLink("Change Password", "EditPassword", "Account")</li>
+                    <li>@Html.ActionLink("Logout", "Index", "Home")</li>
+                </ul>
+                <hr /><b>&nbsp;User</b><hr />
+                <ul>                
+                    <li>@Html.ActionLink("Search", "Search", "User")</li>
+                </ul>
+            
+              
+            </td>
+            <td valign="top">
+                @RenderBody()
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                Copyright &copy; 2017
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

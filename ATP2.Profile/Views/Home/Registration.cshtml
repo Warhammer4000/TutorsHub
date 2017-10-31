@@ -2,73 +2,54 @@
 @{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
-<fieldset>
-    <legend><b>REGISTRATION</b></legend>
+
+
+
+<html>
+<head>
+    
+</head>
+<body>
+<div>
+
     <form method="post">
-        <br/>
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>:</td>
-                <td><input name="Name" type="text" value="@Model.Name"></td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.Name)</td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>Email</td>
-                <td>:</td>
-                <td>
-                    <input name="Email" type="text" value="@Model.Email">
-                    <abbr title="hint: sample@example.com"><b>i</b></abbr>
-                </td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.Email)</td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>User Name</td>
-                <td>:</td>
-                <td><input name="UserName" type="text"value="@Model.UserName"></td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.UserName)</td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>Password</td>
-                <td>:</td>
-                <td><input name="Password" type="password" value="@Model.Password"></td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.Password)</td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>Confirm Password</td>
-                <td>:</td>
-                <td><input name="ConfirmPassword" type="password"value="@Model.ConfirmPassword" ></td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.ConfirmPassword)</td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>Gender</td>
-                <td>:</td>
-                <td>   
-                    <input name="Gender" type="radio" checked="checked" value="Male">Male
-                    <input name="Gender" type="radio" value="Female">Female
-                    <input name="Gender" type="radio" value="Other">Other
-                </td>
-                <td></td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td valign="top">Date of Birth</td>
-                <td valign="top">:</td>
-                <td>
-                    <input name="DateOfBirth" type="date" value="@Model.DateOfBirth">
-                    <br/>
-                </td>
-                <td style="color: red">@Html.ValidationMessageFor(x => x.DateOfBirth)</td>
-            </tr>
-        </table>
-      
-        <hr/>
-        <input type="submit" value="Submit">
-        <input type="reset">
+        <fieldset>
+            <legend>Registration</legend>
+            <table align="center">
+                <tr>
+                    <td class="left">Email</td>
+
+                    <td class="right">
+                        <input type="text" name="email" size="20"/><br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="left">
+                        Password
+                    </td>
+
+                    <td class="right">
+                        <input type="password" name="textpass" size="20"/><br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="left">
+                        Confirm Password
+                    </td>
+
+                    <td class="right">
+                        <input type="password" name="cpassword" size="20"/><br/>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <input type="submit" name="confirm" value="Confirm"/>
+            </div>
+        </fieldset>
     </form>
-</fieldset>
+    
+</div>
+</body>
+</html>

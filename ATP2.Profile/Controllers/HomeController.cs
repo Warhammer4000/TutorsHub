@@ -17,6 +17,13 @@ namespace ATP2.Profile.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Login()
         {

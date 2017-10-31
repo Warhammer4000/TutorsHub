@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP2.Profile", "ATP2.Profile\ATP2.Profile.csproj", "{AEC897BD-4C58-4595-955F-EED12C347117}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "ATP2.Profile\UI.csproj", "{AEC897BD-4C58-4595-955F-EED12C347117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{D9328898-0BCA-4350-8F2A-E43A14A38B40}"
 EndProject

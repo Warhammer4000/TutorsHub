@@ -127,24 +127,7 @@ namespace ATP2.Profile.Controllers
 
 
 
-        [HttpGet]
-        public ActionResult ProfilePicture()
-        {
-            return View(new ProfilePictureModel());
-        }
-
-        [HttpPost]
-        public ActionResult ProfilePicture(ProfilePictureModel profilePictureModel)
-        {
-            string errorMessage;
-            if (profilePictureModel.Validation(out errorMessage))
-            {
-                errorMessage = "Success!!!";
-            }
-            ViewData["ErrorMessage"] = errorMessage;
-            return View(profilePictureModel);
-
-        }
+     
 
        
 
