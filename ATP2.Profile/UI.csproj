@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -148,6 +149,8 @@
     <Content Include="Views\Report\ActivityReport.cshtml" />
     <Content Include="Views\Shared\LoggedIn_Layout_Tutor.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Exam\Exam.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
