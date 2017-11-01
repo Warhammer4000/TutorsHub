@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ATP2.Profile.Controllers
+namespace ATP2.Profile.Views.Account
 {
     public class ExamController : Controller
     {
-       [HttpGet]
+      
+
+        [HttpGet]
         public ActionResult Result()
         {
             return View();
@@ -22,5 +24,11 @@ namespace ATP2.Profile.Controllers
         }
 
 
+        [HttpGet]
+
+        public ActionResult Ranking()
+        {
+            return View();
+        }
     }
 }
