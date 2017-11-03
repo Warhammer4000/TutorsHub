@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Entity;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.AccountModels
 {

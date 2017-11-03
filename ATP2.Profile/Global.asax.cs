@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using DLL.Service;
 using Entity;
+using Entity.UserModels;
 
 
 namespace ATP2.Profile
@@ -44,7 +45,7 @@ namespace ATP2.Profile
                 UserName = "lala",
                 Password = "darks1d1erS!",
                 Gender = "Male",
-                Role = Role.User,
+                Role = Role.Tutor,
                 Status = Status.Pending,
                 UserSince = new DateTime(2004, 1, 10),
                 LastLogin = DateTime.Now

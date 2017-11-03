@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entity;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.UserModels
 {

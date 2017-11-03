@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
+using Entity.UserModels;
 
 namespace DLL.Service
 {
@@ -11,7 +12,7 @@ namespace DLL.Service
     {
         public List<User> GetUsers()
         {
-            using (Context context = new Context())
+            using (var context = new Context())
             {
                 return context.Users.ToList();
             }
@@ -19,7 +20,7 @@ namespace DLL.Service
 
         public User GetUserByUserName(string userName)
         {
-            using (Context context = new Context())
+            using (var context = new Context())
             {
                 return context.Users.FirstOrDefault(r => r.UserName==userName);
             }
@@ -28,7 +29,7 @@ namespace DLL.Service
 
         public bool AddUser(User user,out string error)
         {
-            using (Context context = new Context())
+            using (var context = new Context())
             {
                 error = "";
                 try
@@ -47,7 +48,7 @@ namespace DLL.Service
 
         public bool RemoveUser(User user, out string error)
         {
-            using (Context context = new Context())
+            using (var context = new Context())
             {
                 error = "";
                 try

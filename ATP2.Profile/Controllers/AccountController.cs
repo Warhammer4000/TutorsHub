@@ -5,6 +5,7 @@ using ATP2.Profile.Models;
 using ATP2.Profile.Models.AccountModels;
 using DLL.Service;
 using Entity;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Controllers
 {

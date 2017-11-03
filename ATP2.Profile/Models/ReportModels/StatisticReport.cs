@@ -3,6 +3,7 @@ using System.Linq;
 
 using DLL.Service;
 using Entity;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.ReportModels
 {
@@ -18,7 +19,7 @@ namespace ATP2.Profile.Models.ReportModels
             var users= new UserService().GetUsers();
             Admin = users.Count(r => r.Role == Role.Admin);
             Executive = users.Count(r => r.Role == Role.Executive);
-            User = users.Count(r => r.Role == Role.User);
+            User = users.Count(r => r.Role == Role.Tutor);
             Total = Admin + Executive + User;
         }
 

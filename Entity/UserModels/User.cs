@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Entity
+namespace Entity.UserModels
 {
-    public enum Role { Admin=1, Executive=2, User =3}
+    public enum Role { Admin=1, Executive=2, Tutor =3 ,Guest=4}
     public enum Status { Active=1, Pending=2, Blocked=3 }
 
     public class User
     {
+        public Role Role { get; set; }
+        public Status Status { get; set; }
+
+       
+
         [Required, RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         [MinLength(2)]
         [Key]
@@ -34,13 +35,18 @@ namespace Entity
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
+
+        public string ProfilePictureUrl { get; set; }
+
+        [Required]
         public string Gender { get; set; }
 
         [Display(Name = "Date Of Birth")]
         public DateTime DateOfBirth { get; set; }
 
-        public Role Role { get; set; }
-        public Status Status { get; set; }
+        public string Mobilenumber { get; set; }
+        public string Address { get; set; }
+       
         public DateTime UserSince { get; set; }
 
         public DateTime LastLogin { get; set; }
