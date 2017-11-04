@@ -3,7 +3,7 @@ using System;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.AccountModels;
-using DLL.Service;
+using BLL.UserRepository;
 using Entity;
 using Entity.UserModels;
 
@@ -16,41 +16,39 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         {
-            User user = (User)Session["User"];
+            var user = (Tutor)Session["Tutor"];
             
             Session["UserName"] = user.UserName;
             return View(new DashboardModel(){Usersince = user.UserSince,LastLogin = DateTime.Now});
         }
 
+
+
+        [HttpGet]
+        public ActionResult AdminDashboard()
+        {
+            var user = (Admin)Session["Admin"];
+
+            Session["UserName"] = user.UserName;
+            return View();
+        }
+
+
         [HttpGet]
         public ActionResult UserProfile()
         {
-            User user = (User)Session["User"];
-            ProfileModel profileModel = new ProfileModel()
-            {
-                DateOfBirth = user.DateOfBirth,
-                Email = user.Email,
-                Gender = user.Gender,
-                Name = user.Name
-            };
-
-            return View("Profile", profileModel);
+            var tutor = (Tutor)Session["Tutor"];
+            return View("Profile", tutor);
         }
 
 
         [HttpGet]
         public ActionResult EditProfile()
         {
-            User user = (User)Session["User"];
-            EditProfileModel editprofileModel = new EditProfileModel()
-            {
-                DateOfBirth = user.DateOfBirth,
-                Email = user.Email,
-                Gender = user.Gender,
-                Name = user.Name
-            };
+            var user = (Tutor)Session["Tutor"];
+           
 
-            switch (editprofileModel.Gender)
+            switch (user.Gender)
             {
                 case "Male":
                     ViewBag.Male = true;
@@ -66,13 +64,13 @@ namespace ATP2.Profile.Controllers
 
             }
 
-            return View(editprofileModel);
+            return View(user);
         }
 
         [HttpPost]
-        public ActionResult EditProfile(EditProfileModel editProfile)
+        public ActionResult EditProfile(Tutor tutor)
         {
-            switch (editProfile.Gender)
+            switch (tutor.Gender)
             {
                 case "Male":
                     ViewBag.Male = true;
@@ -90,16 +88,10 @@ namespace ATP2.Profile.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = (User) Session["User"];
-                user.Name = editProfile.Name;
-                user.Email = editProfile.Email;
-                user.Gender = editProfile.Gender;
-                user.DateOfBirth = editProfile.DateOfBirth;
-                string x;
-                new UserService().Update(user,out x);
+                new TutorRepository().Update(tutor);
             }
 
-            return View(editProfile);
+            return View(tutor);
         }
 
 
@@ -116,10 +108,10 @@ namespace ATP2.Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = (User)Session["User"];
+                var user = (Tutor)Session["Tutor"];
                 user.Password = editPasswordModel.RNewPassword;
-                string x;
-                new UserService().Update(user, out x);
+            
+                new TutorRepository().Update(user);
             }
 
             return View(editPasswordModel);

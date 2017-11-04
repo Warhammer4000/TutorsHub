@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
-using DLL.Service;
+using BLL.UserRepository;
 using Entity;
 using Entity.UserModels;
 
@@ -22,7 +22,7 @@ namespace ATP2.Profile
 
         protected void Session_Start()
         {
-            User user = new User()
+            var user = new Tutor()
             {
                 DateOfBirth = new DateTime(1995, 4, 29),
                 Email = "tkhan@iquantile.com",
@@ -30,14 +30,13 @@ namespace ATP2.Profile
                 UserName = "tazim",
                 Password = "darks1d1erS!",
                 Gender = "Male",
-                Role = Role.Admin,
-                Status = Status.Active,
+                Status = Status.Pending,
                 UserSince = new DateTime(2002,4,10),
                 LastLogin = DateTime.Now
                 
             };
 
-            User user2 = new User()
+            var user2 = new Admin()
             {
                 DateOfBirth = new DateTime(1998, 2, 18),
                 Email = "lalala@iquantile.com",
@@ -45,31 +44,19 @@ namespace ATP2.Profile
                 UserName = "lala",
                 Password = "darks1d1erS!",
                 Gender = "Male",
-                Role = Role.Tutor,
-                Status = Status.Pending,
+                Status = Status.Active,
                 UserSince = new DateTime(2004, 1, 10),
                 LastLogin = DateTime.Now
             };
 
-            User user3 = new User()
-            {
-                DateOfBirth = new DateTime(2000, 1, 5),
-                Email = "haha@iquantile.com",
-                Name = "Farhanul haque khan",
-                UserName = "haha",
-                Password = "darks1d1erS!",
-                Gender = "Male",
-                Role = Role.Executive,
-                Status = Status.Blocked,
-                UserSince = new DateTime(2010, 11, 12),
-                LastLogin = DateTime.Now
-            };
+         
 
-            List<User> users = new List<User> {user, user2, user3};
-            string x;
-            new UserService().AddUser(user,out x);
-            new UserService().AddUser(user2, out x);
-            new UserService().AddUser(user3, out x);
+            
+            
+            new TutorRepository().Add(user);
+            new AdminRepository().Add(user2);
+          
+           
 
 
         }

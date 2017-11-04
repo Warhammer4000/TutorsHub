@@ -7,5 +7,10 @@
             Role=Role.Admin;
             
         }
+
+        public void Copy(Admin admin)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

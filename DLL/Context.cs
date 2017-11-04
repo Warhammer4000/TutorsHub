@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
+using Entity.Data;
 using Entity.QuestionModels;
 using Entity.UserModels;
 
@@ -17,12 +18,13 @@ namespace DLL
             
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Executive> Executives { get; set; }
         public DbSet<Question> QuestionPapers { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
 
     }

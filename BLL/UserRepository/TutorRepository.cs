@@ -8,7 +8,7 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    class TutorRepository:IUserRepository<Tutor>
+    public class TutorRepository:IUserRepository<Tutor>
     {
         public Tutor GetByName(string userName)
         {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.HomeModels
 {
@@ -16,5 +17,9 @@ namespace ATP2.Profile.Models.HomeModels
         public string Password { get; set; }
 
         public bool RememberMe { get; set; }
+
+        public Role Role { get; set; }
+
+
     }
 }

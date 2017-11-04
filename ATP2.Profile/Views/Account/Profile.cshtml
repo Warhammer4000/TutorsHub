@@ -1,14 +1,9 @@
-﻿@model ATP2.Profile.Models.AccountModels.ProfileModel
+﻿@model Entity.UserModels.Tutor
 
 @{
-    if (true)
-    {
-        Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
-    }
-    else
-    {
-        Layout = "../Shared/Loggedin_Layout.cshtml";
-    }
+    
+    Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
+   
 }
 
 <!DOCTYPE html>
@@ -117,14 +112,14 @@
             </td>
 
             <td style="background: white">
-                <h1 style="margin-top: -30px"> Name </h1>
+                <h1 style="margin-top: -30px"> @Model.Name </h1>
 
 
                 <p>
-                    <b>Current Status: </b> Status
+                    <b>Current Status: </b> @Model.CurrentStatus
 
                 </p>
-                <p> Bio </p>
+                <p> @Model.Bio </p>
             </td>
 
         </tr>
@@ -150,23 +145,10 @@
                     </td>
 
                     <td>
-                        @*<?php echo $salary; ?>*@tk/hour
+                        @Model.ExpectedSalary tk/hour
                     </td>
 
                 </tr>
-
-                <tr>
-                    <td >
-                        Current Status:
-                    </td>
-
-                    <td>
-                        @*<?php echo $availability; ?>*@
-                    </td>
-
-                </tr>
-
-
                 <tr>
                     <td>
                         Preferred Medium:
@@ -174,16 +156,15 @@
 
                     <td>
 
-                        <table style="width: auto" id="two">
-                            <tr>
+                    <table style="width: auto" id="two">
+                        <tr>
+                            @foreach (var medium in @Model.PreferredMedium)
+                            {
                                 <td class="active" align="center">
-                                    <p > &#10004; Bangla </p>
+                                    <p> &#10004; @medium </p>
                                 </td>
-                                <td class="active"align="center">
-                                    <p> &#10004; English </p>
-                                </td>
-
-                            </tr>
+                            }
+                        </tr>
                         </table>
 
 
@@ -199,25 +180,14 @@
                     <td>
                         <table style="width: auto" id="two">
                             <tr>
-                            @*<?php
-                        for($j=1;$j<=12;$j++){
-                        if(($j-1)%4==0){
-                        echo "<tr>";
-                    }
-                  td
-                              ?>*@
+                                @foreach (var classes in @Model.PreferredClasses)
+                                {
+                                    <td class="active" align="center">
+                                        <p> &#10004; @classes </p>
+                                    </td>
+                                }
 
-                            @*<?php for($i=0;$i<sizeof($class);$i++){ if($class[$i]==$j){ echo 'class="active"'; break;}}
-                              echo "><p>";
-                            ?>
-
-                            <?php for($i=0;$i<sizeof($class);$i++){ if($class[$i]==$j){ echo "&#10004;"; break;}} ?>
-
-                            <?php echo "Class $j"?>
-
-                            <?php
-                                echo   "</p></td>";
-                    }?>*@
+                            </tr>
 
                         </table>
 
@@ -233,29 +203,13 @@
                     <td>
                         <table style="width: auto" id="two">
                             <tr>
-
-                            @*<?php
-                        $subjects=GetAllSubjectNames();
-                        for($j=0;$j<12;$j++){
-                        if(($j)%4==0){
-                        echo "<tr>";
-                    }
-                    echo "<td";
-                              ?>*@
-
-                            @*<?php for($i=0;$i<sizeof($subject);$i++){ if($subject[$i]==$subjects[$j]['ExamName']){ echo 'class="active"'; break;}}
-                              echo "><p>";
-                            ?>
-
-                            <?php for($i=0;$i<sizeof($subject);$i++){ if($subject[$i]==$subjects[$j]['ExamName']){ echo "&#10004;"; break;}} ?>
-
-                            <?php
-                                echo $subjects[$j]['ExamName']?>
-
-                            <?php
-                                echo   "</p></td>";
-                    }?>*@
-
+                                @foreach (var subject in @Model.PreferredSubjects)
+                                {
+                                    <td class="active" align="center">
+                                        <p> &#10004; @subject.Name </p>
+                                    </td>
+                                }
+                             </tr>
 
                         </table>
 
@@ -271,9 +225,15 @@
                     <td>
                         <table style="width: auto" id="two">
                             <tr>
-                                <td style="border: 2px solid green;">
-                                    <p>Mirpur</p>
-                                </td>
+                                
+                                @foreach (var location in @Model.PreferredLocations)
+                                {
+                                    <td style="border: 2px solid green;">
+                                        <p>@location.Name</p>
+                                    </td>
+                                }
+
+                               
 
                             </tr>
 
@@ -298,7 +258,7 @@
 
 
             <b> Member Since: </b> @Model.UserSince <br>
-            <b> Last Login: </b> //Last login <br>
+            <b> Last Login: </b> @Model.LastLogin <br>
 
 
         </td>
@@ -315,7 +275,7 @@
 
             <td>
 
-                <p> 10 </p>
+                <p> @Model.Level </p>
             </td>
 
         </tr>
@@ -332,7 +292,7 @@
 
             <td>
 
-                <p> 100 </p>
+                <p> @Model.Experience </p>
             </td>
         </tr>
 

@@ -3,7 +3,7 @@
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.HomeModels;
-using DLL.Service;
+using BLL.UserRepository;
 using Entity;
 using Entity.UserModels;
 
@@ -22,7 +22,7 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Search()
         {
-            return View();
+            return View(new SearchModel());
         }
 
         [HttpGet]
@@ -37,20 +37,45 @@ namespace ATP2.Profile.Controllers
           
             if (ModelState.IsValid)
             {
-
-                User user = new UserService().GetUserByUserName(loginModel.UserName);
-               
-                if (user!=null)
+                loginModel.Role = Role.Admin;
+                switch (loginModel.Role)
                 {
-                    user.LastLogin = DateTime.Now;
-                    string x;
-                    new UserService().Update(user, out  x);
-                    Session["User"] = user;
-                    
-                   
-                    
-                    return RedirectToAction("Dashboard", "Account");
+                    case Role.Admin:
+                        var admin = new AdminRepository().GetByName(loginModel.UserName);
+
+                        if (admin != null)
+                        {
+                            admin.LastLogin = DateTime.Now;
+
+                            new AdminRepository().Update(admin);
+                            Session["Admin"] = admin;
+                            return RedirectToAction("AdminDashboard", "Account");
+                        }
+                        break;
+                    case Role.Executive:
+                        break;
+                    case Role.Tutor:
+                        var tutor = new TutorRepository().GetByName(loginModel.UserName);
+
+                        if (tutor != null)
+                        {
+                            tutor.LastLogin = DateTime.Now;
+
+                            new TutorRepository().Update(tutor);
+                            Session["Tutor"] = tutor;
+                            return RedirectToAction("Dashboard", "Account");
+                        }
+                        break;
+                    case Role.Guest:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
+                
+
+
+
+
                 ModelState.AddModelError("Invalid","Invalid User");
                 return View(loginModel);
             }
@@ -74,7 +99,7 @@ namespace ATP2.Profile.Controllers
         public ActionResult Registration(RegistrationModel registrationModel)
         {
             if (!ModelState.IsValid) return View(registrationModel);
-            User user= new User()
+            var user= new Tutor()
             {
                 DateOfBirth = registrationModel.DateOfBirth,
                 Email = registrationModel.Email,
@@ -84,8 +109,8 @@ namespace ATP2.Profile.Controllers
                 Gender = registrationModel.Gender
             };
 
-            string x;
-            new UserService().AddUser(user,out x);
+           
+            new TutorRepository().Add(user);
             return RedirectToAction("Login");
         }
 

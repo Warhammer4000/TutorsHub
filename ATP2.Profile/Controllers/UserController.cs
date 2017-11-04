@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.UserModels;
-using DLL.Service;
+using BLL.UserRepository;
 using Entity;
 
 namespace ATP2.Profile.Controllers
@@ -21,7 +21,7 @@ namespace ATP2.Profile.Controllers
         public ActionResult Search(UserSearchModel searchModel)
         {
             //Actually would search using searchmodel.searchtext then fill the model with users
-            searchModel.Users = new UserService().GetUsers();
+            //searchModel.Users = new TutorRepository().GetUsers();
             return View(searchModel);
         }
 

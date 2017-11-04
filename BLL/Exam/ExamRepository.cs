@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DLL;
 using DLL.QuestionContext;
+using Entity.Data;
 using Entity.QuestionModels;
 
 namespace BLL.Exam
@@ -30,11 +31,11 @@ namespace BLL.Exam
         }
 
 
-        public List<ExamQuestion> GetQuestionsBySubject(Subject subject)
+        public List<ExamQuestion> GetQuestionsBySubjectWithDifficulty(Subject subject,int difficulty)
         {
             
                 //Brings Questions Then converts it to ExamScript which is a list of questions without answer
-                List<Question> questions = new ExamScriptContext().GetQuestionsBySubject(subject);
+                List<Question> questions = new ExamScriptContext().GetQuestionsBySubjectWithDifficulty(subject,difficulty);
                 List<ExamQuestion> examScript = new List<ExamQuestion>();
                 foreach (var question in questions)
                 {

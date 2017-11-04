@@ -1,7 +1,6 @@
 ﻿
 using System.Linq;
 
-using DLL.Service;
 using Entity;
 using Entity.UserModels;
 
@@ -16,11 +15,11 @@ namespace ATP2.Profile.Models.ReportModels
 
         public StatisticReport()
         {
-            var users= new UserService().GetUsers();
-            Admin = users.Count(r => r.Role == Role.Admin);
-            Executive = users.Count(r => r.Role == Role.Executive);
-            User = users.Count(r => r.Role == Role.Tutor);
-            Total = Admin + Executive + User;
+            //var users= new UserService().GetUsers();
+            //Admin = users.Count(r => r.Role == Role.Admin);
+            //Executive = users.Count(r => r.Role == Role.Executive);
+            //User = users.Count(r => r.Role == Role.Tutor);
+            //Total = Admin + Executive + User;
         }
 
     }

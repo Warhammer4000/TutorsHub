@@ -1,14 +1,10 @@
-﻿@model ATP2.Profile.Models.AccountModels.EditProfileModel
+﻿@model Entity.UserModels.Tutor
 
 @{
-    if (true)
-    {
+   
         Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
-    }
-    else
-    {
-        Layout = "../Shared/Loggedin_Layout.cshtml"; 
-    }
+   
+   
 }
 <!DOCTYPE html>
 
@@ -219,23 +215,27 @@
                 <tr>
                     <td>
                         <label> Name </label>
-                        <input type="text" name="name" value="" size="25"/>
+                        <input type="text" name="name" value="@Model.Name" size="25"/>
+                    
                         <label> Email </label>
-                        <input type="text" name="email" value="" size="25"/>
+                        <input type="text" name="email" value="@Model.Email" size="25"/>
+                       
+
                         <label> Phone No. </label>
-                        <input type="text" name="phone" value="" size="25"/>
+                        <input type="text" name="phone" value="@Model.Mobilenumber" size="25"/>
+
                         <label> Address </label>
-                        <input type="text" name="address" value="" size="25"/>
+                        <input type="text" name="address" value="@Model.Address" size="25"/>
                         <div id="gender">
                             <table>
                                 <label> Gender</label>
                                 <tr>
                                     <td class="control-group">
-                                        <label class="control control--radio"><input type="radio" name="gender" value="Male">Male
+                                        <label class="control control--radio"><input type="radio" name="gender" value="Male" checked="@ViewBag.Male">Male
                                             <div class="control__indicator"></div></label>
                                     </td>
                                     <td class="control-group">
-                                        <label class="control control--radio"><input type="radio" name="gender" value="Female">Female
+                                        <label class="control control--radio"><input type="radio" name="gender" value="Female" checked="@ViewBag.Female">Female
                                             <div class="control__indicator"></div></label>
                                     </td>
                                 </tr>
@@ -252,7 +252,7 @@
                 <tr>
                     <td>
                         <label> Bio </label>
-                        <textarea name="bio" cols="27" rows="5">@*Bio*@</textarea>
+                        <textarea name="bio" cols="27" rows="5">@Model.Bio</textarea>
                         <br>
                     </td>
                 </tr>
@@ -262,7 +262,7 @@
                 <tr>
                     <label> Currtent Status </label>
                     <td>
-                        <input type="text" name="status" value="" size="25"/>
+                        <input type="text" name="status" value="@Model.CurrentStatus" size="25"/>
                     </td>
                 </tr>
             </table>
@@ -309,7 +309,7 @@
                 <label> Expected Salary </label>
                 <tr>
                 <td>
-                    <input type="text" name="salary" value="" size="20"/> <span> /hour </span>
+                    <input type="text" name="ExpectedSalary" value="@Model.ExpectedSalary" size="20"/> <span> /hour </span>
                 </td>
                 <tr>
             </table>

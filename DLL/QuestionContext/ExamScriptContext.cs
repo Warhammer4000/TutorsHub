@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entity.Data;
 using Entity.QuestionModels;
 
 namespace DLL.QuestionContext
@@ -18,6 +19,18 @@ namespace DLL.QuestionContext
                 
             }
         }
+
+        public List<Question> GetQuestionsBySubjectWithDifficulty(Subject subject,int difficulty)
+        {
+            using (var context = new Context())
+            {
+                return context.QuestionPapers
+                    .Where(r => r.Subject == subject && r.Difficulty==difficulty)
+                    .ToList();
+
+            }
+        }
+
 
         public bool UpdateExamScript(List<Question> questions,Subject subject)
         {

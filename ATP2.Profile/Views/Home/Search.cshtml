@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ATP2.Profile.Models.HomeModels.SearchModel
+@{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
 
@@ -198,11 +199,11 @@
 
     <div align="center">
         <select name="location">
-
-            <option value="Mirpur">Mirpur</option>
-            <option value="Mohammadpur">Mohammadpur</option>
-            <option value="Farmgate">Farmgate</option>
-
+            @foreach (var location in Model.Locations)
+            {
+                <option value="@location.Name">@location.Name</option>
+            }
+           
 
         </select>
 
@@ -233,14 +234,10 @@
     <div align="center">
             <b style="color: #0e647d">Subjects</b>
             <table style="padding-left: 18%">
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="Bangla" value="Bangla">Bangla<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="English" value="English">English<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="Math" value="Math">Math<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="Physics" value="Physics">Physics<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="Chemestry" value="Chemestry">Chemestry<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="Biology" value="Biology">Biology<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="ICT" value="ICT">ICT<div class='control__indicator'></div></label></td>
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="SocialScience" value="SocialScience">Social Science<div class='control__indicator'></div></label></td>
+            @foreach (var subject in Model.Subjects)
+            {
+                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@subject.Name" value="@subject.Name">@subject.Name<div class='control__indicator'></div></label></td>
+            }
             </table>
     </div>
 
