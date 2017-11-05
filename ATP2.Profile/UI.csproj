@@ -116,10 +116,8 @@
     </Compile>
     <Compile Include="Models\AccountModels\DashboardModel.cs" />
     <Compile Include="Models\AccountModels\EditPasswordModel.cs" />
-    <Compile Include="Models\AccountModels\EditProfileModel.cs" />
     <Compile Include="Models\HomeModels\ForgotPasswordModel.cs" />
     <Compile Include="Models\HomeModels\LoginModel.cs" />
-    <Compile Include="Models\AccountModels\ProfileModel.cs" />
     <Compile Include="Models\HomeModels\RegistrationModel.cs" />
     <Compile Include="Models\HomeModels\SearchModel.cs" />
     <Compile Include="Models\ReportModels\StatisticReport.cs" />
@@ -158,6 +156,8 @@
     <Content Include="Views\Data\Locations.cshtml" />
     <Content Include="Views\Data\Subjects.cshtml" />
     <Content Include="Views\Account\AdminDashboard.cshtml" />
+    <Content Include="Views\Account\AdminProfile.cshtml" />
+    <Content Include="Views\Account\EditProfileAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

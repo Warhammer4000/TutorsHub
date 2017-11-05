@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.UserModels
 {
@@ -50,6 +51,12 @@ namespace Entity.UserModels
         public DateTime UserSince { get; set; }
 
         public DateTime LastLogin { get; set; }
+
+        [NotMapped]
+        public bool MaleChecked { get; set; }
+        [NotMapped]
+        public bool FemaleChecked { get; set; }
+
 
     }
 }

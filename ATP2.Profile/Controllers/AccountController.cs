@@ -43,28 +43,34 @@ namespace ATP2.Profile.Controllers
 
 
         [HttpGet]
+        public ActionResult AdminProfile()
+        {
+            var admin = (Admin)Session["Admin"];
+            return View(admin);
+        }
+
+
+
+        [HttpGet]
         public ActionResult EditProfile()
         {
-            var user = (Tutor)Session["Tutor"];
-           
+            var tutor = (Tutor)Session["Tutor"];
 
-            switch (user.Gender)
+
+            switch (tutor.Gender)
             {
                 case "Male":
-                    ViewBag.Male = true;
+                    tutor.MaleChecked = true;
                     break;
 
                 case "Female":
-                    ViewBag.Female = true;
+                    tutor.FemaleChecked = true;
                     break;
 
-                case "Other":
-                    ViewBag.Other = true;
-                    break;
 
             }
 
-            return View(user);
+            return View(tutor);
         }
 
         [HttpPost]
@@ -73,16 +79,13 @@ namespace ATP2.Profile.Controllers
             switch (tutor.Gender)
             {
                 case "Male":
-                    ViewBag.Male = true;
+                    tutor.MaleChecked = true;
                     break;
 
                 case "Female":
-                    ViewBag.Female = true;
+                    tutor.FemaleChecked = true;
                     break;
 
-                case "Other":
-                    ViewBag.Other = true;
-                    break;
 
             }
 
@@ -92,6 +95,14 @@ namespace ATP2.Profile.Controllers
             }
 
             return View(tutor);
+        }
+
+
+        [HttpGet]
+        public ActionResult EditProfileAdmin()
+        {
+            var admin = (Admin)Session["Admin"];
+            return View(admin);
         }
 
 
@@ -108,10 +119,26 @@ namespace ATP2.Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = (Tutor)Session["Tutor"];
-                user.Password = editPasswordModel.RNewPassword;
-            
-                new TutorRepository().Update(user);
+                var role = (Role) Session["Role"];
+                switch (role)
+                {
+                    case Role.Admin:
+                        var admin = (Admin)Session["Admin"];
+                        admin.Password = editPasswordModel.RNewPassword;
+                        new AdminRepository().Update(admin);
+                        break;
+                    case Role.Executive:
+                        break;
+                    case Role.Tutor:
+                        var tutor = (Tutor)Session["Tutor"];
+                        tutor.Password = editPasswordModel.RNewPassword;
+
+                        new TutorRepository().Update(tutor);
+                        break;
+                    case Role.Guest:
+                        break;
+                }
+               
             }
 
             return View(editPasswordModel);
@@ -120,15 +147,15 @@ namespace ATP2.Profile.Controllers
 
 
 
-     
-
-       
 
 
-        
 
 
-        
+
+
+
+
+
 
 
     }

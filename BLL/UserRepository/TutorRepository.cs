@@ -12,7 +12,9 @@ namespace BLL.UserRepository
     {
         public Tutor GetByName(string userName)
         {
-           return new TutorContext().GetByName(userName);
+           var t=new TutorContext().GetByName(userName);
+            return t;
+
         }
 
         public List<Tutor> GetAll()

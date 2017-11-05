@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.AccountModels
 {
@@ -27,6 +28,8 @@ namespace ATP2.Profile.Models.AccountModels
         [Required(ErrorMessage = "Confirm Password is required")]
         [Compare("NewPassword", ErrorMessage = "Pasword Doesn't Match")]
         public string RNewPassword { get; set; }
+
+      
     
     }
 }
