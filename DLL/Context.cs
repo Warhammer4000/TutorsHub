@@ -15,7 +15,8 @@ namespace DLL
     {
         public  Context():base("Name=ATP2")
         {
-            
+            var ensureDLLIsCopied =
+                System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
         public DbSet<Tutor> Tutors { get; set; }
