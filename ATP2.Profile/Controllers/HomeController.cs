@@ -38,45 +38,30 @@ namespace ATP2.Profile.Controllers
             if (ModelState.IsValid)
             {
                 loginModel.Role = Role.Admin;
-                switch (loginModel.Role)
+
+                var admin = new AdminRepository().GetByName(loginModel.UserName);
+
+                if (admin != null)
                 {
-                    case Role.Admin:
-                        var admin = new AdminRepository().GetByName(loginModel.UserName);
+                    admin.LastLogin = DateTime.Now;
 
-                        if (admin != null)
-                        {
-                            admin.LastLogin = DateTime.Now;
-
-                            new AdminRepository().Update(admin);
-                            Session["Admin"] = admin;
-                            Session["Role"] = Role.Admin;
-                            return RedirectToAction("AdminDashboard", "Account");
-                        }
-                        break;
-                    case Role.Executive:
-                        break;
-                    case Role.Tutor:
-                        var tutor = new TutorRepository().GetByName(loginModel.UserName);
-
-                        if (tutor != null)
-                        {
-                            tutor.LastLogin = DateTime.Now;
-
-                            new TutorRepository().Update(tutor);
-                            Session["Tutor"] = tutor;
-                            Session["Role"] = Role.Tutor;
-                            return RedirectToAction("Dashboard", "Account");
-                        }
-                        break;
-                    case Role.Guest:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    new AdminRepository().Update(admin);
+                    Session["Admin"] = admin;
+                    Session["Role"] = Role.Admin;
+                    return RedirectToAction("AdminDashboard", "Account");
                 }
-                
 
+                var tutor = new TutorRepository().GetByName(loginModel.UserName);
 
+                if (tutor != null)
+                {
+                    tutor.LastLogin = DateTime.Now;
 
+                    new TutorRepository().Update(tutor);
+                    Session["Tutor"] = tutor;
+                    Session["Role"] = Role.Tutor;
+                    return RedirectToAction("Dashboard", "Account");
+                }
 
                 ModelState.AddModelError("Invalid","Invalid User");
                 return View(loginModel);

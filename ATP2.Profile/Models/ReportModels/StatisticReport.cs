@@ -1,6 +1,6 @@
 ﻿
 using System.Linq;
-
+using BLL.UserRepository;
 using Entity;
 using Entity.UserModels;
 
@@ -10,16 +10,16 @@ namespace ATP2.Profile.Models.ReportModels
     {
         public int Admin { get; }
         public int Executive { get; }
-        public int User { get; }
+        public int Tutor { get; }
         public int Total { get;  }
 
         public StatisticReport()
         {
-            //var users= new UserService().GetUsers();
-            //Admin = users.Count(r => r.Role == Role.Admin);
-            //Executive = users.Count(r => r.Role == Role.Executive);
-            //User = users.Count(r => r.Role == Role.Tutor);
-            //Total = Admin + Executive + User;
+    
+            Admin = new AdminRepository().GetAll().Count;
+            Executive = 0;
+            Tutor = new TutorRepository().GetAll().Count;
+            Total = Admin + Executive + Tutor;
         }
 
     }
