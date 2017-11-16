@@ -1,9 +1,9 @@
-﻿@model Entity.UserModels.Tutor
+﻿@using Entity.Data
+@model Entity.UserModels.Tutor
 
 @{
    
         Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
-   
    
 }
 <!DOCTYPE html>
@@ -279,22 +279,14 @@
             <table style="width: auto">
                 <label style="width: auto">Preferred Locations </label>
                 <tr>
+
                 @for (int i = 1; i <= 12; i++)
                 {
                     <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@i" value="@i">class @i<div class='control__indicator'></div></label></td>
                 }
             </table>
             <br>
-            <table style="width: auto">
-                <label> Preferred Subject </label>
-                <tr>
-                    @for (int i = 1; i <= 12; i++)
-                    {
-                        <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@i" value="@i">class @i<div class='control__indicator'></div></label></td>
-                    }
-                </tr>
-            </table>
-            <br>
+         
             <table style="width: auto">
                 <label> Preferred Classes </label>
                 <tr>

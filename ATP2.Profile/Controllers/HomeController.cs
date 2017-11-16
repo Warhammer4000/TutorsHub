@@ -37,7 +37,7 @@ namespace ATP2.Profile.Controllers
           
             if (ModelState.IsValid)
             {
-                loginModel.Role = Role.Admin;
+                
 
                 var admin = new AdminRepository().GetByName(loginModel.UserName);
 

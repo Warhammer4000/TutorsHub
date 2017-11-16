@@ -8,33 +8,8 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    public class TutorRepository:IUserRepository<Tutor>
+    public class TutorRepository:UserRepo<Tutor>,IUserRepository<Tutor>
     {
-        public Tutor GetByName(string userName)
-        {
-           var t=new TutorContext().GetByName(userName);
-            return t;
-
-        }
-
-        public List<Tutor> GetAll()
-        {
-            return new TutorContext().GetAll();
-        }
-
-        public bool Add(Tutor t)
-        {
-            return new TutorContext().Add(t);
-        }
-
-        public bool Update(Tutor t)
-        {
-            return new TutorContext().Update(t);
-        }
-
-        public bool Remove(string userName)
-        {
-            return new TutorContext().Remove(userName);
-        }
+       
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using BLL.DataRepository;
 using Entity.Data;
+using Entity.UserModels;
 
 namespace ATP2.Profile.Models.HomeModels
 {
@@ -11,6 +12,7 @@ namespace ATP2.Profile.Models.HomeModels
     {
         public List<Subject> Subjects { get; set; }
         public List<Location> Locations { get; set; }
+        public List<Tutor> TutorList { get; set; }
 
         public SearchModel()
         {

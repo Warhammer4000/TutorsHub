@@ -7,7 +7,7 @@ namespace Entity.UserModels
     public enum Role { Admin=1, Executive=2, Tutor =3 ,Guest=4}
     public enum Status { Active=1, Pending=2, Blocked=3 }
 
-    public class User
+    public abstract class User
     {
         public Role Role { get; set; }
         public Status Status { get; set; }
@@ -56,6 +56,8 @@ namespace Entity.UserModels
         public bool MaleChecked { get; set; }
         [NotMapped]
         public bool FemaleChecked { get; set; }
+
+        public abstract void Copy(object o);
 
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.UserRepository
 {
-    interface IUserRepository<T>
+    public interface IUserRepository<T>
     {
         T GetByName(string userName);
         List<T> GetAll();

@@ -31,8 +31,9 @@ namespace Entity.UserModels
         }
 
 
-        public void Copy(Tutor tutor)
-        {
+         public override void Copy(object o)
+         {
+            var tutor = (Tutor) o;
             Name = tutor.Name;
             Email = tutor.Email;
             Mobilenumber = tutor.Mobilenumber;
