@@ -1,29 +1,35 @@
 ﻿@model IEnumerable<Entity.Data.Subject>
-
 @{
     ViewBag.Title = "Subjects";
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
+<form method="post">
 
-<h2>Subjects</h2>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-        
-        </td>
-    </tr>
-}
-
-</table>
+    <fieldset>
+        <legend>
+            <b>SUBJECT</b>
+        </legend>
+        <input name="subjecttext" type="text" />
+        <input type="submit" value="Add" />
+    </fieldset>
+    <br />
+    <br />
+    <table cellspacing="0" cellpadding="5" border="1">
+        <tr>
+            <td width=100px"><strong>Subject</strong></td>
+            <td><stron>Edit</stron></td>
+            <td><strong>Remove</strong></td>
+        </tr>
+        <tr>
+            <td width="100px">
+                Hello
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Home")
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "Remove", "Home")
+            </td>
+        </tr>
+    </table>
+</form>

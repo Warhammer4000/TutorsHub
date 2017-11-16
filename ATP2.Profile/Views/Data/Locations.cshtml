@@ -5,26 +5,31 @@
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
 
-<h2>Locations</h2>
-
-
-<table class="table">
+<fieldset>
+    <legend>
+        <b>LOCATION</b>
+    </legend>
+    <input name="locationtext" type="text" />
+    <input type="submit" value="Add" />
+</fieldset>
+<br />
+<br />
+<table cellspacing="0" cellpadding="5" border="1">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
+        <td width=100px"><strong>Location</strong></td>
+        <td><stron>Edit</stron></td>
+        <td><strong>Remove</strong></td>
     </tr>
-
-@foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
+        <td width="100px">
+            Hello
         </td>
         <td>
-            
+            @Html.ActionLink("Edit", "Edit", "Home")
+        </td>
+        <td>
+            @Html.ActionLink("Remove", "Remove", "Home")
         </td>
     </tr>
-}
-
 </table>
+

@@ -117,6 +117,7 @@
     <Content Include="image\logo.png" />
     <Content Include="image\user.png" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\CSS\LoginPage.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
