@@ -1,4 +1,6 @@
-﻿@model ATP2.Profile.Models.HomeModels.SearchModel
+﻿@using Entity.Data
+@using Entity.UserModels
+@model ATP2.Profile.Models.HomeModels.SearchModel
 @{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
@@ -202,41 +204,37 @@
 
 
     <div align="center">
-        <select name="location">
+        <select name="Location">
             @foreach (var location in Model.Locations)
             {
-                <option value="@location.Name">@location.Name</option>
+                <option value="@location">@location</option>
             }
            
 
         </select>
 
-        <select name="sex">
+        <select name="Gender">
             <option value="Male" style="width: auto">Male</option>
             <option value="Female" style="width: auto">Female</option>
-            <option value="Any" style="width: auto">Any</option>
-
+            @*<option  value="Any" style="width: auto">Any</option>*@
         </select>
 
         <select name="class">
-        
             @for (var i = 1; i <= 12; i++)
             {
                 <option value="@i" style="width: auto">class @i</option>
             }
-
-
         </select>
+
         <div class="salary">
-            <label>Salary</label> min<input type="text" name="min" size="5" value="3000"/>-
-            <input type="text" name="max" size="5" value="10000"/>max
+            <label>Salary</label> min<input  type="text" name="SalaryMin" size="5" value="3000"/>-
+            <input type="text" name="SalaryMax" size="5" value="10000"/>max
         </div>
     </div>
 
 
 
     <div align="center">
-            <b style="color: #0e647d">Subjects</b>
             <table style="padding-left: 18%">
             @foreach (var subject in Model.Subjects)
             {
@@ -244,19 +242,24 @@
             }
             </table>
     </div>
-
-
+       
+    @foreach (var tutor in Model.TutorList)
+    {
         <table align="center" width="500" cellspacing="1"  border="2">
             <tr>
                 <td width="100">
-                    <img width="50" height="50" class="card-img-top" src="~/image/user.png" alt="Card image">
+                    <img width="50" height="50" class="card-img-top" src="@tutor.ProfilePictureUrl" alt="Card image">
                 </td>
                 <td width="300">
-                    <label class="card-title">Name: Sajib Hawee</label><br />
-
-                    <label class="card-text">Subject: English</label> <br />
-                    <label class="card-text">Salary: 3000</label> <br />
-                    <label class="card-text">Gender: Male</label>
+                    <label class="card-title">@tutor.Name</label><br />
+                   @{
+                       string subjects = tutor.PreferredSubjects.Aggregate("", (current, subject) => current + (subject.Name + ","));
+                       //Remove last comma later
+                   }
+                   
+                    <label class="card-text">Subject: @subjects</label> <br />
+                    <label class="card-text">Salary: @tutor.ExpectedSalary</label> <br />
+                    <label class="card-text">Gender: @tutor.Gender</label>
                 </td>
                 <td>
                     <a href="#" class="btn btn-primary">View</a><br />
@@ -265,6 +268,9 @@
             </tr>
            
         </table>
+    }
+
+
             
             
 

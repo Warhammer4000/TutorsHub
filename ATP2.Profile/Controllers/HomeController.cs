@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.HomeModels;
@@ -22,7 +22,20 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Search()
         {
+
+
+
             return View(new SearchModel());
+        }
+
+
+        [HttpPost]
+        public ActionResult Search(SearchModel searchModel)
+        {
+            Tutor tutor= new Tutor();
+            
+
+            return View(searchModel);
         }
 
         [HttpGet]

@@ -18,5 +18,10 @@ namespace Entity.Data
         [NotMapped]
         public bool IsChecked { get; set; }
         public List<Tutor> Tutors { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
