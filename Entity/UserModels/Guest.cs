@@ -7,5 +7,9 @@
             Role=Role.Guest;
         }
 
+        public override void Copy(object o)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

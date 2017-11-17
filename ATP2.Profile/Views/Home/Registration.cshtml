@@ -37,7 +37,7 @@
                     <td class="left">Email</td>
 
                     <td class="right">
-                        <input type="text" name="email" size="20"/><br/>
+                        <input type="text" name="email" size="20" value="@Model.Email"/><br/>
                     </td>
                 </tr>
 
@@ -47,7 +47,7 @@
                     </td>
 
                     <td class="right">
-                        <input type="password" name="textpass" size="20"/><br/>
+                        <input type="password" name="Password" size="20" value="@Model.Password"/><br/>
                     </td>
                 </tr>
 
@@ -57,13 +57,17 @@
                     </td>
 
                     <td class="right">
-                        <input type="password" name="cpassword" size="20"/><br/>
+                        <input type="password" name="ConfirmPassword" size="20" value="@Model.ConfirmPassword"/><br/>
                     </td>
                 </tr>
             </table>
             <div>
                 <input type="submit" name="confirm" value="Confirm"/>
             </div>
+            <div style="color: red">
+                @Html.ValidationSummary()
+            </div>
+         
         </fieldset>
     </form>
     

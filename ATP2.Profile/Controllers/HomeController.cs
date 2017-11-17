@@ -37,9 +37,9 @@ namespace ATP2.Profile.Controllers
           
             if (ModelState.IsValid)
             {
-                loginModel.Role = Role.Admin;
+                
 
-                var admin = new AdminRepository().GetByName(loginModel.UserName);
+                var admin = new AdminRepository().GetByEmail(loginModel.Email);
 
                 if (admin != null)
                 {
@@ -51,7 +51,7 @@ namespace ATP2.Profile.Controllers
                     return RedirectToAction("AdminDashboard", "Account");
                 }
 
-                var tutor = new TutorRepository().GetByName(loginModel.UserName);
+                var tutor = new TutorRepository().GetByEmail(loginModel.Email);
 
                 if (tutor != null)
                 {
@@ -86,19 +86,27 @@ namespace ATP2.Profile.Controllers
         public ActionResult Registration(RegistrationModel registrationModel)
         {
             if (!ModelState.IsValid) return View(registrationModel);
-            var user= new Tutor()
+            var tutor= new Tutor()
             {
-                DateOfBirth = registrationModel.DateOfBirth,
+               
                 Email = registrationModel.Email,
-                Name = registrationModel.Name,
-                UserName = registrationModel.UserName,
                 Password = registrationModel.Password,
-                Gender = registrationModel.Gender
+                Role = Role.Tutor,
+                Status = Status.Pending,
+                UserSince = DateTime.Now
+                 
+                
             };
 
-           
-            new TutorRepository().Add(user);
-            return RedirectToAction("Login");
+
+
+            if (new TutorRepository().Add(tutor))
+            {
+                return RedirectToAction("Login");
+            }
+            ModelState.AddModelError("Database error","Database Error");
+            return View(registrationModel);
+
         }
 
         [HttpGet]

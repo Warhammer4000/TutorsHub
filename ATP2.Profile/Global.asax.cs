@@ -27,7 +27,7 @@ namespace ATP2.Profile
                 DateOfBirth = new DateTime(1995, 4, 29),
                 Email = "tkhan@iquantile.com",
                 Name = "tazim",
-                UserName = "tazim",
+       
                 Password = "darks1d1erS!",
                 Gender = "Male",
                 Status = Status.Pending,
@@ -41,7 +41,7 @@ namespace ATP2.Profile
                 DateOfBirth = new DateTime(1998, 2, 18),
                 Email = "lalala@iquantile.com",
                 Name = "Afia Ayesha Amin",
-                UserName = "lala",
+       
                 Password = "darks1d1erS!",
                 Gender = "Male",
                 Status = Status.Active,

@@ -18,7 +18,7 @@ namespace ATP2.Profile.Controllers
         {
             var user = (Tutor)Session["Tutor"];
             
-            Session["UserName"] = user.UserName;
+            Session["UserName"] = user.Name;
             return View(new DashboardModel(){Usersince = user.UserSince,LastLogin = DateTime.Now});
         }
 
@@ -29,7 +29,7 @@ namespace ATP2.Profile.Controllers
         {
             var user = (Admin)Session["Admin"];
 
-            Session["UserName"] = user.UserName;
+            Session["UserName"] = user.Name;
             return View();
         }
 

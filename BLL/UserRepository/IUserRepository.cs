@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BLL.UserRepository
 {
-    interface IUserRepository<T>
+    public interface IUserRepository<T>
     {
-        T GetByName(string userName);
+        T GetByEmail(string email);
         List<T> GetAll();
         bool Add(T t);
         bool Update(T t);

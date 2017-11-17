@@ -12,5 +12,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public override void Copy(object o)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

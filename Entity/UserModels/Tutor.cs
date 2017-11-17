@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Entity.Data;
 
 namespace Entity.UserModels
@@ -7,7 +8,7 @@ namespace Entity.UserModels
     public class Tutor:User
     {
      
-
+      
         public int Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
@@ -28,11 +29,13 @@ namespace Entity.UserModels
             PreferredLocations = new List<Location>();
             PreferredMedium = new List<string>();
             PreferredSubjects = new List<Subject>();
+            
         }
 
 
-        public void Copy(Tutor tutor)
-        {
+         public override void Copy(object o)
+         {
+            var tutor = (Tutor) o;
             Name = tutor.Name;
             Email = tutor.Email;
             Mobilenumber = tutor.Mobilenumber;

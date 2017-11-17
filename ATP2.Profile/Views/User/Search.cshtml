@@ -1,9 +1,9 @@
-﻿@using Entity
-@using Entity.UserModels
+﻿@using Entity.UserModels
 @model ATP2.Profile.Models.UserModels.UserSearchModel
 
 @{
     Layout = "../Shared/Loggedin_Layout.cshtml";
+    
 }
 <!DOCTYPE html>
 
@@ -28,7 +28,7 @@
             </select>
             <input name="SearchText" type="text" value="@Model.SearchText"/>
             <input type="submit" value="Search"/>
-            @Html.ActionLink("Create New", "CreateNew", "User")
+           
         </fieldset>
         <br/>
         <table width="100%" cellspacing="0" border="1" cellpadding="5">
