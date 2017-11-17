@@ -9,11 +9,11 @@ namespace DLL.UserContext
 {
     public class UserContext<T> where T : User
     {
-        public T GetByName(string userName)
+        public T GetByEmail(string email)
         {
             using (var context = new Context())
             {
-                return context.Set<T>().FirstOrDefault(r => r.UserName == userName);
+                return context.Set<T>().FirstOrDefault(r => r.Email == email);
             }
         }
 
@@ -43,13 +43,13 @@ namespace DLL.UserContext
             }
         }
 
-        public bool Remove(string userName)
+        public bool Remove(string email)
         {
             using (var context = new Context())
             {
                 try
                 {
-                    var tutor = context.Set<T>().First(r => r.UserName == userName);
+                    var tutor = context.Set<T>().First(r => r.Email == email);
                     context.Set<T>().Remove(tutor);
                     context.SaveChanges();
                     return true;
@@ -69,7 +69,7 @@ namespace DLL.UserContext
             {
                 try
                 {
-                    var admin = context.Set<T>().First(r => r.UserName == t.UserName);
+                    var admin = context.Set<T>().First(r => r.Email == t.Email);
                     admin.Copy(t);
                     context.SaveChanges();
                     return true;

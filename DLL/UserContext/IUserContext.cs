@@ -8,7 +8,7 @@ namespace DLL.UserContext
 {
     public interface IUserContext<T>
     {
-        T GetByName(string userName);
+        T GetByEmail(string email);
         List<T> GetAll();
         bool Add(T t);
         bool Update(T t);

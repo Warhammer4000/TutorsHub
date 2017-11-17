@@ -5,8 +5,10 @@ namespace ATP2.Profile.Models.HomeModels
 {
     public class LoginModel
     {
-        [Required,RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
-        public string UserName { get; set; }
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string Email { get; set; }
 
 
         [Required]

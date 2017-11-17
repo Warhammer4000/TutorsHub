@@ -6,9 +6,9 @@ namespace BLL.UserRepository
 {
     public class UserRepo<T> where T : User
     {
-        public T GetByName(string userName)
+        public T GetByEmail(string email)
         {
-            return new UserContext<T>().GetByName(userName);
+            return new UserContext<T>().GetByEmail(email);
         }
 
         public List<T> GetAll()

@@ -5,13 +5,9 @@ namespace ATP2.Profile.Models.HomeModels
 {
     public class RegistrationModel
     {
-        [Required, RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
-        [MinLength(2)]
-        public string UserName { get; set; }
+     
 
-        [Required]
-        public string Name { get; set; }
-
+  
         [Required]
         [DataType(DataType.Password)]
         [StringLength(18, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 8)]
@@ -29,10 +25,7 @@ namespace ATP2.Profile.Models.HomeModels
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
-        public string Gender { get; set; }
-
-        [Display(Name = "Date Of Birth")]
-        public DateTime DateOfBirth { get; set; }
+    
 
     
 

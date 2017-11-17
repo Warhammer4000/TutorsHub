@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Entity.Data;
 
 namespace Entity.UserModels
@@ -7,7 +8,7 @@ namespace Entity.UserModels
     public class Tutor:User
     {
      
-
+      
         public int Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
@@ -28,6 +29,7 @@ namespace Entity.UserModels
             PreferredLocations = new List<Location>();
             PreferredMedium = new List<string>();
             PreferredSubjects = new List<Subject>();
+            
         }
 
 

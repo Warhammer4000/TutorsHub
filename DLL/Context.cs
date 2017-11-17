@@ -13,7 +13,7 @@ namespace DLL
 {
     internal class Context:DbContext
     {
-        public  Context():base("Name=ATP2")
+        public  Context():base("Name=TutorsHub")
         {
             var ensureDLLIsCopied =
                 System.Data.Entity.SqlServer.SqlProviderServices.Instance;
