@@ -1,5 +1,4 @@
-﻿@using Entity.Data
-@using Entity.UserModels
+﻿
 @model ATP2.Profile.Models.HomeModels.SearchModel
 @{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
@@ -204,10 +203,10 @@
 
 
     <div align="center">
-        <select name="Location">
+        <select name="Location.Name">
             @foreach (var location in Model.Locations)
             {
-                <option value="@location">@location</option>
+                <option value="@location.Name">@location.Name</option>
             }
            
 
@@ -235,12 +234,22 @@
 
 
     <div align="center">
-            <table style="padding-left: 18%">
-            @foreach (var subject in Model.Subjects)
+        <table style="padding-left: 18%">
+            <tr>
+            @for (int i = 0; i < Model.Subjects.Count; i++)
             {
-                <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@subject.Name" value="@subject.Name">@subject.Name<div class='control__indicator'></div></label></td>
+                <td class='control-group'>
+                    @*<label class='control control--checkbox'><input type='checkbox' name="@subject.IsChecked" value="true"/>@subject.Name
+                        <div class='control__indicator'></div></label>*@
+                    @Html.HiddenFor(x => Model.Subjects[i].Id)
+                    @Html.CheckBoxFor(x => Model.Subjects[i].IsChecked)
+                    @Html.DisplayFor(x => Model.Subjects[i].Name)
+                    @Html.HiddenFor(x => Model.Subjects[i].Name)
+                </td>
             }
-            </table>
+            </tr>
+        </table>
+
     </div>
        
     @foreach (var tutor in Model.TutorList)

@@ -20,9 +20,10 @@ namespace ATP2.Profile.Models.HomeModels
             Locations= new LocationRepostiory().GetAll();
             TutorList= new List<Tutor>();
             Location=new Location();
-            SelectedSubjects=new List<Subject>();
+      
         }
 
+        
 
         public Location Location { get; set; }
         public string Class { get; set; }
