@@ -1,10 +1,13 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.AccountModels;
+using ATP2.Profile.Models.HomeModels;
 using BLL.UserRepository;
 using Entity;
+using Entity.Data;
 using Entity.UserModels;
 
 namespace ATP2.Profile.Controllers
@@ -54,8 +57,10 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult EditProfile()
         {
-            var tutor = (Tutor)Session["Tutor"];
+          
 
+            var tutor = (Tutor)Session["Tutor"];
+            var editProfileModel = new EditProfileModel(tutor);
 
             switch (tutor.Gender)
             {
@@ -70,31 +75,54 @@ namespace ATP2.Profile.Controllers
 
             }
 
-            return View(tutor);
+
+            foreach (var location in editProfileModel.Tutor.PreferredLocations)
+            {
+                foreach (var x in editProfileModel.Locations)
+                {
+                    if (x.Name == location.Name)
+                    {
+                        x.IsChecked = true;
+                    }
+                }
+
+            }
+
+
+
+            return View(editProfileModel);
         }
 
         [HttpPost]
-        public ActionResult EditProfile(Tutor tutor)
+        public ActionResult EditProfile(EditProfileModel editProfileModel)
         {
-            switch (tutor.Gender)
+            switch (editProfileModel.Tutor.Gender)
             {
                 case "Male":
-                    tutor.MaleChecked = true;
+                    editProfileModel.Tutor.MaleChecked = true;
                     break;
 
                 case "Female":
-                    tutor.FemaleChecked = true;
+                    editProfileModel.Tutor.FemaleChecked = true;
                     break;
 
 
             }
+            editProfileModel.Tutor.PreferredLocations=new List<Location>();
+
+            foreach (var location in editProfileModel.Locations)
+            {
+                editProfileModel.Tutor.PreferredLocations.Add(location);
+            }
+
+
 
             if (ModelState.IsValid)
             {
-                new TutorRepository().Update(tutor);
+                new TutorRepository().Update(editProfileModel.Tutor);
             }
 
-            return View(tutor);
+            return View(new EditProfileModel(editProfileModel.Tutor));
         }
 
 

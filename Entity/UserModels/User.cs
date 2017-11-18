@@ -62,7 +62,7 @@ namespace Entity.UserModels
         [NotMapped]
         public bool FemaleChecked { get; set; }
 
-        public abstract void Copy(object o);
+        public abstract void Copy(User o);
 
 
     }

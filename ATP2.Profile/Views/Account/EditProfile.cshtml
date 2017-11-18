@@ -1,5 +1,5 @@
-﻿@using Entity.Data
-@model Entity.UserModels.Tutor
+﻿
+@model ATP2.Profile.Models.AccountModels.EditProfileModel
 
 @{
    
@@ -215,27 +215,24 @@
                 <tr>
                     <td>
                         <label> Name </label>
-                        <input type="text" name="name" value="@Model.Name" size="25"/>
+                        <input type="text" name="name" value="@Model.Tutor.Name" size="25"/>
                     
-                        <label> Email </label>
-                        <input type="text" name="email" value="@Model.Email" size="25"/>
-                       
 
                         <label> Phone No. </label>
-                        <input type="text" name="phone" value="@Model.Mobilenumber" size="25"/>
+                        <input type="text" name="phone" value="@Model.Tutor.Mobilenumber" size="25"/>
 
                         <label> Address </label>
-                        <input type="text" name="address" value="@Model.Address" size="25"/>
+                        <input type="text" name="address" value="@Model.Tutor.Address" size="25"/>
                         <div id="gender">
                             <table>
                                 <label> Gender</label>
                                 <tr>
                                     <td class="control-group">
-                                        <label class="control control--radio"><input type="radio" name="gender" value="Male" checked="@Model.MaleChecked">Male
+                                        <label class="control control--radio"><input type="radio" name="gender" value="Male" checked="@Model.Tutor.MaleChecked">Male
                                             <div class="control__indicator"></div></label>
                                     </td>
                                     <td class="control-group">
-                                        <label class="control control--radio"><input type="radio" name="gender" value="Female" checked="@Model.FemaleChecked">Female
+                                        <label class="control control--radio"><input type="radio" name="gender" value="Female" checked="@Model.Tutor.FemaleChecked">Female
                                             <div class="control__indicator"></div></label>
                                     </td>
                                 </tr>
@@ -252,7 +249,7 @@
                 <tr>
                     <td>
                         <label> Bio </label>
-                        <textarea name="bio" cols="27" rows="5">@Model.Bio</textarea>
+                        <textarea name="bio" cols="27" rows="5">@Model.Tutor.Bio</textarea>
                         <br>
                     </td>
                 </tr>
@@ -262,7 +259,7 @@
                 <tr>
                     <label> Currtent Status </label>
                     <td>
-                        <input type="text" name="status" value="@Model.CurrentStatus" size="25"/>
+                        <input type="text" name="status" value="@Model.Tutor.CurrentStatus" size="25"/>
                     </td>
                 </tr>
             </table>
@@ -280,28 +277,39 @@
                 <label style="width: auto">Preferred Locations </label>
                 <tr>
 
-                @for (int i = 1; i <= 12; i++)
+                @for (int i = 0; i < Model.Locations.Count; i++)
                 {
-                    <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@i" value="@i">class @i<div class='control__indicator'></div></label></td>
+                    <td>
+                        @Html.HiddenFor(x => Model.Locations[i].Id)
+                        @Html.CheckBoxFor(x => Model.Locations[i].IsChecked)
+                        @Html.DisplayFor(x => Model.Locations[i].Name)
+                        @Html.HiddenFor(x => Model.Locations[i].Name)
+                    </td>
                 }
+                </tr>
             </table>
             <br>
          
             <table style="width: auto">
                 <label> Preferred Classes </label>
                 <tr>
-                @for (int i = 1; i <= 12; i++)
+                @for (int i = 0; i < 12; i++)
                 {
-                    <td class='control-group'><label class='control control--checkbox'><input type='checkbox' name="@i" value="@i">class @i<div class='control__indicator'></div></label></td>
-                }
-
+                    <td>
+                    @Html.HiddenFor(x => Model.Classes[i].Id)
+                    @Html.CheckBoxFor(x => Model.Classes[i].IsChecked)
+                    @Html.DisplayFor(x => Model.Classes[i].Value)
+                    @Html.HiddenFor(x => Model.Classes[i].Value)
+                    </td>
+                 }
+               </tr>
             </table>
             <br>
             <table>
                 <label> Expected Salary </label>
                 <tr>
                 <td>
-                    <input type="text" name="ExpectedSalary" value="@Model.ExpectedSalary" size="20"/> <span> /hour </span>
+                    <input type="text" name="ExpectedSalary" value="@Model.Tutor.ExpectedSalary" size="20"/> <span> /hour </span>
                 </td>
                 <tr>
             </table>

@@ -18,6 +18,19 @@ namespace ATP2.Profile.Models.HomeModels
         {
             Subjects=new SubjectRepository().GetAll();
             Locations= new LocationRepostiory().GetAll();
+            TutorList= new List<Tutor>();
+            Location=new Location();
+      
         }
+
+        
+
+        public Location Location { get; set; }
+        public string Class { get; set; }
+        public string Gender { get; set; }
+        public int SalaryMin { get; set; }
+        public int SalaryMax { get; set; }
+        public List<Subject> SelectedSubjects { get; set; }
+
     }
 }

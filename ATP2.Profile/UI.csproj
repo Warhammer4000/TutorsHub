@@ -132,6 +132,7 @@
     </Compile>
     <Compile Include="Models\AccountModels\DashboardModel.cs" />
     <Compile Include="Models\AccountModels\EditPasswordModel.cs" />
+    <Compile Include="Models\AccountModels\EditProfileModel.cs" />
     <Compile Include="Models\HomeModels\ForgotPasswordModel.cs" />
     <Compile Include="Models\HomeModels\LoginModel.cs" />
     <Compile Include="Models\HomeModels\RegistrationModel.cs" />

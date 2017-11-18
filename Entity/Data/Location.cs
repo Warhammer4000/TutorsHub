@@ -18,5 +18,7 @@ namespace Entity.Data
         [NotMapped]
         public bool IsChecked { get; set; }
         public List<Tutor> Tutors { get; set; }
+
+     
     }
 }

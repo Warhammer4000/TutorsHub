@@ -13,7 +13,7 @@
             throw new System.NotImplementedException();
         }
 
-        public override void Copy(object o)
+        public override void Copy(User user)
         {
             throw new System.NotImplementedException();
         }

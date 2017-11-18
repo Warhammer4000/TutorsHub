@@ -1,10 +1,13 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.HomeModels;
+using BLL.SearchRepository;
 using BLL.UserRepository;
 using Entity;
+using Entity.Data;
 using Entity.UserModels;
 
 namespace ATP2.Profile.Controllers
@@ -22,7 +25,33 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Search()
         {
+
+
+
             return View(new SearchModel());
+        }
+
+
+        [HttpPost]
+        public ActionResult Search(SearchModel searchModel)
+        {
+            searchModel.SelectedSubjects=new List<Subject>();
+            foreach (var subject in searchModel.Subjects)
+            {
+                if (subject.IsChecked)
+                {
+                    searchModel.SelectedSubjects.Add(subject);
+                }
+            }
+            
+            searchModel.TutorList=new PublicSearch().SearchTutors(
+                searchModel.Location,searchModel.Gender,searchModel.Class
+                ,searchModel.SalaryMin,searchModel.SalaryMax,searchModel.SelectedSubjects
+                );
+
+
+
+            return View(searchModel);
         }
 
         [HttpGet]
