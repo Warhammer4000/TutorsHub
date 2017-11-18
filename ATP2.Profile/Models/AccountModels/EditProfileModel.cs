@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using BLL.DataRepository;
 using Entity.Data;
 using Entity.UserModels;
 
-namespace ATP2.Profile.Models.HomeModels
+namespace ATP2.Profile.Models.AccountModels
 {
     public class EditProfileModel
     {
@@ -46,7 +41,7 @@ namespace ATP2.Profile.Models.HomeModels
 
         public EditProfileModel()
         {
-
+            Tutor= new Tutor();
             Subjects = new List<Subject>();
             Locations = new List<Location>();
             Classes = new List<Class>(12);
