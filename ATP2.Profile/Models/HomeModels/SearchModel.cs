@@ -13,7 +13,7 @@ namespace ATP2.Profile.Models.HomeModels
         public List<Subject> Subjects { get; set; }
         public List<Location> Locations { get; set; }
         public List<Tutor> TutorList { get; set; }
-
+        public string SearchButton { get; set; }
         public SearchModel()
         {
             Subjects=new SubjectRepository().GetAll();

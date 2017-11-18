@@ -33,7 +33,7 @@ namespace ATP2.Profile.Controllers
             var user = (Admin)Session["Admin"];
 
             Session["UserName"] = user.Name;
-            return View();
+            return View("TutorRequest");
         }
 
 

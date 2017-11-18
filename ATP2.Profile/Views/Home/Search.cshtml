@@ -236,21 +236,43 @@
     <div align="center">
         <table style="padding-left: 18%">
             <tr>
-            @for (int i = 0; i < Model.Subjects.Count; i++)
-            {
-                <td class='control-group'>
-                    @*<label class='control control--checkbox'><input type='checkbox' name="@subject.IsChecked" value="true"/>@subject.Name
+                @for (int i = 0; i < Model.Subjects.Count; i++)
+                {
+                    <td class='control-group'>
+                        @*<label class='control control--checkbox'><input type='checkbox' name="@subject.IsChecked" value="true"/>@subject.Name
                         <div class='control__indicator'></div></label>*@
-                    @Html.HiddenFor(x => Model.Subjects[i].Id)
-                    @Html.CheckBoxFor(x => Model.Subjects[i].IsChecked)
-                    @Html.DisplayFor(x => Model.Subjects[i].Name)
-                    @Html.HiddenFor(x => Model.Subjects[i].Name)
-                </td>
-            }
+                        @Html.HiddenFor(x => Model.Subjects[i].Id)
+                        @Html.CheckBoxFor(x => Model.Subjects[i].IsChecked)
+                        @Html.DisplayFor(x => Model.Subjects[i].Name)
+                        @Html.HiddenFor(x => Model.Subjects[i].Name)
+                    </td>
+                }
             </tr>
         </table>
 
     </div>
+    
+    
+    <table align="center" width="500" cellspacing="1"  border="2">
+        <tr>
+            <td width="100">
+                <img width="50" height="50" class="card-img-top" src="../../image/user.png" alt="Card image">
+            </td>
+            <td width="300">
+                <label class="card-title">Tazim</label><br />
+               
+                   
+                <label class="card-text">Subject: Bangla</label> <br />
+                <label class="card-text">Salary: 5000</label> <br />
+                <label class="card-text">Gender: Male</label>
+            </td>
+            <td>
+                @Html.ActionLink("View","ViewTutor","Home")
+            </td>
+
+        </tr>
+           
+    </table>
        
     @foreach (var tutor in Model.TutorList)
     {

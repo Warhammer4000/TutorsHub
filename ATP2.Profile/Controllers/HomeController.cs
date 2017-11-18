@@ -54,6 +54,17 @@ namespace ATP2.Profile.Controllers
             return View(searchModel);
         }
 
+
+
+        [HttpGet]
+        public ActionResult ViewTutor()
+        {
+            var tutor=new TutorRepository().GetByEmail("tkhan@iquantile.com");
+            return View(tutor);
+        }
+
+
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -99,10 +110,10 @@ namespace ATP2.Profile.Controllers
             return View(loginModel);
         }
 
-
-        
-
        
+
+
+
 
         [HttpGet]
         public ActionResult Registration()
