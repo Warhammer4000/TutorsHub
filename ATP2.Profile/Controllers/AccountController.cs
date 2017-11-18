@@ -119,7 +119,7 @@ namespace ATP2.Profile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var role = (Role) Session["Role"];
+                var role = (Role)Session["Role"];
                 switch (role)
                 {
                     case Role.Admin:
@@ -138,7 +138,7 @@ namespace ATP2.Profile.Controllers
                     case Role.Guest:
                         break;
                 }
-               
+
             }
 
             return View(editPasswordModel);
@@ -146,7 +146,11 @@ namespace ATP2.Profile.Controllers
 
 
 
-
+        [HttpGet]
+        public ActionResult TutorRequest()
+        {
+            return View();
+        }
 
 
 
