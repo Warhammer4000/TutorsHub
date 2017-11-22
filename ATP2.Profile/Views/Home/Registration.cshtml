@@ -4,73 +4,102 @@
 }
 
 
+<!DOCTYPE html>
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <style>
-        a {
-            text-decoration: none;
-            font-weight: 700;
+        body, legend {
+            color: white;
         }
 
-            a:hover {
-                color: #f4511e;
-            }
+        .bar {
+            background-color: #2E4053;
+        }
+
+        .top {
+            height: 94px;
+        }
+
+        .mid {
+            height: 400px;
+        }
 
         td {
-            margin-bottom: 10px;
-            padding: 10px;
+            padding-left: 10px;
         }
     </style>
+
 </head>
 <body>
-<div>
-
-    <form method="post">
-        <fieldset>
-            <legend>Registration</legend>
-            <table align="center">
-                <tr>
-                    <td class="left">Email</td>
-
-                    <td class="right">
-                        <input type="text" name="email" size="20" value="@Model.Email"/><br/>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="left">
-                        Password
-                    </td>
-
-                    <td class="right">
-                        <input type="password" name="Password" size="20" value="@Model.Password"/><br/>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="left">
-                        Confirm Password
-                    </td>
-
-                    <td class="right">
-                        <input type="password" name="ConfirmPassword" size="20" value="@Model.ConfirmPassword"/><br/>
-                    </td>
-                </tr>
-            </table>
-            <div>
-                <input type="submit" name="confirm" value="Confirm"/>
-            </div>
-            <div style="color: red">
-                @Html.ValidationSummary()
-            </div>
-         
-        </fieldset>
-    </form>
     
-</div>
+
+
+    <div class="container bar mid">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <h1 align="center">Register</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Email" type="text" name="email" class="form-control" size="20" value="@Model.Email" /><br />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Password" type="password" name="Password" class="form-control" size="20" value="@Model.Password" /><br />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <input placeholder="Confirm Password" type="password" name="ConfirmPassword" class="form-control" size="20" value="@Model.ConfirmPassword" /><br />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-4">
+                <input type="submit" class="form-control" value="Register">
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container bar">
+        <footer align="center">AIUB</footer>
+    </div>
+
+
 </body>
+
 </html>
+
+
+
+

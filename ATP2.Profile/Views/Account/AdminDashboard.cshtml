@@ -5,92 +5,107 @@
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
 
-<h2>AdminDashboard</h2>
 
-<div>
-    <h4>Admin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<!DOCTYPE html>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+    <style>
+        .navbar {
+            padding-top: 30px;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+        .bar {
+            background-color: #2E4053;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+        .top {
+            height: 94px;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+        .mid {
+            height: 400px;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfilePictureUrl)
-        </dt>
+        a, label, h1, table {
+            color: White;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.ProfilePictureUrl)
-        </dd>
+        td {
+            padding-left: 10px;
+        }
+    </style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+</head>
+<body>
+  
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+    <div class="container bar mid">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Users</label>
+                <table>
+                    <tr>
+                        <th>User</th>
+                        <th>Status</th>
+                        <th>Last Login</th>
+                    </tr>
+                    <tr>
+                        <td>Bob</td>
+                        <td>Active</td>
+                        <td>12:30 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Will</td>
+                        <td>Inactive</td>
+                        <td>10/10/2016</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Statistics</label>
+                <table>
+                    <tr>
+                        <th>Role</th>
+                        <th>No. of Users</th>
+                    </tr>
+                    <tr>
+                        <td>Admin</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Executive</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Tutors</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>34</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobilenumber)
-        </dt>
+    <br>
+    <div class="container bar">
+        <footer align="center">AIUB</footer>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mobilenumber)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+</body>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserSince)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserSince)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastLogin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastLogin)
-        </dd>
-
-    </dl>
-</div>
-
+</html>

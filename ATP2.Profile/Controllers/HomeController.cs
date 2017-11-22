@@ -122,33 +122,7 @@ namespace ATP2.Profile.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult Registration(RegistrationModel registrationModel)
-        {
-            if (!ModelState.IsValid) return View(registrationModel);
-            var tutor= new Tutor()
-            {
-               
-                Email = registrationModel.Email,
-                Password = registrationModel.Password,
-                Role = Role.Tutor,
-                Status = Status.Pending,
-                UserSince = DateTime.Now
-                 
-                
-            };
-
-
-
-            if (new TutorRepository().Add(tutor))
-            {
-                return RedirectToAction("Login");
-            }
-            ModelState.AddModelError("Database error","Database Error");
-            return View(registrationModel);
-
-        }
-
+   
         [HttpGet]
         public ActionResult ForgotPassword()
         {

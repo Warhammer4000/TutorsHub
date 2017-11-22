@@ -1,25 +1,187 @@
 ﻿@{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
 
-    td {
-        margin-bottom: 10px;
-        padding: 10px;
-    }
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    a {
-        text-decoration: none;
-        font-weight: 700;
-    }
-
-        a:hover {
-            color: #f4511e;
+    <style>
+        .bar {
+            background-color: #2E4053;
         }
-</style>
+
+        .top {
+            height: 94px;
+        }
+
+        .mid {
+            height: 400px;
+        }
+        body{
+            color:white;
+        }
+
+        td {
+            padding-left: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <br><br>
+    <div class="container bar top">
+        <div class="row">
+            <div class="col-sm-7">
+                <img width="300px"/>
+            </div>
+            <div class="col-sm-5">
+                <table>
+                    <br>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Email">
+                        </td>   
+                        <td>
+                            <input type="text" class="form-control" placeholder="Password">
+                        </td>
+                        <td>
+                            <input type="submit" class="form-control" value="Log In">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.ActionLink("Forgot Password?", "ForgotPassword", "Home")
+                        </td>
+                        <td align="center">
+                            @Html.ActionLink("Registration", "Registration", "Home")
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container bar mid">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <h1>TUTOR SEARCH</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="sel1">Location:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Mirpur</option>
+                        <option>Uttara</option>
+                        <option>Dhanmondi</option>
+                        <option>Bashundhara</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="sel1">Gender:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="sel1">Class:</label>
+                    <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="">Salary</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" width="10px">
+                        </td>
+                        <td><label for="">-</label></td>
+                        <td>
+                            <input type="" class="form-control">
+                        </td>
+                    </tr>
+                </table>
 
 
-<h3>Welcome to Tutors HUB</h3>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+
+            <div class="col-sm-6">
+                <label for=""><input type="checkbox">Bangla</label> &nbsp
+                <label for=""><input type="checkbox">English</label>&nbsp
+                <label for=""><input type="checkbox">Math</label>&nbsp
+                <label for=""><input type="checkbox">Physics</label>&nbsp
+                <label for=""><input type="checkbox">Chemistry</label>&nbsp
+                <label for=""><input type="checkbox">Biology</label>&nbsp
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+
+            </div>
+
+            <div class="col-sm-6">
+                <input type="submit" class="form-control" value="Search">
+            </div>
+            <br><br><br><br>
+        </div>
+
+
+
+    </div>
+    <br>
+    <div class="container bar">
+        <footer align="center">AIUB</footer>
+    </div>
+
+
+</body>
+
+</html>
