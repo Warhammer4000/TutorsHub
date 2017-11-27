@@ -1,7 +1,6 @@
-﻿@model ATP2.Profile.Models.AccountModels.DashboardModel
-
+﻿
 @{
-    Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
+    Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,57 +12,8 @@
 </head>
 <body>
     <div>
-        Welcome @ViewBag.UserName
-        
-        <table>
-            <tr>
-                <td><b>User Since</b></td>
-                <td>:</td>
-                <td>
-                    @Model.Usersince
-                    
-                </td>
-            </tr>
-            <tr>
-                <td><b>Last Login</b></td>
-                <td>:</td>
-                <td>@Model.LastLogin</td>
-            </tr>
-        </table>
-
-        <h2>Schedule</h2>
-        <table width="100%" cellspacing="0" cellpadding="5" border="1">
-            <thead>
-                Today
-            </thead>
-            <tr>
-                <td align="center">
-                    <label>Time</label><br />
-                    <label>Location</label>
-                </td>
-
-                <td align="center">
-                    <label>Time</label><br />
-                    <label>Location</label>
-                </td>
-            </tr>
-        </table>
-
-        <table width="100%" cellspacing="0" cellpadding="5" border="1">
-            <thead>Tomorrow</thead>
-            <tr>
-                <td align="center">
-                    <label>Time</label><br />
-                    <label>Location</label>
-                </td>
-
-                <td align="center">
-                    <label>Time</label><br />
-                    <label>Location</label>
-                </td>
-            </tr>
-        </table>
-        
+        Welcome to TutorsHub
+ 
 
     </div>
 </body>

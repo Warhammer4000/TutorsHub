@@ -25,7 +25,7 @@ namespace ATP2.Profile.Models.AccountModels
                 Classes.Add(new Class(){Value = i.ToString()});
             }
 
-            foreach (var classes in tutor.PreferredClasses)
+            /*foreach (var classes in tutor.PreferredClasses)
             {
                 foreach (var classsClass in Classes)
                 {
@@ -34,7 +34,7 @@ namespace ATP2.Profile.Models.AccountModels
                         classsClass.IsChecked = true;
                     }
                 }
-            }
+            }*/
 
            
         }

@@ -17,7 +17,6 @@ namespace ATP2.Profile.Views.Account
         }
 
         [HttpGet]
-
         public ActionResult Exam()
         {
             return View();
@@ -25,7 +24,6 @@ namespace ATP2.Profile.Views.Account
 
 
         [HttpGet]
-
         public ActionResult Ranking()
         {
             return View();

@@ -27,7 +27,5 @@ namespace ATP2.Profile.Controllers
         {
             return View(new SubjectRepository().GetAll());
         }
-
-
     }
 }

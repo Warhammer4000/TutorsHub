@@ -110,11 +110,6 @@ namespace ATP2.Profile.Controllers
             return View(loginModel);
         }
 
-       
-
-
-
-
         [HttpGet]
         public ActionResult Registration()
         {
@@ -135,8 +130,6 @@ namespace ATP2.Profile.Controllers
         {
             return View(forgotPasswordModel);
         }
-
-
 
     }
 }

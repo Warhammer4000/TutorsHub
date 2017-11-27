@@ -1,112 +1,109 @@
-﻿@model Entity.UserModels.Admin
-
+﻿
 @{
     ViewBag.Title = "AdminProfile";
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
 
-<h2>AdminProfile</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Name: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Sajib Hawee</label>
+        </div>
+    </div>
 
-<div>
-    <h4>Admin</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Password: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>welcome@1</label>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Email address: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>sajib@gmail.com</label>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>ProfilePictureUrl: </label>
+        </div>
+        <div class="col-lg-3">
+            <img src="~/image/user.png" width="100px" />
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Gender: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Male</label>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Date Of Birth: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>22 Aug 1996</label>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Mobilenumber: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>0123456789</label>
+        </div>
+    </div>
+            
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Address: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Dhaka, Bangladesh</label>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfilePictureUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfilePictureUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobilenumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobilenumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserSince)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserSince)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastLogin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastLogin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaleChecked)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaleChecked)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FemaleChecked)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FemaleChecked)
-        </dd>
-
-    </dl>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>UserSince: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>1 Jan 2017</label>
+        </div>
+    </div>
+     
+    
 </div>
 

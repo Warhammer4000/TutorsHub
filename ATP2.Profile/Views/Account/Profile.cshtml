@@ -1,344 +1,109 @@
-﻿@model Entity.UserModels.Tutor
-
+﻿
 @{
-    
-    Layout = "../Shared/Loggedin_Layout_Tutor.cshtml";
-   
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-
-<style>
-    
-    .container { width: 100%; }
-
-    .left {
-        float: left;
-        width: 65%;
-    }
-
-    .right {
-        background: #181A1A;
-        float: right;
-        margin-top: 10px;
-        width: 35%;
-    }
-
-    table {
-        border: 1px gray;
-        width: 100%;
-    }
-
-    th, td {
-        border-radius: 5px;
-        padding: 7px;
-        text-align: left;
-    }
-
-    tr { background-color: white }
-
-    h1, h2, h3, h4, h5, h6 {
-        margin-bottom: 1px;
-        margin-top: 0px;
-        padding: 0px;
-    }
-
-    #info h1 {
-        border-bottom: 2px solid #4CAF50;
-        width: 20%;
-    }
-
-    #profile_img {
-        border: 15px double #4CAF50;
-        border-radius: 50%;
-        height: 150px;
-        width: 150px;
-    }
-
-    .active {
-        background: #4CAF50;
-        border: 2px solid #4CAF50 !important;
-        color: #ffffff;
-    }
-
-    #one {
-        font-weight: 600;
-        padding: 5px;
-    }
-
-    #two td {
-        border: 2px solid red;
-        padding: 5px;
-        text-align: center;
-    }
-
-    .button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        display: inline-block;
-        font-size: 15px;
-        padding: 15px 32px;
-        position: center;
-        text-align: center;
-        text-decoration: none;
-    }
-</style>
-
-
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Profile</title>
-</head>
-<body>
-<div>
-<fieldset>
-<legend>
-    <b>PROFILE</b>
-</legend>
-
-
 <div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Name: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Sajib Hawee</label>
+        </div>
+    </div>
 
-<div class="wrap">
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Password: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>welcome@1</label>
+        </div>
+    </div>
 
-<div class="left">
-    <table style="width: auto" cellspacing="10">
-        <tr style="background: transparent">
-            <td style="width: 30%;">
-                <img id="profile_img" src="../../image/user.png">
-            </td>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Email address: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>sajib@gmail.com</label>
+        </div>
+    </div>
 
-            <td style="background: white">
-                <h1 style="margin-top: -30px"> @Model.Name </h1>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>ProfilePictureUrl: </label>
+        </div>
+        <div class="col-lg-3">
+            <img src="~/image/user.png" width="100px" />
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Gender: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Male</label>
+        </div>
+    </div>
 
-                <p>
-                    <b>Current Status: </b> @Model.CurrentStatus
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Date Of Birth: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>22 Aug 1996</label>
+        </div>
+    </div>
 
-                </p>
-                <p> @Model.Bio </p>
-            </td>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Mobilenumber: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>0123456789</label>
+        </div>
+    </div>
 
-        </tr>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>Address: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>Dhaka, Bangladesh</label>
+        </div>
+    </div>
 
-     
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-2">
+            <label>UserSince: </label>
+        </div>
+        <div class="col-lg-3">
+            <label>1 Jan 2017</label>
+        </div>
+    </div>
 
-    </table>
-
-
-    <table cellspacing="10">
-
-
-        <td id="info">
-            <h1>
-                Tuition Info
-            </h1>
-
-
-            <table id="one">
-                <tr >
-                    <td style="width: 150px">
-                        Expected Salary:
-                    </td>
-
-                    <td>
-                        @Model.ExpectedSalary tk/hour
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>
-                        Preferred Medium:
-                    </td>
-
-                    <td>
-
-                    <table style="width: auto" id="two">
-                        <tr>
-                            @foreach (var medium in @Model.PreferredMedium)
-                            {
-                                <td class="active" align="center">
-                                    <p> &#10004; @medium </p>
-                                </td>
-                            }
-                        </tr>
-                        </table>
-
-
-                    </td>
-
-                </tr>
-
-                <tr>
-                    <td >
-                        Preferred Classes:
-                    </td>
-
-                    <td>
-                        <table style="width: auto" id="two">
-                            <tr>
-                                @foreach (var classes in @Model.PreferredClasses)
-                                {
-                                    <td class="active" align="center">
-                                        <p> &#10004; @classes </p>
-                                    </td>
-                                }
-
-                            </tr>
-
-                        </table>
-
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td >
-                        Preferred Subjects:
-                    </td>
-
-                    <td>
-                        <table style="width: auto" id="two">
-                            <tr>
-                                @foreach (var subject in @Model.PreferredSubjects)
-                                {
-                                    <td class="active" align="center">
-                                        <p> &#10004; @subject.Name </p>
-                                    </td>
-                                }
-                             </tr>
-
-                        </table>
-
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td >
-                        Preferred Area:
-                    </td>
-
-                    <td>
-                        <table style="width: auto" id="two">
-                            <tr>
-                                
-                                @foreach (var location in @Model.PreferredLocations)
-                                {
-                                    <td style="border: 2px solid green;">
-                                        <p>@location.Name</p>
-                                    </td>
-                                }
-
-                               
-
-                            </tr>
-
-                        </table>
-                    </td>
-                </tr>
-
-            </table>
-
-        </td>
-
-    </table>
 
 </div>
 
-<div class="right">
-
-    <table style="margin-top: 0px" cellspacing="10">
-
-
-        <td colspan="2">
-
-
-            <b> Member Since: </b> @Model.UserSince <br>
-            <b> Last Login: </b> @Model.LastLogin <br>
-
-
-        </td>
-    </table>
-
-    <table cellspacing="10">
-
-        <tr>
-            <td style="width: 30%">
-
-                <b> Level </b>
-
-            </td>
-
-            <td>
-
-                <p> @Model.Level </p>
-            </td>
-
-        </tr>
-
-
-        <tr>
-
-
-            <td>
-
-                <b> Experience </b>
-
-            </td>
-
-            <td>
-
-                <p> @Model.Experience </p>
-            </td>
-        </tr>
-
-
-    </table>
-
-    <table cellspacing="10">
-
-        @*
-        <tr>
-
-            <td colspan="2">
-      
-        <h2>
-            Contact this Tutor
-        </h2>
-
-        <table>
-
-
-            <tr>
-                <td colspan="2">
-                    <b> Name </b> <br> <input type="text" name="senderName" size="35"> <br>
-                    <b> Phone No </b> <br> <input type="text" name="senderPhone" size="35"> <br>
-                    <b> Email </b> <br> <input type="text" name="senderEmail" size="35"> <br>
-                    <b> Message </b> <br> <textarea name="senderMsg" cols="37" rows="5"></textarea> <br> <br>
-                    <button type="button" class="button">Send Message</button>
-
-                </td>
-
-
-            </tr>
-
-        </table>
-
-    </tr>
-            *@
-
-    </table>
-
-
-</div>
-</div>
-</div>
-
-</fieldset>
-</div>
-</body>
-</html>

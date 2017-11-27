@@ -1,41 +1,44 @@
 ﻿
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Public_Layout</title>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XCompany | Registration</title>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
 </head>
+
 <body>
-<div>
-    <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
-        <tr>
-            <td valign="middle" height="70" width="80%">
-                <table width="100%">
-                    <tr>
-                        <td>
-                            @Html.ActionLink("TutorsHUB", "Index", "Home")
-                        </td>
-                   
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                @RenderBody()
-                <br/><br/><br/>
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                Copyright &copy; 2017
-            </td>
-        </tr>
-    </table>
-</div>
+
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">XCompany</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                <li>@Html.ActionLink("Search", "Search", "Home")</li>
+                <li class="active">@Html.ActionLink("Registration", "Registration","Home")</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">  
+            <tr>
+                <td align="center">
+                    @RenderBody()
+                    <br /><br /><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    Copyright &copy; 2017
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

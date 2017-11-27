@@ -1,34 +1,60 @@
-﻿@model IEnumerable<Entity.Data.Location>
-
+﻿
 @{
     ViewBag.Title = "Locations";
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
+</head>
 
 <fieldset>
     <legend>
         <b>LOCATION</b>
     </legend>
-    <input name="locationtext" type="text" />
-    <input type="submit" value="Add" />
+    <input style="width:200px;" class="form-control" name="locationtext" type="text" />
+    <input class="btn" type="submit" value="Add" />
 </fieldset>
 <br />
 <br />
 <table cellspacing="0" cellpadding="5" border="1">
     <tr>
         <td width="100px"><strong>Location</strong></td>
-        <td><stron>Edit</stron></td>
-        <td><strong>Remove</strong></td>
+        <td width="100px"><strong>Edit</strong></td>
+        <td width="100px"><strong>Remove</strong></td>
     </tr>
     <tr>
         <td width="100px">
-            Hello
+            Uttara
         </td>
         <td>
-            @*@Html.ActionLink("Edit", "Edit", "Home")*@
+            Edit
         </td>
         <td>
-            @*@Html.ActionLink("Remove", "Remove", "Home")*@
+            Remove
+        </td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Mirpur
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
+        </td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Gulshan
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
         </td>
     </tr>
 </table>
