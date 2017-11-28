@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Web.UI.WebControls
+
 
 @{
     Layout = "~/Views/Shared/Public_Layout.cshtml";
@@ -14,47 +15,52 @@
     <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-                <div class="alert alert-danger" style="text-align: center;">
-                    <h2>Login</h2>
+<form method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <div class="alert alert-danger" style="text-align: center;">
+                        <h2>Login</h2>
+                    </div>
+                    <form onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input name="Email" type="text" class="form-control" id="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input name="Password" type="password" class="form-control" id="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Remember me</label>
+                        </div>
+                        <input type="submit" id="loginbtn" class="btn btn-success" value="Log In">
+                        @Html.ActionLink("Forgot Password?", "ForgotPassword", "Home");
+                    </form>
                 </div>
-                <form onsubmit="return false;">
-                    <div class="form-group">
-                        <label for="uname">User Name</label>
-                        <input type="text" class="form-control" id="uname">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password</label>
-                        <input type="password" class="form-control" id="pwd">
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox"> Remember me</label>
-                    </div>
-                    <input type="submit" id="loginbtn" class="btn btn-success" value="Log In">
-                    <a href="#">Forget Your Password</a>
-                </form>
-            </div>
-            <div class="col-lg-4"></div>
-        </div>
-    </div>
-    <script type="text/javascript" src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#loginbtn').click(function () {
-                var uname = 'helloworld';
-                var password = 'dlrowolleh';
-                if (true/*$('#uname').val() == uname && $('#pwd').val() == password*/) {
-                    window.location.replace("home.html");
-                } else {
-                    alert('user name: ' + uname + '\nPassword: ' + password);
-                }
+                <div class="col-lg-4">
 
-            });
-        });
-    </script>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="~/Scripts/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+        @*<script type="text/javascript">
+                $(document).ready(function () {
+                    $('#loginbtn').click(function () {
+                        var uname = 'helloworld';
+                        var password = 'dlrowolleh';
+                        if (true/*$('#uname').val() == uname && $('#pwd').val() == password*/) {
+                            window.location.replace("home.html");
+                        } else {
+                            alert('user name: ' + uname + '\nPassword: ' + password);
+                        }
+
+                    });
+                });
+            </script>*@
+    </form>
 </body>
+
 </html>

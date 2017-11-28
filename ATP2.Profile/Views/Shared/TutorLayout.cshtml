@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta http-equiv="Content-Type" content="text/html charset=utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+  
+    <title>Tutor_Layout</title>
+ 
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="border-radius: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Profile.html">MR.X</a>
+            <span class="navbar-brand" ><font size="3" color="red">500$</font></span>
+        </div>
+        <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Get paid
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="dashboard.html">On hold</a></li>
+                    <li><a href="profile.html">Current balance</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="/Tutor/StudentList" class="btn btn-link">Student List
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="btn btn-link">Blog
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="btn btn-link">Scheduler
+                </a>
+            </li>
+			  
+           
+			  
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Exam
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Exam/Exam">Take Exam</a></li>
+                    <li><a href="/Exam/Result">Result</a></li>
+                    <li><a href="/Exam/Ranking">Ranking</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <a href="/Tutor/Logout" class="btn btn-link">Log Out</a>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+           @RenderBody()
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script> 
+@*<script type="text/javascript"
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<link type="text/css" rel="stylesheet" href="css/responsive.css"> 
+    
+</script>*@
+</body>
+</html>
+

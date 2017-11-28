@@ -126,6 +126,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TutorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,7 +151,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\EditPassword.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
-    <Content Include="Views\Shared\Loggedin_Layout.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Shared\Public_Layout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
@@ -160,7 +162,7 @@
     <Content Include="Views\User\CreateNew.cshtml" />
     <Content Include="Views\Report\StatisticReport.cshtml" />
     <Content Include="Views\Report\ActivityReport.cshtml" />
-    <Content Include="Views\Shared\LoggedIn_Layout_Tutor.cshtml" />
+    <Content Include="Views\Shared\TutorLayout.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Exam\Exam.cshtml" />
@@ -177,6 +179,10 @@
     <Content Include="Views\Account\TutorRequest.cshtml" />
     <Content Include="Views\Home\ViewTutor.cshtml" />
     <Content Include="Views\Account\UserSearch.cshtml" />
+    <Content Include="Views\Tutor\DashBoard.cshtml" />
+    <Content Include="Views\Tutor\StudentList.cshtml" />
+    <Content Include="Views\Shared\StudentLayout.cshtml" />
+    <Content Include="Views\Student\DashBoard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

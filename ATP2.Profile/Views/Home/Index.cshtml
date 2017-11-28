@@ -1,6 +1,7 @@
-﻿@model ATP2.Profile.Models.HomeModels.LoginModel
+﻿
+@model ATP2.Profile.Models.HomeModels.LoginModel
 @{
-    Layout = null ;
+    Layout = "../Shared/Public_Layout.cshtml" ;
 }
 <!DOCTYPE html>
 <html>
@@ -11,29 +12,7 @@
     <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#" style="font-weight: bolder; font-size: 25px;">Tutor Hub</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form style="padding-top: 15px;">
-                        <div class="form-group form-inline" style="padding-right: 15px;">
-                            <input class="form-control" type="text" name="" placeholder="Email">
-                            <input class="form-control" type="text" name="" placeholder="Password">
-                            <input type="submit" class="btn btn-primary" name="" value="Login">
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" name=""> <span class="text-info">Remember Me</span>
-                            @Html.ActionLink("Forgot Password?", "ForgotPassword", "Home")
-                            @Html.ActionLink("Registration","Registration","Home")
-                        </div>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
+ 
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3"></div>

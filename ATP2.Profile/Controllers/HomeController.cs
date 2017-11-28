@@ -18,18 +18,50 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(new LoginModel());
         }
 
 
-        [HttpGet]
-        public ActionResult Search()
+        [HttpPost]
+        public ActionResult Index(LoginModel loginModel)
         {
 
+            if (ModelState.IsValid)
+            {
+                var admin = new AdminRepository().GetByEmail(loginModel.Email);
 
+                if (admin != null)
+                {
+                    admin.LastLogin = DateTime.Now;
 
-            return View(new SearchModel());
+                    new AdminRepository().Update(admin);
+                    Session["Admin"] = admin;
+                    Session["UserName"] =admin.Name;
+                    Session["Role"] = Role.Admin;
+                    return RedirectToAction("AdminDashboard", "Account");
+                }
+
+                var tutor = new TutorRepository().GetByEmail(loginModel.Email);
+
+                if (tutor != null)
+                {
+                    tutor.LastLogin = DateTime.Now;
+
+                    new TutorRepository().Update(tutor);
+                    Session["Tutor"] = tutor;
+                    Session["UserName"] = tutor.Name;
+                    Session["Role"] = Role.Tutor;
+                    return RedirectToAction("Dashboard", "Tutor");
+                }
+
+                ModelState.AddModelError("Invalid", "Invalid User");
+                return View("Login",loginModel);
+            }
+
+            return View(loginModel);
         }
+
+
 
 
         [HttpPost]
@@ -121,15 +153,11 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult ForgotPassword()
         {
-            return View(new ForgotPasswordModel());
+            return View();
         }
 
 
-        [HttpPost]
-        public ActionResult ForgotPassword(ForgotPasswordModel forgotPasswordModel)
-        {
-            return View(forgotPasswordModel);
-        }
+      
 
     }
 }
