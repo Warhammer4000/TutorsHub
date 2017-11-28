@@ -16,27 +16,32 @@
 <nav class="navbar navbar-inverse" style="border-radius: 0px;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="Profile.html">MR.X</a>
-            <span class="navbar-brand" ><font size="3" color="red">500$</font></span>
+            <a class="navbar-brand" href="/Tutor/DashBoard">@Session["UserName"]</a>
+        
         </div>
         <ul class="nav navbar-nav">
-
+            
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Get paid
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="dashboard.html">On hold</a></li>
-                    <li><a href="profile.html">Current balance</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="/Tutor/StudentList" class="btn btn-link">Student List
+                <a href="/Tutor/ViewProfile" class="btn btn-link">
+                    Profile
                 </a>
             </li>
 
             <li class="dropdown">
-                <a href="#" class="btn btn-link">Blog
+                <a href="#" class="btn btn-link">
+                    Payment
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="/Tutor/StudentList" class="btn btn-link">
+                    Student List
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="/Tutor/Blog" class="btn btn-link">
+                    Blog
                 </a>
             </li>
             <li class="dropdown">
@@ -75,8 +80,8 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script> 
 @*<script type="text/javascript"
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link type="text/css" rel="stylesheet" href="css/style.css">
 <link type="text/css" rel="stylesheet" href="css/responsive.css"> 
     

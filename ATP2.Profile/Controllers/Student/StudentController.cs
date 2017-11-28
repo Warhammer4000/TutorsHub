@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace ATP2.Profile.Controllers
+namespace ATP2.Profile.Controllers.Student
 {
-    public class TutorController : Controller
+    public class StudentController : Controller
     {
-        // GET: Tutor
         [HttpGet]
         public ActionResult DashBoard()
         {
             return View();
         }
 
+
         [HttpGet]
-        public ActionResult StudentList()
+        public ActionResult ViewProfile()
         {
             return View();
         }
 
+
+
+
+
+
         [HttpGet]
         public RedirectToRouteResult Logout()
         {
-
             Session.Abandon();
             return RedirectToAction("Index","Home");
         }

@@ -48,7 +48,7 @@
     <Compile Include="QuestionModels\Question.cs" />
     <Compile Include="UserModels\Admin.cs" />
     <Compile Include="UserModels\Executive.cs" />
-    <Compile Include="UserModels\Guest.cs" />
+    <Compile Include="UserModels\Student.cs" />
     <Compile Include="UserModels\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserModels\Tutor.cs" />

@@ -21,7 +21,7 @@ namespace DLL
 
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Admin> Admins { get; set; }
-        public DbSet<Guest> Guests { get; set; }
+        public DbSet<Student> Guests { get; set; }
         public DbSet<Executive> Executives { get; set; }
         public DbSet<Question> QuestionPapers { get; set; }
         public DbSet<Subject> Subjects { get; set; }

@@ -19,7 +19,7 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         {
-            var user = (Tutor)Session["Tutor"];
+            var user = (Entity.UserModels.Tutor)Session["Tutor"];
             
             //Session["UserName"] = user.Name;
             return View(new DashboardModel());
@@ -40,7 +40,7 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult UserProfile()
         {
-            var tutor = (Tutor)Session["Tutor"];
+            var tutor = (Entity.UserModels.Tutor)Session["Tutor"];
             return View("Profile", tutor);
         }
 
@@ -59,7 +59,7 @@ namespace ATP2.Profile.Controllers
         {
           
 
-            var tutor = (Tutor)Session["Tutor"];
+            var tutor = (Entity.UserModels.Tutor)Session["Tutor"];
             var editProfileModel = new EditProfileModel(tutor);
 
             /*switch (tutor.Gender)
@@ -158,12 +158,12 @@ namespace ATP2.Profile.Controllers
                     case Role.Executive:
                         break;
                     case Role.Tutor:
-                        var tutor = (Tutor)Session["Tutor"];
+                        var tutor = (Entity.UserModels.Tutor)Session["Tutor"];
                         tutor.Password = editPasswordModel.RNewPassword;
 
                         new TutorRepository().Update(tutor);
                         break;
-                    case Role.Guest:
+                    case Role.Student:
                         break;
                 }
 

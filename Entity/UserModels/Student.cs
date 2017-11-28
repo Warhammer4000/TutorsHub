@@ -1,10 +1,10 @@
 ﻿namespace Entity.UserModels
 {
-    public class Guest:User
+    public class Student:User
     {
-        public Guest()
+        public Student()
         {
-            Role=Role.Guest;
+            Role=Role.Student;
         }
 
         public override void Copy(User user)

@@ -115,9 +115,16 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="image\user.png" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\CSS\bootstrap-theme.min.css" />
+    <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -126,8 +133,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\TutorController.cs" />
+    <Compile Include="Controllers\Student\StudentController.cs" />
+    <Compile Include="Controllers\Tutor\TutorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,6 +190,10 @@
     <Content Include="Views\Tutor\StudentList.cshtml" />
     <Content Include="Views\Shared\StudentLayout.cshtml" />
     <Content Include="Views\Student\DashBoard.cshtml" />
+    <Content Include="Views\Tutor\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\EditProfile.cshtml" />
+    <Content Include="Views\Tutor\Blog.cshtml" />
+    <Content Include="Views\Student\ViewProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,7 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CSS\" />
+    <Folder Include="Views\js\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

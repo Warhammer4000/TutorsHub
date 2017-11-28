@@ -36,7 +36,7 @@ namespace ATP2.Profile.Controllers
 
                     new AdminRepository().Update(admin);
                     Session["Admin"] = admin;
-                    Session["UserName"] =admin.Name;
+                    Session["UserName"] =admin.Email;
                     Session["Role"] = Role.Admin;
                     return RedirectToAction("AdminDashboard", "Account");
                 }
@@ -49,7 +49,7 @@ namespace ATP2.Profile.Controllers
 
                     new TutorRepository().Update(tutor);
                     Session["Tutor"] = tutor;
-                    Session["UserName"] = tutor.Name;
+                    Session["UserName"] = tutor.Email;
                     Session["Role"] = Role.Tutor;
                     return RedirectToAction("Dashboard", "Tutor");
                 }

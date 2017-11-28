@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.UserModels
 {
-    public enum Role { Admin=1, Executive=2, Tutor =3 ,Guest=4}
+    public enum Role { Admin=1, Executive=2, Tutor =3 ,Student=4}
     public enum Status { Active=1, Pending=2, Blocked=3 }
 
     public abstract class User
