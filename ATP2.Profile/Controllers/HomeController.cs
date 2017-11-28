@@ -100,7 +100,7 @@ namespace ATP2.Profile.Controllers
                     new TutorRepository().Update(tutor);
                     Session["Tutor"] = tutor;
                     Session["Role"] = Role.Tutor;
-                    return RedirectToAction("Dashboard", "Account");
+                    return RedirectToAction("Dashboard", "Tutor");
                 }
 
                 ModelState.AddModelError("Invalid","Invalid User");
