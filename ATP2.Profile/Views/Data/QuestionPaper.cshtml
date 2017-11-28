@@ -5,20 +5,18 @@
     Layout ="../Shared/Loggedin_Layout.cshtml"; 
 }
 
+
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Search</title>
-</head>
-<body>
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Search</title>
+    <style>
+        .in{
+            width:250px;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -28,17 +26,16 @@
                 <b>Question Control|Bangla</b>
             </legend>
             UPLOAD CSV
-            <input name="" type="file" value=""/>
-            <input type="submit" value="Update"/>
-            <input type="submit" value="Download" />
+            <input name="" class="form-control in" type="file" value=""/>
+            <input type="submit" class="form-control in" value="Update"/>
+            <input type="submit" class="form-control in" value="Download" />
        
         </fieldset>
         <br/>
         <table width="100%" cellspacing="0" border="1" cellpadding="5">
 
             <thead>
-            
-            <tr>
+                <tr>
                 <td>
                     ID No
                 </td>
@@ -65,11 +62,7 @@
                     Difficulty
                 </td>
             </tr>
-
             </thead>
-
-      
-
 
         </table>
         
@@ -77,6 +70,5 @@
 </div>
 </body>
 </html>
-</body>
-</html>
+
 

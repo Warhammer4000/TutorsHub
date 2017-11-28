@@ -1,43 +1,73 @@
-﻿@model IEnumerable<Entity.Data.Subject>
+﻿
+
 @{
     ViewBag.Title = "Subjects";
     Layout = "~/Views/Shared/Loggedin_Layout.cshtml";
 }
-<style>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
+</head>
 
-    td {
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-</style>
+<fieldset>
+    <legend>
+        <b>SUBJECT</b>
+    </legend>
+    <input style="width:200px;" class="form-control" name="subjecttext" type="text" />
+    <input class="btn" type="submit" value="Add" />
+</fieldset>
+<br />
+<br />
+<table cellspacing="0" cellpadding="5" border="1">
+    <tr>
+        <td width="100px"><strong>Subject</strong></td>
+        <td width="100px"><strong>Edit</strong></td>
+        <td width="100px"><strong>Remove</strong></td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Math
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
+        </td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Physics
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
+        </td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Chemistry
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
+        </td>
+    </tr>
+    <tr>
+        <td width="100px">
+            Biology
+        </td>
+        <td>
+            Edit
+        </td>
+        <td>
+            Remove
+        </td>
+    </tr>
+</table>
 
-<form method="post">
-
-    <fieldset>
-        <legend>
-            <b>SUBJECT</b>
-        </legend>
-        <input name="subjecttext" type="text" />
-        <input type="submit" value="Add" />
-    </fieldset>
-    <br />
-    <br />
-    <table cellspacing="0" cellpadding="5" border="1">
-        <tr>
-            <td width="100px"><strong>Subject</strong></td>
-            <td><stron>Edit</stron></td>
-            <td><strong>Remove</strong></td>
-        </tr>
-        <tr>
-            <td width="100px">
-                Hello
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", "Home")*@
-            </td>
-            <td>
-                @*@Html.ActionLink("Remove", "Remove", "Home")*@
-            </td>
-        </tr>
-    </table>
-</form>

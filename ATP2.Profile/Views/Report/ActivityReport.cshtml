@@ -2,68 +2,71 @@
 @{
     Layout = "../Shared/Loggedin_Layout.cshtml";
 }
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ActivityReport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XCompany | Dash Board</title>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
 </head>
 <body>
-<div>
-    <fieldset>
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <b>INACTIVE USERS</b>
-                </td>
-                <td align="right">
-                    <input type="submit" value="Print"/>
-                </td>
-            </tr>
-        </table>
-    </fieldset>
-    <br/>
-    <table width="100%" cellspacing="0" border="1" cellpadding="10">
-        <tr>        
-            <td><b>Inactive since 6 months (Total: 2)</b></td>
-        </tr>
-        <tr>        
-            <td>
-                <table cellspacing="0" cellpadding="5" border="1" width="100%">
-                    <tr>
-                        <td>Bob Marsh</td>
-                        <td>Last logged in 250 days ago</td>        
-                    </tr>
-                    <tr>
-                        <td>Lana Lane</td>
-                        <td>Last logged in 240 days ago</td>        
-                    </tr>
-                </table>
-            </td>          
-        </tr>
-        <tr>        
-            <td><b>Inactive since 3 months (Total: 3)</b></td>
-        </tr>
-        <tr>      
-            <td>
-                <table cellspacing="0" cellpadding="5" border="1" width="100%">               
-                    <tr>
-                        <td>Clark Kent</td>
-                        <td>Last logged in 160 days ago</td>        
-                    </tr>
-                    <tr>
-                        <td>Lois Lane</td>
-                        <td>Last logged in 149 days ago</td>        
-                    </tr>
-                    <tr>
-                        <td>Karl Ei</td>
-                        <td>Last logged in 149 days ago</td>        
-                    </tr>
-                </table>
-            </td>          
-        </tr>
-    </table>
-</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3">
+                <label>Name</label>
+            </div>
+            <div class="col-lg-2">
+                <label>Time In</label>
+            </div>
+            <div class="col-lg-2">
+                <label>Time Out</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3">
+                <label>Tyrion Lannister</label>
+            </div>
+            <div class="col-lg-2">
+                <label>11:00 pm</label>
+            </div>
+            <div class="col-lg-2">
+                <label>11:24 pm</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3">
+                <label>Jon Snow</label>
+            </div>
+            <div class="col-lg-2">
+                <label>7:20 am</label>
+            </div>
+            <div class="col-lg-2">
+                <label>9:00 am</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-3">
+                <label>Alex Wilson</label>
+            </div>
+            <div class="col-lg-2">
+                <label>2:22 pm</label>
+            </div>
+            <div class="col-lg-2">
+                <label>3:24 pm</label>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

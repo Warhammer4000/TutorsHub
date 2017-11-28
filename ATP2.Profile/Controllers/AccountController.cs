@@ -22,7 +22,7 @@ namespace ATP2.Profile.Controllers
             var user = (Tutor)Session["Tutor"];
             
             //Session["UserName"] = user.Name;
-            return View(new DashboardModel(){Usersince = user.UserSince,LastLogin = DateTime.Now});
+            return View(new DashboardModel());
         }
 
 
@@ -30,7 +30,7 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult AdminDashboard()
         {
-            var user = (Admin)Session["Admin"];
+           
 
             //Session["UserName"] = user.Name;
             return View("TutorRequest");
@@ -62,7 +62,7 @@ namespace ATP2.Profile.Controllers
             var tutor = (Tutor)Session["Tutor"];
             var editProfileModel = new EditProfileModel(tutor);
 
-            switch (tutor.Gender)
+            /*switch (tutor.Gender)
             {
                 case "Male":
                     tutor.MaleChecked = true;
@@ -87,7 +87,7 @@ namespace ATP2.Profile.Controllers
                 }
 
             }
-
+            */
 
 
             return View(editProfileModel);
@@ -180,8 +180,11 @@ namespace ATP2.Profile.Controllers
             return View();
         }
 
-
-
+        [HttpGet]
+        public ActionResult UserSearch()
+        {
+            return View();
+        }
 
 
 

@@ -3,123 +3,87 @@
 
 <html>
 <head>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
     <style>
-       
-
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
+        .dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-        /*.dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }*/
-
-
+        .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
+            margin-top: 0;
+        }   
     </style>
-    
-
-    <meta name="viewport" content="width=device-width"/>
-    <title>Public_Layout</title>
 </head>
 <body>
-    <div>
-        <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
-            <tr>
-                <td colspan="2" valign="middle" height="70">
-                    <table width="100%">
-                        <tr>
-                            <td>
-                                <a href="#">
-                                    <img height="48" src="../image/logo.png">
-                                </a>
-                            </td>
-                            <td align="right">
-                                Logged in as <a href="#">@Session["UserName"]</a>&nbsp;|
-                                @Html.ActionLink("Logout", "Index", "Home")
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="190" valign="top">
-                    <b>&nbsp;Account</b><hr />
-                    <ul>
-                        <li>@Html.ActionLink("DashBoard", "AdminDashboard", "Account")</li>
-                        <li>@Html.ActionLink("View Profile", "AdminProfile", "Account")</li>
-                        <li>@Html.ActionLink("Edit Profile", "EditProfileAdmin", "Account")</li>
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="home.html">XCompany</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Account
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Dashboard","AdminDashboard", "Account")</li>
+                        <li>@Html.ActionLink("View Profile", "UserProfile", "Account")</li>
+                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Account")</li>
                         <li>@Html.ActionLink("Change Password", "EditPassword", "Account")</li>
-                    
-                     
                     </ul>
-                    <hr /><b>&nbsp;User</b><hr />
-                    <ul>                
-                        <li>@Html.ActionLink("Search", "Search", "User")</li>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        User
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Search", "UserSearch", "Account")</li>
                         <li>@Html.ActionLink("Create New", "CreateNew", "User")</li>
                     </ul>
-                    
-                    <hr /><b>&nbsp;Data Control</b><hr />
-                    <ul>                
-                        <li>   
-                            <div class="dropdown">
-                            Question Paper
-                            <div class="dropbtn">
-                                <div class="dropdown-content">
-                                    @Html.ActionLink("Bangla", "QuestionPaper", "Data")
-                                </div>
-                            </div>
-                        </div>
-                        </li>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Data Control
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Question Paper", "QuestionPaper", "Data")</li>
                         <li>@Html.ActionLink("Locations", "Locations", "Data")</li>
                         <li>@Html.ActionLink("Subjects", "Subjects", "Data")</li>
                     </ul>
-                    <hr /><b>&nbsp;Report</b><hr />
-                    <ul>                
-                        <li>User Reports
-                            <ul>
-                                <li>@Html.ActionLink("Statistics Report", "StatisticReport", "Report")</li>
-                                <li>@Html.ActionLink("Activity Report", "ActivityReport", "Report")</li>
-                             
-                            </ul>
-                        </li>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Report
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Statistics Report", "StatisticReport","Report")</li>
+                        <li>@Html.ActionLink("Activity", "ActivityReport", "Report")</li>
                     </ul>
-                </td>
-                <td valign="top">
-                        @RenderBody()
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <span class="alert alert-success">Logged As User</span>
+                @Html.ActionLink("Log Out","Index","Home" )
+                </ul>
+        </div>
+    </nav>
+    <div>
+        <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
+            <tr>
+                <td align="center">
+                    @RenderBody()
+                    <br /><br /><br />
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="center">
+                <td align="center">
                     Copyright &copy; 2017
                 </td>
             </tr>
