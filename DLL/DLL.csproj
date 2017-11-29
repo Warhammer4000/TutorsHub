@@ -55,6 +55,7 @@
     <Compile Include="QuestionContext\ExamScriptContext.cs" />
     <Compile Include="UserContext\AdminContext.cs" />
     <Compile Include="UserContext\IUserContext.cs" />
+    <Compile Include="UserContext\StudentContext.cs" />
     <Compile Include="UserContext\TutorContext.cs" />
     <Compile Include="UserContext\UserContext.cs" />
   </ItemGroup>

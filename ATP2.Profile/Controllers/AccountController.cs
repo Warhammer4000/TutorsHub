@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.AccountModels;
 using ATP2.Profile.Models.HomeModels;
+using BLL;
 using BLL.UserRepository;
 using Entity;
 using Entity.Data;
@@ -119,7 +120,10 @@ namespace ATP2.Profile.Controllers
 
             if (ModelState.IsValid)
             {
-                new TutorRepository().Update(editProfileModel.Tutor);
+                IUserRepository<Entity.UserModels.Tutor> tutoRepository =
+                    new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+
+                tutoRepository.Update(editProfileModel.Tutor);
             }
 
             return View(new EditProfileModel(editProfileModel.Tutor));
@@ -153,15 +157,20 @@ namespace ATP2.Profile.Controllers
                     case Role.Admin:
                         var admin = (Admin)Session["Admin"];
                         admin.Password = editPasswordModel.RNewPassword;
-                        new AdminRepository().Update(admin);
+
+                        IUserRepository<Admin> adminRepository =
+                            new RepositoryProvider().Create<Admin>();
+
+                        adminRepository.Update(admin);
                         break;
                     case Role.Executive:
                         break;
                     case Role.Tutor:
                         var tutor = (Entity.UserModels.Tutor)Session["Tutor"];
                         tutor.Password = editPasswordModel.RNewPassword;
-
-                        new TutorRepository().Update(tutor);
+                        IUserRepository<Entity.UserModels.Tutor> studentRepository =
+                            new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+                        studentRepository.Update(tutor);
                         break;
                     case Role.Student:
                         break;

@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using BLL;
 using BLL.UserRepository;
 
 namespace ATP2.Profile.Controllers.Tutor
@@ -25,14 +26,14 @@ namespace ATP2.Profile.Controllers.Tutor
         [HttpGet]
         public ActionResult ViewProfile()
         {
-            IUserRepository<Entity.UserModels.Tutor> irepository= new TutorRepository();
+            IUserRepository<Entity.UserModels.Tutor> irepository= new RepositoryProvider().Create<Entity.UserModels.Tutor>();
             return View(irepository.GetByEmail(Session["UserName"].ToString()));
         }
 
         [HttpGet]
         public ActionResult EditProfile()
         {
-            IUserRepository<Entity.UserModels.Tutor> irepository = new TutorRepository();
+            IUserRepository<Entity.UserModels.Tutor> irepository = new RepositoryProvider().Create<Entity.UserModels.Tutor>();
             return View(irepository.GetByEmail(Session["UserName"].ToString()));
         }
 

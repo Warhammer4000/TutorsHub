@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BLL;
 using BLL.UserRepository;
 using Entity.Data;
 using Entity.UserModels;
@@ -51,21 +52,23 @@ namespace ATP2.Profile
          
 
             
-            
-            new TutorRepository().Add(user);
-            new AdminRepository().Add(user2);
+            RepositoryProvider repositoryProvider = new RepositoryProvider();
+            IUserRepository<Tutor> iTutor = repositoryProvider.Create<Tutor>();
+            IUserRepository<Admin> iAdmin = repositoryProvider.Create<Admin>();
+            iTutor.Add(user);
+            iAdmin.Add(user2);
           
-           
+           Fake_data();
 
 
         }
 
-        public void Fake_data()
+        private void Fake_data()
         {
             Admin admin1 = new Admin()
             {
                 Name = "James",
-                Password = "hello1234",
+                Password = "darks1d1erS!",
                 Email = "admin@gmail.com",
                 Gender = "Male",
                 DateOfBirth = new DateTime(1995, 2, 18),
@@ -76,7 +79,7 @@ namespace ATP2.Profile
             Admin admin2 = new Admin()
             {
                 Name = "Jake",
-                Password = "Jake1234",
+                Password = "darks1d1erS!",
                 Email = "jake@gmail.com",
                 Gender = "Male",
                 DateOfBirth = new DateTime(1993, 2, 18),
@@ -90,7 +93,7 @@ namespace ATP2.Profile
 
                 Name = "Jamal",
                 Email = "jamal@gmail.com",
-                Password = "jamal1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
                 DateOfBirth = new DateTime(1996, 1, 25),
                 Status = Status.Active,
@@ -108,16 +111,16 @@ namespace ATP2.Profile
                 },
                 PreferredMedium = new List<string>()
                 {
-                    "English Medium",
-                    "English Version"
+                    "English",
+                    "Bangla"
                 },
                 PreferredClasses = new List<string>
                 {
-                    "class-1",
-                    "class-2",
-                    "class-3",
-                    "class-4",
-                    "class-5",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
                 },
                 PreferredLocations = new List<Location>()
                 {
@@ -128,7 +131,7 @@ namespace ATP2.Profile
                 },
                 ExpectedSalary = 5000,
                 Bio = "Student",
-                CurrentStatus = Status.Active.ToString(),
+                CurrentStatus = "Student Of AIUB",
                 
             };
 
@@ -137,7 +140,7 @@ namespace ATP2.Profile
 
                 Name = "kamal",
                 Email = "kamal@gmail.com",
-                Password = "kamal1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
                 DateOfBirth = new DateTime(1996, 1, 25),
                 Status = Status.Active,
@@ -184,7 +187,7 @@ namespace ATP2.Profile
 
                 Name = "Bimal",
                 Email = "bimal@gmail.com",
-                Password = "Bimal1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
                 DateOfBirth = new DateTime(1993, 1, 25),
                 Status = Status.Active,
@@ -203,17 +206,17 @@ namespace ATP2.Profile
                 },
                 PreferredMedium = new List<string>()
                 {
-                    "Bangla Medium",
-                    "English Version",
-                    "English Medium"
+                    "Bangla",
+                    "English"
+                   
                 },
                 PreferredClasses = new List<string>
                 {
-                    "class-8",
-                    "class-9",
-                    "class-10",
-                    "class-11",
-                    "class-12"
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "12"
                 },
                 PreferredLocations = new List<Location>()
                 {
@@ -232,9 +235,11 @@ namespace ATP2.Profile
             {
                 Name = "Jahid",
                 Email = "jahid@gmail.com",
-                Password = "jahidl1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
                 DateOfBirth = new DateTime(2002, 1, 25),
+                UserSince = new DateTime(2006, 7, 1),
+                LastLogin = DateTime.Now,
                 Status = Status.Active,
                 Mobilenumber = "0128972588",
                 Address = "mirpur-11"
@@ -244,9 +249,11 @@ namespace ATP2.Profile
             {
                 Name = "Jihad",
                 Email = "jihad@gmail.com",
-                Password = "jihadl1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
+                LastLogin = DateTime.Now,
                 DateOfBirth = new DateTime(2001, 1, 25),
+                UserSince = new DateTime(2006, 7, 1),
                 Status = Status.Active,
                 Mobilenumber = "0128978598",
                 Address = "mirpur-1"
@@ -255,21 +262,29 @@ namespace ATP2.Profile
             {
                 Name = "Rishad",
                 Email = "rishad@gmail.com",
-                Password = "rishadl1234",
+                Password = "darks1d1erS!",
                 Gender = "Male",
+                LastLogin = DateTime.Now,
                 DateOfBirth = new DateTime(2000, 1, 25),
+                UserSince = new DateTime(2006, 7, 1),
                 Status = Status.Active,
                 Mobilenumber = "0128978598",
                 Address = "khilkhet"
             };
 
 
-            new AdminRepository().Add(admin1);
-            new AdminRepository().Add(admin2);
-            new TutorRepository().Add(tutor1);
-            new TutorRepository().Add(tutor2);
-            new TutorRepository().Add(tutor3);
-            
+            RepositoryProvider repositoryProvider = new RepositoryProvider();
+            IUserRepository<Tutor> iTutor = repositoryProvider.Create<Tutor>();
+            IUserRepository<Admin> iAdmin = repositoryProvider.Create<Admin>();
+            IUserRepository<Student> iStudent = repositoryProvider.Create<Student>();
+            iAdmin.Add(admin1);
+            iAdmin.Add(admin2);
+            iTutor.Add(tutor1);
+            iTutor.Add(tutor2);
+            iTutor.Add(tutor3);
+            iStudent.Add(student1);
+            iStudent.Add(student2);
+            iStudent.Add(student3);
 
         }
 

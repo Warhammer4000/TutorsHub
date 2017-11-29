@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ATP2.Profile.Models;
 using ATP2.Profile.Models.HomeModels;
+using BLL;
 using BLL.SearchRepository;
 using BLL.UserRepository;
 using Entity;
@@ -28,26 +29,35 @@ namespace ATP2.Profile.Controllers
 
             if (ModelState.IsValid)
             {
-                var admin = new AdminRepository().GetByEmail(loginModel.Email);
+
+                IUserRepository<Admin> adminRepository =
+                    new RepositoryProvider().Create<Admin>();
+
+                var admin = adminRepository.GetByEmail(loginModel.Email);
 
                 if (admin != null)
                 {
                     admin.LastLogin = DateTime.Now;
 
-                    new AdminRepository().Update(admin);
+                    adminRepository.Update(admin);
                     Session["Admin"] = admin;
                     Session["UserName"] =admin.Email;
                     Session["Role"] = Role.Admin;
                     return RedirectToAction("AdminDashboard", "Account");
                 }
 
-                var tutor = new TutorRepository().GetByEmail(loginModel.Email);
+
+
+                IUserRepository<Entity.UserModels.Tutor> tutoRepository =
+                    new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+
+                var tutor = tutoRepository.GetByEmail(loginModel.Email);
 
                 if (tutor != null)
                 {
                     tutor.LastLogin = DateTime.Now;
 
-                    new TutorRepository().Update(tutor);
+                    tutoRepository.Update(tutor);
                     Session["Tutor"] = tutor;
                     Session["UserName"] = tutor.Email;
                     Session["Role"] = Role.Tutor;
@@ -91,7 +101,11 @@ namespace ATP2.Profile.Controllers
         [HttpGet]
         public ActionResult ViewTutor()
         {
-            var tutor=new TutorRepository().GetByEmail("tkhan@iquantile.com");
+            IUserRepository<Entity.UserModels.Tutor> tutoRepository =
+                new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+
+
+            var tutor= tutoRepository.GetByEmail("tkhan@iquantile.com");
             return View(tutor);
         }
 
@@ -109,27 +123,29 @@ namespace ATP2.Profile.Controllers
           
             if (ModelState.IsValid)
             {
-                
+                IUserRepository<Admin> adminRepository =
+                    new RepositoryProvider().Create<Admin>();
 
-                var admin = new AdminRepository().GetByEmail(loginModel.Email);
+                var admin = adminRepository.GetByEmail(loginModel.Email);
 
                 if (admin != null)
                 {
                     admin.LastLogin = DateTime.Now;
 
-                    new AdminRepository().Update(admin);
+                    adminRepository.Update(admin);
                     Session["Admin"] = admin;
                     Session["Role"] = Role.Admin;
                     return RedirectToAction("AdminDashboard", "Account");
                 }
-
-                var tutor = new TutorRepository().GetByEmail(loginModel.Email);
+                IUserRepository<Entity.UserModels.Tutor> tutoRepository =
+                    new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+                var tutor = tutoRepository.GetByEmail(loginModel.Email);
 
                 if (tutor != null)
                 {
                     tutor.LastLogin = DateTime.Now;
 
-                    new TutorRepository().Update(tutor);
+                    tutoRepository.Update(tutor);
                     Session["Tutor"] = tutor;
                     Session["Role"] = Role.Tutor;
                     return RedirectToAction("Dashboard", "Tutor");

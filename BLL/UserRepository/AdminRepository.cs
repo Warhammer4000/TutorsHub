@@ -6,7 +6,7 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    public class AdminRepository:UserRepo<Admin>,IUserRepository<Admin>
+    internal class AdminRepository:UserRepo<Admin>,IUserRepository<Admin>
     {
         
     }

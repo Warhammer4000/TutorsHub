@@ -1,5 +1,6 @@
 ﻿
 using System.Linq;
+using BLL;
 using BLL.UserRepository;
 using Entity;
 using Entity.UserModels;
@@ -15,10 +16,12 @@ namespace ATP2.Profile.Models.ReportModels
 
         public StatisticReport()
         {
-    
-            Admin = new AdminRepository().GetAll().Count;
+            
+            Admin = new RepositoryProvider().Create<Tutor>().GetAll().Count;
             Executive = 0;
-            Tutor = new TutorRepository().GetAll().Count;
+
+
+            Tutor = new RepositoryProvider().Create<Tutor>().GetAll().Count;
             Total = Admin + Executive + Tutor;
         }
 

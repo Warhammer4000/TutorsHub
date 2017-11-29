@@ -22,6 +22,9 @@ namespace Entity.UserModels
         public string CurrentStatus { get; set; }
 
 
+        public List<Student> Students { get; set; }
+        public List<Student> ActiveStudents { get; set; }
+
         public Tutor()
         {
             Role = Role.Tutor;
@@ -29,7 +32,10 @@ namespace Entity.UserModels
             PreferredLocations = new List<Location>();
             PreferredMedium = new List<string>();
             PreferredSubjects = new List<Subject>();
-            
+            Students= new List<Student>();
+            ActiveStudents= new List<Student>();
+
+
         }
 
 
