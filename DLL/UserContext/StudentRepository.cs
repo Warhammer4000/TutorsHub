@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +7,7 @@ using Entity.UserModels;
 
 namespace DLL.UserContext
 {
-    public class AdminContext:UserContext<Admin>, IUserContext<Admin>
+    public class StudentRepository:UserRepository<Student>,IUserRepository<Student>
     {
-
     }
 }

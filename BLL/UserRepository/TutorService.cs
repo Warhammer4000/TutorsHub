@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    internal class TutorRepository:UserRepo<Tutor>,IUserRepository<Tutor>
+    internal class TutorService:UserService<Tutor>,IUserService<Tutor>
     {
        
     }

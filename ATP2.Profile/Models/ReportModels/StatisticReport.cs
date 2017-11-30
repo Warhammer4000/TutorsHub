@@ -17,11 +17,11 @@ namespace ATP2.Profile.Models.ReportModels
         public StatisticReport()
         {
             
-            Admin = new RepositoryProvider().Create<Tutor>().GetAll().Count;
+            Admin = new ServiceProvider().Create<Tutor>().GetAll().Count;
             Executive = 0;
 
 
-            Tutor = new RepositoryProvider().Create<Tutor>().GetAll().Count;
+            Tutor = new ServiceProvider().Create<Tutor>().GetAll().Count;
             Total = Admin + Executive + Tutor;
         }
 

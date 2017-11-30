@@ -14,7 +14,7 @@ namespace BLL.SearchRepository
         public List<Tutor> SearchTutors(Location location,string gender,string Class,
             int salaryMin,int salaryMax,List<Subject> selectedSubjects)
         {
-            List<Tutor> searchResult=new TutorRepository().GetAll();
+            List<Tutor> searchResult=new TutorService().GetAll();
 
             searchResult = searchResult.Where(r => r.ExpectedSalary >= salaryMin 
             && r.ExpectedSalary <= salaryMax

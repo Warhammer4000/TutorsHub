@@ -16,8 +16,8 @@ namespace ATP2.Profile.Models.HomeModels
         public string SearchButton { get; set; }
         public SearchModel()
         {
-            Subjects=new SubjectRepository().GetAll();
-            Locations= new LocationRepostiory().GetAll();
+            Subjects=new SubjectService().GetAll();
+            Locations= new LocationService().GetAll();
             TutorList= new List<Tutor>();
             Location=new Location();
       

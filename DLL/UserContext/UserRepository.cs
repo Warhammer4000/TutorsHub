@@ -7,7 +7,7 @@ using Entity.UserModels;
 
 namespace DLL.UserContext
 {
-    public class UserContext<T> where T : User
+    public class UserRepository<T> where T : User
     {
         public T GetByEmail(string email)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DLL.UserContext
 {
-    public interface IUserContext<T>
+    public interface IUserRepository<T>
     {
         T GetByEmail(string email);
         List<T> GetAll();

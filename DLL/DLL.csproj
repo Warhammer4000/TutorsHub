@@ -53,11 +53,11 @@
     <Compile Include="DataContext\SubjectContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionContext\ExamScriptContext.cs" />
-    <Compile Include="UserContext\AdminContext.cs" />
-    <Compile Include="UserContext\IUserContext.cs" />
-    <Compile Include="UserContext\StudentContext.cs" />
-    <Compile Include="UserContext\TutorContext.cs" />
-    <Compile Include="UserContext\UserContext.cs" />
+    <Compile Include="UserContext\AdminRepository.cs" />
+    <Compile Include="UserContext\IUserRepository.cs" />
+    <Compile Include="UserContext\StudentRepository.cs" />
+    <Compile Include="UserContext\TutorRepository.cs" />
+    <Compile Include="UserContext\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DLL;
+
 using DLL.QuestionContext;
 using Entity.Data;
 using Entity.QuestionModels;
 
 namespace BLL.Exam
 {
-    public class ExamRepository
+    public class ExamService
     {
         public int ValidateExamScript(List<ExamQuestion> examScript, Subject subject)
         {

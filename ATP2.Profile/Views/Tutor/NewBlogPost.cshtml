@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "NewBlogPost";
+    Layout = "~/Views/Shared/TutorLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background:white;">
+<div style="text-align:center;  background:white;margin:50px 0px 0px 0px;padding:0px 0px 0px 0px">
+    <div class="mid" style="width:90%;margin:auto;" >
+        <h2>Write Blog</h2>
+        <form method="post" >
+            <br>
+            <input type="text" name="heading" placeholder="write a heading" style="width:80%;padding:0px 0px 0px 0px">
+            <br>
+            <br>
+            <input type="text" name="title" placeholder="give a title" style="width:80%;">
+            <br>
+            <br>
+                <textarea placeholder="this text will show in the textarea" form="postform" style="width:80%; margin:0px 0px 0px 0px" rows="15"></textarea>
+            <br><br><br><br><br>
+            <div>
+                <input type="submit" name="publish" value="Publish" style="position: static; color:darkgreen; padding:10px 42px 10px 31px; border-radius:7px;margin:-53px 96px 2px 2px;display:block">
+            
+            </div>
+           
+        </form>
+    </div>
+</div>
+</body>
+</html>

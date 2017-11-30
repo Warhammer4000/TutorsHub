@@ -125,6 +125,10 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\CSS\bootstrap-theme.min.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
+    <Content Include="Views\CSS\style.css" />
+    <Content Include="Views\js\bootstrap.min.js" />
+    <Content Include="Views\js\jquery-3.2.1.min.js" />
+    <Content Include="Views\Tutor\images\birds.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,8 +137,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
-    <Compile Include="Controllers\Student\StudentController.cs" />
-    <Compile Include="Controllers\Tutor\TutorController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TutorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +198,13 @@
     <Content Include="Views\Tutor\EditProfile.cshtml" />
     <Content Include="Views\Tutor\Blog.cshtml" />
     <Content Include="Views\Student\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\NewBlogPost.cshtml" />
+    <Content Include="Views\Tutor\BlogContent.cshtml" />
+    <Content Include="Views\Student\SearchTutor.cshtml" />
+    <Content Include="Views\Tutor\ViewStudent.cshtml" />
+    <Content Include="Views\Tutor\Timer.cshtml" />
+    <Content Include="Views\Student\Notification.cshtml" />
+    <Content Include="Views\Tutor\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -203,7 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\js\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

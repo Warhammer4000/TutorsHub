@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.DataRepository
 {
-    interface IDataRepository<T>
+    interface IDataService<T>
     {
         List<T> GetAll();
     }
