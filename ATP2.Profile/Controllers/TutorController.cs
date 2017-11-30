@@ -2,7 +2,7 @@
 using BLL;
 using BLL.UserRepository;
 
-namespace ATP2.Profile.Controllers.Tutor
+namespace ATP2.Profile.Controllers
 {
     public class TutorController : Controller
     {
@@ -18,22 +18,37 @@ namespace ATP2.Profile.Controllers.Tutor
         }
 
         [HttpGet]
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
         public ActionResult StudentList()
         {
             return View();
         }
 
+
+        [HttpGet]
+        public ActionResult ViewStudent()
+        {
+            IUserService<Entity.UserModels.Student> studenService = new ServiceProvider().Create<Entity.UserModels.Student>();
+            return View(studenService.GetByEmail("jahid@gmail.com"));
+        }
+
         [HttpGet]
         public ActionResult ViewProfile()
         {
-            IUserRepository<Entity.UserModels.Tutor> irepository= new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+            IUserService<Entity.UserModels.Tutor> irepository= new ServiceProvider().Create<Entity.UserModels.Tutor>();
             return View(irepository.GetByEmail(Session["UserName"].ToString()));
         }
 
         [HttpGet]
         public ActionResult EditProfile()
         {
-            IUserRepository<Entity.UserModels.Tutor> irepository = new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+            IUserService<Entity.UserModels.Tutor> irepository = new ServiceProvider().Create<Entity.UserModels.Tutor>();
             return View(irepository.GetByEmail(Session["UserName"].ToString()));
         }
 
@@ -47,6 +62,8 @@ namespace ATP2.Profile.Controllers.Tutor
         }
 
 
+        #region Blog
+
         [HttpGet]
         public ActionResult Blog()
         {
@@ -54,8 +71,30 @@ namespace ATP2.Profile.Controllers.Tutor
             return View();
         }
 
+        [HttpGet]
+        public ActionResult NewBlogPost()
+        {
+
+            return View();
+        }
 
 
+
+        [HttpGet]
+        public ActionResult BlogContent()
+        {
+
+            return View();
+        }
+
+        #endregion
+
+        [HttpGet]
+        public ActionResult Timer()
+        {
+          
+            return View();
+        }
 
 
 

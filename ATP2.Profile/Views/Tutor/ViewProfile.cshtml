@@ -5,344 +5,191 @@
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-
 <html>
-
-<style>
-    .container {
-        width: 100%;
-    }
-
-    .left {
-        float: left;
-        width: 65%;
-    }
-
-    .right {
-        background: #181A1A;
-        float: right;
-        margin-top: 10px;
-        width: 35%;
-    }
-
-    table {
-        border: 1px gray;
-        width: 100%;
-    }
-
-    th, td {
-        border-radius: 5px;
-        padding: 7px;
-        text-align: left;
-    }
-
-    tr {
-        background-color: white
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        margin-bottom: 1px;
-        margin-top: 0px;
-        padding: 0px;
-    }
-
-    #info h1 {
-        border-bottom: 2px solid #4CAF50;
-        width: 20%;
-    }
-
-    #profile_img {
-        border: 15px double #4CAF50;
-        border-radius: 50%;
-        height: 150px;
-        width: 150px;
-    }
-
-    .active {
-        background: #4CAF50;
-        border: 2px solid #4CAF50 !important;
-        color: #ffffff;
-    }
-
-    #one {
-        font-weight: 600;
-        padding: 5px;
-    }
-
-    #two td {
-        border: 2px solid red;
-        padding: 5px;
-        text-align: center;
-    }
-
-    .button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        display: inline-block;
-        font-size: 15px;
-        padding: 15px 32px;
-        position: center;
-        text-align: center;
-        text-decoration: none;
-    }
-</style>
-
-
 <head>
-    <meta name="viewport" content="width=device-width" />
     <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <style type="text/css">
+        input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        input[type=text] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 32px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        input[type=text]:focus {
+            background-color: green;
+        }
+
+        input[type=tel] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 32px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        input[type=tel]:focus {
+            background-color: green;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px 32px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+        input[type=date] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 32px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+        h1 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 26.4px;
+        }
+        h3 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 800;
+            line-height: 15.4px;
+        }
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 30%;
+            padding: 10px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #content {
+            padding-top: 10px;   
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+
+
+
+    </style>
 </head>
 <body>
-    <div>
-        <fieldset>
-            <legend>
-                <b>PROFILE</b>
-            </legend>
-
-
-            <div class="container">
-
-                <div class="wrap">
-
-                    <div class="left">
-                        <table style="width: auto" cellspacing="10">
-                            <tr style="background: transparent">
-                                <td style="width: 30%;">
-                                    <img id="profile_img" src="@Model.ProfilePictureUrl">
-                                </td>
-
-                                <td style="background: white">
-                                    <h1 style="margin-top: -30px"> @Model.Name </h1>
-
-
-                                    <p>
-                                        <b>Current Status: </b> @Model.CurrentStatus
-
-                                    </p>
-                                    <p> @Model.Bio </p>
-                                </td>
-
-                            </tr>
-
-
-
-                        </table>
-
-
-                        <table cellspacing="10">
-
-
-                            <td id="info">
-                                <h1>
-                                    Tuition Info
-                                </h1>
-
-
-                                <table id="one">
-                                    <tr>
-                                        <td style="width: 150px">
-                                            Expected Salary:
-                                        </td>
-
-                                        <td>
-                                            @Model.ExpectedSalary tk/hour
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Preferred Medium:
-                                        </td>
-
-                                        <td>
-
-                                            <table style="width: auto" id="two">
-                                                <tr>
-                                                    @foreach (var medium in @Model.PreferredMedium)
-                                                    {
-                                                        <td class="active" align="center">
-                                                            <p> &#10004; @medium </p>
-                                                        </td>
-                                                    }
-                                                </tr>
-                                            </table>
-
-
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            Preferred Classes:
-                                        </td>
-
-                                        <td>
-                                            <table style="width: auto" id="two">
-                                                <tr>
-                                                    @foreach (var classes in @Model.PreferredClasses)
-                                                    {
-                                                        <td class="active" align="center">
-                                                            <p> &#10004; @classes </p>
-                                                        </td>
-                                                    }
-
-                                                </tr>
-
-                                            </table>
-
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            Preferred Subjects:
-                                        </td>
-
-                                        <td>
-                                            <table style="width: auto" id="two">
-                                                <tr>
-                                                    @foreach (var subject in @Model.PreferredSubjects)
-                                                    {
-                                                        <td class="active" align="center">
-                                                            <p> &#10004; @subject.Name </p>
-                                                        </td>
-                                                    }
-                                                </tr>
-
-                                            </table>
-
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            Preferred Area:
-                                        </td>
-
-                                        <td>
-                                            <table style="width: auto" id="two">
-                                                <tr>
-
-                                                    @foreach (var location in @Model.PreferredLocations)
-                                                    {
-                                                        <td style="border: 2px solid green;">
-                                                            <p>@location.Name</p>
-                                                        </td>
-                                                    }
-
-
-
-                                                </tr>
-
-                                            </table>
-                                        </td>
-                                    </tr>
-
-                                </table>
-
-                            </td>
-
-                        </table>
-
-                    </div>
-
-                    <div class="right">
-
-                        <table style="margin-top: 0px" cellspacing="10">
-
-
-                            <td colspan="2">
-
-
-                                <b> Member Since: </b> @Model.UserSince <br>
-                                <b> Last Login: </b> @Model.LastLogin <br>
-
-
-                            </td>
-                        </table>
-
-                        <table cellspacing="10">
-
-                            <tr>
-                                <td style="width: 30%">
-
-                                    <b> Level </b>
-
-                                </td>
-
-                                <td>
-
-                                    <p> @Model.Level </p>
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-
-                                <td>
-
-                                    <b> Experience </b>
-
-                                </td>
-
-                                <td>
-
-                                    <p> @Model.Experience </p>
-                                </td>
-                            </tr>
-
-
-                        </table>
-
-                        <table cellspacing="10">
-
-                            @*
-                                    <tr>
-
-                                        <td colspan="2">
-
-                                    <h2>
-                                        Contact this Tutor
-                                    </h2>
-
-                                    <table>
-
-
-                                        <tr>
-                                            <td colspan="2">
-                                                <b> Name </b> <br> <input type="text" name="senderName" size="35"> <br>
-                                                <b> Phone No </b> <br> <input type="text" name="senderPhone" size="35"> <br>
-                                                <b> Email </b> <br> <input type="text" name="senderEmail" size="35"> <br>
-                                                <b> Message </b> <br> <textarea name="senderMsg" cols="37" rows="5"></textarea> <br> <br>
-                                                <button type="button" class="button">Send Message</button>
-
-                                            </td>
-
-
-                                        </tr>
-
-                                    </table>
-
-                                </tr>
-                            *@
-
-                        </table>
-
-
-                    </div>
-                </div>
-            </div>
-
-        </fieldset>
-    </div>
+<h1>Profile</h1>
+<hr/>
+<div id="content"> 
+            
+    <div class="row">
+        <tr>
+        <td>
+        <div class="column">
+            <table>    
+             
+						   
+                <tr><td><img src = "http://via.placeholder.com/200x200"/><br><br></td></tr>
+							
+                <tr><td><br></td></tr>
+                <tr><td><br></td></tr>
+                <tr><td><b>Name:</b></td><td>@Model.Name<br></td></tr>
+                <tr><td><b>Current Status:</b></td><td> @Model.CurrentStatus<br></td></tr>
+							
+                <tr><td><br></td></tr>
+                <tr><td><h1>Tuiton Info</h1><br></td></tr>
+                <tr><td><b>Expected Salary:</b></td><td> @Model.ExpectedSalary<br></td></tr>
+                <tr><td><b>Preferred Medium:</b></td><td> Bangla<br></td></tr>
+                <tr><td><b>Preferred Classes:</b></td><td> 1,2,3,4,5,6<br></td></tr>
+                <tr><td><b>Preferred Subjects:</b></td><td> Bangla,English,Math,Physics<br></td></tr>
+                <tr><td><b>Preferred Areas:</b></td><td> Mirpur-1,Mirpur-2,Mirpur-10<br></td></tr>
+            </table>
+        </div>
+                        
+        <div class="column">
+            <table>
+            <tr><td><br></td></tr>
+            <tr><td><br></td></tr>
+            <tr><td><br></td></tr>
+            <tr><td><br></td></tr>
+            <tr><td><b>Member since:</b></td><td> @Model.UserSince<br></td></tr>
+            <tr><td><b>Last Active:</b></td><td> @Model.LastLogin<br></td></tr>
+            <tr><td><b>Level:</b></td><td> @Model.Level<br></td></tr>
+            <tr><td><b>Experience</b></td><td> @Model.Experience</td></tr>
+            </table>
+        </div>
+
+
+    </div>   
+</div>
+    
 </body>
 </html>

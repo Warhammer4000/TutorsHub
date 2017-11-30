@@ -1,0 +1,77 @@
+﻿@model Entity.UserModels.Student
+@{
+    ViewBag.Title = "ViewStudent";
+    Layout = "~/Views/Shared/TutorLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html xmlns>
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+
+    <title>Index</title>
+</head>
+
+<body>
+
+
+
+    <table class="table table-bordered table-hover table-responsive ">
+
+        <tr>
+            <td colspan="2">
+                <h1 class="text-center text-primary">Profile</h1>
+                <img class="img-responsive" src="http://images.clipartpanda.com/person-clipart-dc85kMGMi.svg"
+                     width="150px" style="float: right; ">
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-2 col-xs-2 text-capitalize text-primary">
+                name
+            </td>
+            <td class="col-sm-10 col-xs-10">@Model.Name</td>
+        </tr>
+
+        <tr>
+            <td class="col-sm-2 col-xs-2 text-capitalize text-primary">
+
+                email
+            </td>
+            <td class="col-sm-10 col-xs-10">@Model.Email</td>
+        </tr>
+
+        <tr>
+            <td class="col-sm-2 col-xs-2 text-capitalize text-primary">
+                mobile
+            </td>
+            <td class="col-sm-10 col-xs-10">@Model.Mobilenumber</td>
+        </tr>
+
+        <tr>
+            <td class="col-sm-2 col-xs-2 text-capitalize text-primary">
+                gender
+            </td>
+            <td class="col-sm-10 col-xs-10">@Model.Gender</td>
+        </tr>
+
+
+
+    </table>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

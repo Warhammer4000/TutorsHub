@@ -8,7 +8,7 @@ using Entity.Data;
 
 namespace BLL.DataRepository
 {
-    public class LocationRepostiory:IDataRepository<Location>
+    public class LocationService:IDataService<Location>
     {
         public List<Location> GetAll()
         {

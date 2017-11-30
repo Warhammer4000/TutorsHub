@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<html>
+<head>
+    <title>Approve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <style type="text/css">
+        select {
+            width: 100%;
+            padding: 10px 32px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+
+        h1 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 26.4px;
+        }
+
+        h3 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 800;
+            line-height: 15.4px;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 30%;
+            padding: 10px;
+            margin-right: 5%;
+            margin-left: 10%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #content {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Approve</h1>
+    <hr />
+    <div id="content">
+
+        <div class="row">
+            <tr>
+                <td>
+                    <div class="column">
+                        <table>
+
+                            <tr><td><img src="../../image/user.png"> </td></tr>
+
+                           
+                            <tr><td>Tanimul Haque Khan<br></td></tr>
+
+                            <tr>><td> 30-11-2017 <br></td></tr>
+                            <tr><td> 4.11 pm - 5.20 pm <br></td></tr>
+                           
+                            <tr>
+                                <form action="#"><td>&nbsp <input type="submit" value="approve"><br /></td></form>
+                                <form action="#"><td><input type="submit" value="report"><br></td></form>
+                            </tr>
+
+
+                        </table>
+                    </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+

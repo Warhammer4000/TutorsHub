@@ -16,8 +16,8 @@ namespace ATP2.Profile.Models.AccountModels
         public EditProfileModel(Tutor tutor)
         {
             Tutor = tutor;
-            Subjects=new SubjectRepository().GetAll();
-            Locations=new LocationRepostiory().GetAll();
+            Subjects=new SubjectService().GetAll();
+            Locations=new LocationService().GetAll();
             Classes=new List<Class>();
 
             for (var i = 1; i <= 12; i++)

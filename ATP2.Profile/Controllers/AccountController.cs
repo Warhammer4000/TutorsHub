@@ -120,10 +120,10 @@ namespace ATP2.Profile.Controllers
 
             if (ModelState.IsValid)
             {
-                IUserRepository<Entity.UserModels.Tutor> tutoRepository =
-                    new RepositoryProvider().Create<Entity.UserModels.Tutor>();
+                IUserService<Entity.UserModels.Tutor> tutoService =
+                    new ServiceProvider().Create<Entity.UserModels.Tutor>();
 
-                tutoRepository.Update(editProfileModel.Tutor);
+                tutoService.Update(editProfileModel.Tutor);
             }
 
             return View(new EditProfileModel(editProfileModel.Tutor));
@@ -158,19 +158,19 @@ namespace ATP2.Profile.Controllers
                         var admin = (Admin)Session["Admin"];
                         admin.Password = editPasswordModel.RNewPassword;
 
-                        IUserRepository<Admin> adminRepository =
-                            new RepositoryProvider().Create<Admin>();
+                        IUserService<Admin> adminService =
+                            new ServiceProvider().Create<Admin>();
 
-                        adminRepository.Update(admin);
+                        adminService.Update(admin);
                         break;
                     case Role.Executive:
                         break;
                     case Role.Tutor:
                         var tutor = (Entity.UserModels.Tutor)Session["Tutor"];
                         tutor.Password = editPasswordModel.RNewPassword;
-                        IUserRepository<Entity.UserModels.Tutor> studentRepository =
-                            new RepositoryProvider().Create<Entity.UserModels.Tutor>();
-                        studentRepository.Update(tutor);
+                        IUserService<Entity.UserModels.Tutor> studentService =
+                            new ServiceProvider().Create<Entity.UserModels.Tutor>();
+                        studentService.Update(tutor);
                         break;
                     case Role.Student:
                         break;

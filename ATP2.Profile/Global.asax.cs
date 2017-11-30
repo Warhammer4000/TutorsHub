@@ -52,9 +52,9 @@ namespace ATP2.Profile
          
 
             
-            RepositoryProvider repositoryProvider = new RepositoryProvider();
-            IUserRepository<Tutor> iTutor = repositoryProvider.Create<Tutor>();
-            IUserRepository<Admin> iAdmin = repositoryProvider.Create<Admin>();
+            ServiceProvider repositoryProvider = new ServiceProvider();
+            IUserService<Tutor> iTutor = repositoryProvider.Create<Tutor>();
+            IUserService<Admin> iAdmin = repositoryProvider.Create<Admin>();
             iTutor.Add(user);
             iAdmin.Add(user2);
           
@@ -273,10 +273,10 @@ namespace ATP2.Profile
             };
 
 
-            RepositoryProvider repositoryProvider = new RepositoryProvider();
-            IUserRepository<Tutor> iTutor = repositoryProvider.Create<Tutor>();
-            IUserRepository<Admin> iAdmin = repositoryProvider.Create<Admin>();
-            IUserRepository<Student> iStudent = repositoryProvider.Create<Student>();
+            ServiceProvider repositoryProvider = new ServiceProvider();
+            IUserService<Tutor> iTutor = repositoryProvider.Create<Tutor>();
+            IUserService<Admin> iAdmin = repositoryProvider.Create<Admin>();
+            IUserService<Student> iStudent = repositoryProvider.Create<Student>();
             iAdmin.Add(admin1);
             iAdmin.Add(admin2);
             iTutor.Add(tutor1);

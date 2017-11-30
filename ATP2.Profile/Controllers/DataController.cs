@@ -19,13 +19,13 @@ namespace ATP2.Profile.Controllers
         public ActionResult Locations()
         {
             
-            return View(new LocationRepostiory().GetAll());
+            return View(new LocationService().GetAll());
         }
 
         [HttpGet]
         public ActionResult Subjects()
         {
-            return View(new SubjectRepository().GetAll());
+            return View(new SubjectService().GetAll());
         }
     }
 }
