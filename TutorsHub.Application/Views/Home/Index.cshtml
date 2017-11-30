@@ -1,22 +1,26 @@
 ﻿
-@model ATP2.Profile.Models.HomeModels.LoginModel
 @{
-    Layout = "../Shared/Public_Layout.cshtml" ;
+    ViewBag.Title = "Tutor Search";
+    Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
+
+<h2>@ViewBag.Title</h2>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TutorsHub</title>
-    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
 </head>
 <body>
- 
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6" style="padding-top: 4%;">
+                
                 <br>
                 <form>
                     <div class="form-group">
@@ -60,7 +64,7 @@
                         <input type="checkbox" name="" value="">Chemistry
                         <input type="checkbox" name="" value="">Biology
                         <br><br>
-                        <input type="submit" style="padding: 15px; font-size: 20px;" class="btn btn-success btn-block " name="submit" value="Search">
+                        <input type="submit" style="width: 50%; font-size: 20px;" class="btn btn-success btn-block " name="submit" value="Search">
                     </div>
                 </form>
             </div>

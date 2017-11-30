@@ -1,0 +1,92 @@
+﻿@using System.Web.Mvc.Html
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
+            margin-top: 0;
+        }   
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" >Tutors Hub</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Account
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Dashboard","Dashboard", "Admin")</li>
+                        <li>@Html.ActionLink("View Profile", "ViewProfile", "Admin")</li>
+                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Admin")</li>
+                        <li>@Html.ActionLink("Change Password", "EditPassword", "Admin")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        User
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Search", "UserSearch", "Admin")</li>
+                        <li>@Html.ActionLink("Create New", "NewUser", "Admin")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Data Control
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Question Paper", "QuestionPaper", "Admin")</li>
+                        <li>@Html.ActionLink("Locations", "Locations", "Admin")</li>
+                        <li>@Html.ActionLink("Subjects", "Subjects", "Admin")</li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Report
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Statistics Report", "StatisticReport","Admin")</li>
+                        <li>@Html.ActionLink("Activity", "ActivityReport", "Admin")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <span class="alert alert-success">Logged As @Session["UserName"]</span>
+                @Html.ActionLink("Log Out","Index","Home" )
+                </ul>
+        </div>
+    </nav>
+    <div>
+        <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
+            <tr>
+                <td align="center">
+                    @RenderBody()
+                    <br /><br /><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    Copyright &copy; 2017
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
