@@ -19,6 +19,13 @@ namespace TutorsHub.Application.Controllers
             return  View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
+
         public ActionResult ForgotPassword()
         {
             throw new NotImplementedException();
