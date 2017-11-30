@@ -4,106 +4,75 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<div class="container">
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        .card {
+            width: 500px;
+            height: 500px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        .right {
+            font-size: 20px;
+            width: 240px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $('#down').click(function () {
+            $(this).toggleClass('glyphicon-chevron-up').toggleClass('glyphicon-chevron-down');
+        });
+    </script>
+</head>
+<body>
+    <br>
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-sm-4">
+
         </div>
-        <div class="col-lg-2">
-            <label>Name: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>Sajib Hawee</label>
+        <div class="col-sm-4">
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            <img src="~/image/user.png" class="img-circle">
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+                            <p><strong>Sajib Hawee</strong></p>
+                            <p><span class="glyphicon glyphicon-envelope"></span> haweewes@gmail.com</p>
+                            <p><span class="glyphicon glyphicon-phone"></span> 01928273645</p>
+                            <p data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-globe"></span> Dhaka, Bangladesh <span class="glyphicon glyphicon-chevron-down" id="down"></span> </p>
+
+                            <div id="demo" class="collapse">
+                                <p>Gender: Male</p>
+                                <p>Birthday: 22 AUG 1996</p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p>Ladyship it daughter securing procured or am moreover mr. Put sir she exercise vicinity cheerful wondered. Continual say suspicion provision you neglected sir curiosity unwilling. Simplicity end themselves increasing led day sympathize yet. General windows effects not are drawing man garrets. Common indeed garden you his ladies out yet. Preference imprudence contrasted to remarkably in on. Taken now you him trees tears any. Her object giving end sister except oppose.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Password: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>welcome@1</label>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Email address: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>sajib@gmail.com</label>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>ProfilePictureUrl: </label>
-        </div>
-        <div class="col-lg-3">
-            <img src="~/image/user.png" width="100px" />
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Gender: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>Male</label>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Date Of Birth: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>22 Aug 1996</label>
-        </div>
-    </div>
-  
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Mobilenumber: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>0123456789</label>
-        </div>
-    </div>
-            
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>Address: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>Dhaka, Bangladesh</label>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-2">
-            <label>UserSince: </label>
-        </div>
-        <div class="col-lg-3">
-            <label>1 Jan 2017</label>
-        </div>
-    </div>
-     
-    
-</div>
-
+</body>
+</html>

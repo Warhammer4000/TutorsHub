@@ -30,7 +30,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Dashboard","AdminDashboard", "Account")</li>
-                        <li>@Html.ActionLink("View Profile", "UserProfile", "Account")</li>
+                        <li>@Html.ActionLink("View Profile", "AdminProfile", "Account")</li>
                         <li>@Html.ActionLink("Edit Profile", "EditProfile", "Account")</li>
                         <li>@Html.ActionLink("Change Password", "EditPassword", "Account")</li>
                     </ul>
@@ -77,7 +77,7 @@
     <div>
         <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
             <tr>
-                <td align="center">
+                <td>
                     @RenderBody()
                     <br /><br /><br />
                 </td>
