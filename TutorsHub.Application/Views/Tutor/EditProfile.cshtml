@@ -1,0 +1,296 @@
+﻿
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/TutorLayout.cshtml";
+}
+
+<html>
+<head>
+    <title>Edit Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <style type="text/css">
+        body {
+            background-color: white;
+        }
+
+        input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin: 4px 2px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
+
+        input[type=text], input[type=url], input[type=tel], input[type=email] {
+            /*background-color: #1e90ff;*/
+            color: black;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+        }
+
+            input[type=text]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=email]:focus {
+                background-color: #fff;
+            }
+
+        select {
+            background-color: #fff;
+            border: groove;
+            border-radius: 4px;
+            color: black;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+            width: 100%;
+        }
+
+        input[type=date] {
+            background-color: #000000;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 26.4px;
+        }
+
+        h3 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 800;
+            line-height: 15.4px;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+
+        /* Create two equal columns that floats next to each other */
+
+        .column {
+            float: left;
+            padding: 10px;
+            width: 30%;
+        }
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+
+
+        #content {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        textarea {
+            background-color: #f8f8f8;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            box-sizing: border-box;
+            font-size: 16px;
+            height: 200px;
+            padding: 12px 20px;
+            resize: none;
+            width: 100%;
+        }
+
+        input[type=button] {
+            background-color: green;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin: 4px 2px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2>Edit Profile</h2>
+        <form method="post">
+            <table>
+                
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="Name" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>
+                        <input type="email" name="email" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>
+                        <input type="tel" name="MobileNumber" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            <br>Additional Info
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Biography:</td>
+                    <td>
+                        <textarea name="bio" placeholder="biography"></textarea><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Current Status:</td>
+                    <td>
+                        <input type="text" name="CurrentStatus" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred Medium:</td>
+                    <td>
+                        <input type="checkbox" name="pref_med" value="Bangla"> Bangla
+                        <input type="checkbox" name="pref_med" value="English"> English
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred Location:</td>
+                    <td>
+                      
+
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-1
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-2
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-10
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-12
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-14
+                        <input type="checkbox" name="pref_sub" value="sub2"> Kalshi
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred class:</td>
+                    <td>
+                     
+                        <select class="selectpicker">
+                            <option>Class</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                            <option>Class 5</option>
+                            <option>Class 6</option>
+                            <option>Class 7</option>
+                            <option>Class 8</option>
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>Class 11</option>
+                            <option>Class 12</option>
+
+
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expected Salary:</td>
+                    <td>
+                        <input type="text" name="salary"><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
