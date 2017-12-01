@@ -4,8 +4,6 @@
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
 
-
-
 <!DOCTYPE html>
 
 <html>
@@ -15,18 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style media="screen">
-        .card {
-            width: 200px;
-            background-color: #5cb85c;
-            color: white;
-            border-radius: 15px;
-            border: 2px solid #73AD21;
-            padding: 10px;
-            width: 200px;
-            height: 60px;
-        }
-
+    <style>
+       
         input {
             margin-bottom: 5px;
         }
@@ -43,7 +31,7 @@
         <div class="col-lg-3">
 
         </div>
-        <div class="col-lg-*">
+        <div >
             <label>Location</label>
             <select class="btn btn-success">
                 <option>Mirpur</option>
@@ -51,7 +39,7 @@
                 <option>Gulshan</option>
                 <option>Dhanmondi</option>
                 <option>Uttora</option>
-            </select>
+                </select>
             <label>Gender</label>
             <select name="gender" class="btn btn-info">
                 <option>Male</option>
@@ -75,7 +63,7 @@
         <div class="col-lg-3">
 
         </div>
-        <div class="col-lg-* form-inline">
+        <div class="col-lg-3 form-inline">
             <input type="number" class="form-control" name="min" placeholder=" Minimum Salary"> -
             <input type="number" class="form-control" name="max" placeholder="Maximum Salary">
         </div>
@@ -85,7 +73,7 @@
         <div class="col-lg-3">
 
         </div>
-        <div class="col-lg-*">
+        <div class="col-lg-3">
             <div class="form-group">
                 <div style="zoom:1.2">
                     <input type="checkbox" name="" value="">Bangla
@@ -94,7 +82,7 @@
                     <input type="checkbox" name="" value="">Physics
                     <input type="checkbox" name="" value="">Chemistry
                     <input type="checkbox" name="" value="">Biology
-                    <input type="checkbox" name="" value="">ICT
+                    <input type="checkbox" name="" value="">ICT 
                     <input type="checkbox" name="" value="">Religion
                     <input type="checkbox" name="" value="">Physical Exercise
                 </div>
@@ -102,17 +90,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
 
         </div>
-        <div class="col-lg-6 text-center">
-            <div class="card">
-                @Html.ActionLink("Search", "SearchResult", "Home")
-            </div>
-
+        <div class="col-lg-3">
+            <input type="submit" style="width: 50%; font-size: 20px;" class="btn btn-success btn-block " name="submit" value="Search">
         </div>
     </div>
 
-
+    
 </body>
 </html>
