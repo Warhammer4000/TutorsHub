@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Registration";
+  
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
 
@@ -115,7 +115,7 @@
         display: inline-block;
         width: 30px;
         background-color: #3a57af;
-        padding: 8px 0px 8px 0px;
+        padding: 8px 8px 8px 8px;
         margin-left: 15px;
         -webkit-border-radius: 4px 0px 0px 4px;
         -moz-border-radius: 4px 0px 0px 4px;
@@ -141,13 +141,11 @@
         font-size: 14px;
         font-weight: 600;
         color: white;
-        padding: 5px;
+        padding: 10px;
         margin: 25%;
         display: inline-block;
         float: right;
         text-decoration: none;
-        width: 50%;
-        height: 20%;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
@@ -157,6 +155,8 @@
         box-shadow: 0 3px rgba(58,87,175,.75);
         transition: all 0.1s linear 0s;
         top: -60px;
+        right: 12%;
+        
         position: relative;
     }
 
@@ -175,7 +175,7 @@
     
 
 <div class="testbox">
-    <h1>@ViewBag.Title</h1>
+    <h1 style="padding-left: 20%">Registration</h1>
 
     <form class="forma" action="/">
         <hr>
@@ -195,7 +195,7 @@
       
         <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.
         </p>
-        <a href="#" class="button">Register</a>
+        <a href="#" class="button" >Register</a>
     </form>
 </div>
 
