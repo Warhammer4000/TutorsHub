@@ -28,7 +28,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Dashboard","Dashboard", "Admin")</li>
+                        <li>@Html.ActionLink("Dashboard","AdminDashboard", "Admin")</li>
                         <li>@Html.ActionLink("View Profile", "ViewProfile", "Admin")</li>
                         <li>@Html.ActionLink("Edit Profile", "EditProfile", "Admin")</li>
                         <li>@Html.ActionLink("Change Password", "EditPassword", "Admin")</li>
@@ -74,9 +74,9 @@
         </div>
     </nav>
     <div>
-        <table width="100%" align="center" cellspacing="0" cellpadding="10" border="0">
+        <table width="100%" cellspacing="0" cellpadding="10" border="0">
             <tr>
-                <td align="center">
+                <td>
                     @RenderBody()
                     <br /><br /><br />
                 </td>

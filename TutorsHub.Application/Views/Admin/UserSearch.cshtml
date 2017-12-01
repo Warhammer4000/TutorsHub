@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "UserSearch";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        .card {
+            width: 80%;
+        }
+
+        input {
+            margin-bottom: 5px;
+        }
+
+        table {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    SEARCH USER
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form>
+                                <label>Filter By any</label>
+                                <select class="selectpicker form-control" style="width: 90px;">
+                                    <option>Any</option>
+                                    <option>Name</option>
+                                    <option>Email</option>
+                                    <option>Status</option>
+                                </select>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input class="form-control" type="submit" value="Search" style="width: 77px;" />
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="table-responsive" style="width: 600px">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                            <tr>
+                                                <td>John</td>
+                                                <td>john@tutorhub.com</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mary</td>
+                                                <td>mary@tutorhub.com</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sajib</td>
+                                                <td>hawee@tutorhub.com</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>tanzim</td>
+                                                <td>tanzim@tutorhub.com</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                            <br>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
