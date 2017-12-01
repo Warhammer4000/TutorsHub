@@ -16,13 +16,13 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult SearchUser(int id)
+        public ActionResult SearchUser(int? id)
         {
             
             return View();
         }
         [HttpGet]
-        public ActionResult EditProfile(int id)
+        public ActionResult EditProfile(int? id)
         {
             return View();
         }
@@ -32,8 +32,8 @@ namespace TutorsHub.Application.Controllers
         {
             try
             {
-
-                return RedirectToAction("Index");
+                
+                return RedirectToAction("Dashboard");
             }
             catch
             {
@@ -42,12 +42,12 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult StudentList(int id)
+        public ActionResult StudentList(int? id)
         {
-            return View();
+            throw new NotImplementedException();
         }
         [HttpGet]
-        public ActionResult ViewProfile(int id)
+        public ActionResult ViewProfile(int? id)
         {
             return View();
         }
@@ -56,7 +56,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult Timer()
         {
 
-            return View();
+            throw new NotImplementedException();
         }
     }
 }

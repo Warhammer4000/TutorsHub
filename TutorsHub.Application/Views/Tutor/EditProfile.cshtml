@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
 
-
+<html>
 <head>
     <title>Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=.9">
@@ -228,13 +228,7 @@
                 <tr>
                     <td>Preferred Location:</td>
                     <td>
-                        @*@foreach (var location in Model.PreferredLocations)
-                            {
-                                <input type="checkbox" name="PreferredLocation" value="@location.Name">
-                                @location.Name
-
-                            }*@
-
+                      
 
                         <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-1
                         <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-2
@@ -253,13 +247,7 @@
                 <tr>
                     <td>Preferred class:</td>
                     <td>
-                        @*for (int i = 1; i <= 12; i++)
-                        {
-
-                            <input type="checkbox" name="Class" value="Class @i"> @i
-
-                        }
-                        *@
+                     
                         <select class="selectpicker">
                             <option>Class</option>
                             <option>Class 1</option>
