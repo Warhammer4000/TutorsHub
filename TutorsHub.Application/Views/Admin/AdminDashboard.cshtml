@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <style media="screen">
         .card {
             width: 500px;
@@ -33,6 +34,65 @@
         }
     </style>
 
+    <script>
+        window.onload = function () {
+            var achart = new CanvasJS.Chart("activityChart", {
+                animationEnabled: true,
+                theme: "light2",
+
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { x: new Date(2012, 01, 1), y: 26 },
+                        { x: new Date(2012, 01, 3), y: 38 },
+                        { x: new Date(2012, 01, 5), y: 43 },
+                        { x: new Date(2012, 01, 7), y: 29 },
+                        { x: new Date(2012, 01, 11), y: 41 },
+                        { x: new Date(2012, 01, 13), y: 54 },
+                        { x: new Date(2012, 01, 20), y: 66 },
+                        { x: new Date(2012, 01, 21), y: 60 },
+                        { x: new Date(2012, 01, 25), y: 53 },
+                        { x: new Date(2012, 01, 27), y: 60 }
+                    ]
+                }]
+            });
+
+            var schart = new CanvasJS.Chart("statChart", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                axisX: {
+                    title: "User Role"
+                },
+                axisY: {
+                    title: "User No."
+                },
+                data: [{
+                    type: "column",
+
+
+                    dataPoints: [
+                        { y: 4, label: "Admin" },
+                        { y: 20, label: "Tutor" },
+                        { y: 120, label: "Student" },
+
+                    ]
+                }]
+            });
+
+
+            schart.render();
+            achart.render();
+
+        }
+
+
+
+
+    </script>
+
 </head>
 <body>
     <br>
@@ -41,103 +101,49 @@
 
         </div>
         <div class="col-lg-5">
+
             <div class="panel panel-info card">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            <img src="https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14522999_10207289285486077_5577078775528197936_n.jpg?oh=b8dcfc83e1a314dc1d20e749553ae5ff&oe=5A91CA24" class="img-circle">
+                            User Activity
                         </div>
                         <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-                            <p><strong>Sajib Hawee</strong></p>
-                            <p><span class="glyphicon glyphicon-envelope"></span> haweewes@gmail.com</p>
-                            <p><span class="glyphicon glyphicon-phone"></span> 01928273645</p>
-                            <p><span class="glyphicon glyphicon-globe"></span> Dhaka, Bangladesh</p>
+
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-3" style="width: 130px;">
-                            <label>Requested By:</label>
-                        </div>
-                        <div class="col-sm-4" style="width:200px;">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <p><span class="glyphicon glyphicon-user"></span>Sajib Hawee</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><span class="glyphicon glyphicon-phone"></span> 01923821322</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-info" name="accept">Accept</button>
-                                </div>
-                                <div class="col-sm-1">
-                                    <button type="submit" class="btn btn-danger" name="reject">Reject</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="activityChart" style="height: 300px; width: 100%;"></div>
+
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-4">
+
+        <div class="col-lg-5">
+
             <div class="panel panel-info card">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            <img src="https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14522999_10207289285486077_5577078775528197936_n.jpg?oh=b8dcfc83e1a314dc1d20e749553ae5ff&oe=5A91CA24" class="img-circle">
+                            User Activity
                         </div>
                         <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-                            <p><strong>Sajib Hawee</strong></p>
-                            <p><span class="glyphicon glyphicon-envelope"></span> haweewes@gmail.com</p>
-                            <p><span class="glyphicon glyphicon-phone"></span> 01928273645</p>
-                            <p><span class="glyphicon glyphicon-globe"></span> Dhaka, Bangladesh</p>
+
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-3" style="width: 130px;">
-                            <label>Requested By:</label>
-                        </div>
-                        <div class="col-sm-4" style="width:200px;">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <p><span class="glyphicon glyphicon-user"></span>Sajib Hawee</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><span class="glyphicon glyphicon-phone"></span> 01923821322</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-info" name="accept">Accept</button>
-                                </div>
-                                <div class="col-sm-1">
-                                    <button type="submit" class="btn btn-danger" name="reject">Reject</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="statChart" style="height: 300px; width: 100%;"></div>
+
                 </div>
             </div>
         </div>
     </div>
+    </div>
+
+
 
 
 
