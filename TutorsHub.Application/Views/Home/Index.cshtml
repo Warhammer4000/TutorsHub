@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
 
+
+
 <!DOCTYPE html>
 
 <html>
@@ -15,7 +17,14 @@
 
     <style media="screen">
         .card {
-            width: 80%;
+            width: 200px;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 15px;
+            border: 2px solid #73AD21;
+            padding: 10px;
+            width: 200px;
+            height: 60px;
         }
 
         input {
@@ -42,7 +51,7 @@
                 <option>Gulshan</option>
                 <option>Dhanmondi</option>
                 <option>Uttora</option>
-                </select>
+            </select>
             <label>Gender</label>
             <select name="gender" class="btn btn-info">
                 <option>Male</option>
@@ -85,7 +94,7 @@
                     <input type="checkbox" name="" value="">Physics
                     <input type="checkbox" name="" value="">Chemistry
                     <input type="checkbox" name="" value="">Biology
-                    <input type="checkbox" name="" value="">ICT 
+                    <input type="checkbox" name="" value="">ICT
                     <input type="checkbox" name="" value="">Religion
                     <input type="checkbox" name="" value="">Physical Exercise
                 </div>
@@ -93,14 +102,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
 
         </div>
-        <div class="col-lg-*">
-            <input type="submit" style="width: 50%; font-size: 20px;" class="btn btn-success btn-block " name="submit" value="Search">
+        <div class="col-lg-6 text-center">
+            <div class="card">
+                @Html.ActionLink("Search", "SearchResult", "Home")
+            </div>
+
         </div>
     </div>
 
-    
+
 </body>
 </html>

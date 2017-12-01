@@ -24,11 +24,14 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-
+        public ActionResult SearchResult()
+        {
+            return View();
+        }
 
         public ActionResult ForgotPassword()
         {
-            throw  new NotImplementedException();
+            return View();
         }
     }
 }

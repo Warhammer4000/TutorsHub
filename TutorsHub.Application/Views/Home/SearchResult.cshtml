@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/Public_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        .glyphicon-selected {
+            font-size: 40px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        table {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-1">
+
+        </div>
+        <div class="col-lg-10">
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <strong>SEARCH RESULT</strong>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <p><span class="glyphicon glyphicon-star text-left" style="color:green;"></span>ACTIVE</p><br>
+                            <p><span class="glyphicon glyphicon-star text-left" style="color:red;"></span>INACTIVE</p>
+                        </div>
+                        <!---first panel--->  <div class="col-lg-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading text-center">
+                                    <div class="list-inline">
+                                        <li>
+                                            <span class="glyphicon glyphicon-star text-left glyphicon-selected" style="color:green;"></span>
+                                        </li>
+                                        <li>
+                                            <strong>SAJIB HAWEE</strong>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="width: 180px; padding-left: 95px;">
+                                            <img src="https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-1/p160x160/14522999_10207289285486077_5577078775528197936_n.jpg?oh=01b56afc02e7b410e87a9c8bae27ac74&oe=5A91437B" class="img-circle" alt="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" style="width: 400px;">
+
+                                        <div class="col-lg-10 text-center">
+
+                                            <span class="glyphicon glyphicon-book"></span><label>Accounting</label><br>
+                                            <span class="glyphicon glyphicon-book"></span><label>Economics</label><br>
+                                            <span class="glyphicon glyphicon-book"></span><label>Bussiness Math</label><br>
+                                            <button type="button" class="btn btn-success">5000 TK/HRS</button>
+                                            <br> <br>
+                                            <input type="submit" class="btn btn-primary" value="View">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!---second panel--->   <div class="col-lg-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading text-center">
+                                    <div class="list-inline">
+                                        <li>
+                                            <span class="glyphicon glyphicon-star text-left glyphicon-selected" style="color:green;"></span>
+                                        </li>
+                                        <li>
+                                            <strong>TANIM-UL HAQUE KHAN</strong>
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="width: 180px; padding-left: 95px;">
+                                            <img src="https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-1/p160x160/22448197_901812396636510_8134261790025081277_n.jpg?oh=802374482e7e782f951c57625a353ea4&oe=5AC9F518" class="img-circle" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="width: 400px;">
+
+                                        <div class="col-lg-10 text-center">
+
+                                            <span class="glyphicon glyphicon-book"></span><label>Science</label><br>
+                                            <span class="glyphicon glyphicon-book"></span><label>Math</label><br>
+                                            <span class="glyphicon glyphicon-book"></span><label>Higher Math</label><br>
+                                            <button type="button" class="btn btn-success">6000 TK/HRS</button>
+                                            <br> <br>
+                                            <input type="submit" class="btn btn-primary" value="View">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
