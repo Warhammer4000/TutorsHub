@@ -19,7 +19,7 @@ namespace ATP2.Profile.Controllers
         public ActionResult Locations()
         {
             
-            return View(new LocationService().GetAll());
+            return View();
         }
 
         [HttpGet]

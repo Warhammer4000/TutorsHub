@@ -4,49 +4,49 @@ namespace TutorsHub.Application.Controllers
 {
     public class AdminController : Controller
     {
-        public ActionResult Dashboard()
+        public ActionResult AdminDashboard()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult ViewProfile()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult EditProfile()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult EditPassword()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult UserSearch()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult NewUser()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult QuestionPaper()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult Locations()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult Subjects()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult StatisticReport()
