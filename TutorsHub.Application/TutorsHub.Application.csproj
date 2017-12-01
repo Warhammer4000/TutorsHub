@@ -261,6 +261,9 @@
     <Content Include="Views\Admin\Subjects.cshtml" />
     <Content Include="Views\Admin\UserSearch.cshtml" />
     <Content Include="Views\Admin\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\Blog.cshtml" />
+    <Content Include="Views\Tutor\NewPost.cshtml" />
+    <Content Include="Views\Tutor\ViewPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
