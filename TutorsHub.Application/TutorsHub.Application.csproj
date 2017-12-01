@@ -237,6 +237,9 @@
     <Content Include="Views\Tutor\SearchUser.cshtml" />
     <Content Include="Views\Tutor\EditProfile.cshtml" />
     <Content Include="Views\Tutor\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\NewPost.cshtml" />
+    <Content Include="Views\Tutor\Blog.cshtml" />
+    <Content Include="Views\Tutor\ViewPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

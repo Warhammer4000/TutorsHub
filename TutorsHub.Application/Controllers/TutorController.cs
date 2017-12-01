@@ -58,5 +58,32 @@ namespace TutorsHub.Application.Controllers
 
             throw new NotImplementedException();
         }
+
+        [HttpGet]
+        public ActionResult Blog()
+        {
+
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult ViewPost(string id)
+        {
+
+            return View();
+        }
+
+
+
+        [HttpGet]
+        public ActionResult NewPost()
+        {
+            return View();
+
+        }
+
+
+
     }
 }
