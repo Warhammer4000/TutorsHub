@@ -44,7 +44,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult StudentList(int? id)
         {
-            throw new NotImplementedException();
+            return View();
         }
         [HttpGet]
         public ActionResult ViewProfile(int? id)

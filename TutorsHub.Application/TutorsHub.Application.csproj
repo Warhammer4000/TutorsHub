@@ -110,6 +110,7 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="images\user.png" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
     <Content Include="javascripts\bootstrap.min.js" />
@@ -237,6 +238,7 @@
     <Content Include="Views\Tutor\SearchUser.cshtml" />
     <Content Include="Views\Tutor\EditProfile.cshtml" />
     <Content Include="Views\Tutor\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\StudentList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
