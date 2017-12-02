@@ -94,5 +94,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        public ActionResult Schedule()
+        {
+            return View();
+        }
+
+
+
     }
 }

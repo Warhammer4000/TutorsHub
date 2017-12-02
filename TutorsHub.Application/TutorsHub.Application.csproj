@@ -271,6 +271,7 @@
     <Content Include="Views\Tutor\Payment.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
     <Content Include="Views\Exam\Ranking.cshtml" />
+    <Content Include="Views\Tutor\Schedule.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

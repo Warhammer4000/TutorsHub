@@ -39,14 +39,19 @@
     </style>
 </head>
 <body>
-    <div style="margin-left:20px;background-color: #2ECC71;">
+    <div style="margin-left:20px;">
         <div>
-            <label>On Hold:2000/= Tk</label>
-        </div>
-
-        <div>
-
-            <label>Available Balance:10000/= Tk</label>
+            <div class="col-md-9 ">
+                <h2>Balance</h2>
+                <p >
+                    On Hold:
+                    <strong  style="color: #ff0000" data-ng-class="{ 'text-danger': disbursements.hasNegativeBalance() }">500/= Tk</strong>
+                </p>
+                <p>
+                    Available:
+                    <strong style="color: #2ecc71" data-ng-class="{ 'text-danger': disbursements.hasNegativeBalance() }">10000/= Tk</strong>
+                </p>
+            </div>
         </div>
     </div>
 
