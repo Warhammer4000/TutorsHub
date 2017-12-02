@@ -47,7 +47,9 @@ namespace TutorsHub.Application.Controllers
                     return RedirectToAction("Dashboard", "Tutor");
                 case "admin":
                     return RedirectToAction("AdminDashboard", "Admin");
-                    default:
+                case "student":
+                    return RedirectToAction("Dashboard", "Student");
+                default:
                         return RedirectToAction("Index", "Home");
             }
         }
