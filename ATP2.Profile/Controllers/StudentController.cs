@@ -11,43 +11,59 @@ namespace ATP2.Profile.Controllers
         {
             return View();
         }
-
-
-        [HttpGet]
-        public ActionResult Notification()
-        {
-            return View();
-        }
-
-
-        [HttpGet]
-        public ActionResult ViewProfile()
-        {
-            IUserService<Entity.UserModels.Student> studenService=new ServiceProvider().Create<Entity.UserModels.Student>();
-            return View(studenService.GetByEmail("jahid@gmail.com"));//TODO change this to dynamic
-        }
-
-        [HttpGet]
-        public ActionResult SearchTutor()
-        {
-           
-            return View();
-        }
-
-
-
-
-
         [HttpGet]
         public RedirectToRouteResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
-
-
-        
-
-
+        [HttpGet]
+        public ActionResult Report()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult ExamResult()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult SendMessage()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult StudyMaterial()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult OnlineExam()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult HireTutor()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Profile()
+        {
+            return View();
+        }
+        public ActionResult EditProfile()
+        {
+            return View();
+        }
+        public ActionResult Notification()
+        {
+            return View();
+        }
     }
 }

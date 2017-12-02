@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+<div style="background-color:white; border:1px solid green;margin:0px 50px; padding:30px">
+    <h3>Welcome to Profile</h3>
+    <hr>
+    <p>Name : Amit Pasha</p>
+    <hr/>
+    <p>Email : amit@example.com</p>
+    <hr />
+    <p>Phone : 01628776545</p>
+    <hr />
+    <p>Last Active : 1 day ago</p>
+    <hr />
+    <p>Account Activated : 1 year ago</p>
+    <hr />
+    <div class="form-group" id="submit">
+        <button type="button" class="btn btn-info" onclick="myFunction()">Edit Profile</button>
+        <script>
+            function myFunction() {
+                window.location.href="/student/EditProfile";
+            }
+        </script>
+    </div>
+</div>

@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ATP2.Profile</RootNamespace>
     <AssemblyName>ATP2.Profile</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -97,6 +97,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\download.jpg" />
+    <Content Include="image\logo.jpg" />
+    <Content Include="image\Student 1.jpg" />
     <Content Include="Scripts\bootstrap-theme.min.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.css" />
@@ -130,7 +133,7 @@
     <Content Include="Views\js\bootstrap.min.js" />
     <Content Include="Views\js\jquery-3.2.1.min.js" />
     <Content Include="Views\Tutor\images\birds.png" />
-    <Content Include="Web.config" />
+    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -198,19 +201,27 @@
     <Content Include="Views\Tutor\ViewProfile.cshtml" />
     <Content Include="Views\Tutor\EditProfile.cshtml" />
     <Content Include="Views\Tutor\Blog.cshtml" />
-    <Content Include="Views\Student\ViewProfile.cshtml" />
     <Content Include="Views\Tutor\NewBlogPost.cshtml" />
     <Content Include="Views\Tutor\BlogContent.cshtml" />
     <Content Include="Views\Student\SearchTutor.cshtml" />
     <Content Include="Views\Tutor\ViewStudent.cshtml" />
     <Content Include="Views\Tutor\Timer.cshtml" />
-    <Content Include="Views\Student\Notification.cshtml" />
     <Content Include="Views\Tutor\Payment.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <Content Include="Views\Student\Report.cshtml" />
+    <Content Include="Views\Student\ExamResult.cshtml" />
+    <Content Include="Views\Student\ChangePassword.cshtml" />
+    <Content Include="Views\Student\SendMessage.cshtml" />
+    <Content Include="Views\Student\StudyMaterial.cshtml" />
+    <Content Include="Views\Student\OnlineExam.cshtml" />
+    <Content Include="Views\Student\HireTutor.cshtml" />
+    <Content Include="Views\Student\Profile.cshtml" />
+    <Content Include="Views\Student\EditProfile.cshtml" />
+    <Content Include="Views\Student\Notification.cshtml" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
