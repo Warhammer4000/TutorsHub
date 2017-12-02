@@ -33,5 +33,19 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+
+        public ActionResult ViewProfile(string id)
+        {
+            return View();
+        }
+
+        public RedirectToRouteResult ToDashBoard(string email,string password)
+        {
+            
+            return RedirectToAction("Dashboard", "Tutor");
+            return RedirectToAction("AdminDashboard", "Admin");
+        }
+
+
     }
 }

@@ -58,5 +58,10 @@ namespace TutorsHub.Application.Controllers
         {
             throw new System.NotImplementedException();
         }
+
+        public RedirectToRouteResult Logout()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

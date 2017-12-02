@@ -83,7 +83,10 @@ namespace TutorsHub.Application.Controllers
 
         }
 
-
+        public RedirectToRouteResult Logout()
+        {
+            return RedirectToAction("Index","Home");
+        }
 
     }
 }
