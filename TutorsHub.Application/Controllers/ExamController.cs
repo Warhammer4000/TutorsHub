@@ -4,9 +4,9 @@ namespace TutorsHub.Application.Controllers
 {
     public class ExamController : Controller
     {
-        public ActionResult QuestionPaper()
+        public ActionResult QuestionPaper(int? id)
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         [HttpGet]
