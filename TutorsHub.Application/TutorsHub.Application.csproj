@@ -224,6 +224,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TutorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -267,6 +268,23 @@
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Home\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\Payment.cshtml" />
+    <Content Include="Views\Tutor\Schedule.cshtml" />
+    <Content Include="Views\Exam\Ranking.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Student\ChangePassword.cshtml" />
+    <Content Include="Views\Student\DashBoard.cshtml" />
+    <Content Include="Views\Student\EditProfile.cshtml" />
+    <Content Include="Views\Student\ExamResult.cshtml" />
+    <Content Include="Views\Student\HireTutor.cshtml" />
+    <Content Include="Views\Student\Notification.cshtml" />
+    <Content Include="Views\Student\OnlineExam.cshtml" />
+    <Content Include="Views\Student\Profile.cshtml" />
+    <Content Include="Views\Student\Report.cshtml" />
+    <Content Include="Views\Student\SearchTutor.cshtml" />
+    <Content Include="Views\Student\SendMessage.cshtml" />
+    <Content Include="Views\Student\StudyMaterial.cshtml" />
+    <Content Include="Views\Exam\QuestionPaper.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
