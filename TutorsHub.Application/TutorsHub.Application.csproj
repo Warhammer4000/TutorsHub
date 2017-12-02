@@ -138,6 +138,7 @@
     <Content Include="obj\Debug\TutorsHub.Application.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\TutorsHub.Application.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Release\TutorsHub.Application.csproj.CoreCompileInputs.cache" />
+    <None Include="Properties\PublishProfiles\TutorsHub - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -268,6 +269,8 @@
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Home\ViewProfile.cshtml" />
     <Content Include="Views\Tutor\Payment.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Exam\Ranking.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

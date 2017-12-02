@@ -19,7 +19,7 @@
     <nav class="navbar navbar-inverse" style="border-radius: 0px;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" >Tutors Hub</a>
+                <a class="navbar-brand" href="/Admin/AdminDashboard">Tutors Hub</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
@@ -28,7 +28,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Dashboard","AdminDashboard", "Admin")</li>
+                      
                         <li>@Html.ActionLink("View Profile", "ViewProfile", "Admin")</li>
                         <li>@Html.ActionLink("Edit Profile", "EditProfile", "Admin")</li>
                         <li>@Html.ActionLink("Change Password", "EditPassword", "Admin")</li>
@@ -58,9 +58,9 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <span class="alert alert-success">Logged As @Session["UserName"]</span>
+                <span class="alert alert-success">Logged As Admin</span>
                 @Html.ActionLink("Log Out","Index","Home" )
-                </ul>
+           </ul>
         </div>
     </nav>
     <div>
