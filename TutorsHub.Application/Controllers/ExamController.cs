@@ -8,5 +8,17 @@ namespace TutorsHub.Application.Controllers
         {
             throw new System.NotImplementedException();
         }
+
+        [HttpGet]
+        public ActionResult Result()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Ranking()
+        {
+            return View();
+        }
     }
 }
