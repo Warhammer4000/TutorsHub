@@ -90,6 +90,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\TutorsHub.Application.dll" />
+    <Content Include="bin\TutorsHub.Application.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -110,6 +112,7 @@
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="images\user.png" />
     <Content Include="javascripts\bootstrap-sprockets.js" />
     <Content Include="javascripts\bootstrap.js" />
     <Content Include="javascripts\bootstrap.min.js" />
@@ -125,8 +128,17 @@
     <Content Include="javascripts\bootstrap\tab.js" />
     <Content Include="javascripts\bootstrap\tooltip.js" />
     <Content Include="javascripts\bootstrap\transition.js" />
+    <Content Include="obj\Debug\TutorsHub.Application.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TutorsHub.Application.dll" />
+    <Content Include="obj\Debug\TutorsHub.Application.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\TutorsHub.Application.csproj.CopyComplete" />
+    <Content Include="obj\Debug\TutorsHub.Application.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\TutorsHub.Application.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Release\TutorsHub.Application.csproj.CoreCompileInputs.cache" />
+    <None Include="Properties\PublishProfiles\TutorsHub - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -217,6 +229,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +252,26 @@
     <Content Include="Views\Tutor\SearchUser.cshtml" />
     <Content Include="Views\Tutor\EditProfile.cshtml" />
     <Content Include="Views\Tutor\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\StudentList.cshtml" />
+    <Content Include="Views\Admin\AdminDashboard.cshtml" />
+    <Content Include="Views\Admin\EditPassword.cshtml" />
+    <Content Include="Views\Admin\EditProfile.cshtml" />
+    <Content Include="Views\Admin\Locations.cshtml" />
+    <Content Include="Views\Admin\NewUser.cshtml" />
+    <Content Include="Views\Admin\QuestionPaper.cshtml" />
+    <Content Include="Views\Admin\Subjects.cshtml" />
+    <Content Include="Views\Admin\UserSearch.cshtml" />
+    <Content Include="Views\Admin\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\Blog.cshtml" />
+    <Content Include="Views\Tutor\NewPost.cshtml" />
+    <Content Include="Views\Tutor\ViewPost.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Home\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\Payment.cshtml" />
+    <Content Include="Views\Exam\Result.cshtml" />
+    <Content Include="Views\Exam\Ranking.cshtml" />
+    <Content Include="Views\Tutor\Schedule.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -247,6 +282,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <PropertyGroup>

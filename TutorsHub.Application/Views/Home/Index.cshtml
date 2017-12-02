@@ -4,76 +4,109 @@
     Layout = "~/Views/Shared/Public_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
-
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+       
+        input {
+            margin-bottom: 5px;
+        }
+
+        table {
+            font-size: 20px;
+        }
+    </style>
+
 </head>
 <body>
+<br /><br />
+    <form action="/Home/SearchResult" method="post">
+    <div class="row">
+        <div class="col-lg-3">
 
-    <div class="container-fluid" style="width: 60%">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6" style="padding-top: 4%;">
-                
-                <br>
-                <form>
-                    <div class="form-group">
-                        <label>Location</label>
-                        <select class="btn btn-success">
-                            <option>Mirpur</option>
-                            <option>Banani</option>
-                            <option>Gulshan</option>
-                            <option>Dhanmondi</option>
-                            <option>Uttora</option>
-                        </select>
-                        <label>Gender</label>
-                        <select name="gender" class="btn btn-info">
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Any</option>
-                        </select>
-                        <label>Choose Class</label>
-                        <select name="class" class="btn btn-danger">
-                            <option>Class 1</option>
-                            <option>Class 2</option>
-                            <option>Class 3</option>
-                            <option>Class 4</option>
-                            <option>Class 5</option>
-                            <option>Class 6</option>
-                            <option>Class 7</option>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 form-inline">
-                            <input type="number" class="form-control" name="min" placeholder=" Minimum Salary"> -
-                            <input type="number" class="form-control" name="max" placeholder="Maximum Salary">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <div  style="zoom:1.2">
-                        <input type="checkbox" name="" value="">Bangla
-                        <input type="checkbox" name="" value="">English
-                        <input type="checkbox" name="" value="">Math
-                        <input type="checkbox" name="" value="">Physics
-                        <input type="checkbox" name="" value="">Chemistry
-                        <input type="checkbox" name="" value="">Biology
-                        <input type="checkbox" name="" value="">ICT
-                        <input type="checkbox" name="" value="">Religion
-                        <input type="checkbox" name="" value="">Physical Exercise
-                        </div>
-                        <br><br>
-                        <input type="submit" style="width: 50%; font-size: 20px;" class="btn btn-success btn-block " name="submit" value="Search">
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3"></div>
+        </div>
+        <div style="margin-bottom: 5px;">
+            <label>Location</label>
+            <select class="btn btn-success">
+                <option>Mirpur</option>
+                <option>Banani</option>
+                <option>Gulshan</option>
+                <option>Dhanmondi</option>
+                <option>Uttora</option>
+                </select>
+            <label>Gender</label>
+            <select name="gender" class="btn btn-info">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Any</option>
+            </select>
+            <label>Choose Class</label>
+            <select name="class" class="btn btn-danger">
+                <option>Class 1</option>
+                <option>Class 2</option>
+                <option>Class 3</option>
+                <option>Class 4</option>
+                <option>Class 5</option>
+                <option>Class 6</option>
+                <option>Class 7</option>
+            </select>
         </div>
     </div>
+
+    <div class="row" style="padding-top:10px;">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-3 form-inline" style="display:inline-block; width:80%;text-align:center;margin-left:60px;padding:15px 15px;">
+            <input type="number" class="form-control" name="min" placeholder=" Minimum Salary"> -
+            <input type="number" class="form-control" name="max" placeholder="Maximum Salary">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-3" style="width:100%">
+            <div class="form-group" style="width:100%">
+                <div style="width:35%; margin:auto;"><!--style="zoom:1.2"-->
+                    <div style="display:inline-block;font-size:22px;padding: 0px 5px;">
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Bangla</h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">English</h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Math</h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Physics</h3>
+                    </div>
+                    <div style="padding: 0px 5px;">
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Chemistry</h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Biology</h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">ICT </h3>
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Religion</h3>
+                    </div>
+                    <div style="padding: 0px 5px;">
+                        <input type="checkbox" name="" value=""><h3 style="display:inline-block;margin-bottom: 15px;">Physical Exercise</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-3">
+           
+             <input type="submit" style="width: 100%; font-size: 20px; margin-left: 90px; margin-top: 10px;" class="btn btn-success btn-block" value="Search" />  
+            
+         </div>
+    </div>
+    </form>
+    
 </body>
 </html>

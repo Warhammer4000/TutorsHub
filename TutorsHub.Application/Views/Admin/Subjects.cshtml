@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Subjects";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style media="screen">
+        .card {
+            width: 80%;
+        }
+
+        input {
+            margin-bottom: 5px;
+        }
+
+        table {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    SUBJECTS
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="search" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="submit" class="form-control" value="Add">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Subjects</th>
+                                            <th>Edit</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="myTable">
+                                        <tr>
+                                            <td>Math</td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Science</td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>English</td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Higher Math</td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

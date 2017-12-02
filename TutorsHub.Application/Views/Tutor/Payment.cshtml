@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/TutorLayout.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .btn:not(.btn-link):not(.btn-shadow) {
+            box-shadow: none !important;
+        }
+       
+        .btn:not(.btn-link) {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+        }
+       
+        .btn {
+            text-transform: none !important;
+            min-width: 39px;
+            font-size: 13px;
+        }
+       
+        .btn-green {
+            color: #fff;
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+   
+        .btn {
+            border-radius: 3px;
+        }
+
+   
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left:20px;">
+        <div>
+            <div class="col-md-9 ">
+                <h2>Balance</h2>
+                <p >
+                    On Hold:
+                    <strong  style="color: #ff0000" data-ng-class="{ 'text-danger': disbursements.hasNegativeBalance() }">500/= Tk</strong>
+                </p>
+                <p>
+                    Available:
+                    <strong style="color: #2ecc71" data-ng-class="{ 'text-danger': disbursements.hasNegativeBalance() }">10000/= Tk</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+<div class="modal-body">
+    <div>
+        <div class="form-group">
+            <i ></i><input type="number" class="form-control" min="10" placeholder="Withdraw Amount">
+        </div>
+        <div class="" id="deposit-tabs">
+            <ul role="tablist" class="nav nav-tabs">
+                <li role="presentation" class="p-0  active">
+                    <a id="deposit-tabs-tab-paypal" role="tab" aria-controls="deposit-tabs-pane-paypal" aria-selected="true" href=""><i class="fa fa-credit-card text-xyg-dark-gray"></i><!-- react-text: 19 -->Bkash<!-- /react-text --></a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="deposit-tabs-pane-paypal" aria-labelledby="deposit-tabs-tab-paypal" role="tabpanel" aria-hidden="false" class="tab-pane active fade in">
+                    <div >
+                        <img src="http://www.liberationwarmuseumbd.org/wp-content/uploads/2015/09/bkash-logo.gif">
+                        <p>You are are required to have a Bkash account to make a withdrawal via Bkash.</p>
+                        <p>Enter the Bkash Number and click withdraw to complete.</p>
+                        <div class="form-group">
+                            <i ></i><input type="text" class="form-control" placeholder="Bkash Number">
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-3 col-xs-6">
+                                <div>Minimum Withdraw:</div>
+                                <div>Processing Time:</div>
+                                <div>Processing Fee:</div>
+                            </div>
+                            <div class="col-sm-2 col-xs-6 text-right">
+                                <div><!-- react-text: 40 -->Tk<!-- /react-text --><!-- react-text: 41 -->1000<!-- /react-text --></div>
+                                <div><!-- react-text: 43 -->Min <!-- /react-text --><!-- react-text: 44 -->24<!-- /react-text --><!-- react-text: 45 --> Hours<!-- /react-text --></div>
+                                <div>5%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div><a class="btn btn-green btn-block ">WITHDRAW</a>
+    </div>
+
+</div>
+</body>
+</html>
+
+

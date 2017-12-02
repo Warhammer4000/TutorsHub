@@ -44,7 +44,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult StudentList(int? id)
         {
-            throw new NotImplementedException();
+            return View();
         }
         [HttpGet]
         public ActionResult ViewProfile(int? id)
@@ -58,5 +58,48 @@ namespace TutorsHub.Application.Controllers
 
             throw new NotImplementedException();
         }
+
+        [HttpGet]
+        public ActionResult Blog()
+        {
+
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult ViewPost(string id)
+        {
+
+            return View();
+        }
+
+
+
+        [HttpGet]
+        public ActionResult NewPost()
+        {
+            return View();
+
+        }
+
+        public RedirectToRouteResult Logout()
+        {
+            return RedirectToAction("Index","Home");
+        }
+
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+        public ActionResult Schedule()
+        {
+            return View();
+        }
+
+
+
     }
 }

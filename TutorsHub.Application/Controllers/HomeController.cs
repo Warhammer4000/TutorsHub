@@ -24,11 +24,34 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-
+        public ActionResult SearchResult()
+        {
+            return View();
+        }
 
         public ActionResult ForgotPassword()
         {
-            throw new NotImplementedException();
+            return View();
         }
+
+        public ActionResult ViewProfile(string id)
+        {
+            return View();
+        }
+
+        public RedirectToRouteResult ToDashBoard(string email,string password)
+        {
+            switch (email)
+            {
+                case "tutor":
+                    return RedirectToAction("Dashboard", "Tutor");
+                case "admin":
+                    return RedirectToAction("AdminDashboard", "Admin");
+                    default:
+                        return RedirectToAction("Index", "Home");
+            }
+        }
+
+
     }
 }

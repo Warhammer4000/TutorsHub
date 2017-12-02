@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style media="screen">
+        .card {
+            width: 500px;
+            height: 300px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        .right {
+            font-size: 20px;
+            width: 240px;
+        }
+
+        table {
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var achart = new CanvasJS.Chart("activityChart", {
+                animationEnabled: true,
+                theme: "light2",
+
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { x: new Date(2012, 01, 1), y: 26 },
+                        { x: new Date(2012, 01, 3), y: 38 },
+                        { x: new Date(2012, 01, 5), y: 43 },
+                        { x: new Date(2012, 01, 7), y: 29 },
+                        { x: new Date(2012, 01, 11), y: 41 },
+                        { x: new Date(2012, 01, 13), y: 54 },
+                        { x: new Date(2012, 01, 20), y: 66 },
+                        { x: new Date(2012, 01, 21), y: 60 },
+                        { x: new Date(2012, 01, 25), y: 53 },
+                        { x: new Date(2012, 01, 27), y: 60 }
+                    ]
+                }]
+            });
+
+            var schart = new CanvasJS.Chart("statChart", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                axisX: {
+                    title: "User Role"
+                },
+                axisY: {
+                    title: "User No."
+                },
+                data: [{
+                    type: "column",
+
+
+                    dataPoints: [
+                        { y: 4, label: "Admin" },
+                        { y: 20, label: "Tutor" },
+                        { y: 120, label: "Student" },
+
+                    ]
+                }]
+            });
+
+
+            schart.render();
+            achart.render();
+
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+    <br>
+    <div class="row">
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-lg-5">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User Activity
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="activityChart" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-5">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User Activity
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="statChart" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+
+
+
+</body>
+</html>
