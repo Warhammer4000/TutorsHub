@@ -88,5 +88,11 @@ namespace TutorsHub.Application.Controllers
             return RedirectToAction("Index","Home");
         }
 
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
     }
 }

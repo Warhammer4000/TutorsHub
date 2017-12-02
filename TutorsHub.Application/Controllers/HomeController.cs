@@ -41,9 +41,15 @@ namespace TutorsHub.Application.Controllers
 
         public RedirectToRouteResult ToDashBoard(string email,string password)
         {
-            
-            return RedirectToAction("Dashboard", "Tutor");
-            return RedirectToAction("AdminDashboard", "Admin");
+            switch (email)
+            {
+                case "tutor":
+                    return RedirectToAction("Dashboard", "Tutor");
+                case "admin":
+                    return RedirectToAction("AdminDashboard", "Admin");
+                    default:
+                        return RedirectToAction("Index", "Home");
+            }
         }
 
 

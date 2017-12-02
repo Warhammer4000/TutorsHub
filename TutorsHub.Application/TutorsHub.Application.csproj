@@ -267,6 +267,7 @@
     <Content Include="Views\Home\ForgotPassword.cshtml" />
     <Content Include="Views\Home\SearchResult.cshtml" />
     <Content Include="Views\Home\ViewProfile.cshtml" />
+    <Content Include="Views\Tutor\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
