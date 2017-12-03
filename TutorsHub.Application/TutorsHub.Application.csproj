@@ -285,6 +285,8 @@
     <Content Include="Views\Student\SendMessage.cshtml" />
     <Content Include="Views\Student\StudyMaterial.cshtml" />
     <Content Include="Views\Exam\QuestionPaper.cshtml" />
+    <Content Include="Views\Admin\Notification.cshtml" />
+    <Content Include="Views\Admin\Statistics.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
