@@ -1,4 +1,4 @@
-﻿
+﻿@model TutorsHub.Application.Models.RegistrationViewModel
 @{
   
     Layout = "~/Views/Shared/Public_Layout.cshtml";
@@ -24,9 +24,9 @@
 
 
     .testbox {
-        margin: 20px auto;
-        width: 343px;
-        height: 464px;
+        margin:  auto;
+        width: 340px;
+        height: auto;
         -webkit-border-radius: 8px/7px;
         -moz-border-radius: 8px/7px;
         border-radius: 8px/7px;
@@ -43,6 +43,7 @@
 
     .forma {
         margin: 0 30px;
+    
     }
 
     label.radio {
@@ -177,25 +178,46 @@
 <div class="testbox">
     <h1 style="padding-left: 20%">Registration</h1>
 
-    <form class="forma" action="/">
+    <form class="forma" method="post">
         <hr>
         <div class="accounttype">
-            <input type="radio" value="None" id="radioOne" name="account" checked/>
+            <input type="radio" value="Tutor" id="radioOne" name="Type" checked/>
             <label for="radioOne" class="radio" chec>Tutor</label>
-            <input type="radio" value="None" id="radioTwo" name="account"/>
+            <input type="radio" value="Student" id="radioTwo" name="Type"/>
             <label for="radioTwo" class="radio">Student</label>
         </div>
         <hr>
-        <label id="icon" for="name"><i class="icon-envelope "></i></label>
-        <input class="inputBox" type="text" name="name" id="name" placeholder="Email" required/>
-        <label id="icon" for="name"><i class="icon-user"></i></label>
-        <input class="inputBox" type="text" name="name" id="name" placeholder="Name" required/>
-        <label id="icon" for="name"><i class="icon-shield"></i></label>
-        <input class="inputBox" type="password" name="name" id="name" placeholder="Password" required/>
+        <div>
+            <label id="icon" ><i class="icon-envelope "></i></label>
+            <input class="inputBox" type="text" name="Email" placeholder="Email" required value="@Model.Email"/>
+            <label style="color:red">@Html.ValidationMessageFor(r => r.Email)</label>
+        </div>
+        
+        <div>
+            <label id="icon" ><i class="icon-user"></i></label>
+            <input class="inputBox" type="text" name="Name"  placeholder="Name" required value="@Model.Name"/>
+            <label style="color:red">@Html.ValidationMessageFor(r => r.Name)</label>
+        </div>
+        
+        <div>
+            <label id="icon" ><i class="icon-shield"></i></label>
+            <input class="inputBox" type="password" name="Password" placeholder="Password" required value="@Model.Password"/>
+            <label style="color:red">@Html.ValidationMessageFor(r => r.Password)</label>
+        </div>
+        <div>
+            
+            <label id="icon"><i class="icon-shield"></i></label>
+            <input class="inputBox" type="password" name="ConfirmPassword" placeholder="Confirm Password" required value="@Model.ConfirmPassword" />
+            <label style="color:red">@Html.ValidationMessageFor(r => r.ConfirmPassword)</label>
+
+        </div>
+        
       
         <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.
         </p>
-        <a href="#" class="button" >Register</a>
+      
+        <button type="submit" style="margin-left: 35%; margin-top: 5%">Register</button>
+      
     </form>
 </div>
 

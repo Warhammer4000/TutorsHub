@@ -34,7 +34,13 @@ namespace BLL.UserRepository
         public bool ValidUser(string email, string password)
         {
             User user= new UserRepository<T>().GetByEmail(email);
-            return user.Password == password;
+            if (user != null)
+            {
+                return user.Password == password;
+            }
+            return false;
+           
+           
         }
 
 

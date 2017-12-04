@@ -17,11 +17,6 @@ namespace Entity.UserModels
 
         [RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         [MinLength(2)]
-         
-       
-
-
-        
         public string Name { get; set; }
 
         [Required]
