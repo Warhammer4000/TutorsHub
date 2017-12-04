@@ -49,14 +49,14 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult StatisticReport()
+        public ActionResult Notification()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
-        public ActionResult ActivityReport()
+        public ActionResult Statistics()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public RedirectToRouteResult Logout()

@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+<html>
+<head>
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style media="screen">
+        img {
+            width: 70%;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var achart = new CanvasJS.Chart("activityChart", {
+                animationEnabled: true,
+                theme: "light2",
+
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { x: new Date(2012, 01, 1), y: 26 },
+                        { x: new Date(2012, 02, 3), y: 38 },
+                        { x: new Date(2012, 03, 5), y: 43 },
+                        { x: new Date(2012, 04, 7), y: 29 },
+                        { x: new Date(2012, 05, 11), y: 41 },
+                        { x: new Date(2012, 06, 13), y: 54 },
+                        { x: new Date(2012, 07, 20), y: 66 },
+                        { x: new Date(2012, 08, 21), y: 60 },
+                        { x: new Date(2012, 09, 25), y: 53 },
+                        { x: new Date(2012, 10, 27), y: 60 }
+                    ]
+                }]
+            });
+            var tchart = new CanvasJS.Chart("trafficChart", {
+                animationEnabled: true,
+                theme: "light2",
+
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { x: new Date(2012, 01, 1), y: 21 },
+                        { x: new Date(2012, 02, 3), y: 56 },
+                        { x: new Date(2012, 03, 5), y: 23 },
+                        { x: new Date(2012, 04, 7), y: 12 },
+                        { x: new Date(2012, 05, 11), y: 8 },
+                        { x: new Date(2012, 06, 13), y: 67 },
+                        { x: new Date(2012, 07, 20), y: 46 },
+                        { x: new Date(2012, 08, 21), y: 23 },
+                        { x: new Date(2012, 09, 25), y: 12 },
+                        { x: new Date(2012, 10, 27), y: 29 }
+                    ]
+                }]
+            });
+            var schart = new CanvasJS.Chart("usrreport", {
+               animationEnabled: true,
+               theme: "light2", // "light1", "light2", "dark1", "dark2"
+               axisX: {
+                   title: "Customer"
+               },
+               axisY: {
+                   title: "User No."
+               },
+               data: [{
+                   type: "column",
+
+
+                   dataPoints: [
+                       { y: 120, label: "Satisfied Customer" },
+                       { y: 20, label: "Unsatisfied Customer" },
+
+                   ]
+               }]
+           });
+            achart.render();
+            tchart.render();
+            schart.render();
+        }
+    </script>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-lg-10">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Notification
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Income Chart
+                                </div>
+                                <div class="panel-body">
+                                    <div id="activityChart" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    Traffic Chart
+                                </div>
+                                <div class="panel-body">
+                                    <div id="trafficChart" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    User Satisfaction
+                                </div>
+                                <div class="panel-body">
+                                    <div id="usrreport" style="height: 300px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+

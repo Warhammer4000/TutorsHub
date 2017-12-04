@@ -16,6 +16,9 @@
         img {
             width: 70%;
         }
+        a.my-class {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -27,11 +30,9 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            Profile
-                        </div>
-                    </div>
+                
+                            @Html.ActionLink("Back to Search", "SearchResult","Home", null, new { @class = "my-class" })
+                
                 </div>
                 <div class="panel-body">
 
