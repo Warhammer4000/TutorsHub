@@ -40,95 +40,94 @@
             display: block;
             width: 100%;
         }
-      
     </style>
 </head>
 <body>
 
-     
-        <h3>Tutor Payment</h3>
-       
-        <div class="row">
-       
-            <div class="col-lg-8 alert alert-success">
 
-                <table>
-                    <tr>
-                        <td class="text-right">
-                           <strong>Tutor Fee</strong> 
-                        </td>
-                    
-                        <td class="text-right">
-                            <strong>Total</strong>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td class="text-right">
-                            <span class="amount"><strong> ৳ 5,000.00</strong> </span>
-                        </td>
-                  
-                        <td class="text-right" style="width:200px">
-                            <span class="amount"><strong> ৳ 5,000.00</strong> </span>
-                        </td>
-                    </tr>
-                </table>
+    <h3>Tutor Payment</h3>
 
-            </div>
+    <div class="row">
+
+        <div class="col-lg-8 alert alert-success">
+
+            <table>
+                <tr>
+                    <td class="text-right">
+                        <strong>Tutor Fee</strong>
+                    </td>
+
+                    <td class="text-right">
+                        <strong>Total</strong>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        <span class="amount"><strong>  ‎৳ 5,000.00</strong> </span>
+                    </td>
+
+                    <td class="text-right" style="width:200px">
+                        <span class="amount"><strong>  ‎৳ 5,000.00</strong> </span>
+                    </td>
+                </tr>
+            </table>
+
         </div>
+    </div>
     <br />
-            <div class="" id="deposit-tabs">
-                <ul role="tablist" class="nav nav-tabs">
-                    <li role="presentation" class="p-0  active">
-                        <a id="deposit-tabs-tab-paypal" role="tab" aria-controls="deposit-tabs-pane-paypal" aria-selected="true" href=""><i class="fa fa-credit-card text-xyg-dark-gray"></i><!-- react-text: 19 -->Bkash<!-- /react-text --></a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div id="deposit-tabs-pane-paypal" aria-labelledby="deposit-tabs-tab-paypal" role="tabpanel" aria-hidden="false" class="tab-pane active fade in">
+    <div class="" id="deposit-tabs">
+        <ul role="tablist" class="nav nav-tabs">
+            <li role="presentation" class="p-0  active">
+                <a id="deposit-tabs-tab-paypal" role="tab" aria-controls="deposit-tabs-pane-paypal" aria-selected="true" href=""><i class="fa fa-credit-card text-xyg-dark-gray"></i><!-- react-text: 19 -->Bkash<!-- /react-text --></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="deposit-tabs-pane-paypal" aria-labelledby="deposit-tabs-tab-paypal" role="tabpanel" aria-hidden="false" class="tab-pane active fade in">
+                <div>
+                    <img src="http://www.liberationwarmuseumbd.org/wp-content/uploads/2015/09/bkash-logo.gif"><br />
+                    <div class="alert alert-success">
+                        <label for="bkash_numbers">Our bKash Number:<input type="text" class="form-control " value="+8801762543837" disabled="disabled"></label>
+                    </div>
+                    <div class="alert alert-danger">IMPORTANT: This is a <strong>MERCHANT NUMBER</strong>.</div>
+                    <div class="alert alert-danger">IMPORTANT: <strong>DO NOT CALL THIS NUMBER</strong> You will not get any response.</div>
+                    <div class="alert alert-success">
                         <div>
-                            <img src="http://www.liberationwarmuseumbd.org/wp-content/uploads/2015/09/bkash-logo.gif"><br />
-                             <div class="alert alert-success">
-                                 <label for="bkash_numbers">Our bKash Number:<input type="text" class="form-control " value="+8801762543837" disabled="disabled"></label>                    
+                            <label>Your TrxID:</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" max-length="10" class="form-control" value="" id="bkash_trx_id" name="bkash_trx_id" placeholder="Type FULL bKash Transaction ID here">
                             </div>
-                            <div class="alert alert-danger">IMPORTANT: This is a <strong>MERCHANT NUMBER</strong>.</div>
-                            <div class="alert alert-danger">IMPORTANT: <strong>DO NOT CALL THIS NUMBER</strong> You will not get any response.</div>
-                            <div class="alert alert-success">
-                                <div>
-                                    <label>Your TrxID:</label>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="text" max-length="10" class="form-control" value="" id="bkash_trx_id" name="bkash_trx_id" placeholder="Type FULL bKash Transaction ID here">
+                            <div class="col-lg-3">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Verify</button>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+
+                                    <div class="modal-body">
+                                        <p>Payment Verified</p>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Verify</button>
-
-                                    </div>
-                                </div>
-                                
-                            
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-
-                                            <div class="modal-body">
-                                                <p>Payment Verified</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

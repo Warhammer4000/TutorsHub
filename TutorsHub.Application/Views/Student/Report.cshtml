@@ -2,52 +2,94 @@
     ViewBag.Title = "Report";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
-<style>
-    table > tbody > tr > th {
-        height: 55px;
-    }
-</style>
+<div style="background-color:white; margin:0px 20px; padding:5px">
 
-<div style="background-color:white; border:1px solid green;margin:0px 50px; padding-left:50px; width:700px">
-    <form>
-        <div>
-            <label>Select Tutor :</label>
-            <select class="form-control" id="tutor">
-                <option value=""></option>
-                <option value="Hiron">Hiron</option>
-                <option value="Sofiq">Sofiq</option>
-                <option value="Nisu">Nisu</option>
-            </select>
-            <br/>
+
+    <div class="row" style="border:1px solid green; margin-left:20px; height:200px; padding:20px">
+        <div class="col-lg-2">
+            <img src="../../images/teacher_1.jpg" alt="Alternate Text" style="width:140px;" />
         </div>
-        <div class="form-group" id="date">
-            <label>Select Date :</label>
-            <select class="form-control" id="date">
-                <option value=""></option>
-            </select>
-            <br/>
+        <div class="col-lg-2">
+            <table class="table text-center">
+                <tr class="success">
+                    <td>
+                        <label>Tazim</label>
+                    </td>
+                </tr>
+                <tr class="info">
+                    <td>
+                        <label>2/4/2017</label>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <div class="form-group" id="tutor">
-            <label>Select Tutor :</label>
-            <select class="form-control" id="time">
-                <option value=""></option>
-                <option value="08AM - 10AM">08AM - 10AM</option>
-                <option value="10AM - 12PM">10AM - 12PM</option>
-                <option value="12PM - 02PM">12PM - 02PM</option>
-                <option value="02PM - 04PM">02PM - 04PM</option>
-                <option value="04PM - 06PM">04PM - 06PM</option>
-                <option value="06PM - 08PM">06PM - 08PM</option>
-                <option value="08PM - 10PM">08PM - 10PM</option>
-            </select>
-            <br/>
+        <div class="col-lg-2 ">
+            <table class="text-center table ">
+                <tr class="success">
+                    <td><label>Start</label></td>
+                </tr>
+                <tr class="info">
+                    <td><label>12:00 pm</label></td>
+                </tr>
+                <tr class="success">
+                    <td><label>End</label></td>
+                </tr>
+                <tr class="info">
+                    <td><label>2:00 pm</label></td>
+                </tr>
+            </table>
         </div>
-        <label>Comment :</label>
-        <div class="form-group" id="comment">
-            <textarea rows="6" cols="80" placeholder="Comment here..."></textarea>
-            <br/>
+        <div class="col-lg-4">
+            <textarea rows="5" cols="50" placeholder="Write here..."></textarea>
+            <br />
+            <br />
+
+            <button type="button" class="btn btn-info" style="margin-left:310px">Report</button>
         </div>
-        <div class="form-group" id="submit" style="margin-bottom:30px">
-            <button type="button" class="btn btn-info" style="margin-bottom:-20px">Submit</button>
+    </div>
+    <br />
+
+    <div class="row" style="border:1px solid green; margin-left:20px; height:200px; padding:20px">
+        <div class="col-lg-2">
+            <img src="../../images/teacher_1.jpg" alt="Alternate Text" style="width:140px;" />
         </div>
-    </form>
+        <div class="col-lg-2">
+            <table class="table text-center">
+                <tr class="success">
+                    <td>
+                        <label>Sajib</label>
+                    </td>
+                </tr>
+                <tr class="info">
+                    <td>
+                        <label>4/4/2017</label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-2 ">
+            <table class="text-center table ">
+                <tr class="success">
+                    <td><label>Start</label></td>
+                </tr>
+                <tr class="info">
+                    <td><label>3:00 pm</label></td>
+                </tr>
+                <tr class="success">
+                    <td><label>End</label></td>
+                </tr>
+                <tr class="info">
+                    <td><label>5:00 pm</label></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <textarea rows="5" cols="50" placeholder="Write here..."></textarea>
+            <br />
+            <br />
+
+            <button type="button" class="btn btn-info" style="margin-left:310px">Report</button>
+        </div>
+    </div>
+
 </div>

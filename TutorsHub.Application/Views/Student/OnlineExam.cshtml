@@ -2,6 +2,61 @@
     ViewBag.Title = "Online Exam";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
-<div style="background-color:white; border:1px solid green;margin:0px 50px">
+<style>
+    table > tbody > tr > th {
+        height: 55px;
+    }
+</style>
+<br />
+<br />
+<div style="background-color:white; border:1px solid green;margin:0px 50px; padding-left:100px; padding-top:50px; width:700px; height:410px">
+    <div style="width:70%">
+        <label>Select Class :</label>
+        <select class="form-control" id="tutor">
+            <option value=""></option>
+            <option value="Class Five">Class Five</option>
+            <option value="Class Six">Class Six</option>
+            <option value="Class Seven">Class Seven</option>
+            <option value="Class Eight">Class Eight</option>
+            <option value="Class Nine">Class Nine</option>
+            <option value="Class Ten">Class Ten</option>
+            <option value="Class Eleven">Class Eleven</option>
+            <option value="Class Twelve">Class Twelve</option>
+        </select>
 
+        <br />
+        <label>Select Subject :</label>
+        <select class="form-control" id="tutor">
+            <option value=""></option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Math">Math</option>
+            <option value="Biology">Biology</option>
+            <option value="Bangla 1">Bangla 1</option>
+            <option value="Bangla 2">Bangla 2</option>
+            <option value="English 2">English 2</option>
+            <option value="Islamic Studies">Islamic Studies</option>
+            <option value="ocial Science">Social Science</option>
+            <option value="Accounting">Accounting</option>
+            <option value="Finance">Finance</option>
+        </select>
+        <br />
+        <label>Select Category :</label>
+        <select class="form-control" id="tutor">
+            <option value=""></option>
+            <option value="Beginner">Beginner</option>
+            <option value="Moderator">Moderator</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <br />
+        <br />
+        <div class="form-group" id="submit">
+            <button type="button" class="btn btn-info" onclick="myFunction()" style="margin-left:320px">Start Exam</button>
+            <script>
+                function myFunction() {
+                    window.location.href = "/student/StartExam";
+                }
+            </script>
+        </div>
+    </div>
 </div>
