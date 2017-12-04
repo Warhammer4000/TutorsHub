@@ -47,14 +47,27 @@ namespace TutorsHub.Application.Controllers
         {
              IDataService<Location> locationDataService= new LocationService();
 
-             LocationsViewModel locationsViewModel= new LocationsViewModel();
-            locationsViewModel.Locations = locationDataService.GetAll();
-             return View(locationsViewModel);
+            var locationsViewModel = new LocationsViewModel
+            {
+                Locations = locationDataService.GetAll()
+            };
+            return View(locationsViewModel);
         }
 
         [HttpPost]
         public ActionResult Locations(LocationsViewModel locationsViewModel)
         {
+            IDataService<Location> locationDataService = new LocationService();
+            if (locationsViewModel.NewLocation != null)
+            {
+                locationDataService.Add(locationsViewModel.NewLocation);
+            }
+
+            locationsViewModel = new LocationsViewModel
+            {
+                Locations = locationDataService.GetAll()
+            };
+
             return View(locationsViewModel);
         }
         [HttpGet]
