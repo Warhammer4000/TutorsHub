@@ -10,7 +10,12 @@
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
-    
+    <style>
+        .notify{
+            height:15px;
+            width:30px;
+        }
+    </style>
 
     <title>Tutor_Layout</title>
 </head>
@@ -71,20 +76,26 @@
                     <li><a href="/Exam/Ranking">Ranking</a></li>
                 </ul>
             </li>
-
+            
+            
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bell-o" aria-hidden="true"></i>
-                    
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">New Notification By Jane</a></li>
-                    <li><a href="#">New Notification By Jane</a></li>
-                    <li><a href="#">New Notification By Jane</a></li>
-                    <li><a href="#">New Notification By Jane</a></li>
-                </ul>
-            </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        <span style="color:red;">*</span>
 
+                    </a>
+                    <ul class="dropdown-menu" style="font-size: 20px;">
+                        <li><a href="#" style="background-color:grey;">New Notification By Jane</a></li>
+                        <li><a href="#">New Notification By Jane</a></li>
+                        <li><a href="#">New Notification By Jane</a></li>
+                        <li><a href="#">New Notification By Jane</a></li>
+                        <li><a href="#">New Notification By Jane</a></li>
+                        <li style="font-size:15px;" class="btn-link"><a href="/Tutor/Notification" style="color:green;">see all</a></li>
+                    </ul>
+            </li>
+           
+            
+           
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
