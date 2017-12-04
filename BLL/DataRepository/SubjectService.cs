@@ -17,7 +17,7 @@ namespace BLL.DataRepository
 
         public bool Add(Subject t)
         {
-            throw new NotImplementedException();
+            return new SubjectContext().Add(t);
         }
     }
 }
