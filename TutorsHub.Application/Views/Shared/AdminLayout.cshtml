@@ -1,104 +1,62 @@
-﻿@using System.Web.Mvc.Html
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
-
-    <style>
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
-            margin-top: 0;
-        }   
-    </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="width: 100%;height: 50px; background-color:#6AAEBB" data-spy="affix">
         <div class="container-fluid">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="" class="navbar-brand" height="auto">
                 <a class="navbar-brand" href="/Admin/AdminDashboard">Tutors Hub</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Account
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      
-                        <li>@Html.ActionLink("View Profile", "ViewProfile", "Admin")</li>
-                        <li>@Html.ActionLink("Edit Profile", "EditProfile", "Admin")</li>
-                        <li>@Html.ActionLink("Change Password", "EditPassword", "Admin")</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        User
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Search", "UserSearch", "Admin")</li>
-                        <li>@Html.ActionLink("Create New", "NewUser", "Admin")</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Data Control
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Question Paper", "QuestionPaper", "Admin")</li>
-                        <li>@Html.ActionLink("Locations", "Locations", "Admin")</li>
-                        <li>@Html.ActionLink("Subjects", "Subjects", "Admin")</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
 
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("New Notification By Jon ", "Notification", "Admin")</li>
-                        <li>@Html.ActionLink("New Notification By Jane ", "Notification", "Admin")</li>
-                        <li>@Html.ActionLink("New Notification By June ", "Notification", "Admin")</li>
+                    </li>
+                    <li><a href="/Admin/ViewProfile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="/Admin/Notification"><span class="glyphicon glyphicon-bell"></span>Notification</a></li>
 
-                    </ul>
-                    
-                </li>
-                <li>@Html.ActionLink("Statistics", "Statistics", "Admin")</li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <span class="alert alert-success">Logged As Admin</span>
-                @Html.ActionLink("Log Out","Index","Home" )
-           </ul>
+                    <li>
+                        <a href="/Home/Index"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div>
-        <table width="100%" cellspacing="0" cellpadding="10" border="0">
-            <tr>
-                <td>
+        <div class="container-fluid" style="margin: 50px 40px 50px 60px">
+            <div class="row">
+                <div class="col-sm-2" style="background-color:transparent;border:none; margin-top:50px">
+                    <center><img src="../../images/download.jpg" style="width:140px;" /> </center>
+                    <div class="btn-group-vertical" style="width:100%;margin:10px 0px">
+                        <a href="/Admin/AdminDashboard" type="button" class="btn btn-primary" style="margin:8px 0px">Dashboard</a>
+                        <a href="/Admin/UserSearch" type="button" class="btn btn-primary" style="margin:8px 0px;">User</a>
+                        <a href="/Admin/QuestionPaper" type="button" class="btn btn-primary" style="margin:8px 0px">Questions</a>
+                        <a href="/Admin/Locations" type="button" class="btn btn-primary" style="margin:8px 0px">Location</a>
+                        <a href="/Admin/Subjects" type="button" class="btn btn-primary" style="margin:8px 0px">Subject</a>
+                        <a href="/Admin/EditPassword" type="button" class="btn btn-primary" style="margin:8px 0px">Change Password</a>
+                    </div>
+                </div>
+                <div class="col-sm-10" style="margin-top:80px">
                     @RenderBody()
-                    <br /><br /><br />
-                </td>
-            </tr>
-            <tr>
-                <td style="position:fixed;bottom:0;width:100%;text-align:center;border:solid">
-                    Copyright &copy; 2017
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
