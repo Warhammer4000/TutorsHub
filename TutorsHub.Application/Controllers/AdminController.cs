@@ -75,13 +75,25 @@ namespace TutorsHub.Application.Controllers
         {
             IDataService<Subject> subjectDataService = new SubjectService();
 
-            SubjectsViewModel subjectsViewModel = new SubjectsViewModel();
-            subjectsViewModel.Subjects = subjectDataService.GetAll();
+            var subjectsViewModel = new SubjectsViewModel
+            {
+                Subjects = subjectDataService.GetAll()
+            };
             return View(subjectsViewModel);
         }
         [HttpPost]
         public ActionResult Subjects(SubjectsViewModel subjectsViewModel)
         {
+            IDataService<Subject> subjectDataService = new SubjectService();
+            if (subjectsViewModel.NewSubject!= null)
+            {
+                subjectDataService.Add(subjectsViewModel.NewSubject);
+            }
+
+            subjectsViewModel = new SubjectsViewModel
+            {
+                Subjects = subjectDataService.GetAll()
+            };
             return View(subjectsViewModel);
         }
 
