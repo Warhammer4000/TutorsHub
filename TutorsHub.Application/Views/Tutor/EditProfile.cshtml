@@ -157,11 +157,10 @@
     
     <script>
         function viewImage() {
-            document.getElementById("ImagePlaceHolder").src = document.getElementsByName("ProfilePictureUrl").value;
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
             console.log("Called");
             return false;
         }
-
 
     </script>
     
@@ -180,7 +179,7 @@
                 <tr>
                     <td>Image URL:</td>
                     <td>
-                        <input type="url" name="ProfilePictureUrl">  <input onclick="return viewImage()" type="button" value="View" style="border-radius: 12px;margin:4px 2px">
+                        <input type="url" name="ProfilePictureUrl" id="imageUrl">  <input onclick="return viewImage()" type="button" value="View" style="border-radius: 12px;margin:4px 2px">
                     </td>
                 </tr>
                 <tr>
