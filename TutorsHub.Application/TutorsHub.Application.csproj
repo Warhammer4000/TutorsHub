@@ -107,7 +107,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="images\.keep" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\bootstrap\glyphicons-halflings-regular.ttf" />
