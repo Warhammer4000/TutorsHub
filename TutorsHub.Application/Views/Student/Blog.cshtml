@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "My Blogs";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+<br />
+<br />
+<div style="background-color:white; border:1px solid green;margin-left:58px; padding-left:60px;width:90%">
+    <div class="form-group" id="submit" style="margin-top:20px; margin-right:50px">
+        <button type="button" class="btn btn-info" onclick="myFunction()">New Post</button>
+        <br />
+        <script>
+            function myFunction() {
+                window.location.href="/Student/NewPost";
+            }
+        </script>
+    </div>
+    <div class="date-header">
+        <div id="meta-post">
+            <i class="fa fa-user"></i>
+            <a href="https://plus.google.com/117087522982435008929" rel="author" title="Rina Chaudhary" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+                <span itemprop="name">Rina Chaudhary</span>
+            </a>
+            <i class="fa fa-clock-o"></i>
+            <span class="published timeago" title="2016-08-01T04:22:00-07:00">August 01, 2016</span>
+        </div>
+        <div class="resumo">
+            <span>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                dolor.Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculusmus.Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+                sem. Nulla consequat massa quis enim.Donec pede justo, fringilla vel, aliquet nec,
+                vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,venenatis vitae, justo.
+                Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
+                eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
+                feugiat a, tellus. Phasellus viverra nullaut metus varius laoreet. Quisque rutrum.
+                Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
+                nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
+                sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
+                Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci
+                eget eros faucibus tincidunt. Duis leo.
+            </span>
+            <hr />
+            <font class="retitle">
+                <h4 class="post-title entry-title">
+                    <a href="/Student/ViewPost">
+                        View Post
+                        <br />
+                        <br />
+                    </a>
+                </h4>
+            </font>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>

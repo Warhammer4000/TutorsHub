@@ -1,117 +1,92 @@
-﻿
-@{
-    ViewBag.Title = "QuestionPaper";
+﻿@{
+    ViewBag.Title = "Question";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <style media="screen">
-        .card {
-            width: 80%;
-        }
-
-        input {
-            margin-bottom: 5px;
-        }
-
-        table {
-            font-size: 20px;
-        }
-    </style>
-
-</head>
-<body>
-    <div class="row">
-        <div class="col-sm-2">
-
-        </div>
-        <div class="col-sm-10">
-            <div class="panel panel-info card">
-                <div class="panel-heading">
-                   QUESTIONS
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-
-                                <input name="" class="form-control " type="file" value="" />
-                                <input type="submit" class="form-control btn-success" value="Update" />
-                                <input type="submit" class="form-control btn-info" value="Download" />
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Question</th>
-                                            <th>A</th>
-                                            <th>B</th>
-                                            <th>C</th>
-                                            <th>D</th>
-                                            <th>Answer</th>
-                                            <th>Difficulty</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>002</td>
-                                            <td>What is the Capital City of Bangladesh?</td>
-                                            <td>Delhi</td>
-                                            <td>Dhaka</td>
-                                            <td>Chittagong</td>
-                                            <td>Noakhali</td>
-                                            <td>B</td>
-                                            <td><strong>*</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>003</td>
-                                            <td>Who is the developer of the programming language C?</td>
-                                            <td>Steve Job</td>
-                                            <td>Mark Zuchkerberg</td>
-                                            <td>Dennis Ritchie</td>
-                                            <td>Jeff Bezos</td>
-                                            <td>C</td>
-                                            <td><strong>**</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td>004</td>
-                                            <td>What is the distance of Sun from Earth?</td>
-                                            <td>149.6 million km</td>
-                                            <td>193.2 million km</td>
-                                            <td>120.2 million km</td>
-                                            <td>110 million km</td>
-                                            <td>A</td>
-                                            <td><strong>***</strong></td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div style="background-color:white; margin:0px 50px; border:1px solid green; width:90%">
+    <div style="padding:25px;">
+        <input name="" class="form-control in" type="file" value="" style="width:50%" />
+        <br />
+        <input type="submit" class="form-control btn-info" value="Update" style="width:20%" />
+        <br />
+        <input type="submit" class="form-control btn-success" value="Download" style="width:20%" />
     </div>
 
-</body>
-</html>
+    <div>
+        <table class="table table-hover" style="width:80%; margin-left:30px">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>Answer</th>
+                    <th>Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>What is the Capital City of Bangladesh?</td>
+                    <td>Delhi</td>
+                    <td>Dhaka</td>
+                    <td>Chittagong</td>
+                    <td>Noakhali</td>
+                    <td>B</td>
+                    <td><strong>*</strong></td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Who is the developer of the programming language C?</td>
+                    <td>Steve Job</td>
+                    <td>Mark Zuchkerberg</td>
+                    <td>Dennis Ritchie</td>
+                    <td>Jeff Bezos</td>
+                    <td>C</td>
+                    <td><strong>**</strong></td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>What is the distance of Sun from Earth?</td>
+                    <td>149.6 million km</td>
+                    <td>193.2 million km</td>
+                    <td>120.2 million km</td>
+                    <td>110 million km</td>
+                    <td>A</td>
+                    <td><strong>***</strong></td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>What is the Capital City of Bangladesh?</td>
+                    <td>Delhi</td>
+                    <td>Dhaka</td>
+                    <td>Chittagong</td>
+                    <td>Noakhali</td>
+                    <td>B</td>
+                    <td><strong>*</strong></td>
+                </tr>
+                <tr>
+                    <td>005</td>
+                    <td>Who is the developer of the programming language C?</td>
+                    <td>Steve Job</td>
+                    <td>Mark Zuchkerberg</td>
+                    <td>Dennis Ritchie</td>
+                    <td>Jeff Bezos</td>
+                    <td>C</td>
+                    <td><strong>**</strong></td>
+                </tr>
+                <tr>
+                    <td>006</td>
+                    <td>What is the distance of Sun from Earth?</td>
+                    <td>149.6 million km</td>
+                    <td>193.2 million km</td>
+                    <td>120.2 million km</td>
+                    <td>110 million km</td>
+                    <td>A</td>
+                    <td><strong>***</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

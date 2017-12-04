@@ -80,5 +80,10 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+
+        public ActionResult Blog()
+        {
+            return View();
+        }
     }
 }
