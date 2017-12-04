@@ -127,7 +127,6 @@ namespace TutorsHub.Application.Controllers
             if (tutorService.ValidUser(email, password))
             {
                 Session["Key"] = email;
-
                 return RedirectToAction("Dashboard", "Tutor");
             }
 
