@@ -280,12 +280,14 @@
     <Content Include="Views\Student\OnlineExam.cshtml" />
     <Content Include="Views\Student\Profile.cshtml" />
     <Content Include="Views\Student\Report.cshtml" />
-    <Content Include="Views\Student\SearchTutor.cshtml" />
     <Content Include="Views\Student\SendMessage.cshtml" />
     <Content Include="Views\Student\StudyMaterial.cshtml" />
     <Content Include="Views\Exam\QuestionPaper.cshtml" />
     <Content Include="Views\Admin\Notification.cshtml" />
     <Content Include="Views\Admin\Statistics.cshtml" />
+    <Content Include="Views\Student\TutorSearch.cshtml" />
+    <Content Include="Views\Student\ViewSearch.cshtml" />
+    <Content Include="Views\Student\ViewProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

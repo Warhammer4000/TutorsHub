@@ -67,5 +67,18 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+        public ActionResult TutorSearch()
+        {
+            return View();
+        }
+        public ActionResult ViewSearch()
+        {
+            return View();
+        }
+
+        public ActionResult ViewProfile()
+        {
+            return View();
+        }
     }
 }
