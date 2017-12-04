@@ -5,6 +5,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+
     <style>
         .dropdown:hover .dropdown-menu {
             display: block;
@@ -55,8 +63,18 @@
                         <li>@Html.ActionLink("Subjects", "Subjects", "Admin")</li>
                     </ul>
                 </li>
-                <li>
-                    @Html.ActionLink("Notification ", "Notification", "Admin")
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("New Notification By Jon ", "Notification", "Admin")</li>
+                        <li>@Html.ActionLink("New Notification By Jane ", "Notification", "Admin")</li>
+                        <li>@Html.ActionLink("New Notification By June ", "Notification", "Admin")</li>
+
+                    </ul>
+                    
                 </li>
                 <li>@Html.ActionLink("Statistics", "Statistics", "Admin")</li>
 
