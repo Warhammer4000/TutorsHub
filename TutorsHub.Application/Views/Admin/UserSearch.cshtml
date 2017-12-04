@@ -14,27 +14,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style media="screen">
-        .card {
-            width: 80%;
-        }
-
-        input {
-            margin-bottom: 5px;
-        }
-
-        table {
-            font-size: 20px;
-        }
-    </style>
-
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-1">
 
         </div>
+        
         <div class="col-sm-10">
+            @Html.ActionLink("Create New User", "NewUser", "Admin", null, new { @class = "btn btn-info" })
+            <br /><br />
             <div class="panel panel-info card">
                 <div class="panel-heading">
                     SEARCH USER
@@ -74,21 +63,25 @@
                                                 <td>John</td>
                                                 <td>john@tutorhub.com</td>
                                                 <td>Inactive</td>
+                                                <td>@Html.ActionLink("View", "ViewProfile", "Admin", null, new { @class="btn btn-info"})</td>
                                             </tr>
                                             <tr>
                                                 <td>Mary</td>
                                                 <td>mary@tutorhub.com</td>
                                                 <td>Active</td>
+                                                <td>@Html.ActionLink("View", "ViewProfile", "Admin", null, new { @class = "btn btn-info" })</td>
                                             </tr>
                                             <tr>
                                                 <td>Sajib</td>
                                                 <td>hawee@tutorhub.com</td>
                                                 <td>Active</td>
+                                                <td>@Html.ActionLink("View", "ViewProfile", "Admin", null, new { @class = "btn btn-info" })</td>
                                             </tr>
                                             <tr>
                                                 <td>tanzim</td>
                                                 <td>tanzim@tutorhub.com</td>
                                                 <td>Inactive</td>
+                                                <td>@Html.ActionLink("View", "ViewProfile", "Admin", null, new { @class = "btn btn-info" })</td>
                                             </tr>
                                         </tbody>
                                     </table>
