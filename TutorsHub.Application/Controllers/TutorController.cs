@@ -16,6 +16,12 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
+        public ActionResult EditPassword()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult SearchUser(int? id)
         {
             
