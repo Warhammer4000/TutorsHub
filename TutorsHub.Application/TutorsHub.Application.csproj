@@ -143,6 +143,9 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Views\CSS\bootstrap-theme.min.css" />
+    <Content Include="Views\CSS\bootstrap.min.css" />
+    <Content Include="Views\CSS\style.css" />
     <Content Include="Web.config" />
     <Content Include="stylesheets\_bootstrap.scss" />
     <Content Include="stylesheets\_bootstrap-sprockets.scss" />

@@ -1,121 +1,103 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  
+
     <meta http-equiv="Content-Type" content="text/html charset=utf-8" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="CSS/style.css">
     <link type="text/css" rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
-    <style>
-        .notify{
-            height:15px;
-            width:30px;
-        }
-    </style>
 
     <title>Tutor_Layout</title>
+
 </head>
 <body>
-<nav class="navbar navbar-inverse" style="border-radius: 0px;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/Tutor/DashBoard">Tutors Hub</a>
-        
-        </div>
-        <ul class="nav navbar-nav">
-            
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/Tutor/ViewProfile">View Profile</a></li>
-                    <li><a href="/Tutor/EditProfile">Edit Profile</a></li>  
-                    <li>@Html.ActionLink("Edit Password", "EditPassword", "Tutor")</li>
-                </ul>
-            </li>
+    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Tutor/DashBoard">@Session["UserName"]</a>
 
+            </div>
+            <ul class="nav navbar-nav">
 
-            <li class="dropdown">
-                <a href="/Tutor/Payment" class="btn btn-link">
-                    Payment
-                </a>
-            </li>
-
-            <li class="dropdown">
-                <a href="/Tutor/StudentList" class="btn btn-link">
-                    Student List
-                </a>
-            </li>
-
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Blog
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/Tutor/Blog">My Blogs</a></li>
-                    <li><a href="/Tutor/NewPost">New Post</a></li>                
-                </ul>
-            </li>
-            
-
-            <li class="dropdown">
-                <a href="/Tutor/Schedule" class="btn btn-link">Schedule
-                </a>
-            </li>
-			  
-           
-			  
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Exam
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/Exam/Result">Result</a></li>
-                    <li><a href="/Exam/Ranking">Ranking</a></li>
-                </ul>
-            </li>
-            
-            
-            <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
-                        <span style="color:red;">*</span>
-
+                <li>
+                    <a href="/Tutor/ViewProfile" class="btn btn-link">
+                        Profile
                     </a>
-                    <ul class="dropdown-menu" style="font-size: 20px;">
-                        <li><a href="#" style="background-color:grey;">New Notification By Jane</a></li>
-                        <li><a href="#">New Notification By Jane</a></li>
-                        <li><a href="#">New Notification By Jane</a></li>
-                        <li><a href="#">New Notification By Jane</a></li>
-                        <li><a href="#">New Notification By Jane</a></li>
-                        <li style="font-size:15px;" class="btn-link"><a href="/Tutor/Dashboard" style="color:green;">see all</a></li>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/Tutor/Payment" class="btn btn-link">
+                        Payment
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/Tutor/StudentList" class="btn btn-link">
+                        Student List
+                    </a>
+                </li>
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Blog
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Tutor/NewPost">New Post</a></li>
+                        <li><a href="/Tutor/Blog">My Blog</a></li>
+
                     </ul>
-            </li>
-           
-            
-           
-        </ul>
+                </li>
 
-        <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="/Tutor/Schedule" class="btn btn-link">
+                        Schedule
+                    </a>
+                </li>
 
-            <span class="alert alert-success">Logged As Tutor</span>
-            <a href="/Tutor/Logout" class="btn btn-link">Log Out</a>
-        </ul>
 
-    </div>
-</nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-           @RenderBody()
+
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Exam
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Exam/QuestionPaper">Take Exam</a></li>
+                        <li><a href="/Exam/Result">Result</a></li>
+                        <li><a href="/Exam/Ranking">Ranking</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <a href="/Tutor/Logout" class="btn btn-link">Log Out</a>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @RenderBody()
+            </div>
         </div>
     </div>
-</div>
-<script type="text/javascript" src="../../Scripts/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../../Scripts/bootstrap.min.js"></script> 
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 
 </body>
