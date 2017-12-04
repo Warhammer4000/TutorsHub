@@ -8,6 +8,13 @@
 <head>
     <title>Edit Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
+            console.log("Called");
+            return false;
+        }
+    </script>
     <style type="text/css">
         body {
             background-color: white;
