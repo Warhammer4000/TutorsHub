@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BLL.DataRepository
 {
-    public interface IDataService<T>
+    public abstract class DataService<T>
     {
-        List<T> GetAll();
-        bool Add(T t);
+
+        
     }
 }

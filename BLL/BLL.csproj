@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataRepository\DataService.cs" />
     <Compile Include="DataRepository\IDataService.cs" />
     <Compile Include="DataRepository\LocationService.cs" />
     <Compile Include="DataRepository\SubjectService.cs" />

@@ -14,5 +14,10 @@ namespace BLL.DataRepository
         {
            return new LocationContext().GetAll();
         }
+
+        public bool Add(Location t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

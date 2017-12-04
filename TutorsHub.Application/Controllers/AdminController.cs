@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using BLL.DataRepository;
+using Entity.Data;
+using TutorsHub.Application.Models;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -39,9 +42,20 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Locations()
         {
-            return View();
+             IDataService<Location> locationDataService= new LocationService();
+
+             LocationsViewModel locationsViewModel= new LocationsViewModel();
+            locationsViewModel.Locations = locationDataService.GetAll();
+             return View(locationsViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Locations(LocationsViewModel locationsViewModel)
+        {
+            return View(locationsViewModel);
         }
 
         public ActionResult Subjects()
