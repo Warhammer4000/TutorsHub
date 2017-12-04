@@ -57,10 +57,19 @@ namespace TutorsHub.Application.Controllers
         {
             return View(locationsViewModel);
         }
-
+        [HttpGet]
         public ActionResult Subjects()
         {
-            return View();
+            IDataService<Subject> subjectDataService = new SubjectService();
+
+            SubjectsViewModel subjectsViewModel = new SubjectsViewModel();
+            subjectsViewModel.Subjects = subjectDataService.GetAll();
+            return View(subjectsViewModel);
+        }
+        [HttpPost]
+        public ActionResult Subjects(SubjectsViewModel subjectsViewModel)
+        {
+            return View(subjectsViewModel);
         }
 
         public ActionResult Notification()

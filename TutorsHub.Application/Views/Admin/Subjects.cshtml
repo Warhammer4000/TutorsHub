@@ -1,4 +1,4 @@
-﻿
+﻿@model TutorsHub.Application.Models.SubjectsViewModel
 @{
     ViewBag.Title = "Subjects";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -66,26 +66,14 @@
                                         </tr>
                                     </thead>
                                     <tbody id="myTable">
-                                        <tr>
-                                            <td>Math</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Science</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>English</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Higher Math</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
+                                        @for (int i = 0; i < Model.Subjects.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>@Model.Subjects[i].Name</td>
+                                                <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                                <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
