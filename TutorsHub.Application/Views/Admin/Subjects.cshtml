@@ -1,4 +1,4 @@
-﻿
+﻿@model TutorsHub.Application.Models.SubjectsViewModel
 @{
     ViewBag.Title = "Subjects";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -44,12 +44,15 @@
                         <div class="col-sm-3">
 
                         </div>
-                        <div class="col-sm-4">
-                            <input type="search" class="form-control">
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="submit" class="form-control btn-info" value="Add">
-                        </div>
+                        <form method="post">
+                            <div class="col-sm-4">
+                                <input name="NewSubject.Name" type="search" class="form-control" value="@Model.NewSubject.Name">
+                            </div>
+
+                            <div class="col-sm-2">
+                                <input type="submit" class="form-control btn-info" value="Add">
+                            </div>
+                        </form>
                     </div>
                     <div class="row">
                         <div class="col-sm-2">
@@ -66,26 +69,14 @@
                                         </tr>
                                     </thead>
                                     <tbody id="myTable">
-                                        <tr>
-                                            <td>Math</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Science</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>English</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Higher Math</td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        </tr>
+                                        @for (int i = 0; i < Model.Subjects.Count; i++)
+                                        {
+                                            <tr>
+                                                <td>@Model.Subjects[i].Name</td>
+                                                <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                                                <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>

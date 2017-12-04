@@ -70,10 +70,31 @@ namespace TutorsHub.Application.Controllers
 
             return View(locationsViewModel);
         }
-
+        [HttpGet]
         public ActionResult Subjects()
         {
-            return View();
+            IDataService<Subject> subjectDataService = new SubjectService();
+
+            var subjectsViewModel = new SubjectsViewModel
+            {
+                Subjects = subjectDataService.GetAll()
+            };
+            return View(subjectsViewModel);
+        }
+        [HttpPost]
+        public ActionResult Subjects(SubjectsViewModel subjectsViewModel)
+        {
+            IDataService<Subject> subjectDataService = new SubjectService();
+            if (subjectsViewModel.NewSubject!= null)
+            {
+                subjectDataService.Add(subjectsViewModel.NewSubject);
+            }
+
+            subjectsViewModel = new SubjectsViewModel
+            {
+                Subjects = subjectDataService.GetAll()
+            };
+            return View(subjectsViewModel);
         }
 
         public ActionResult Notification()
