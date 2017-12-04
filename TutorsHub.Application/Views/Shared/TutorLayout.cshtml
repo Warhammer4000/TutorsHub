@@ -2,10 +2,8 @@
 <html>
 <head>
 
-    <meta http-equiv="Content-Type" content="text/html charset=utf-8" />
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    <link href="/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/modernizr-2.6.2.js"></script>
@@ -14,93 +12,62 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse" style="border-radius: 0px;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="width: 100%;height: 50px; background-color:#6AAEBB" data-spy="affix">
         <div class="container-fluid">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="" class="navbar-brand" height="auto">
                 <a class="navbar-brand" href="/Tutor/DashBoard">@Session["UserName"]</a>
 
             </div>
-            <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
 
-                <li>
-                    <a href="/Tutor/ViewProfile" class="btn btn-link">
-                        Profile
-                    </a>
-                </li>
+                    <li>
+                        <a href="/Tutor/ViewProfile" class="btn btn-link">
+                            <span class="glyphicon glyphicon-user"></span> Profile
+                        </a>
+                    </li>
+                    <li><a href="/Tutor/Notification"><span class="glyphicon glyphicon-bell"></span>Notification</a></li>
 
-                <li class="dropdown">
-                    <a href="/Tutor/Payment" class="btn btn-link">
-                        Payment
-                    </a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="/Tutor/StudentList" class="btn btn-link">
-                        Student List
-                    </a>
-                </li>
-
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Blog
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/Tutor/NewPost">New Post</a></li>
-                        <li><a href="/Tutor/Blog">My Blog</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="/Tutor/Schedule" class="btn btn-link">
-                        Schedule
-                    </a>
-                </li>
-
-
-
-
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Exam
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/Exam/QuestionPaper">Take Exam</a></li>
-                        <li><a href="/Exam/Result">Result</a></li>
-                        <li><a href="/Exam/Ranking">Ranking</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <a href="/Tutor/Logout" class="btn btn-link">Log Out</a>
-            </ul>
-
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                @RenderBody()
+                    <li>
+                        <a href="/Tutor/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+    <div>
+        <div class="container-fluid" style="margin: 50px 40px 50px 60px">
+            <div class="row">
+                <div class="col-sm-2" style="background-color:transparent;border:none; margin-top:50px">
+                    <center><img src="../../images/download.jpg" style="width:140px;" /> </center>
+                    <div class="btn-group-vertical" style="width:100%;margin:10px 0px">
+
+
+                        <a href="/Tutor/Payment" type="button" class="btn btn-primary" style="margin:8px 0px">Payment</a>
+                        <a href="/Tutor/StudentList" type="button" class="btn btn-primary" style="margin:8px 0px">Student List</a>
+                        <!--<a type="button" class="btn btn-primary" style="margin:8px 0px" href="#">Blog<span class="caret"></span></a>-->
+                        <a href="/Tutor/NewPost" type="button" class="btn btn-primary" style="margin:8px 0px">New Post</a>
+                        <a href="/Tutor/Blog" type="button" class="btn btn-primary" style="margin:8px 0px">My Blog</a>
+                        <a href="/Tutor/Schedule" type="button" class="btn btn-primary" style="margin:8px 0px">Schedule</a>
+                        <a href="/Exam/QuestionPaper" type="button" class="btn btn-primary" style="margin:8px 0px">Take Exam</a>
+                        <a href="/Exam/Result" type="button" class="btn btn-primary" style="margin:8px 0px">Result</a>
+                        <a href="/Exam/Ranking" type="button" class="btn btn-primary" style="margin:8px 0px">Ranking</a>
+                        <a href="/Tutor/Logout" type="button" class="btn btn-primary" style="margin:8px 0px">Log Out</a>
+                    </div>
+                </div>
+                <div class="col-sm-10" style="margin-top:80px">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
 </body>
 </html>
 

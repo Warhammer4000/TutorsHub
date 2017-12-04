@@ -58,7 +58,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(Tutor val)
         {
             var tutorservice = new ServiceProvider().Create<Tutor>();
-            var tutor = tutorservice.GetByEmail(Session["KEY"]as String) ;
+            var tutor = tutorservice.GetByEmail(Session["KEY"] as String) ;
             val = tutor;
             return View(val);
         }
@@ -68,6 +68,11 @@ namespace TutorsHub.Application.Controllers
         {
 
             throw new NotImplementedException();
+        }
+        [HttpGet]
+        public ActionResult Notification()
+        {
+            return View();
         }
 
         [HttpGet]
