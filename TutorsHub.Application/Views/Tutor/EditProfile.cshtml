@@ -41,9 +41,9 @@
             padding: 10px 32px;
         }
 
-            input[type=text]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=email]:focus {
-                background-color: #fff;
-            }
+        input[type=text]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=email]:focus {
+            background-color: #fff;
+        }
 
         select {
             background-color: #fff;
@@ -154,6 +154,18 @@
             text-decoration: none;
         }
     </style>
+    
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementsByName("ProfilePictureUrl").value;
+            console.log("Called");
+            return false;
+        }
+
+
+    </script>
+    
+
 </head>
 <body>
     <div id="content">
@@ -162,13 +174,13 @@
             <table>
                 <tr>
                     <td>
-                        <img src="~/images/user.png" style="height:150px" /><br><br>
+                        <img id="ImagePlaceHolder" src="~/images/user.png" style="height:150px" /><br><br>
                     </td>
                 </tr>
                 <tr>
                     <td>Image URL:</td>
                     <td>
-                        <input type="url" name="ProfilePictureUrl" value="">  <input type="button" value="View" style="border-radius: 12px;margin:4px 2px">
+                        <input type="url" name="ProfilePictureUrl">  <input onclick="return viewImage()" type="button" value="View" style="border-radius: 12px;margin:4px 2px">
                     </td>
                 </tr>
                 <tr>
