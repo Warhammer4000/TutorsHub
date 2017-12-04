@@ -58,7 +58,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(Tutor val)
         {
             var tutorservice = new ServiceProvider().Create<Tutor>();
-            var tutor = tutorservice.GetByEmail(Session["KEY"] as string);
+            var tutor = tutorservice.GetByEmail(Session["KEY"]as String) ;
             val = tutor;
             return View(val);
         }
