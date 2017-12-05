@@ -298,6 +298,7 @@
     <Content Include="Views\Tutor\EditPassword.cshtml" />
     <Content Include="Views\Student\Blog.cshtml" />
     <Content Include="Views\Tutor\Notification.cshtml" />
+    <Content Include="Views\Tutor\Chat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

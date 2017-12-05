@@ -76,6 +76,11 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
+        public ActionResult Chat()
+        {
+            return View();
+        }
+        [HttpGet]
         public ActionResult Blog()
         {
 

@@ -275,7 +275,13 @@
                 <tr>
                     <td>Preferred class:</td>
                     <td>
-                     
+                        @{ 
+                            for(int i=1; i < 13; i++)
+                            {
+                                <input type="checkbox" name="pref_class" value="class2" /><label> class @i</label>
+                            }
+                        }
+                        <!--
                         <select class="selectpicker">
                             <option>Class</option>
                             <option>Class 1</option>
@@ -294,7 +300,7 @@
 
                         </select>
 
-
+                            -->
                     </td>
                 </tr>
                 <tr>
