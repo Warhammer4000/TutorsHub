@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
     <style media="screen">
-        imga {
+        img {
             width: 70%;
         }
     </style>
@@ -45,7 +45,7 @@
 
                     <div class="row">
                         <div class="col-lg-4">
-                            <img class="img-rouunded imga" src="https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-1/p160x160/14522999_10207289285486077_5577078775528197936_n.jpg?oh=01b56afc02e7b410e87a9c8bae27ac74&oe=5A91437B">
+                            <img class="img-rouunded" src="https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-1/p160x160/14522999_10207289285486077_5577078775528197936_n.jpg?oh=01b56afc02e7b410e87a9c8bae27ac74&oe=5A91437B">
                         </div>
                         <div class="col-lg-5">
                             <div class="row">
@@ -67,6 +67,8 @@
                                 <div class="col-4">
                                     <label>Last Active:</label> 2 days ago
                                 </div>
+
+
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -83,13 +85,10 @@
                                     <label>Studied At:</label> American International University-Bangladesh
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1">
-                            @Html.ActionLink("Edit", "EditProfile", "Tutor", null, new { @class = "btn btn-success btn-lg" })
+                            <a href="/Tutor/EditProfile" class="btn-primary" style="margin-left:11px;">Edit profile</a>
 
                         </div>
                     </div>
-                    
                     <br>
                     <div class="row">
                         <div class="col-lg-12">
@@ -111,12 +110,9 @@
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Medium: </label></td>
-                                    @{
-                                        foreach (var item in @Model.PreferredMedium)
-                                        {
-                                            <td>@item</td>
-                                        }
-                                    }
+                                    <td>English Medium</td>
+                                    <td>English Version</td>
+
                                     
                                 </tr>
                                 <tr>
@@ -125,10 +121,10 @@
                                 <tr>
                                     <td><label>Preferred Classes: </label></td>
                                     @{ 
-                                        foreach (var item in @Model.PreferredClasses)
+                                        for(int i = 1; i<13;i+=3)
                                         {
-                                            <td>@item</td>
-                                         }
+                                            <td>class @i</td>
+                                        }
                                        }
                                 </tr>
                                 <tr>
@@ -136,28 +132,30 @@
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Subjects: </label> </td>
-                                    @{
-                                        foreach (var item in @Model.PreferredSubjects)
-                                        {
-                                            <td>@item</td>
-                                        }
-                                    }
+                                    <td>Bangla</td>
+                                    <td>English</td>
+                                    <td>Physics</td>
+                                    <td>Chemistry</td>
+                                    <td>Bangla</td>
+
                                 </tr>
                                     
                                 <tr>
                                     <td><label>Preferred Areas: </label> </td>
-                                    @{
-                                        foreach (var item in @Model.PreferredLocations)
-                                        {
-                                            <td>@item</td>
-                                        }
-                                    }
+                                    
+                                    <td>Gulshan</td>
+                                    <td>Mirpur</td>
+                                    <td>Dhanmondi</td>
+                                    <td>Banani</td>
+
                                 </tr>
                             </table>
                         </div>
                     </div>
 
                 </div>
+                
+
             </div>
         </div>
     </div>

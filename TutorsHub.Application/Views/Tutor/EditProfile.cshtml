@@ -4,70 +4,327 @@
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
 
+<html>
+<head>
+    <title>Edit Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=.9">
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
+            console.log("Called");
+            return false;
+        }
+    </script>
+    <style type="text/css">
+        body {
+            background-color: white;
+        }
 
-<div style="background-color:white; margin:0px 50px; padding:5px">
-    <div class="col-sm-5" style="border:1px solid green; padding:15px">
-        <div class="form-group">
-            <label>Name : </label>
-            <input type="text" class="form-control" id="firstName">
-            <br />
-            <label>Email : </label>
-            <input type="email" class="form-control" id="lastName">
-            <br />
-            <label>Phone No. : </label>
-            <input type="text" class="form-control" id="email">
-            <br />
-            <label>Profile Pic URL:</label>
-            <input type="text" class="form-control" id="propic">
-            <br />
-            <label>Address: </label>
-            <input type="text" class="form-control" id="phone">
-            <br />
-            <label>Gender: </label>
-            <input type="radio" name="gender" value="male"> Male
-            <input type="radio" name="gender" value="female"> Female
-            <label></label>
-        </div>
-    </div>
-    <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
-        <div class="form-group">
-            <label>Preferred Medium : </label>
-            <br />
-            <input type="checkbox" name="pref_med" value="Bangla"> <label>Bangla</label>
-            <input type="checkbox" name="pref_med" value="English"><label>English</label>s
+        input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin: 4px 2px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
 
-            <br /><br />
-            <label>Preferred Location : </label>
-            <br />
+        input[type=text], input[type=url], input[type=tel], input[type=email] {
+            /*background-color: #1e90ff;*/
+            color: black;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+        }
 
-            <input type="checkbox" name="pref_sub" value="sub2"><label>Mirpur-1</label> 
-            <input type="checkbox" name="pref_sub" value="sub2"> <label>Mirpur-2</label>
-            <input type="checkbox" name="pref_sub" value="sub2"> <label>Mirpur-10</label>
-            <input type="checkbox" name="pref_sub" value="sub2"> <label>Mirpur-11</label>
-            <input type="checkbox" name="pref_sub" value="sub2"> <label>Kalshi</label>
-            <br />
-            <br />
-            <label>Preferred Class</label>
-            <br />
+        input[type=text]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=email]:focus {
+            background-color: #fff;
+        }
 
-            @{ 
-                for(int i = 1; i < 13; i++)
-                {
-                    <input type="checkbox" name="pref_class" value="class2"/><label> Class @i</label>
-                }
-            }
+        select {
+            background-color: #fff;
+            border: groove;
+            border-radius: 4px;
+            color: black;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+            width: 100%;
+        }
 
-            <br />
-        </div>
+        input[type=date] {
+            background-color: #000000;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
 
-        <div class="text-right">
-            <button class="btn btn-info">Save</button>
-        </div>
-    </div>
+        h1 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 26.4px;
+        }
+
+        h3 {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 800;
+            line-height: 15.4px;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+
+        /* Create two equal columns that floats next to each other */
+
+        .column {
+            float: left;
+            padding: 10px;
+            width: 30%;
+        }
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+
+
+        #content {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        textarea {
+            background-color: #f8f8f8;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+            box-sizing: border-box;
+            font-size: 16px;
+            height: 200px;
+            padding: 12px 20px;
+            resize: none;
+            width: 100%;
+        }
+
+        input[type=button] {
+            background-color: green;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin: 4px 2px;
+            padding: 10px 32px;
+            text-decoration: none;
+        }
+    </style>
     
-</div>
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
+            console.log("Called");
+            return false;
+        }
+
+    </script>
+    
+
+</head>
+<body>
+    <div id="content">
+        <h2>Edit Profile</h2>
+        <form method="post">
+            <table>
+                <tr>
+                    <td>
+                        <img id="ImagePlaceHolder" src="~/images/user.png" style="height:150px" /><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image URL:</td>
+                    <td>
+                        <input type="url" name="ProfilePictureUrl" id="imageUrl">  <input onclick="return viewImage()" type="button" value="View" style="border-radius: 12px;margin:4px 2px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="Name" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>
+                        <input type="email" name="email" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>
+                        <input type="tel" name="MobileNumber" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="address" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            <br>Additional Info
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Biography:</td>
+                    <td>
+                        <textarea name="bio" placeholder="biography"></textarea><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Current Status:</td>
+                    <td>
+                        <input type="text" name="CurrentStatus" value=""><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred Medium:</td>
+                    <td>
+                        <input type="checkbox" name="pref_med" value="Bangla"> Bangla
+                        <input type="checkbox" name="pref_med" value="English"> English
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred Location:</td>
+                    <td>
+                      
+
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-1
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-2
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-10
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-12
+                        <input type="checkbox" name="pref_sub" value="sub2"> Mirpur-14
+                        <input type="checkbox" name="pref_sub" value="sub2"> Kalshi
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferred class:</td>
+                    <td>
+                        @{ 
+                            for(int i=1; i < 13; i++)
+                            {
+                                <input type="checkbox" name="pref_class" value="class2" /><label> class @i</label>
+                            }
+                        }
+                        <!--
+                        <select class="selectpicker">
+                            <option>Class</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                            <option>Class 5</option>
+                            <option>Class 6</option>
+                            <option>Class 7</option>
+                            <option>Class 8</option>
+                            <option>Class 9</option>
+                            <option>Class 10</option>
+                            <option>Class 11</option>
+                            <option>Class 12</option>
 
 
+                        </select>
 
+                            -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expected Salary:</td>
+                    <td>
+                        <input type="text" name="salary"><br>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
 
