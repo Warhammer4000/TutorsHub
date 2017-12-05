@@ -10,7 +10,7 @@ namespace TutorsHub.Application.Controllers
 {
     public class TutorController : Controller
     {
-        
+
         [HttpGet]
         public ActionResult Dashboard()
         {
@@ -26,7 +26,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult SearchUser(int? id)
         {
-            
+
             return View();
         }
         [HttpGet]
@@ -40,7 +40,7 @@ namespace TutorsHub.Application.Controllers
         {
             try
             {
-                
+
                 return RedirectToAction("Dashboard");
             }
             catch
@@ -58,7 +58,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(Tutor val)
         {
             var tutorservice = new ServiceProvider().Create<Tutor>();
-            var tutor = tutorservice.GetByEmail(Session["KEY"] as String) ;
+            var tutor = tutorservice.GetByEmail(Session["KEY"] as String);
             val = tutor;
             return View(val);
         }
@@ -101,7 +101,7 @@ namespace TutorsHub.Application.Controllers
 
         public RedirectToRouteResult Logout()
         {
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -115,6 +115,10 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        public ActionResult UploadMaterial()
+        {
+            return View();
+        }
 
 
     }
