@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DLL.DataContext
 {
-    interface  IDataContext<T>
+    interface  IDataRepository<T>
     {
         List<T> GetAll();
         T GetWithTutors(string subjectName);

@@ -8,16 +8,8 @@ using Entity.Data;
 
 namespace BLL.DataRepository
 {
-    public class SubjectService:IDataService<Subject>
+    public class SubjectService:DataService<Subject>,IDataService<Subject>
     {
-        public List<Subject> GetAll()
-        {
-            return new SubjectContext().GetAll();
-        }
-
-        public bool Add(Subject t)
-        {
-            return new SubjectContext().Add(t);
-        }
+        
     }
 }

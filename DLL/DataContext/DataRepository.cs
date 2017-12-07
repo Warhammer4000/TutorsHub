@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Entity.Data;
 
 namespace DLL.DataContext
 {
-    public class SubjectContext:IDataContext<Subject>
+    public class DataRepository<T> where T : DataModel 
     {
-        public List<Subject> GetAll()
-        {
-            using (var context= new Context())
-            {
-                return context.Subjects.ToList();
-            }
-        }
-
-        public Subject GetWithTutors(string subjectName)
+        public List<T> GetAll()
         {
             using (var context = new Context())
             {
-                return context.Subjects.Include(x=>x.Tutors).FirstOrDefault(r=>r.Name==subjectName);
+                return context.Set<T>().ToList();
             }
         }
 
-        public bool Add(Subject t)
+        public T GetWithTutors(string subjectName)
+        {
+            
+            using (var context = new Context())
+            {
+                return context.Set<T>().Include(x => x.Tutors).FirstOrDefault(r => r.Name == subjectName);
+            }
+        }
+
+        public bool Add(T t)
         {
             using (var context = new Context())
             {
                 try
                 {
-                    context.Subjects.Add(t);
+                    context.Set<T>().Add(t);
                     context.SaveChanges();
                     return true;
                 }
@@ -41,7 +44,7 @@ namespace DLL.DataContext
             }
         }
 
-        public bool Update(Subject t)
+        public bool Update(T t)
         {
             throw new NotImplementedException();
         }

@@ -49,9 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="DataContext\IDataContext.cs" />
-    <Compile Include="DataContext\LocationContext.cs" />
-    <Compile Include="DataContext\SubjectContext.cs" />
+    <Compile Include="DataContext\DataRepository.cs" />
+    <Compile Include="DataContext\IDataRepository.cs" />
+    <Compile Include="DataContext\LocationRepository.cs" />
+    <Compile Include="DataContext\SubjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionContext\ExamScriptContext.cs" />
     <Compile Include="UserContext\AdminRepository.cs" />
