@@ -1,4 +1,5 @@
-﻿
+﻿@model Entity.UserModels.Admin
+
 @{
     ViewBag.Title = "ViewProfile";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -46,10 +47,10 @@
                             <img src="https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-9/14522999_10207289285486077_5577078775528197936_n.jpg?oh=b8dcfc83e1a314dc1d20e749553ae5ff&oe=5A91CA24" class="img-circle imga">
                         </div>
                         <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-                            <p><strong>Sajib Hawee</strong></p>
-                            <p><span class="glyphicon glyphicon-envelope"></span> haweewes@gmail.com</p>
-                            <p><span class="glyphicon glyphicon-phone"></span> 01928273645</p>
-                            <p><span class="glyphicon glyphicon-globe"></span> Dhaka, Bangladesh</p>
+                            <p><strong>@Model.Name</strong></p>
+                            <p><span class="glyphicon glyphicon-envelope"></span> @Model.Email</p>
+                            <p><span class="glyphicon glyphicon-phone"></span> @Model.Mobilenumber</p>
+                            <p><span class="glyphicon glyphicon-globe"></span> @Model.Address</p>
                             <div class="text-right">
                                 @Html.ActionLink("Edit", "EditProfile", "Admin", null, new { @class = "btn btn-info" })
                             </div>

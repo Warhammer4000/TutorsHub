@@ -2,6 +2,8 @@
 using BLL.DataRepository;
 using Entity.Data;
 using TutorsHub.Application.Models;
+using Entity.UserModels;
+using BLL;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -12,9 +14,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult ViewProfile()
+        [HttpGet]
+        public ActionResult ViewProfile(Admin admin)
         {
-            return View();
+            var adminservice = new ServiceProvider().Create<Admin>();
+            admin = adminservice.GetByEmail(Session["KEY"] as string);
+            return View(admin);
         }
 
         public ActionResult EditProfile()

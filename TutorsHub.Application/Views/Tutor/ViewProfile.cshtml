@@ -55,12 +55,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <label>Member Since:</label> <abbr title="1/12/2015">2 Years</abbr>
+                                    <label>Member Since:</label> <abbr title="1/12/2015">@Model.LastActiveInDays</abbr>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <label>Last Active:</label> 2 days ago
+                                    <label>Last Active:</label> @Model.LastActiveInMinutes minutes ago
                                 </div>
 
 
@@ -83,7 +83,8 @@
                            
                         </div>
                         <div class="col-lg-2">
-                            @Html.ActionLink("Edit", "EditProfile","Tutor", null,new { @class = "btn btn-info" })
+                            <a href="/Tutor/EditProfile" class="btn btn-info">Edit Profile</a>
+                            @*Html.ActionLink("Edit", "EditProfile","Tutor", null,new { @class = "btn btn-info" })*@
                         </div>
                     </div>
                     <br>
@@ -100,28 +101,41 @@
                             <table>
                                 <tr>
                                     <td><label>Expected Salary: </label></td>
-                                    <td>5000 TK/HRS</td>
+                                    <td>@Model.ExpectedSalary TK/HRS</td>
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Medium: </label></td>
-                                    <td>English</td>
+                                    <!--<td>English</td>-->
+                                    @{
+                                        foreach (var item in Model.PreferredMedium)
+                                        {
+                                            <td>@item</td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Classes: </label></td>
-                                    <td>9-12</td>
+                                    <!--<td>9-12</td>-->
+                                    @{
+                                        foreach (var item in Model.PreferredClasses)
+                                        {
+                                            <td>@item</td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Subjects: </label> </td>
-                                    <td> Accounting</td>
+                                    <!--<td> Accounting</td>
+
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -129,14 +143,20 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>Bussiness Math</td>
+                                    <td>Bussiness Math</td>-->
+                                    @{
+                                        foreach (var item in Model.PreferredSubjects)
+                                        {
+                                            <td>@item</td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Areas: </label> </td>
-                                    <td>Bashundhara</td>
+                                    <!--<td>Bashundhara</td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -144,7 +164,13 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>Uttara</td>
+                                    <td>Uttara</td>-->
+                                    @{
+                                        foreach (var item in Model.PreferredLocations)
+                                        {
+                                            <td>@item</td>
+                                        }
+                                    }
                                 </tr>
                             </table>
                         </div>

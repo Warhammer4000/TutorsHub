@@ -59,6 +59,7 @@ namespace TutorsHub.Application.Controllers
         {
             var tutorservice = new ServiceProvider().Create<Tutor>();
             var tutor = tutorservice.GetByEmail(Session["KEY"] as String);
+            tutor.UpdateInfo();
             val = tutor;
             return View(val);
         }

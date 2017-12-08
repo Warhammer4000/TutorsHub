@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Entity.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.UserModels
 {
     public class Tutor:User
     {
-     
-      
         public int Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
@@ -25,6 +24,18 @@ namespace Entity.UserModels
         public List<Student> Students { get; set; }
         public List<Student> ActiveStudents { get; set; }
 
+
+        [NotMapped]
+        public int LastActiveInSeconds { get; set; }
+        [NotMapped]
+        public int LastActiveInMinutes { get; set; }
+        [NotMapped]
+        public int LastActiveInHours { get; set; }
+        [NotMapped]
+        public int LastActiveInDays { get; set; }
+        [NotMapped]
+        public int LastActiveInYears { get; set; }
+
         public Tutor()
         {
             Role = Role.Tutor;
@@ -34,10 +45,9 @@ namespace Entity.UserModels
             PreferredSubjects = new List<Subject>();
             Students= new List<Student>();
             ActiveStudents= new List<Student>();
-
-
         }
 
+       
 
          public override void Copy(User user)
          {
@@ -54,6 +64,17 @@ namespace Entity.UserModels
             ExpectedSalary = tutor.ExpectedSalary;
             Bio = tutor.Bio;
             CurrentStatus = tutor.CurrentStatus;
+        }
+
+        public void UpdateInfo()
+        {
+            DateTime endTime = LastLogin;
+            DateTime startTime = DateTime.Now;
+            TimeSpan span = startTime.Subtract(endTime);
+            LastActiveInSeconds = span.Seconds;
+            LastActiveInMinutes = span.Minutes;
+            LastActiveInHours = span.Hours;
+            LastActiveInDays = span.Days;
         }
     }
 }

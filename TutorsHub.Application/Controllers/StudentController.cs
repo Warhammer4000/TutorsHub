@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Entity.UserModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -76,9 +78,11 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult ViewProfile()
+        public ActionResult ViewProfile(Student student)
         {
-            return View();
+            var studentservice = new ServiceProvider().Create<Student>();
+            student = studentservice.GetByEmail(Session["KEY"] as string);
+            return View(student);
         }
 
         public ActionResult Blog()
