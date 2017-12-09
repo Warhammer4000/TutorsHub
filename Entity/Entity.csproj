@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Class.cs" />
     <Compile Include="Data\DataModel.cs" />
     <Compile Include="Data\Location.cs" />
+    <Compile Include="Data\Medium.cs" />
     <Compile Include="Data\Subject.cs" />
     <Compile Include="QuestionModels\ExamQuestion.cs" />
     <Compile Include="QuestionModels\Question.cs" />

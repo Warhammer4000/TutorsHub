@@ -22,19 +22,7 @@ namespace TutorsHub.Application
 
         protected void Session_Start()
         {
-            var user = new Tutor()
-            {
-                DateOfBirth = new DateTime(1995, 4, 29),
-                Email = "tkhan@iquantile.com",
-                Name = "tazim",
-
-                Password = "darks1d1erS!",
-                Gender = "Male",
-                Status = Status.Pending,
-                UserSince = new DateTime(2002, 4, 10),
-                LastLogin = DateTime.Now
-
-            };
+            
 
             var user2 = new Admin()
             {
@@ -53,9 +41,9 @@ namespace TutorsHub.Application
 
 
             ServiceProvider repositoryProvider = new ServiceProvider();
-            IUserService<Tutor> iTutor = repositoryProvider.Create<Tutor>();
+         
             IUserService<Admin> iAdmin = repositoryProvider.Create<Admin>();
-            iTutor.Add(user);
+      
             iAdmin.Add(user2);
 
             Fake_data();
@@ -158,16 +146,16 @@ namespace TutorsHub.Application
                 },
                 PreferredMedium = new List<string>()
                 {
-                    "Bangla Medium",
-                    "English Version"
+                    "Bangla",
+                    "English"
                 },
                 PreferredClasses = new List<string>
                 {
-                    "class-9",
-                    "class-10",
-                    "class-11",
-                    "class-12",
-                    "class-8",
+                    "9",
+                    "10",
+                    "11",
+                    "12",
+                    "8",
                 },
                 PreferredLocations = new List<Location>()
                 {

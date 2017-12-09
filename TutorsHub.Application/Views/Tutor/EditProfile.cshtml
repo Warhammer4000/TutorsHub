@@ -18,6 +18,12 @@
         }
 
     </script>
+    
+    
+    <style>
+        
+        
+    </style>
 </head>
 <body>
         <div style="background-color:white; margin:0px 50px; padding:5px">
@@ -67,8 +73,14 @@
 
                 <strong>Preferred Medium : </strong>
                 <br />
-                <input type="checkbox" name="pref_sub" value="sub2"><label>Bangla</label>
-                <input type="checkbox" name="pref_sub" value="sub2"><label>English</label>
+                @for(int i=0;i<Model.Mediums.Count;i++){
+                    
+                    @Html.HiddenFor(x=>Model.Mediums[i].Id)
+                    @Html.CheckBoxFor(x=>Model.Mediums[i].IsChecked, new {@class=""})
+                    @Html.DisplayFor(x => Model.Mediums[i].Name)
+                    @Html.HiddenFor(x => Model.Mediums[i].Name)
+                    <label> </label>
+                }
                 <br /><br />
 
                 <strong>Preferred Location : </strong>
@@ -77,9 +89,10 @@
                 @for(int i=0;i<Model.AvailableLocations.Count;i++){
                     
                     @Html.HiddenFor(x=>Model.AvailableLocations[i].Id)
-                    @Html.CheckBoxFor(x=>Model.AvailableLocations[i].IsChecked)
+                    @Html.CheckBoxFor(x=>Model.AvailableLocations[i].IsChecked, new {@class=""})
                     @Html.DisplayFor(x => Model.AvailableLocations[i].Name)
                     @Html.HiddenFor(x => Model.AvailableLocations[i].Name)
+                    <label> </label>
                 }
 
                
@@ -89,11 +102,14 @@
                 <strong>Preferred Classes: </strong>
                 <br />
 
-                @{
-                    for (int i = 1; i <= 12; i++)
-                    {
-                        <input type="checkbox" name="pref_sub" value="class-@i" /> <label>Class @i</label>
-                    }
+                @for(int i=0;i<Model.Classes.Count;i++){
+                    
+                    @Html.HiddenFor(x=>Model.Classes[i].Id)
+                    @Html.CheckBoxFor(x=>Model.Classes[i].IsChecked, new { @class = "" })
+                    <label> Class  @i</label>
+                   // @Html.LabelFor(x => Model.Classes[i].Name);
+                    @Html.HiddenFor(x => Model.Classes[i].Name)
+           
                 }
 
 
