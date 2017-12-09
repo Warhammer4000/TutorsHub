@@ -2,58 +2,105 @@
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
-<div style="background-color:white; margin:0px 50px; padding:5px">
-    <div class="col-sm-6" style="border:1px solid green; padding:15px">
-        <div class="form-group">
-            <label>Name : </label>
-            <input type="text" class="form-control" id="firstName">
-            <br />
-            <label>Email : </label>
-            <input type="email" class="form-control" id="lastName">
-            <br />
-            <label>Profile Picture URL:</label>
-            <input type="text" class="form-control" id="pro_pic"/>
-            <br />
-            <label>Phone : </label>
-            <input type="text" class="form-control" id="phone">
-            <br />
-            <label>Location : </label>
-            <input type="text" class="form-control" id="location">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+        <div style="background-color:white; margin:0px 50px; padding:5px">
+            <div class="col-sm-6" style="border:1px solid green; padding:15px">
+                <div class="form-group">
+                    <label>Name : </label>
+                    <input type="text" class="form-control" id="firstName">
+                    <br />
+                    <label>Email : </label>
+                    <input type="email" class="form-control" id="lastName">
+                    <br />
+                    <label>Profile Picture URL:</label>
+                    <input type="text" class="form-control" id="pro_pic" />
+                    <br />
+                    <label>Phone : </label>
+                    <input type="text" class="form-control" id="phone">
+                    <br />
+                    <label>Location : </label>
+                    <input type="text" class="form-control" id="location">
+                    <br />
+                    <label>Expected Salary</label>
+                    <input type="text" class="form-control" id="salary" />
+                    <br />
+                    <label>Institute</label>
+                    <input type="text" class="form-control" id="institute" />
+                    <br />
+                    <label>Experience</label>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Expected Salary
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">5000</a></li>
+                            <li><a href="#">6000</a></li>
+                            <li><a href="#">7000</a></li>
+                            <li><a href="#">8000</a></li>
+                            <li><a href="#">9000</a></li>
+                            <li><a href="#">10000</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
+
+
+
+                <div class="form-group">
+                    <strong>
+                        Current Status : <br />
+                    </strong>
+                    <input type="radio" name="gender" value="active"> <label>active</label> <br>
+                    <input type="radio" name="gender" value="deactive"><label>deactive</label> <br>
+
+                </div>
+
+                <label>Preferred Medium : </label>
+                <br />
+                <input type="checkbox" name="pref_sub" value="sub2"><label>Bangla</label>
+                <input type="checkbox" name="pref_sub" value="sub2"><label>English</label>
+                <br /><br />
+
+                <label>Preferred Location : </label>
+                <br />
+
+                <input type="checkbox" name="pref_sub" value="mirpur-1"><label>Mirpur-1</label>
+                <input type="checkbox" name="pref_sub" value="Mirpur-2"> <label>Mirpur-2</label>
+                <input type="checkbox" name="pref_sub" value="Mirpur-10"><label>Mirpur-10</label>
+                <input type="checkbox" name="pref_sub" value="Mirpur-14"><label>Mirpur-14</label>
+                <input type="checkbox" name="pref_sub" value="Mirpur-12"> <label>Mirpur-12</label>
+                <input type="checkbox" name="pref_sub" value="Kalshi"> <label>Kalshi</label>
+                <br />
+                <br />
+                <label>Preferred Subjects: </label>
+                <br />
+
+                @{
+                    for (int i = 1; i < 13; i++)
+                    {
+                        <input type="checkbox" name="pref_sub" value="class-@i" /> <label>Class @i</label>
+                    }
+                }
+
+
+                <div class="text-right">
+                    <a href="/Tutor/ViewProfile" class="btn btn-info">Save</a>
+                </div>
+
+            </div>
+
         </div>
-    </div>
-    <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
-    <div class="form-group">
-        <label>Preferred Medium : </label>
-        <br />
-        <input type="checkbox" name="pref_sub" value="sub2"><label>Bangla</label> 
-        <input type="checkbox" name="pref_sub" value="sub2"><label>English</label>
-        <br /><br />
+</body>
+</html>
 
-        <label>Preferred Location : </label>
-        <br />
-
-        <input type="checkbox" name="pref_sub" value="sub2"><label>Mirpur-1</label> 
-        <input type="checkbox" name="pref_sub" value="sub2"> <label>Mirpur-2</label>
-        <input type="checkbox" name="pref_sub" value="sub2"><label>Mirpur-10</label>
-        <input type="checkbox" name="pref_sub" value="sub2"><label>Mirpur-14</label>
-        <input type="checkbox" name="pref_sub" value="sub2"> <label>Mirpur-12</label>
-        <input type="checkbox" name="pref_sub" value="sub2"> <label>Kalshi</label>
-        <br />
-        <br />
-        
-        <label>Preferred Subjects: </label>
-        <br />
-
-        @{ 
-            for(int i = 0; i < 13; i++)
-            {
-                <input type="checkbox" name="pref_sub" value="sub"/> <label>Class @i</label>
-            }
-        }
-
-        <div class="text-right">
-            <a href="/Tutor/ViewProfile" class="btn btn-info">Save</a>
-        </div>
-    </div>
-</div>
-</div>
