@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
+            console.log("Called");
+            return false;
+        }
+
+    </script>
 </head>
 <body>
         <div style="background-color:white; margin:0px 50px; padding:5px">
@@ -42,7 +50,10 @@
 
             <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
 
-
+                <input type="text" placeholder="paste you image url" id="imageUrl" class="form-control" /><br />
+                <button class="btn btn-info" onclick="viewImage(this)">View</button>
+                <hr />
+                <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;width:300px;" />
 
                 <div class="form-group">
                     <strong>
