@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TutorsHub.Application.Models.TutorEditProfileModel
+@{
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
@@ -22,69 +23,74 @@
         <div style="background-color:white; margin:0px 50px; padding:5px">
             <div class="col-sm-6" style="border:1px solid green; padding:15px">
                 <div class="form-group">
+                    
+                    <div style="display: inline-block">
+                        <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;" />
+                    </div>
+                    <div style="display: inline-block">
+                        <input   type="text" placeholder="paste you image url" id="imageUrl" class="form-control" />
+                        <button class="btn btn-info" onclick="viewImage(this)">View</button>
+                    </div>
+
+                  <br/>
                     <label>Name : </label>
-                    <input type="text" class="form-control" id="firstName">
-                    <br />
+                    <input name="Tutor.Name" type="text" class="form-control" id="firstName" value="@Model.Tutor.Name">
+                    <br/>
                     <label>Email : </label>
-                    <input type="email" class="form-control" id="lastName">
-                    <br />
-                    <label>Profile Picture URL:</label>
-                    <input type="text" class="form-control" id="pro_pic" />
-                    <br />
-                    <label>Phone : </label>
-                    <input type="text" class="form-control" id="phone">
-                    <br />
-                    <label>Location : </label>
-                    <input type="text" class="form-control" id="location">
-                    <br />
-                    <label>Expected Salary</label>
-                    <input type="text" class="form-control" id="salary" />
-                    <br />
-                    <label>Institute</label>
-                    <input type="text" class="form-control" id="institute" />
-                    <br />
+                    <input name="Tutor.Email" type="email" class="form-control" id="lastName" disabled="disabled" value="@Model.Tutor.Email">
+                    <br/>
+
+                    <label>Mobile : </label>
+                    <input name="Tutor.Mobile" type="text" class="form-control" id="phone" value="@Model.Tutor.Mobilenumber">
+                    <br/>
                     <label>Expected Salary(tk/Hours)</label>
-                    <input type="text" class="form-control" id="salary" />
+                    <input type="text" class="form-control" id="salary" value="@Model.Tutor.ExpectedSalary"/>
+                    
+                    <br />
+                    <label>Address</label>
+                    
+                    <input name="Tutor.Address" type="text" class="form-control"  value="@Model.Tutor.Address" />
                 </div>
             </div>
 
             <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
 
-                <input type="text" placeholder="paste you image url" id="imageUrl" class="form-control" /><br />
-                <button class="btn btn-info" onclick="viewImage(this)">View</button>
-                <hr />
-                <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;width:300px;" />
+            
 
                 <div class="form-group">
                     <strong>
                         Current Status : <br />
                     </strong>
-                    <input type="radio" name="gender" value="available"> <label>available</label> <br>
-                    <input type="radio" name="gender" value="notAvailable"><label> not available</label> <br>
+                    <input type="radio" name="gender" value="Available"> <label>Available</label> <br>
+                    <input type="radio" name="gender" value="NotAvailable"><label> Not Available</label> <br>
                 </div>
 
-                <label>Preferred Medium : </label>
+                <strong>Preferred Medium : </strong>
                 <br />
                 <input type="checkbox" name="pref_sub" value="sub2"><label>Bangla</label>
                 <input type="checkbox" name="pref_sub" value="sub2"><label>English</label>
                 <br /><br />
 
-                <label>Preferred Location : </label>
+                <strong>Preferred Location : </strong>
                 <br />
+                
+                @for(int i=0;i<Model.AvailableLocations.Count;i++){
+                    
+                    @Html.HiddenFor(x=>Model.AvailableLocations[i].Id)
+                    @Html.CheckBoxFor(x=>Model.AvailableLocations[i].IsChecked)
+                    @Html.DisplayFor(x => Model.AvailableLocations[i].Name)
+                    @Html.HiddenFor(x => Model.AvailableLocations[i].Name)
+                }
 
-                <input type="checkbox" name="pref_sub" value="mirpur-1"><label>Mirpur-1</label>
-                <input type="checkbox" name="pref_sub" value="Mirpur-2"> <label>Mirpur-2</label>
-                <input type="checkbox" name="pref_sub" value="Mirpur-10"><label>Mirpur-10</label>
-                <input type="checkbox" name="pref_sub" value="Mirpur-14"><label>Mirpur-14</label>
-                <input type="checkbox" name="pref_sub" value="Mirpur-12"> <label>Mirpur-12</label>
-                <input type="checkbox" name="pref_sub" value="Kalshi"> <label>Kalshi</label>
+               
+                
                 <br />
                 <br />
-                <label>Preferred Classes: </label>
+                <strong>Preferred Classes: </strong>
                 <br />
 
                 @{
-                    for (int i = 1; i < 13; i++)
+                    for (int i = 1; i <= 12; i++)
                     {
                         <input type="checkbox" name="pref_sub" value="class-@i" /> <label>Class @i</label>
                     }

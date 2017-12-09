@@ -77,8 +77,8 @@ namespace Entity.UserModels
             TimeSpan memberSpan = DateTime.Now.Subtract(UserSince);
 
             
-            MemberSince = string.Format("{0:%d} days", memberSpan);
-            LastActive = string.Format("{0:%h} hours {1:%m} minutes", activitySpan, activitySpan);
+            MemberSince = $"{memberSpan:%d} days";
+            LastActive = $"{activitySpan:%h} hours {activitySpan:%m} minutes";
 
 
         }

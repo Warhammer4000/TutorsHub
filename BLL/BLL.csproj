@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataRepository\DataService.cs" />
-    <Compile Include="DataRepository\IDataService.cs" />
-    <Compile Include="DataRepository\LocationService.cs" />
-    <Compile Include="DataRepository\SubjectService.cs" />
+    <Compile Include="DataRepositoryFolder\DataService.cs" />
+    <Compile Include="DataRepositoryFolder\IDataService.cs" />
+    <Compile Include="DataRepositoryFolder\LocationService.cs" />
+    <Compile Include="DataRepositoryFolder\SubjectService.cs" />
     <Compile Include="Exam\ExamService.cs" />
     <Compile Include="ServiceProvider.cs" />
     <Compile Include="SearchRepository\PublicSearch.cs" />

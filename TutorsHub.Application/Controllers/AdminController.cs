@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using BLL.DataRepository;
 using Entity.Data;
 using TutorsHub.Application.Models;
 using Entity.UserModels;
 using BLL;
+using BLL.DataRepositoryFolder;
 
 namespace TutorsHub.Application.Controllers
 {

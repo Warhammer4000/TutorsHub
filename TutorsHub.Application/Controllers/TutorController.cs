@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BLL.UserRepository;
+using TutorsHub.Application.Models;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -31,13 +32,16 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult EditProfile(int? id)
+        public ActionResult EditProfile()
         {
-            return View();
+            TutorEditProfileModel tutorEditProfileModel = new TutorEditProfileModel();
+            tutorEditProfileModel.GetTutor(Session["Key"] as string);
+
+            return View(tutorEditProfileModel);
         }
 
         [HttpPost]
-        public ActionResult EditProfile(int id, FormCollection collection)
+        public ActionResult EditProfile(TutorEditProfileModel tutorEditProfileModel)
         {
             try
             {
@@ -46,7 +50,7 @@ namespace TutorsHub.Application.Controllers
             }
             catch
             {
-                return View();
+                return View(tutorEditProfileModel);
             }
         }
 
@@ -65,12 +69,7 @@ namespace TutorsHub.Application.Controllers
             return View(val);
         }
 
-        [HttpGet]
-        public ActionResult Timer()
-        {
-
-            throw new NotImplementedException();
-        }
+       
         [HttpGet]
         public ActionResult Notification()
         {

@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DLL.DataContext;
 using Entity.Data;
 
-namespace BLL.DataRepository
+
+namespace BLL.DataRepositoryFolder
 {
-    public abstract class DataService<T> where T:DataModel
+    public abstract class DataService<T> where T:DataModel 
     {
         public List<T> GetAll()
         {
+
             return new DataRepository<T>().GetAll();
         }
 
