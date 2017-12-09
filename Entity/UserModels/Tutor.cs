@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Entity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Entity.UserModels
 {
@@ -13,9 +14,30 @@ namespace Entity.UserModels
         public int Rank { get; set; }
         public List<Subject> PreferredSubjects { get; set; }
         public List<Location> PreferredLocations { get; set; }
+
+        [NotMapped]
         public List<string> PreferredMedium { get; set; }
-        
+
+        //BECAUSE EF can't store Primitve types
+        public string Mediums
+        {
+            get => string.Join(",", PreferredMedium);
+            set => PreferredMedium = value.Split(',').ToList();
+        }
+
+
+
+        [NotMapped]
         public List<string> PreferredClasses { get; set; }
+
+        //BECAUSE EF can't store Primitve types
+        public string Classes
+        {
+            get => string.Join(",", PreferredClasses);
+            set => PreferredClasses = value.Split(',').ToList();
+        }
+
+
         public int ExpectedSalary { get; set; }
         public string Bio { get; set; }
         public string CurrentStatus { get; set; }
@@ -25,16 +47,6 @@ namespace Entity.UserModels
         public List<Student> ActiveStudents { get; set; }
 
 
-        [NotMapped]
-        public int LastActiveInSeconds { get; set; }
-        [NotMapped]
-        public int LastActiveInMinutes { get; set; }
-        [NotMapped]
-        public int LastActiveInHours { get; set; }
-        [NotMapped]
-        public int LastActiveInDays { get; set; }
-        [NotMapped]
-        public int LastActiveInYears { get; set; }
 
         public Tutor()
         {
@@ -66,15 +78,6 @@ namespace Entity.UserModels
             CurrentStatus = tutor.CurrentStatus;
         }
 
-        public void UpdateInfo()
-        {
-            DateTime endTime = LastLogin;
-            DateTime startTime = DateTime.Now;
-            TimeSpan span = startTime.Subtract(endTime);
-            LastActiveInSeconds = span.Seconds;
-            LastActiveInMinutes = span.Minutes;
-            LastActiveInHours = span.Hours;
-            LastActiveInDays = span.Days;
-        }
+       
     }
 }

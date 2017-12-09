@@ -62,5 +62,26 @@ namespace Entity.UserModels
         public abstract void Copy(User o);
 
 
+
+        [NotMapped]
+        public string LastActive { get; set; }// include day/month
+        [NotMapped]
+        public string MemberSince { get; set; }// include min/hrs/day
+       
+
+
+        public void TimeSpanUpdate()
+        {
+            
+            TimeSpan activitySpan = DateTime.Now.Subtract(LastLogin);
+            TimeSpan memberSpan = DateTime.Now.Subtract(UserSince);
+
+            
+            MemberSince = string.Format("{0:%d} days", memberSpan);
+            LastActive = string.Format("{0:%h} hours {1:%m} minutes", activitySpan, activitySpan);
+
+
+        }
+
     }
 }

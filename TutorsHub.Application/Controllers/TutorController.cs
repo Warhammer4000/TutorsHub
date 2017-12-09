@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -57,9 +58,9 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult ViewProfile(Tutor val)
         {
-            var tutorservice = new ServiceProvider().Create<Tutor>();
-            var tutor = tutorservice.GetByEmail(Session["KEY"] as String);
-            tutor.UpdateInfo();
+            var tutorservice =(TutorService) new ServiceProvider().Create<Tutor>();
+            var tutor = tutorservice.GetByEmailWithLists(Session["KEY"] as String);
+            tutor.TimeSpanUpdate();
             val = tutor;
             return View(val);
         }

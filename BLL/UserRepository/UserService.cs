@@ -4,7 +4,7 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    internal class UserService<T> where T : User
+    public class UserService<T> where T : User
     {
         public T GetByEmail(string email)
         {

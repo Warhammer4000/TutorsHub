@@ -8,8 +8,11 @@ using Entity.UserModels;
 
 namespace BLL.UserRepository
 {
-    internal class TutorService:UserService<Tutor>,IUserService<Tutor>
+    public class TutorService:UserService<Tutor>,IUserService<Tutor>
     {
-       
+        public Tutor GetByEmailWithLists(string email)
+        {
+            return  new TutorRepository().GetByEmailWithLists(email);
+        }
     }
 }
