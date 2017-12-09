@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <script>
+        function viewImage() {
+            document.getElementById("ImagePlaceHolder").src = document.getElementById("imageUrl").value;
+            console.log("Called");
+            return false;
+        }
+
+    </script>
 </head>
 <body>
     <div style="background-color:white; margin:0px 50px; padding:5px">
@@ -27,11 +35,15 @@
             </div>
         </div>
         <div class="col-sm-4" style="border:1px solid green; margin-left:20px; height:420px; padding:20px">
-            <p>Chaoose a photo to change profile picture :</p>
-            <label for="imgupload" class="btn btn-info">Browse</label>
-            <hr />
-            <input type="file" name="file" id="imgupload" style="display:none" onchange="viewimg(this)" />
-            <img src="~/images/user.png" id="viewimg" style="height:250px;width:300px;" />
+            
+               
+                <input type="text" placeholder="paste you image url" id="imageUrl" class="form-control"  /><br />
+                <button class="btn btn-info" onclick="viewImage(this)">View</button>
+                <hr />
+                <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;width:300px;" />
+
+                
+           
         </div>
         <div class="col-sm-4" style="padding:20px; margin-left:40px">
             <button type="button" class="btn btn-info" style="float:right">Submit</button>

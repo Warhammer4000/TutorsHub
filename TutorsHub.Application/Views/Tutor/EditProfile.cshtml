@@ -35,21 +35,8 @@
                     <label>Institute</label>
                     <input type="text" class="form-control" id="institute" />
                     <br />
-                    <label>Experience</label>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Expected Salary
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">5000</a></li>
-                            <li><a href="#">6000</a></li>
-                            <li><a href="#">7000</a></li>
-                            <li><a href="#">8000</a></li>
-                            <li><a href="#">9000</a></li>
-                            <li><a href="#">10000</a></li>
-                        </ul>
-                    </div>
+                    <label>Expected Salary(tk/Hours)</label>
+                    <input type="text" class="form-control" id="salary" />
                 </div>
             </div>
 
@@ -61,9 +48,8 @@
                     <strong>
                         Current Status : <br />
                     </strong>
-                    <input type="radio" name="gender" value="active"> <label>active</label> <br>
-                    <input type="radio" name="gender" value="deactive"><label>deactive</label> <br>
-
+                    <input type="radio" name="gender" value="available"> <label>available</label> <br>
+                    <input type="radio" name="gender" value="notAvailable"><label> not available</label> <br>
                 </div>
 
                 <label>Preferred Medium : </label>
@@ -83,7 +69,7 @@
                 <input type="checkbox" name="pref_sub" value="Kalshi"> <label>Kalshi</label>
                 <br />
                 <br />
-                <label>Preferred Subjects: </label>
+                <label>Preferred Classes: </label>
                 <br />
 
                 @{
