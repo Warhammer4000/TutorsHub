@@ -75,6 +75,25 @@ namespace TutorsHub.Application.Controllers
 
             return View(locationsViewModel);
         }
+
+        [HttpDelete]
+        public ActionResult Locations(int id)
+        {
+            IDataService<Location> locationDataService = new LocationService();
+
+            var locationsViewModel = new LocationsViewModel
+            {
+                Locations = locationDataService.GetAll()
+            };
+
+            Location loc = locationsViewModel.Locations.Find(x => x.Id.Equals(id));
+
+            locationDataService.Delete(loc);
+
+            return View(locationsViewModel);
+        }
+
+
         [HttpGet]
         public ActionResult Subjects()
         {

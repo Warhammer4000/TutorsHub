@@ -6,5 +6,6 @@ namespace BLL.DataRepositoryFolder
     {
         List<T> GetAll();
         bool Add(T t);
+        bool Delete(T t);
     }
 }

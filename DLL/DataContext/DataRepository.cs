@@ -43,6 +43,23 @@ namespace DLL.DataContext
             }
         }
 
+        public bool Delete(T t)
+        {
+            using (var context = new Context())
+            {
+                try
+                {
+                    context.Set<T>().Remove(t);
+                    context.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
         public bool Update(T t)
         {
             throw new NotImplementedException();

@@ -12,6 +12,7 @@ namespace DLL.DataContext
         T GetWithTutors(string subjectName);
         bool Add(T t);
         bool Update(T t);
+        bool Delete(T t);
 
 
     }
