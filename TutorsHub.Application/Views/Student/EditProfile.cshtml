@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Entity.UserModels.Student
+@{
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
@@ -18,20 +19,18 @@
     <div style="background-color:white; margin:0px 50px; padding:5px">
         <div class="col-sm-6" style="border:1px solid green; padding:15px">
             <div class="form-group">
-                <label>First Name : </label>
-                <input type="text" class="form-control" id="firstName">
+                <label>Name : </label>
+                <input type="text" class="form-control" id="firstName" value="@Model.Name">
                 <br />
-                <label>Last Name : </label>
-                <input type="text" class="form-control" id="lastName">
                 <br />
                 <label>Email : </label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" value="@Model.Email">
                 <br />
                 <label>Phone : </label>
-                <input type="text" class="form-control" id="phone">
+                <input type="text" class="form-control" id="phone" value="@Model.Mobilenumber">
                 <br />
                 <label>Location : </label>
-                <input type="text" class="form-control" id="location">
+                <input type="text" class="form-control" id="location" value="@Model.Location">
             </div>
         </div>
         <div class="col-sm-4" style="border:1px solid green; margin-left:20px; height:420px; padding:20px">
@@ -40,7 +39,7 @@
                 <input type="text" placeholder="paste you image url" id="imageUrl" class="form-control"  /><br />
                 <button class="btn btn-info" onclick="viewImage(this)">View</button>
                 <hr />
-                <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;width:300px;" />
+                <img src="@Model.ProfilePictureUrl" id="ImagePlaceHolder" style="height:250px;width:300px;" />
 
                 
            

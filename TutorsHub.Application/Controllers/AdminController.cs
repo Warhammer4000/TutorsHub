@@ -24,7 +24,8 @@ namespace TutorsHub.Application.Controllers
 
         public ActionResult EditProfile()
         {
-            return View();
+            var admin = new ServiceProvider().Create<Admin>();
+            return View(admin.GetByEmail(Session["KEY"] as string));
         }
 
         public ActionResult EditPassword()

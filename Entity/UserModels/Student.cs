@@ -6,6 +6,7 @@ namespace Entity.UserModels
     {
         public List<Tutor> Tutors { get; set; }
         public List<Tutor> ActiveTutors { get; set; }
+        public string Location { set; get; }
         public Student()
         {
             Role=Role.Student;

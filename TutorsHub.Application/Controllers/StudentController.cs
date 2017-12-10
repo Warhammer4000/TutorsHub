@@ -63,7 +63,8 @@ namespace TutorsHub.Application.Controllers
         }
         public ActionResult EditProfile()
         {
-            return View();
+            var student = new ServiceProvider().Create<Student>();
+            return View(student.GetByEmail(Session["KEY"] as string));
         }
         public ActionResult Notification()
         {
