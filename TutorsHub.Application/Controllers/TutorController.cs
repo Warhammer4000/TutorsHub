@@ -1,8 +1,10 @@
 ﻿using BLL;
 using Entity.UserModels;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using BLL.UserRepository;
+using Entity.Data;
 using TutorsHub.Application.Models;
 
 namespace TutorsHub.Application.Controllers
@@ -40,10 +42,46 @@ namespace TutorsHub.Application.Controllers
         [HttpPost]
         public ActionResult EditProfile(TutorEditProfileModel tutorEditProfileModel)
         {
+            var updatedTutor = tutorEditProfileModel.Tutor;
+            updatedTutor.Email = Session["Key"] as string;
+            updatedTutor.PreferredClasses = new List<string>();
+            updatedTutor.PreferredLocations= new List<string>();
+            updatedTutor.PreferredMedium= new List<string>();
+
             try
             {
+                foreach (var location in tutorEditProfileModel.AvailableLocations)
+                {
+                    if (location.IsChecked)
+                    {
+                        updatedTutor.PreferredLocations.Add(location.Name);
+                    }
+                }
 
-                return RedirectToAction("Dashboard");
+                foreach (var Class in tutorEditProfileModel.Classes)
+                {
+                    if (Class.IsChecked)
+                    {
+                        updatedTutor.PreferredClasses.Add(Class.Name);
+                    }
+                }
+
+
+
+                foreach (var medium in tutorEditProfileModel.Mediums)
+                {
+                    if (medium.IsChecked)
+                    {
+                        updatedTutor.PreferredMedium.Add(medium.Name);
+                    }
+                }
+
+                IUserService<Tutor> tutorUserService= new TutorService();
+                if (tutorUserService.Update(updatedTutor))
+                {
+                    return RedirectToAction("Dashboard");
+                }
+                throw  new Exception("Failed to update");
             }
             catch
             {

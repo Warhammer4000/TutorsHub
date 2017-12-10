@@ -26,100 +26,102 @@
     </style>
 </head>
 <body>
-        <div style="background-color:white; margin:0px 50px; padding:5px">
-            <div class="col-sm-6" style="border:1px solid green; padding:15px">
-                <div class="form-group">
+<form method="post">
+<div style="background-color:white; margin:0px 50px; padding:5px">
+    <div class="col-sm-6" style="border:1px solid green; padding:15px">
+        <div class="form-group">
                     
-                    <div style="display: inline-block">
-                        <img src="~/images/user.png" id="ImagePlaceHolder" style="height:250px;" />
-                    </div>
-                    <div style="display: inline-block">
-                        <input   type="text" placeholder="paste you image url" id="imageUrl" class="form-control" />
-                        <button class="btn btn-info" onclick="viewImage(this)">View</button>
-                    </div>
-
-                  <br/>
-                    <label>Name : </label>
-                    <input name="Tutor.Name" type="text" class="form-control" id="firstName" value="@Model.Tutor.Name">
-                    <br/>
-                    <label>Email : </label>
-                    <input name="Tutor.Email" type="email" class="form-control" id="lastName" disabled="disabled" value="@Model.Tutor.Email">
-                    <br/>
-
-                    <label>Mobile : </label>
-                    <input name="Tutor.Mobile" type="text" class="form-control" id="phone" value="@Model.Tutor.Mobilenumber">
-                    <br/>
-                    <label>Expected Salary(tk/Hours)</label>
-                    <input type="text" class="form-control" id="salary" value="@Model.Tutor.ExpectedSalary"/>
-                    
-                    <br />
-                    <label>Address</label>
-                    
-                    <input name="Tutor.Address" type="text" class="form-control"  value="@Model.Tutor.Address" />
-                </div>
+            <div style="display: inline-block">
+                
+                <img src="@Model.Tutor.ProfilePictureUrl" id="ImagePlaceHolder" style="height: 250px;"/>
+            </div>
+            <div style="display: inline-block">
+                <input name="Tutor.ProfilePictureUrl"   type="text" placeholder="paste you image url" id="imageUrl" class="form-control" value="@Model.Tutor.ProfilePictureUrl" />
+                <button class="btn btn-info" onclick="viewImage(this)">View</button>
             </div>
 
-            <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
+            <br/>
+            <label>Name : </label>
+            <input name="Tutor.Name" type="text" class="form-control"  value="@Model.Tutor.Name">
+            <br/>
+            <label>Mobile : </label>
+            <input name="Tutor.Mobile" type="text" class="form-control"  value="@Model.Tutor.Mobilenumber">
+            <br/>
+            <label>Expected Salary(tk/Hours)</label>
+            <input name="Tutor.ExpectedSalary" type="text" class="form-control"  value="@Model.Tutor.ExpectedSalary"/>
+                    
+            <br />
+            <label>Address</label>
+                    
+            <input name="Tutor.Address" type="text" class="form-control"  value="@Model.Tutor.Address" />
+        </div>
+    </div>
+
+    <div class="col-sm-5" style="border:1px solid green; margin-left:10px; padding:15px">
 
             
 
-                <div class="form-group">
-                    <strong>
-                        Current Status : <br />
-                    </strong>
-                    <input type="radio" name="gender" value="Available"> <label>Available</label> <br>
-                    <input type="radio" name="gender" value="NotAvailable"><label> Not Available</label> <br>
-                </div>
+        <div class="form-group">
+            <strong>
+                Gender : <br />
+            </strong>
+            @Html.RadioButtonFor(m => Model.Tutor.Gender,"Male")
+            @Html.Label("Male")
+            @Html.RadioButtonFor(m => Model.Tutor.Gender,"Female")
+            @Html.Label("Female")
+                 
+        </div>
 
-                <strong>Preferred Medium : </strong>
-                <br />
-                @for(int i=0;i<Model.Mediums.Count;i++){
+        <strong>Preferred Medium : </strong>
+        <br />
+        @for(int i=0;i<Model.Mediums.Count;i++){
                     
-                    @Html.HiddenFor(x=>Model.Mediums[i].Id)
-                    @Html.CheckBoxFor(x=>Model.Mediums[i].IsChecked, new {@class=""})
-                    @Html.DisplayFor(x => Model.Mediums[i].Name)
-                    @Html.HiddenFor(x => Model.Mediums[i].Name)
-                    <label> </label>
-                }
-                <br /><br />
+            @Html.HiddenFor(x=>Model.Mediums[i].Id)
+            @Html.CheckBoxFor(x=>Model.Mediums[i].IsChecked, new {@class=""})
+            @Html.DisplayFor(x => Model.Mediums[i].Name)
+            @Html.HiddenFor(x => Model.Mediums[i].Name)
+            <label> </label>
+        }
+        <br /><br />
 
-                <strong>Preferred Location : </strong>
-                <br />
+        <strong>Preferred Location : </strong>
+        <br />
                 
-                @for(int i=0;i<Model.AvailableLocations.Count;i++){
+        @for(int i=0;i<Model.AvailableLocations.Count;i++){
                     
-                    @Html.HiddenFor(x=>Model.AvailableLocations[i].Id)
-                    @Html.CheckBoxFor(x=>Model.AvailableLocations[i].IsChecked, new {@class=""})
-                    @Html.DisplayFor(x => Model.AvailableLocations[i].Name)
-                    @Html.HiddenFor(x => Model.AvailableLocations[i].Name)
-                    <label> </label>
-                }
+            @Html.HiddenFor(x=>Model.AvailableLocations[i].Id)
+            @Html.CheckBoxFor(x=>Model.AvailableLocations[i].IsChecked, new {@class=""})
+            @Html.DisplayFor(x => Model.AvailableLocations[i].Name)
+            @Html.HiddenFor(x => Model.AvailableLocations[i].Name)
+            <label> </label>
+        }
 
                
                 
-                <br />
-                <br />
-                <strong>Preferred Classes: </strong>
-                <br />
+        <br />
+        <br />
+        <strong>Preferred Classes: </strong>
+        <br />
 
-                @for(int i=0;i<Model.Classes.Count;i++){
+        @for(int i=0;i<Model.Classes.Count;i++){
                     
-                    @Html.HiddenFor(x=>Model.Classes[i].Id)
-                    @Html.CheckBoxFor(x=>Model.Classes[i].IsChecked, new { @class = "" })
-                    <label> Class  @i</label>
-                   // @Html.LabelFor(x => Model.Classes[i].Name);
-                    @Html.HiddenFor(x => Model.Classes[i].Name)
+            @Html.HiddenFor(x=>Model.Classes[i].Id)
+            @Html.CheckBoxFor(x=>Model.Classes[i].IsChecked, new { @class = "" })
+            <label> Class  @i</label>
+            // @Html.LabelFor(x => Model.Classes[i].Name);
+            @Html.HiddenFor(x => Model.Classes[i].Name)
            
-                }
+        }
 
 
-                <div class="text-right">
-                    <a href="/Tutor/ViewProfile" class="btn btn-info">Save</a>
-                </div>
-
-            </div>
-
+        <div class="text-right">
+            <button type="submit" class="btn btn-info"> Save </button>
         </div>
+
+    </div>
+
+</div>
+</form>
 </body>
 </html>
 

@@ -12,8 +12,25 @@ namespace Entity.UserModels
         public int Experience { get; set; }
         public int Level { get; set; }
         public int Rank { get; set; }
-        public List<Subject> PreferredSubjects { get; set; }
-        public List<Location> PreferredLocations { get; set; }
+
+        [NotMapped]
+        public List<string> PreferredSubjects { get; set; }
+        //BECAUSE No more coupling
+        public string SubjectsList
+        {
+            get => string.Join(",", PreferredSubjects);
+            set => PreferredSubjects = value.Split(',').ToList();
+        }
+
+        [NotMapped]
+        public List<string> PreferredLocations { get; set; }
+        public string LocationsList
+        {
+            get => string.Join(",", PreferredLocations);
+            set => PreferredLocations = value.Split(',').ToList();
+        }
+
+
 
         [NotMapped]
         public List<string> PreferredMedium { get; set; }
@@ -52,22 +69,22 @@ namespace Entity.UserModels
         {
             Role = Role.Tutor;
             PreferredClasses = new List<string>();
-            PreferredLocations = new List<Location>();
+            PreferredLocations = new List<string>();
             PreferredMedium = new List<string>();
-            PreferredSubjects = new List<Subject>();
+            PreferredSubjects = new List<string>();
             Students= new List<Student>();
             ActiveStudents= new List<Student>();
         }
 
        
 
-         public override void Copy(User user)
+         public override User Copy(User user)
          {
             var tutor = (Tutor) user;
             Name = tutor.Name;
-            Email = tutor.Email;
             Mobilenumber = tutor.Mobilenumber;
             Address = tutor.Address;
+            Gender = tutor.Gender;
 
             PreferredMedium = tutor.PreferredMedium;
             PreferredSubjects = tutor.PreferredSubjects;
@@ -76,7 +93,8 @@ namespace Entity.UserModels
             ExpectedSalary = tutor.ExpectedSalary;
             Bio = tutor.Bio;
             CurrentStatus = tutor.CurrentStatus;
-        }
+            return this;
+         }
 
        
     }

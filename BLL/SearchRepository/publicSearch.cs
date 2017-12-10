@@ -11,8 +11,8 @@ namespace BLL.SearchRepository
 {
     public class PublicSearch
     {
-        public List<Tutor> SearchTutors(Location location,string gender,string Class,
-            int salaryMin,int salaryMax,List<Subject> selectedSubjects)
+        public List<Tutor> SearchTutors(string location,string gender,string Class,
+            int salaryMin,int salaryMax,List<string> selectedSubjects)
         {
             List<Tutor> searchResult=new TutorService().GetAll();
 

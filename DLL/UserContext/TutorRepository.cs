@@ -15,10 +15,8 @@ namespace DLL.UserContext
         {
             using (var context = new Context())
             {
-                return context.Set<Tutor>().Where(r=>r.Email==email)
-                    .Include(x=>x.PreferredLocations)
-                    .Include(x=>x.PreferredSubjects)
-                    .FirstOrDefault();
+                return context.Set<Tutor>()
+                    .FirstOrDefault(r => r.Email==email);
             }
         }
 

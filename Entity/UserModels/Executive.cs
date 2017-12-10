@@ -7,7 +7,7 @@
             Role = Role.Executive;
         }
 
-        public override void Copy(User user)
+        public override User Copy(User user)
         {
             throw new System.NotImplementedException();
         }

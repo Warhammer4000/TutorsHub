@@ -24,28 +24,7 @@ namespace TutorsHub.Application
         {
             
 
-            var user2 = new Admin()
-            {
-                DateOfBirth = new DateTime(1998, 2, 18),
-                Email = "lalala@iquantile.com",
-                Name = "Afia Ayesha Amin",
-
-                Password = "darks1d1erS!",
-                Gender = "Male",
-                Status = Status.Active,
-                UserSince = new DateTime(2004, 1, 10),
-                LastLogin = DateTime.Now
-            };
-
-
-
-
-            ServiceProvider repositoryProvider = new ServiceProvider();
-         
-            IUserService<Admin> iAdmin = repositoryProvider.Create<Admin>();
-      
-            iAdmin.Add(user2);
-
+        
             Fake_data();
 
 
@@ -90,12 +69,12 @@ namespace TutorsHub.Application
                 Experience = 1,
                 Level = 1,
                 Rank = 155,
-                PreferredSubjects = new List<Subject>()
+                PreferredSubjects = new List<string>()
                 {
-                    new Subject() {Name="Bangla" },
-                    new Subject() {Name="English" },
-                    new Subject() {Name="Sociology" },
-                    new Subject() {Name="Physics" }
+                    "Bangla",
+                    "English" ,
+                   "Sociology" ,
+                  "Physics" 
                 },
                 PreferredMedium = new List<string>()
                 {
@@ -110,12 +89,12 @@ namespace TutorsHub.Application
                     "4",
                     "5",
                 },
-                PreferredLocations = new List<Location>()
+                PreferredLocations = new List<string>()
                 {
-                    new Location() {Name="Banani" },
-                    new Location() {Name="Khilkhet" },
-                    new Location() {Name="Mirpur" },
-                    new Location() {Name="Tejgaon" },
+                    "Banani" ,
+                    "Khilkhet" ,
+                   "Mirpur" ,
+                    "Tejgaon" 
                 },
                 ExpectedSalary = 5000,
                 Bio = "Student",
@@ -137,12 +116,12 @@ namespace TutorsHub.Application
                 Experience = 2,
                 Level = 3,
                 Rank = 99,
-                PreferredSubjects = new List<Subject>()
+                PreferredSubjects = new List<string>()
                 {
-                    new Subject() {Name="Bangla" },
-                    new Subject() {Name="English" },
-                    new Subject() {Name="Chemistry" },
-                    new Subject() {Name="Physics" }
+                    "Bangla",
+                    "English" ,
+                   "Chemistry" ,
+                    "Physics" 
                 },
                 PreferredMedium = new List<string>()
                 {
@@ -157,12 +136,12 @@ namespace TutorsHub.Application
                     "12",
                     "8",
                 },
-                PreferredLocations = new List<Location>()
+                PreferredLocations = new List<string>()
                 {
-                    new Location() {Name="Banani" },
-                    new Location() {Name="Khilkhet" },
-                    new Location() {Name="Mirpur" },
-                    new Location() {Name="Tejgaon" },
+                    "Banani" ,
+                    "Khilkhet" ,
+                    "Mirpur" ,
+                    "Tejgaon" ,
                 },
                 ExpectedSalary = 8000,
                 Bio = "Student",
@@ -184,13 +163,13 @@ namespace TutorsHub.Application
                 Experience = 5,
                 Level = 4,
                 Rank = 5,
-                PreferredSubjects = new List<Subject>()
+                PreferredSubjects = new List<string>()
                 {
-                    new Subject() {Name="Bangla" },
-                    new Subject() {Name="English" },
-                    new Subject() {Name="Chemistry" },
-                    new Subject() {Name="Physics" },
-                    new Subject() {Name="Biology" },
+                    "Bangla" ,
+                    "English" ,
+                    "Chemistry" ,
+                   "Physics" ,
+                    "Biology" ,
                 },
                 PreferredMedium = new List<string>()
                 {
@@ -206,12 +185,12 @@ namespace TutorsHub.Application
                     "11",
                     "12"
                 },
-                PreferredLocations = new List<Location>()
+                PreferredLocations = new List<string>()
                 {
-                    new Location() {Name="Mohammodpur" },
-                    new Location() {Name="Dhanmondi" },
-                    new Location() {Name="Jigatola" },
-                    new Location() {Name="New Market" },
+                  "Mohammodpur" ,
+                   "Dhanmondi" ,
+                    "Jigatola" ,
+                    "New Market" ,
                 },
                 ExpectedSalary = 9000,
                 Bio = "Student",

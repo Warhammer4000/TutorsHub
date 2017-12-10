@@ -70,8 +70,8 @@ namespace DLL.UserContext
             {
                 try
                 {
-                    var admin = context.Set<T>().First(r => r.Email == t.Email);
-                    admin.Copy(t);
+                    var user = context.Set<T>().First(r => r.Email == t.Email);
+                    user=(T)user.Copy(t);
                     context.SaveChanges();
                     return true;
                 }

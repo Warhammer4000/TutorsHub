@@ -35,7 +35,7 @@ namespace TutorsHub.Application.Models
             {
                 foreach (var availableLocation in AvailableLocations)
                 {
-                    if (availableLocation.Name==location.Name)
+                    if (availableLocation.Name==location)
                     {
                         availableLocation.IsChecked = true;
                     }
