@@ -17,14 +17,7 @@ namespace DLL.DataContext
             }
         }
 
-        public T GetWithTutors(string subjectName)
-        {
-            
-            using (var context = new Context())
-            {
-                return context.Set<T>().Include(x => x.Tutors).FirstOrDefault(r => r.Name == subjectName);
-            }
-        }
+      
 
         public bool Add(T t)
         {

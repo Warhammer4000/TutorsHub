@@ -8,18 +8,14 @@ namespace Entity.Data
 {
     public class DataModel
     {
-  
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [Key]
         public string Name { get; set; }
         [NotMapped]
         public bool IsChecked { get; set; }
-        public List<string> Tutors { get; set; }
-        public string TutorList
-        {
-            get => string.Join(",", Tutors);
-            set => Tutors = value.Split(',').ToList();
-        }
+       
     }
 }

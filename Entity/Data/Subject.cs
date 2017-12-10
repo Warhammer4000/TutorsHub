@@ -11,6 +11,6 @@ namespace Entity.Data
 {
     public class Subject:DataModel
     {
-     
+      
     }
 }

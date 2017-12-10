@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using BLL;
+using BLL.DataRepositoryFolder;
 using BLL.UserRepository;
 using Entity.Data;
 using Entity.UserModels;
@@ -238,6 +239,62 @@ namespace TutorsHub.Application
                 Mobilenumber = "0128978598",
                 Address = "khilkhet"
             };
+
+
+            Subject subject1= new Subject(){Name = "Bangla" ,Id=1};
+            Subject subject2 = new Subject() { Name = "English", Id = 1 };
+            Subject subject3 = new Subject() { Name = "Math", Id = 1 };
+            Subject subject4 = new Subject() { Name = "Physics", Id = 1 };
+            Subject subject5 = new Subject() { Name = "Chemestry", Id = 1 };
+            Subject subject6 = new Subject() { Name = "Biology", Id = 1 };
+            Subject subject7 = new Subject() { Name = "Social Science", Id = 1 };
+            Subject subject8 = new Subject() { Name = "Higher Math", Id = 1 };
+            Subject subject9 = new Subject() { Name = "ICT", Id = 1 };
+
+
+            new SubjectService().Add(subject1);
+            new SubjectService().Add(subject2);
+            new SubjectService().Add(subject3);
+            new SubjectService().Add(subject4);
+            new SubjectService().Add(subject5);
+            new SubjectService().Add(subject6);
+            new SubjectService().Add(subject7);
+            new SubjectService().Add(subject8);
+            new SubjectService().Add(subject9);
+
+            Location location1 = new Location() { Name = "Mirpur-1", Id = 1 };
+            Location location2 = new Location() { Name = "Mirpur-2", Id = 1 };
+            Location location3 = new Location() { Name = "Mirpur-6", Id = 1 };
+            Location location4 = new Location() { Name = "Mirpur-10", Id = 1 };
+            Location location5 = new Location() { Name = "Mirpur-12", Id = 1 };
+            Location location6 = new Location() { Name = "Mirpur-11", Id = 1 };
+            Location location7 = new Location() { Name = "Mirpur-14", Id = 1 };
+            Location location8 = new Location() { Name = "Kalshi", Id = 1 };
+            Location location9 = new Location() { Name = "Banani", Id = 1 };
+            Location location10 = new Location() { Name = "Farmgate", Id = 1 };
+            Location location11 = new Location() { Name = "Bashundhara", Id = 1 };
+            Location location12 = new Location() { Name = "Gulshan", Id = 1 };
+
+
+
+            new LocationService().Add(location1);
+            new LocationService().Add(location2);
+            new LocationService().Add(location3);
+            new LocationService().Add(location4);
+            new LocationService().Add(location5);
+            new LocationService().Add(location6);
+            new LocationService().Add(location7);
+            new LocationService().Add(location8);
+            new LocationService().Add(location9);
+            new LocationService().Add(location10);
+            new LocationService().Add(location11);
+            new LocationService().Add(location12);
+
+
+            
+
+
+
 
 
             ServiceProvider repositoryProvider = new ServiceProvider();
