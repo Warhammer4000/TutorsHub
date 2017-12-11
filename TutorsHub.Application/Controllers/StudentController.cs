@@ -61,11 +61,30 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public ActionResult EditProfile()
         {
-            var student = new ServiceProvider().Create<Student>();
-            return View(student.GetByEmail(Session["KEY"] as string));
+            var studentprovider = new ServiceProvider().Create<Student>();
+            return View(studentprovider.GetByEmail(Session["KEY"] as string));
         }
+
+
+        [HttpPost]
+        public ActionResult EditProfile(Student student)
+        {
+            var studentprovider = new ServiceProvider().Create<Student>();
+            student.Email = Session["Key"] as string;
+            if (studentprovider.Update(student))
+            {
+                RedirectToAction("ViewProfile", "Student");
+            }
+
+            return View(student);
+        }
+
+
+        [HttpGet]
         public ActionResult Notification()
         {
             return View();
@@ -79,10 +98,11 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult ViewProfile(Student student)
+        [HttpGet]
+        public ActionResult ViewProfile()
         {
             var studentservice = new ServiceProvider().Create<Student>();
-            student = studentservice.GetByEmail(Session["KEY"] as string);
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
             return View(student);
         }
 

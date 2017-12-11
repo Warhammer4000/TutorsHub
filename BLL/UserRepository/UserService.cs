@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DLL.UserContext;
 using Entity.UserModels;
@@ -33,14 +34,12 @@ namespace BLL.UserRepository
 
         public bool ValidUser(string email, string password)
         {
-            User user= new UserRepository<T>().GetByEmail(email);
-            if (user != null)
-            {
-                return user.Password == password;
-            }
-            return false;
-           
-           
+            T user = GetByEmail(email);
+            if (user == null) return false;
+
+            user.LastLogin=DateTime.Now;
+            Update(user);
+            return user.Password == password;
         }
 
 

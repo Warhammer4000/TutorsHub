@@ -16,7 +16,12 @@ namespace Entity.UserModels
 
         public override User Copy(User user)
         {
-            throw new System.NotImplementedException();
+            Student student = (Student) user;
+            Name = student.Name;
+            Location = student.Location;
+            ProfilePictureUrl = student.ProfilePictureUrl;
+            Mobilenumber = student.Mobilenumber;
+            return student;
         }
     }
 }
