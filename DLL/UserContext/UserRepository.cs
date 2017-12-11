@@ -83,6 +83,25 @@ namespace DLL.UserContext
             }
         }
 
+        public bool UpdatePassword(string email, string password)
+        {
+            using (var context = new Context())
+            {
+                try
+                {
+                    var user = context.Set<T>().First(r => r.Email == email);
+                    user.Password = password;
+                    context.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+        }
+
 
 
     }
