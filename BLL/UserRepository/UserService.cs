@@ -42,7 +42,13 @@ namespace BLL.UserRepository
             return user.Password == password;
         }
 
+        public bool UpdatePassword(string email, string password)
+        {
+            return new UserRepository<T>().UpdatePassword(email,password);
+        }
 
 
-}
+
+
+    }
 }

@@ -16,10 +16,10 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewProfile(Admin admin)
+        public ActionResult ViewProfile()
         {
             var adminservice = new ServiceProvider().Create<Admin>();
-            admin = adminservice.GetByEmail(Session["KEY"] as string);
+            var admin = adminservice.GetByEmail(Session["KEY"] as string);
             return View(admin);
         }
 
