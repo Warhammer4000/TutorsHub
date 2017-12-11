@@ -42,7 +42,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult NewUser()
         {
-            return View();
+            return View(new User());
         }
 
         [HttpPost]
