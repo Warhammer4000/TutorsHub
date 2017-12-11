@@ -5,6 +5,7 @@ using Entity.UserModels;
 using BLL;
 using BLL.DataRepositoryFolder;
 using System;
+using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -47,26 +48,28 @@ namespace TutorsHub.Application.Controllers
 
         [HttpPost]
         public ActionResult NewUser(User user)
-        {
+        {   
+
+            user.UserSince= DateTime.Now;
+            user.LastLogin=DateTime.Now;
+            user.DateOfBirth=DateTime.Now;
+            user.Status = Status.Active;
             switch (user.Type)
             {
                 case "Admin":
-                    var adminService = new ServiceProvider().Create<Admin>();
-                    adminService.Add(new Admin
-                    {
-                        Name = user.Name,
-                        Email = user.Email,
-                        Password = user.Password,
-                        UserSince = DateTime.Now,
-                        LastLogin = DateTime.Now,
-                        DateOfBirth = DateTime.Now,
-                        Role = Role.Admin,
-                        Status = Status.Pending,
-                        Gender = "Male",
-                      
-
-
-                    });
+                    var userservice = new UserService<Admin>();
+                    var admin = (Admin) user;
+                    userservice.Add(admin);
+                    break;
+                case "Tutor":
+                    var tutorservice = new UserService<Tutor>();
+                    Tutor tutor = (Tutor) user;
+                    tutorservice.Add(tutor);
+                    break;
+                case "Student":
+                    var studentservice = new UserService<Student>();
+                    var student = (Student) user;
+                    studentservice.Add(student);
                     break;
             }
 
