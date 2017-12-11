@@ -64,7 +64,7 @@ namespace Entity.UserModels
             throw new NotImplementedException();
         }
 
-
+        public string Type { get; set; }
 
         [NotMapped]
         public string LastActive { get; set; }// include day/month

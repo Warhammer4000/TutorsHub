@@ -1,15 +1,10 @@
-﻿
+﻿@model Entity.UserModels.User
 @{
-    ViewBag.Title = "NewUser";
+
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 
-
-@{
-    ViewBag.Title = "EditProfile";
-    Layout = "~/Views/Shared/AdminLayout.cshtml";
-}
 
 
 <!DOCTYPE html>
@@ -53,30 +48,30 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="User Name">
 
-                                <input type="text" class="form-control" placeholder="Name">
+                                <form method="post">
+                                    <input type="text" class="form-control" placeholder="Name" required value="@Model.Name">
 
-                                <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" placeholder="Email" required value="@Model.Email">
 
-                                <input type="radio" name="">Male
-                                <input type="radio" name="">Female
-                                <br /><label>Birthdate</label>
-                                <input type="date" class="form-control" name="Birthdate" style="margin-top:5px;">
-                                
-                                <input type="text" class="form-control" placeholder="Profile Picture URL">
+                                    <input type="password" class="form-control in" style="margin-top:5px;" placeholder="Password" equired value="@Model.Password">
 
-                                <label>Role</label>
-                                <select class="btn btn-default">
-                                    <option>Admin</option>
-                                    <option>Executive</option>
-                                    <option>User</option>
-                                </select>
+                                    <input type="radio" name="">Male
+                                    <input type="radio" name="">Female
+                                    <br /><label>Birthdate</label>
+                                    <input type="date" class="form-control" name="Birthdate" style="margin-top:5px;">
 
-                                <input type="password" class="form-control in" style="margin-top:5px;" placeholder="Password">
+                                    <input type="text" class="form-control" placeholder="Profile Picture URL">
 
-                                <input type="submit" class="btn btn-success" value="Save">
+                                    <label>Role</label>
+                                    <select class="btn btn-default">
+                                        <option name="type">Admin</option>
+                                        <option name="type">Executive</option>
+                                        <option name="type">User</option>
+                                    </select>
 
+                                    <input type="submit" class="btn btn-success" value="Save">
+                                </form>
                             </div>
                         </div>
                     </div>

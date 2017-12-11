@@ -4,6 +4,7 @@ using TutorsHub.Application.Models;
 using Entity.UserModels;
 using BLL;
 using BLL.DataRepositoryFolder;
+using System;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -38,9 +39,43 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult NewUser()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewUser(User user)
+        {
+            switch (user.Type)
+            {
+                case "Admin":
+                    var adminService = new ServiceProvider().Create<Admin>();
+                    adminService.Add(new Admin
+                    {
+                        Name = user.Name,
+                        Email = user.Email,
+                        Password = user.Password,
+                        UserSince = new DateTime(2008, 3, 15),
+                        LastLogin = new DateTime(2008, 3, 15),
+                        DateOfBirth = new DateTime(2008, 3, 15),
+                        Role = Role.Admin,
+                        Status = Status.Pending,
+                        Address = "sfjslfjlskf",
+                        Mobilenumber = "01923130",
+                        Gender = "M",
+                        ProfilePictureUrl = "dslkfjdslfdjslf"
+
+
+                    });
+                    break;
+            }
+
+
+            RedirectToAction("AdminDashboard", "Admin");
+
+            return View(user);
         }
 
         public ActionResult QuestionPaper()
