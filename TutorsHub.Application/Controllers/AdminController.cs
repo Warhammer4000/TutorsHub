@@ -57,15 +57,13 @@ namespace TutorsHub.Application.Controllers
                         Name = user.Name,
                         Email = user.Email,
                         Password = user.Password,
-                        UserSince = new DateTime(2008, 3, 15),
-                        LastLogin = new DateTime(2008, 3, 15),
-                        DateOfBirth = new DateTime(2008, 3, 15),
+                        UserSince = DateTime.Now,
+                        LastLogin = DateTime.Now,
+                        DateOfBirth = DateTime.Now,
                         Role = Role.Admin,
                         Status = Status.Pending,
-                        Address = "sfjslfjlskf",
-                        Mobilenumber = "01923130",
-                        Gender = "M",
-                        ProfilePictureUrl = "dslkfjdslfdjslf"
+                        Gender = "Male",
+                      
 
 
                     });

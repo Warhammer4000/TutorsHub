@@ -54,10 +54,7 @@ namespace Entity.UserModels
         public DateTime LastLogin { get; set; }
 
 
-        [NotMapped]
-        public bool MaleChecked { get; set; }
-        [NotMapped]
-        public bool FemaleChecked { get; set; }
+       
 
         public virtual User Copy(User user)
         {
