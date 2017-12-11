@@ -1,10 +1,11 @@
-﻿using BLL;
+﻿using System.Web.Mvc;
+using Entity.Data;
+using TutorsHub.Application.Models;
 using Entity.UserModels;
+using BLL;
+using BLL.DataRepositoryFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -34,8 +35,23 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
-            return View();
+            return View(new EditPass());
         }
+        [HttpPost]
+        public ActionResult ChangePassword(EditPass editPass)
+        {
+            var userservice = new UserService<Student>();
+
+            var studentservice = new ServiceProvider().Create<Student>();
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
+
+            if (editPass.NewPassword == editPass.RepPassword)
+            {
+                userservice.UpdatePassword(student.Email, editPass.NewPassword);
+            }
+            return View(editPass);
+        }
+
         [HttpGet]
         public ActionResult SendMessage()
         {
