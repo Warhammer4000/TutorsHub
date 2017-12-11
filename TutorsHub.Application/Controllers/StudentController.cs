@@ -106,9 +106,6 @@ namespace TutorsHub.Application.Controllers
             return View(student);
         }
 
-        public ActionResult Blog()
-        {
-            return View();
-        }
+        
     }
 }
