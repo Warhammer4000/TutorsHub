@@ -8,7 +8,7 @@ namespace Entity.UserModels
     public enum Role { Admin=1, Executive=2, Tutor =3 ,Student=4}
     public enum Status { Active=1, Pending=2, Blocked=3 }
 
-    public abstract class User
+    public  class User
     {
         public Role Role { get; set; }
         public Status Status { get; set; }
@@ -59,7 +59,10 @@ namespace Entity.UserModels
         [NotMapped]
         public bool FemaleChecked { get; set; }
 
-        public abstract User Copy(User user);
+        public virtual User Copy(User user)
+        {
+            throw new NotImplementedException();
+        }
 
 
 
