@@ -4,6 +4,7 @@ using TutorsHub.Application.Models;
 using Entity.UserModels;
 using BLL;
 using BLL.DataRepositoryFolder;
+using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -22,6 +23,7 @@ namespace TutorsHub.Application.Controllers
             return View(admin);
         }
 
+        [HttpGet]
         public ActionResult EditProfile()
         {
             var admin = new ServiceProvider().Create<Admin>();
