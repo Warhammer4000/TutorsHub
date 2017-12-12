@@ -21,7 +21,22 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult EditPassword()
         {
-            return View();
+            return View(new EditPass());
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(EditPass editPass)
+        {
+            var userservice = new UserService<Tutor>();
+
+            var tutorservice = new ServiceProvider().Create<Tutor>();
+            var tutor = tutorservice.GetByEmail(Session["KEY"] as string);
+
+            if (editPass.NewPassword == editPass.RepPassword)
+            {
+                userservice.UpdatePassword(tutor.Email, editPass.NewPassword);
+            }
+            return View(editPass);
         }
 
         [HttpGet]

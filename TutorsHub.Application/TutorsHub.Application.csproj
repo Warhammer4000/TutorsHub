@@ -232,6 +232,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditPass.cs" />
     <Compile Include="Models\TutorEditProfileModel.cs" />
     <Compile Include="Models\LocationsViewModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />
@@ -297,7 +298,6 @@
     <Content Include="Views\Student\ViewSearch.cshtml" />
     <Content Include="Views\Student\ViewProfile.cshtml" />
     <Content Include="Views\Tutor\EditPassword.cshtml" />
-    <Content Include="Views\Student\Blog.cshtml" />
     <Content Include="Views\Tutor\Notification.cshtml" />
     <Content Include="Views\Tutor\Chat.cshtml" />
     <Content Include="Views\Tutor\UploadMaterial.cshtml" />

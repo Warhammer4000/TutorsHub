@@ -4,6 +4,7 @@ using TutorsHub.Application.Models;
 using Entity.UserModels;
 using BLL;
 using BLL.DataRepositoryFolder;
+using System;
 using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
@@ -16,23 +17,38 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult ViewProfile(Admin admin)
+        public ActionResult ViewProfile()
         {
             var adminservice = new ServiceProvider().Create<Admin>();
-            admin = adminservice.GetByEmail(Session["KEY"] as string);
+            var admin = adminservice.GetByEmail(Session["KEY"] as string);
             return View(admin);
         }
 
-        [HttpGet]
         public ActionResult EditProfile()
         {
             var admin = new ServiceProvider().Create<Admin>();
             return View(admin.GetByEmail(Session["KEY"] as string));
         }
 
+        [HttpGet]
         public ActionResult EditPassword()
         {
-            return View();
+            return View(new EditPass());
+        }
+        [HttpPost]
+        public ActionResult EditPassword(EditPass editPass)
+        {
+            var userservice = new UserService<Admin>();
+
+            var adminservice = new ServiceProvider().Create<Admin>();
+            var admin = adminservice.GetByEmail(Session["KEY"] as string);
+
+            if(editPass.NewPassword== editPass.RepPassword)
+            {
+                userservice.UpdatePassword(admin.Email, editPass.NewPassword);
+            }
+
+            return View(editPass);
         }
 
         public ActionResult UserSearch()
@@ -40,9 +56,43 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult NewUser()
         {
-            return View();
+            return View(new User());
+        }
+
+        [HttpPost]
+        public ActionResult NewUser(User user)
+        {   
+
+            user.UserSince= DateTime.Now;
+            user.LastLogin=DateTime.Now;
+            user.DateOfBirth=DateTime.Now;
+            user.Status = Status.Active;
+            switch (user.Type)
+            {
+                case "Admin":
+                    var userservice = new UserService<Admin>();
+                    var admin = (Admin) user;
+                    userservice.Add(admin);
+                    break;
+                case "Tutor":
+                    var tutorservice = new UserService<Tutor>();
+                    Tutor tutor = (Tutor) user;
+                    tutorservice.Add(tutor);
+                    break;
+                case "Student":
+                    var studentservice = new UserService<Student>();
+                    var student = (Student) user;
+                    studentservice.Add(student);
+                    break;
+            }
+
+
+            RedirectToAction("AdminDashboard", "Admin");
+
+            return View(user);
         }
 
         public ActionResult QuestionPaper()

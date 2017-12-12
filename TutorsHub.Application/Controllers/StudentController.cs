@@ -1,10 +1,11 @@
-﻿using BLL;
+﻿using System.Web.Mvc;
+using Entity.Data;
+using TutorsHub.Application.Models;
 using Entity.UserModels;
+using BLL;
+using BLL.DataRepositoryFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -34,8 +35,23 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
-            return View();
+            return View(new EditPass());
         }
+        [HttpPost]
+        public ActionResult ChangePassword(EditPass editPass)
+        {
+            var userservice = new UserService<Student>();
+
+            var studentservice = new ServiceProvider().Create<Student>();
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
+
+            if (editPass.NewPassword == editPass.RepPassword)
+            {
+                userservice.UpdatePassword(student.Email, editPass.NewPassword);
+            }
+            return View(editPass);
+        }
+
         [HttpGet]
         public ActionResult SendMessage()
         {
@@ -61,11 +77,30 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+
+        [HttpGet]
         public ActionResult EditProfile()
         {
-            var student = new ServiceProvider().Create<Student>();
-            return View(student.GetByEmail(Session["KEY"] as string));
+            var studentprovider = new ServiceProvider().Create<Student>();
+            return View(studentprovider.GetByEmail(Session["KEY"] as string));
         }
+
+
+        [HttpPost]
+        public ActionResult EditProfile(Student student)
+        {
+            var studentprovider = new ServiceProvider().Create<Student>();
+            student.Email = Session["Key"] as string;
+            if (studentprovider.Update(student))
+            {
+                RedirectToAction("ViewProfile", "Student");
+            }
+
+            return View(student);
+        }
+
+
+        [HttpGet]
         public ActionResult Notification()
         {
             return View();
@@ -79,16 +114,14 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult ViewProfile(Student student)
+        [HttpGet]
+        public ActionResult ViewProfile()
         {
             var studentservice = new ServiceProvider().Create<Student>();
-            student = studentservice.GetByEmail(Session["KEY"] as string);
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
             return View(student);
         }
 
-        public ActionResult Blog()
-        {
-            return View();
-        }
+        
     }
 }

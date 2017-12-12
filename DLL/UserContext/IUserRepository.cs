@@ -12,6 +12,7 @@ namespace DLL.UserContext
         List<T> GetAll();
         bool Add(T t);
         bool Update(T t);
+        bool UpdatePassword(string email,string password);
         bool Remove(string userName);
 
     }

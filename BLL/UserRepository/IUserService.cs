@@ -12,7 +12,8 @@ namespace BLL.UserRepository
         List<T> GetAll();
         bool Add(T t);
         bool Update(T t);
-        bool Remove(string userName);
+        bool Remove(string email);
         bool ValidUser(string email,string password);
+        bool UpdatePassword(string email,string password);
     }
 }
