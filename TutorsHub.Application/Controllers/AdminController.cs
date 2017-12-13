@@ -24,10 +24,24 @@ namespace TutorsHub.Application.Controllers
             return View(admin);
         }
 
+        [HttpGet]
         public ActionResult EditProfile()
         {
-            var admin = new ServiceProvider().Create<Admin>();
-            return View(admin.GetByEmail(Session["KEY"] as string));
+            var adminService = new ServiceProvider().Create<Admin>();
+            return View(adminService.GetByEmail(Session["Key"] as string));
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(Admin model)
+        {
+            var adminUpdate = new ServiceProvider().Create<Admin>();
+            model.Email = Session["Key"] as string;
+            if (adminUpdate.Update(model))
+            {
+                return RedirectToAction("ViewProfile", "Admin");
+            }
+
+            return View(model);
         }
 
         [HttpGet]

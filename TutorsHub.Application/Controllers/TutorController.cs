@@ -110,13 +110,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult ViewProfile(Tutor val)
+        public ActionResult ViewProfile()
         {
             var tutorservice =(TutorService) new ServiceProvider().Create<Tutor>();
             var tutor = tutorservice.GetByEmailWithLists(Session["KEY"] as String);
-            tutor.TimeSpanUpdate();
-            val = tutor;
-            return View(val);
+            
+            return View(tutor);
         }
 
        

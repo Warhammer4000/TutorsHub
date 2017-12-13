@@ -287,7 +287,7 @@
     <Content Include="Views\Student\HireTutor.cshtml" />
     <Content Include="Views\Student\Notification.cshtml" />
     <Content Include="Views\Student\OnlineExam.cshtml" />
-    <Content Include="Views\Student\Profile.cshtml" />
+    <Content Include="Views\Student\StudentProfile.cshtml" />
     <Content Include="Views\Student\Report.cshtml" />
     <Content Include="Views\Student\SendMessage.cshtml" />
     <Content Include="Views\Student\StudyMaterial.cshtml" />

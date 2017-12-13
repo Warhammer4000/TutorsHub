@@ -73,9 +73,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Profile()
+        public ActionResult StudentProfile()
         {
-            return View();
+            var studentservice = new ServiceProvider().Create<Student>();
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
+            return View(student);
+            
         }
 
         [HttpGet]
@@ -93,7 +96,7 @@ namespace TutorsHub.Application.Controllers
             student.Email = Session["Key"] as string;
             if (studentprovider.Update(student))
             {
-                RedirectToAction("ViewProfile", "Student");
+                return RedirectToAction("ViewProfile", "Student");
             }
 
             return View(student);
