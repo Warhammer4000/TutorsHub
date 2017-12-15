@@ -75,6 +75,7 @@ namespace TutorsHub.Application.Controllers
 
                 foreach (var Class in tutorEditProfileModel.Classes)
                 {
+                    
                     if (Class.IsChecked)
                     {
                         updatedTutor.PreferredClasses.Add(Class.Name);

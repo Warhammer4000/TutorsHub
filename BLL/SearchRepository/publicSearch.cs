@@ -16,16 +16,13 @@ namespace BLL.SearchRepository
         {
             List<Tutor> searchResult=new TutorService().GetAll();
 
-            searchResult = searchResult.Where(r => r.ExpectedSalary >= salaryMin 
-            && r.ExpectedSalary <= salaryMax
-            && r.Gender==gender 
-            && r.PreferredLocations.Contains(location) 
-            && r.PreferredClasses.Contains(Class)
-            &&r.PreferredSubjects.Intersect(selectedSubjects).Any()
-            ).ToList();
-
+            searchResult = searchResult.Where(r => r.ExpectedSalary >= salaryMin ).ToList();
+            searchResult= searchResult.Where(r=>r.ExpectedSalary<=salaryMax).ToList();
+            searchResult=searchResult.Where(r=>r.Gender==gender).ToList();
+            searchResult=searchResult.Where(r=>r.PreferredLocations.Contains(location)).ToList();
+            searchResult=searchResult.Where(r=>r.PreferredClasses.Contains(Class)).ToList();
+            searchResult = searchResult.Where(r => r.PreferredSubjects.Intersect(selectedSubjects).Any()).ToList();
            
-
             return  searchResult;
         }
 
