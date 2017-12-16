@@ -302,6 +302,7 @@
     <Content Include="Views\Tutor\Notification.cshtml" />
     <Content Include="Views\Tutor\Chat.cshtml" />
     <Content Include="Views\Tutor\UploadMaterial.cshtml" />
+    <Content Include="Views\Student\SchedTutor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

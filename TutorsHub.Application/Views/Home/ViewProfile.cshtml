@@ -102,45 +102,47 @@
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Medium: </label></td>
-                                    <td>English</td>
+                                    @for (int i = 0; i < Model.PreferredMedium.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredMedium[i]</label></td>
+                                    }
+                                    
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Classes: </label></td>
-                                    <td>9-12</td>
+                                    @for (int i = 0; i < Model.PreferredClasses.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredClasses[i]</label></td>
+                                    }
+                                    
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Subjects: </label> </td>
-                                    <td> Accounting</td>
+                                    @for (int i = 0; i < Model.PreferredSubjects.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredSubjects[i]</label></td>
+                                    }
+
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Economics</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Bussiness Math</td>
-                                </tr>
+                                
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Areas: </label> </td>
-                                    <td>Bashundhara</td>
+                                    @for (int i = 0; i < Model.PreferredLocations.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredLocations[i]</label></td>
+                                    }
+
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Gulshan</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Uttara</td>
-                                </tr>
+                               
                             </table>
                         </div>
                     </div>

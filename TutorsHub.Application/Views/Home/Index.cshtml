@@ -17,47 +17,76 @@
 
 </head>
 <body>
+
+    <br />
+    <br />
     <form action="/Home/SearchResult" method="post">
     <div class="row">
-        <div>
+        <div class="col-lg-4">
+
+        </div>
+        <div class="col-lg-2">
             <label>Location</label>
             @Html.DropDownList("Location",new SelectList(Model.Locations,"Name","Name"), new{@class="btn btn-success"})
-           
+         </div>
+        <div class="col-lg-2" style="width:170px; padding-left:0px; padding-right:0px;">
             <label>Gender</label>
-            <select name="Gender">
+            <select name="Gender" class="btn btn-success">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Any">Any</option>
             </select>
+            </div>
+        <div class="col-lg-2" style="padding-left:0px;">
             <label>Class</label>
             @Html.DropDownList("Class", new SelectList(Model.Classes, "Name", "Name"), new { @class = "btn btn-success" })
         </div>
     </div>
+        <br />
+    <div class="row">
+        <div class="col-lg-4">
 
-    <div class="row" style="padding-top:10px;">
-        <div>
-            <input type="number" class="form-control" name="minSal" placeholder=" Minimum Salary"> -
+        </div>
+        <div class="col-lg-2">
+            <input type="number" class="form-control" name="minSal" placeholder=" Minimum Salary"> 
+            </div>
+        <div class="col-lg-1" style="width:45px;">
+            <label>-</label>
+        </div>
+        <div class="col-lg-2">
             <input type="number" class="form-control" name="maxSal" placeholder="Maximum Salary">
         </div>
     </div>
     <br>
     <div class="row">
-       
-                    @for (int i = 0; i < Model.Subjects.Count; i++)
-                    {
-                        @Html.HiddenFor(x=>Model.Subjects[i].Id)
-                        @Html.CheckBoxFor(x=>Model.Subjects[i].IsChecked)
-                        @Html.DisplayFor(x => Model.Subjects[i].Name)
-                        @Html.HiddenFor(x => Model.Subjects[i].Name)
-                    }
+       <div class="col-lg-4">
+
+       </div>
+        <div class="col-lg-4" style="margin-left:2%">
+
+            <span class="form-control btn-success" style="height:60%; padding-left:4%">
+            @for (int i = 0; i < Model.Subjects.Count; i++)
+            {
+                @Html.HiddenFor(x => Model.Subjects[i].Id)
+                @Html.CheckBoxFor(x => Model.Subjects[i].IsChecked)
+                @Html.DisplayFor(x => Model.Subjects[i].Name)
+                <span style="padding-right:10px;"></span>
+          
+                @Html.HiddenFor(x => Model.Subjects[i].Name)
+            }
+            </span>
+        </div>
+
     </div>
+        <br />
+
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-6">
 
         </div>
         <div class="col-lg-3">
            
-             <input type="submit" />  
+             <input type="submit" class="btn btn-info"/>  
             
          </div>
     </div>

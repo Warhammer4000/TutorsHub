@@ -7,6 +7,7 @@ using BLL.DataRepositoryFolder;
 using System;
 using BLL.UserRepository;
 
+
 namespace TutorsHub.Application.Controllers
 {
     public class StudentController : Controller
@@ -51,6 +52,15 @@ namespace TutorsHub.Application.Controllers
             }
             return View(editPass);
         }
+
+        [HttpGet]
+        public ActionResult SchedTutor()
+        {
+
+            return View();
+        }
+
+
 
         [HttpGet]
         public ActionResult SendMessage()
