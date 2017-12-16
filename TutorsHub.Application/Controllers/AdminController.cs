@@ -54,6 +54,7 @@ namespace TutorsHub.Application.Controllers
             user.LastLogin=DateTime.Now;
             user.DateOfBirth=DateTime.Now;
             user.Status = Status.Active;
+         
             switch (user.Type)
             {
                 case "Admin":
