@@ -64,7 +64,6 @@
                                     <thead>
                                         <tr>
                                             <th>Subjects</th>
-                                            <th>Edit</th>
                                             <th>Remove</th>
                                         </tr>
                                     </thead>
@@ -73,8 +72,7 @@
                                         {
                                             <tr>
                                                 <td>@Model.Subjects[i].Name</td>
-                                                <td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                                <td><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                                <td><button name="Id" type="submit" class="glyphicon glyphicon-remove" value="@Model.Subjects[i].Id"></button></td>
                                             </tr>
                                         }
                                     </tbody>

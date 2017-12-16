@@ -127,36 +127,18 @@ namespace TutorsHub.Application.Controllers
             return View(locationsViewModel);
         }
 
+      
+
         [HttpPost]
-        public ActionResult Locations(LocationsViewModel locationsViewModel)
-        {
-            IDataService<Location> locationDataService = new LocationService();
-            if (locationsViewModel.NewLocation != null)
-            {
-                locationDataService.Add(locationsViewModel.NewLocation);
-            }
-
-            locationsViewModel = new LocationsViewModel
-            {
-                Locations = locationDataService.GetAll()
-            };
-
-            return View(locationsViewModel);
-        }
-
-        [HttpDelete]
         public ActionResult Locations(int id)
-        {
+        {   
+             var locationsViewModel=new LocationsViewModel();
             IDataService<Location> locationDataService = new LocationService();
-
-            var locationsViewModel = new LocationsViewModel
+            if (locationDataService.Delete(id))
             {
-                Locations = locationDataService.GetAll()
-            };
+                 locationsViewModel.Locations = locationDataService.GetAll();
 
-            Location loc = locationsViewModel.Locations.Find(x => x.Id.Equals(id));
-
-            locationDataService.Delete(loc);
+            }
 
             return View(locationsViewModel);
         }
@@ -174,18 +156,16 @@ namespace TutorsHub.Application.Controllers
             return View(subjectsViewModel);
         }
         [HttpPost]
-        public ActionResult Subjects(SubjectsViewModel subjectsViewModel)
+        public ActionResult Subjects(int id)
         {
+            var subjectsViewModel = new SubjectsViewModel();
             IDataService<Subject> subjectDataService = new SubjectService();
-            if (subjectsViewModel.NewSubject!= null)
+            if (subjectDataService.Delete(id))
             {
-                subjectDataService.Add(subjectsViewModel.NewSubject);
+                subjectsViewModel.Subjects = subjectDataService.GetAll();
+
             }
 
-            subjectsViewModel = new SubjectsViewModel
-            {
-                Subjects = subjectDataService.GetAll()
-            };
             return View(subjectsViewModel);
         }
 

@@ -125,6 +125,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(string key)
         {
             Tutor tutor = new TutorService().GetByEmail(key);
+            tutor.TimeSpanUpdate();
             return View(tutor);
         }
 

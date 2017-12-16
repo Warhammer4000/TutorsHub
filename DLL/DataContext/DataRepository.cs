@@ -36,13 +36,14 @@ namespace DLL.DataContext
             }
         }
 
-        public bool Delete(T t)
+        public bool Delete(int id)
         {
             using (var context = new Context())
             {
                 try
                 {
-                    context.Set<T>().Remove(t);
+                    var a=context.Set<T>().FirstOrDefault(r=>r.Id==id);
+                    context.Set<T>().Remove(a);
                     context.SaveChanges();
                     return true;
                 }
