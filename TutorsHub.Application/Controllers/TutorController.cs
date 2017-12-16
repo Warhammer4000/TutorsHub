@@ -21,7 +21,22 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult EditPassword()
         {
-            return View();
+            return View(new EditPass());
+        }
+
+        [HttpPost]
+        public ActionResult EditPassword(EditPass editPass)
+        {
+            var userservice = new UserService<Tutor>();
+
+            var tutorservice = new ServiceProvider().Create<Tutor>();
+            var tutor = tutorservice.GetByEmail(Session["KEY"] as string);
+
+            if (editPass.NewPassword == editPass.RepPassword)
+            {
+                userservice.UpdatePassword(tutor.Email, editPass.NewPassword);
+            }
+            return View(editPass);
         }
 
         [HttpGet]
@@ -60,6 +75,7 @@ namespace TutorsHub.Application.Controllers
 
                 foreach (var Class in tutorEditProfileModel.Classes)
                 {
+                    
                     if (Class.IsChecked)
                     {
                         updatedTutor.PreferredClasses.Add(Class.Name);
@@ -95,13 +111,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult ViewProfile(Tutor val)
+        public ActionResult ViewProfile()
         {
             var tutorservice =(TutorService) new ServiceProvider().Create<Tutor>();
             var tutor = tutorservice.GetByEmailWithLists(Session["KEY"] as String);
-            tutor.TimeSpanUpdate();
-            val = tutor;
-            return View(val);
+            
+            return View(tutor);
         }
 
        

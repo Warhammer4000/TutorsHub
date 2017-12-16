@@ -44,7 +44,7 @@
             <input name="Tutor.Name" type="text" class="form-control"  value="@Model.Tutor.Name">
             <br/>
             <label>Mobile : </label>
-            <input name="Tutor.Mobile" type="text" class="form-control"  value="@Model.Tutor.Mobilenumber">
+            <input name="Tutor.Mobilenumber" type="text" class="form-control"  value="@Model.Tutor.Mobilenumber">
             <br/>
             <label>Expected Salary(tk/Hours)</label>
             <input name="Tutor.ExpectedSalary" type="text" class="form-control"  value="@Model.Tutor.ExpectedSalary"/>
@@ -113,9 +113,14 @@
         }
 
 
-        <div class="text-right">
-            <button type="submit" class="btn btn-info"> Save </button>
-        </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-info"> Save </button>
+                <script>
+                    function myFunction() {
+                        window.location.href = "/student/ViewProfile";
+                    }
+                </script>
+            </div>
 
     </div>
 

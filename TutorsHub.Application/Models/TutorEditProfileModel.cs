@@ -69,8 +69,5 @@ namespace TutorsHub.Application.Models
 
         }
 
-       
-
-
     }
 }

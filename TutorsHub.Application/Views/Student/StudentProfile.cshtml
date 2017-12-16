@@ -1,15 +1,16 @@
-﻿@{
-    ViewBag.Title = "Profile";
+﻿@model Entity.UserModels.Student
+@{
+    ViewBag.Title = "StudentProfile";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
 <div style="background-color:white; border:1px solid green;margin:0px 50px; padding:30px">
     <h3>Welcome to Profile</h3>
     <hr>
-    <p>Name : Amit Pasha</p>
+    <p>Name : @Model.Name</p>
     <hr/>
-    <p>Email : amit@example.com</p>
+    <p>Email : @Model.Email</p>
     <hr />
-    <p>Phone : 01628776545</p>
+    <p>Phone : @Model.Mobilenumber</p>
     <hr />
     <p>Last Active : 1 day ago</p>
     <hr />

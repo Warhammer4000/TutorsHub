@@ -1,10 +1,12 @@
-﻿using BLL;
+﻿using System.Web.Mvc;
+using Entity.Data;
+using TutorsHub.Application.Models;
 using Entity.UserModels;
+using BLL;
+using BLL.DataRepositoryFolder;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using BLL.UserRepository;
+
 
 namespace TutorsHub.Application.Controllers
 {
@@ -34,8 +36,32 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
+            return View(new EditPass());
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(EditPass editPass)
+        {
+            var userservice = new UserService<Student>();
+
+            var studentservice = new ServiceProvider().Create<Student>();
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
+
+            if (editPass.NewPassword == editPass.RepPassword)
+            {
+                userservice.UpdatePassword(student.Email, editPass.NewPassword);
+            }
+            return View(editPass);
+        }
+
+        [HttpGet]
+        public ActionResult SchedTutor()
+        {
+
             return View();
         }
+
+
+
         [HttpGet]
         public ActionResult SendMessage()
         {
@@ -57,9 +83,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult Profile()
+        public ActionResult StudentProfile()
         {
-            return View();
+            var studentservice = new ServiceProvider().Create<Student>();
+            var student = studentservice.GetByEmail(Session["KEY"] as string);
+            return View(student);
+            
         }
 
         [HttpGet]
@@ -77,7 +106,7 @@ namespace TutorsHub.Application.Controllers
             student.Email = Session["Key"] as string;
             if (studentprovider.Update(student))
             {
-                RedirectToAction("ViewProfile", "Student");
+                return RedirectToAction("ViewProfile", "Student");
             }
 
             return View(student);

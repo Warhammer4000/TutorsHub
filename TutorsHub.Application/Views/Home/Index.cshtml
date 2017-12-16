@@ -1,4 +1,5 @@
-﻿
+﻿@model TutorsHub.Application.Models.SearchViewModel
+
 @{
     ViewBag.Title = "Tutor Search";
     Layout = "~/Views/Shared/Public_Layout.cshtml";
@@ -13,96 +14,79 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
-       
-        input {
-            margin-bottom: 5px;
-        }
-
-        table {
-            font-size: 20px;
-        }
-    </style>
 
 </head>
 <body>
-<br /><br />
+
+    <br />
+    <br />
     <form action="/Home/SearchResult" method="post">
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
 
         </div>
-        <div style="margin-bottom: 5px;">
+        <div class="col-lg-2">
             <label>Location</label>
-            <select class="btn btn-success">
-                <option>Mirpur</option>
-                <option>Banani</option>
-                <option>Gulshan</option>
-                <option>Dhanmondi</option>
-                <option>Uttora</option>
-                </select>
+            @Html.DropDownList("Location",new SelectList(Model.Locations,"Name","Name"), new{@class="btn btn-success"})
+         </div>
+        <div class="col-lg-2" style="width:170px; padding-left:0px; padding-right:0px;">
             <label>Gender</label>
-            <select name="gender" class="btn btn-info">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Any</option>
+            <select name="Gender" class="btn btn-success">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Any">Any</option>
             </select>
-            <label>Choose Class</label>
-            <select name="class" class="btn btn-danger">
-                <option>Class 1</option>
-                <option>Class 2</option>
-                <option>Class 3</option>
-                <option>Class 4</option>
-                <option>Class 5</option>
-                <option>Class 6</option>
-                <option>Class 7</option>
-            </select>
+            </div>
+        <div class="col-lg-2" style="padding-left:0px;">
+            <label>Class</label>
+            @Html.DropDownList("Class", new SelectList(Model.Classes, "Name", "Name"), new { @class = "btn btn-success" })
         </div>
     </div>
-
-    <div class="row" style="padding-top:10px;">
-        <div class="col-lg-3">
+        <br />
+    <div class="row">
+        <div class="col-lg-4">
 
         </div>
-        <div class="col-lg-3 form-inline" style="display:inline-block; width:80%;text-align:center;margin-left:60px;padding:15px 15px;">
-            <input type="number" class="form-control" name="min" placeholder=" Minimum Salary"> -
-            <input type="number" class="form-control" name="max" placeholder="Maximum Salary">
+        <div class="col-lg-2">
+            <input type="number" class="form-control" name="minSal" placeholder=" Minimum Salary"> 
+            </div>
+        <div class="col-lg-1" style="width:45px;">
+            <label>-</label>
+        </div>
+        <div class="col-lg-2">
+            <input type="number" class="form-control" name="maxSal" placeholder="Maximum Salary">
         </div>
     </div>
     <br>
     <div class="row">
-        <div class="col-lg-3">
+       <div class="col-lg-4">
 
+       </div>
+        <div class="col-lg-4" style="margin-left:2%">
+
+            <span class="form-control btn-success" style="height:60%; padding-left:4%">
+            @for (int i = 0; i < Model.Subjects.Count; i++)
+            {
+                @Html.HiddenFor(x => Model.Subjects[i].Id)
+                @Html.CheckBoxFor(x => Model.Subjects[i].IsChecked)
+                @Html.DisplayFor(x => Model.Subjects[i].Name)
+                <span style="padding-right:10px;"></span>
+          
+                @Html.HiddenFor(x => Model.Subjects[i].Name)
+            }
+            </span>
         </div>
-        <div class="col-lg-2" style="width:100%">
-            <div class="form-group" style="width:100%">
-                <div style="width:35%; margin:auto;"><!--style="zoom:1.2"-->
-                    <div style="display:inline-block;font-size:22px;padding: 0px 5px;">
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Bangla</h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">English</h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Math</h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Physics</h3>
-                    </div>
-                    <div style="padding: 0px 5px;">
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Chemistry</h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Biology</h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">ICT </h3>
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block; margin-left:5px;margin-right:10px;">Religion</h3>
-                    </div>
-                    <div style="padding: 0px 5px;">
-                        <input type="checkbox" name="" value=""><h3 style="display:inline-block;margin-bottom: 15px;">Physical Exercise</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
+        <br />
+
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-6">
 
         </div>
         <div class="col-lg-3">
            
-             <input type="submit" style="width: 100%; font-size: 20px; margin-left: 90px; margin-top: 10px;" class="btn btn-success btn-block" value="Search" />  
+             <input type="submit" class="btn btn-info"/>  
             
          </div>
     </div>

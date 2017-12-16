@@ -24,15 +24,45 @@ namespace TutorsHub.Application.Controllers
             return View(admin);
         }
 
+        [HttpGet]
         public ActionResult EditProfile()
         {
-            var admin = new ServiceProvider().Create<Admin>();
-            return View(admin.GetByEmail(Session["KEY"] as string));
+            var adminService = new ServiceProvider().Create<Admin>();
+            return View(adminService.GetByEmail(Session["Key"] as string));
         }
 
+        [HttpPost]
+        public ActionResult EditProfile(Admin model)
+        {
+            var adminUpdate = new ServiceProvider().Create<Admin>();
+            model.Email = Session["Key"] as string;
+            if (adminUpdate.Update(model))
+            {
+                return RedirectToAction("ViewProfile", "Admin");
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
         public ActionResult EditPassword()
         {
-            return View();
+            return View(new EditPass());
+        }
+        [HttpPost]
+        public ActionResult EditPassword(EditPass editPass)
+        {
+            var userservice = new UserService<Admin>();
+
+            var adminservice = new ServiceProvider().Create<Admin>();
+            var admin = adminservice.GetByEmail(Session["KEY"] as string);
+
+            if(editPass.NewPassword== editPass.RepPassword)
+            {
+                userservice.UpdatePassword(admin.Email, editPass.NewPassword);
+            }
+
+            return View(editPass);
         }
 
         public ActionResult UserSearch()

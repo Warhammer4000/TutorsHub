@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using BLL;
+using BLL.SearchRepository;
+using BLL.UserRepository;
 using Entity.UserModels;
 using TutorsHub.Application.Models;
 
@@ -11,8 +14,10 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(new SearchViewModel());
         }
+
+
 
         [HttpGet]
         public ActionResult Registration()
@@ -102,10 +107,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-
-        public ActionResult SearchResult()
+        [HttpPost]
+        public ActionResult SearchResult(SearchViewModel searchViewModel)
         {
-            return View();
+            List<Tutor> tutors= new PublicSearch().SearchTutors(searchViewModel.Location,searchViewModel.Gender
+                ,searchViewModel.Class,(int)searchViewModel.MinSal,(int)searchViewModel.MaxSal,searchViewModel.SelectedSubjects);
+            return View(tutors);
         }
 
         [HttpGet]
@@ -114,10 +121,11 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult ViewProfile(string id)
+        [HttpPost]
+        public ActionResult ViewProfile(string key)
         {
-            return View();
+            Tutor tutor = new TutorService().GetByEmail(key);
+            return View(tutor);
         }
 
 
