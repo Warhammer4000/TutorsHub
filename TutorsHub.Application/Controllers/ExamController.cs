@@ -4,6 +4,11 @@ namespace TutorsHub.Application.Controllers
 {
     public class ExamController : Controller
     {
+        public ActionResult QuestionDifficulty()
+        {
+            return View();
+        }
+
         public ActionResult QuestionPaper(int? id)
         {
             return View();
