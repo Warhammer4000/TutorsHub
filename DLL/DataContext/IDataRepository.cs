@@ -12,7 +12,7 @@ namespace DLL.DataContext
 
         bool Add(T t);
         bool Update(T t);
-        bool Delete(T t);
+        bool Delete(int id);
 
 
     }

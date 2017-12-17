@@ -65,7 +65,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Loction</th>
-                                                <th>Edit</th>
+              
                                                 <th>Remove</th>
                                             </tr>
                                         </thead>
@@ -75,8 +75,8 @@
                                             {
                                                 <tr>
                                                     <td>@Model.Locations[i].Name</td>
-                                                    <td><a href="@Url.Action("Locations","Admin", new { id = Model.Locations[i].Id } )"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                                    <td><a href="@Url.Action("Locations","Admin", new {id=Model.Locations[i].Id } )"><span class="glyphicon glyphicon-remove"></span></a></td>
+                                                    <td><button name="Id" type="submit" class="glyphicon glyphicon-remove" value="@Model.Locations[i].Id"></button></td>
+                                                    
                                                 </tr>
                                             }
 
