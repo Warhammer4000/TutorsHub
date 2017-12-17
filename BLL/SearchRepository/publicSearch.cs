@@ -28,9 +28,14 @@ namespace BLL.SearchRepository
                     SubjecList = selectedSubjects
                 }
             );
+
             searchResult = searchResult.Where(r => r.ExpectedSalary >= salaryMin ).ToList();
             searchResult= searchResult.Where(r=>r.ExpectedSalary<=salaryMax).ToList();
-            searchResult=searchResult.Where(r=>r.Gender==gender).ToList();
+            if (gender != "Any")
+            {
+                searchResult = searchResult.Where(r => r.Gender == gender).ToList();
+            }
+           
             searchResult=searchResult.Where(r=>r.PreferredLocations.Contains(location)).ToList();
             searchResult=searchResult.Where(r=>r.PreferredClasses.Contains(Class)).ToList();
             searchResult = searchResult.Where(r => r.PreferredSubjects.Intersect(selectedSubjects).Any()).ToList();
