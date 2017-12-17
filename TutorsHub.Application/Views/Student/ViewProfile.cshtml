@@ -1,9 +1,10 @@
-﻿@model Entity.UserModels.Student
+﻿@model Entity.UserModels.Tutor
 
 @{
     ViewBag.Title = "ViewProfile";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
+
 
 
 <html>
@@ -12,12 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=.9">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style media="screen">
-        .imgpro {
-            width: 70%;
-        }
-    </style>
 </head>
 <body>
     <div class="row">
@@ -28,11 +25,9 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            Profile
-                        </div>
-                    </div>
+
+                    @Html.ActionLink("Back to Search", "SearchResult", "Home", null, new { @class = "my-class" })
+
                 </div>
                 <div class="panel-body">
 
@@ -45,53 +40,40 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-4">
+                            <img class="img-rouunded" src="@Model.ProfilePictureUrl">
+                        </div>
+                        <div class="col-lg-5">
                             <div class="row">
-                                <div class="col-lg-4">
-                                    <img class="img-rouunded imgpro" src="https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-1/p160x160/14522999_10207289285486077_5577078775528197936_n.jpg?oh=01b56afc02e7b410e87a9c8bae27ac74&oe=5A91437B">
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Name:</label> @Model.Name
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Current Status:</label> <span style="color:green;"><strong>@Model.Status</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Member Since:</label> <abbr title="1/12/2015">2 Years</abbr>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Last Active:</label> 2 days ago
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Level:</label> <span class="glyphicon glyphicon-star"></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Experience:</label> 5 Years
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <label>Studied At:</label> American International University-Bangladesh
-                                        </div>
-                                    </div>
+                                <div class="col-4">
+                                    <label>Name:</label> @Model.Name
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-1">
-                            @Html.ActionLink("HIRE", "HireTutor","Student", null, new {@class = "btn btn-success btn-lg" })
-          
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Current Status:</label> <span style="color:green;"><strong>Active</strong></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Member Since:</label> <abbr title="1/12/2015">@Model.MemberSince</abbr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Last Active:</label> @Model.LastLogin
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Level:</label> <span class="glyphicon glyphicon-star"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Experience:</label> 5 Years
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -106,54 +88,56 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <table>
-                                <!--<tr>
+                                <tr>
                                     <td><label>Expected Salary: </label></td>
-                                    <td>2 TK/HRS</td>
+                                    <td>@Model.ExpectedSalary TK/HRS</td>
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Medium: </label></td>
-                                    <td>English</td>
+                                    @for (int i = 0; i < Model.PreferredMedium.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredMedium[i]</label></td>
+                                    }
+
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Classes: </label></td>
-                                    <td>9-12</td>
+                                    @for (int i = 0; i < Model.PreferredClasses.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredClasses[i]</label></td>
+                                    }
+
                                 </tr>
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Subjects: </label> </td>
-                                    <td> Accounting</td>
+                                    @for (int i = 0; i < Model.PreferredSubjects.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredSubjects[i]</label></td>
+                                    }
+
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Economics</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Bussiness Math</td>
-                                </tr>
+
                                 <tr>
                                     <td><br></td>
                                 </tr>
                                 <tr>
                                     <td><label>Preferred Areas: </label> </td>
-                                    <td>Bashundhara</td>
+                                    @for (int i = 0; i < Model.PreferredLocations.Count; i++)
+                                    {
+                                        <td><label class="form-control btn-success">@Model.PreferredLocations[i]</label></td>
+                                    }
+
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Gulshan</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Uttara</td>
-                                </tr>-->
+
                             </table>
                         </div>
                     </div>
@@ -163,10 +147,9 @@
         </div>
 
     </div>
-        
+
 
 
 
 </body>
 </html>
-

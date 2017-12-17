@@ -172,6 +172,7 @@ namespace TutorsHub.Application.Controllers
             };
             return View(subjectsViewModel);
         }
+
         [HttpPost]
         public ActionResult Subjects(SubjectsViewModel subjectsViewModel)
         {
