@@ -110,6 +110,7 @@ namespace TutorsHub.Application.Controllers
         [HttpPost]
         public ActionResult SearchResult(SearchViewModel searchViewModel)
         {
+
             List<Tutor> tutors= new PublicSearch().SearchTutors(searchViewModel.Location,searchViewModel.Gender
                 ,searchViewModel.Class,(int)searchViewModel.MinSal,(int)searchViewModel.MaxSal,searchViewModel.SelectedSubjects);
             return View(tutors);

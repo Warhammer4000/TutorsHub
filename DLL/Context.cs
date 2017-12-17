@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using Entity.Data;
+using Entity.Logs;
 using Entity.QuestionModels;
 using Entity.UserModels;
 
@@ -26,7 +27,8 @@ namespace DLL
         public DbSet<Question> QuestionPapers { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Location> Locations { get; set; }
-
+        public DbSet<UserLog> UserLogs { get; set; }
+        public DbSet<SearchLog> SearchLogs { get; set; }
 
     }
 }

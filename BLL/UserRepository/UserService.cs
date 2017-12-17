@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using DLL.LogContext;
 using DLL.UserContext;
+using Entity.Logs;
 using Entity.UserModels;
 
 namespace BLL.UserRepository
@@ -34,11 +36,16 @@ namespace BLL.UserRepository
 
         public bool ValidUser(string email, string password)
         {
-            T user = GetByEmail(email);
+            var user = GetByEmail(email);
             if (user == null) return false;
 
             user.LastLogin=DateTime.Now;
             Update(user);
+            new LogRepository<UserLog>().Add(new UserLog()
+            {
+                LogDateTime = DateTime.Now,
+                Role = user.Role
+            });
             return user.Password == password;
         }
 

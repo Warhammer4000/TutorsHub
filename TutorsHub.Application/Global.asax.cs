@@ -42,7 +42,9 @@ namespace TutorsHub.Application
                 DateOfBirth = new DateTime(1995, 2, 18),
                 Status = Status.Active,
                 UserSince = new DateTime(2005, 1, 10),
-                LastLogin = DateTime.Now
+                LastLogin = DateTime.Now,
+                ProfilePictureUrl = "../../images/user.png"
+
             };
             Admin admin2 = new Admin()
             {
@@ -53,7 +55,8 @@ namespace TutorsHub.Application
                 DateOfBirth = new DateTime(1993, 2, 18),
                 Status = Status.Active,
                 UserSince = new DateTime(2003, 1, 10),
-                LastLogin = DateTime.Now
+                LastLogin = DateTime.Now,
+                ProfilePictureUrl = "../../images/user.png"
             };
 
             Tutor tutor1 = new Tutor()
@@ -100,6 +103,7 @@ namespace TutorsHub.Application
                 ExpectedSalary = 5000,
                 Bio = "Student",
                 CurrentStatus = "Student Of AIUB",
+                ProfilePictureUrl = "../../images/user.png"
 
             };
 
@@ -147,6 +151,7 @@ namespace TutorsHub.Application
                 ExpectedSalary = 8000,
                 Bio = "Student",
                 CurrentStatus = Status.Active.ToString(),
+                ProfilePictureUrl = "../../images/user.png",
 
             };
 
@@ -196,6 +201,7 @@ namespace TutorsHub.Application
                 ExpectedSalary = 9000,
                 Bio = "Student",
                 CurrentStatus = Status.Active.ToString(),
+                ProfilePictureUrl = "../../images/user.png"
 
             };
 
@@ -210,7 +216,8 @@ namespace TutorsHub.Application
                 LastLogin = DateTime.Now,
                 Status = Status.Active,
                 Mobilenumber = "0128972588",
-                Address = "mirpur-11"
+                Address = "mirpur-11",
+                ProfilePictureUrl = "../../images/user.png"
             };
 
             Student student2 = new Student()
@@ -224,7 +231,8 @@ namespace TutorsHub.Application
                 UserSince = new DateTime(2006, 7, 1),
                 Status = Status.Active,
                 Mobilenumber = "0128978598",
-                Address = "mirpur-1"
+                Address = "mirpur-1",
+                ProfilePictureUrl = "../../images/user.png"
             };
             Student student3 = new Student()
             {
@@ -237,7 +245,8 @@ namespace TutorsHub.Application
                 UserSince = new DateTime(2006, 7, 1),
                 Status = Status.Active,
                 Mobilenumber = "0128978598",
-                Address = "khilkhet"
+                Address = "khilkhet",
+                ProfilePictureUrl = "../../images/user.png"
             };
 
 

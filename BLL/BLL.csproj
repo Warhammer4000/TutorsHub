@@ -46,8 +46,11 @@
     <Compile Include="DataRepositoryFolder\LocationService.cs" />
     <Compile Include="DataRepositoryFolder\SubjectService.cs" />
     <Compile Include="Exam\ExamService.cs" />
+    <Compile Include="LogRepository\SearchlogService.cs" />
+    <Compile Include="LogRepository\UserLogService.cs" />
     <Compile Include="ServiceProvider.cs" />
     <Compile Include="SearchRepository\PublicSearch.cs" />
+    <Compile Include="StatisticRepository\UserStatisticService.cs" />
     <Compile Include="UserRepository\StudentService.cs" />
     <Compile Include="UserRepository\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
