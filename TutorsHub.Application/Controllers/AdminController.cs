@@ -2,12 +2,13 @@
 using Entity.Data;
 using TutorsHub.Application.Models;
 using Entity.UserModels;
-using Entity.Logs;
+
 using BLL;
-using BLL.StatisticRepository;
+
 using BLL.DataRepositoryFolder;
-using BLL.LogRepository;
+
 using System;
+using BLL.LogRepository;
 using BLL.UserRepository;
 
 namespace TutorsHub.Application.Controllers
@@ -18,19 +19,9 @@ namespace TutorsHub.Application.Controllers
         public ActionResult AdminDashboard()
         {
 
-            var adminstats = new UserStatisticService<Admin>();
-            var tutorstats = new UserStatisticService<Tutor>();
-            var studentstats = new UserStatisticService<Student>();
-            int admins = adminstats.GetCount();
-            int tutors = tutorstats.GetCount();
-            int students = studentstats.GetCount();
+            Stats all = new Stats();
+           
 
-            var all = new Stats();
-            all.AdminStats = admins;
-            all.TutorStats = tutors;
-            all.StudentStats = students;
-
-            
             return View(all);
         }
 
@@ -200,10 +191,10 @@ namespace TutorsHub.Application.Controllers
             var locationViewModel = new LocationsViewModel();
             var stt = new Stats();
 
-            foreach (int i = 0; i < locationViewModel.Locations.Count; i++)
-            {
-                stt.Locationstats.Add(locationViewModel.Locations ,loc.GetLocationSearchCount((locationViewModel.Locations[i]).ToString()));
-            }
+            //foreach (int i = 0; i < locationViewModel.Locations.Count; i++)
+            //{
+            //    stt.Locationstats.Add(locationViewModel.Locations ,loc.GetLocationSearchCount((locationViewModel.Locations[i]).ToString()));
+            //}
             return View();
         }
 
