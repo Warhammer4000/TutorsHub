@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "QuestionDifficulty";
+    Layout = "~/Views/Shared/TutorLayout.cshtml";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="~/Views/CSS/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .span_class{
+            margin-bottom:10px;
+        }
+        .btn-success {
+            /*float:right;*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Exam</h1>
+        <span class="span_class">time: 45 minutes</span>
+        <form action="/" method="post">
+            <label>Subject: </label>
+            <select name="subject" style="width:100%;height:30px;    margin-bottom: 15px;">
+                <option value="bangla">Bangla</option>
+                <option value="english">English</option>
+                <option value="math">Math</option>
+                <option value="physcs">Physcs</option>
+                <option value="biology">Biology</option>
+                <option value="chemistry">Chemistry</option>
+            </select>
+            <label>difficulty</label>
+            <select name="level" style="width:100%; height:30px; margin-bottom: 15px;">
+                <option value="hard">Hard</option>
+                <option value="medium">Medium</option>
+                <option value="easy">Easy</option>
+            </select>
+            <a  href="/Exam/QuestionPaper" class="btn btn-success">Start</a>
+        </form>
+    </div>
+</body>
+</html>
