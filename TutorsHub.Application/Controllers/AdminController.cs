@@ -191,6 +191,7 @@ namespace TutorsHub.Application.Controllers
             var locationViewModel = new LocationsViewModel();
             var stt = new Stats();
 
+
             //foreach (int i = 0; i < locationViewModel.Locations.Count; i++)
             //{
             //    stt.Locationstats.Add(locationViewModel.Locations ,loc.GetLocationSearchCount((locationViewModel.Locations[i]).ToString()));

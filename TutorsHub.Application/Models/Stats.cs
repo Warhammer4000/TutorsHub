@@ -15,6 +15,8 @@ namespace TutorsHub.Application.Models
         public int AdminStats => new UserStatisticService<Admin>().GetCount();
         public int TutorStats => new UserStatisticService<Tutor>().GetCount();
         public int StudentStats => new UserStatisticService<Student>().GetCount();
+        
+        
 
         public readonly IDictionary<String, int> Locationstats = new Dictionary<string, int>();
 
@@ -27,7 +29,15 @@ namespace TutorsHub.Application.Models
                 Locationstats.Add(location.Name, new SearchlogService().GetLocationSearchCount(location.Name));
             }
 
+            List<Subject> subjects = new SubjectService().GetAll();
+            foreach(var subject in subjects)
+            {
+                Subjectstats.Add(subject.Name, Subjectstats.Count);
+            }
 
         }
+
+
+        public readonly IDictionary<String, int> Subjectstats = new Dictionary<String, int>();
     }
 }

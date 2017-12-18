@@ -17,8 +17,34 @@
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
-    <script>
+    <script type="text/javascript">
         window.onload = function () {
+
+            var subc = @Model.Subjectstats.Count;
+
+               var options = {
+                 title: {
+                   text: "Website Traffic Source"
+                 },
+                 data: [{
+                   type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
+
+                     for(i = 0; i<subc; i++){
+
+                         dataPoints: { label: "@Model.Subjectstats.Keys", y: @Model.Subjectstats.Values }
+                 }
+                     
+                     
+
+                 }]
+            };
+
+            
 
              var schart = new CanvasJS.Chart("statChart", {
                 animationEnabled: true,
@@ -34,7 +60,7 @@
 
 
                     dataPoints: [
-                        { y: @Model.AdminStats, label: "Admin" },
+                        { y: @Model.AdminStats , label: "Admin" },
                         { y: @Model.TutorStats, label: "Tutor" },
                         { y: @Model.StudentStats, label: "Student" },
 
@@ -42,28 +68,8 @@
                 }]
             });
 
-             var options = {
-                 title: {
-                     text: "Website Traffic Source"
-                 },
-                 data: [{
-                     type: "pie",
-                     startAngle: 45,
-                     showInLegend: "true",
-                     legendText: "{label}",
-                     indexLabel: "{label} ({y})",
-                     yValueFormatString: "#,##0.#" % "",
 
-                    
-                     dataPoints: [
-                      @for (int i = 0; i < Model.Subjects.Count; i++)
-                          {
-                              { label: Model.Subjects[i].Name, y: 36 }
-                          }
-                     ]
-                         
-                 }]
-             };
+
 
              schart.render();
              $("#chartContainer").CanvasJSChart(options);
@@ -83,7 +89,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User Activity
+                            Subject Stats
                         </div>
                         <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
 
@@ -104,7 +110,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User Activity
+                            User     Stats
                         </div>
                         <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
 
