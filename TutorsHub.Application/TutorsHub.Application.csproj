@@ -234,6 +234,7 @@
     </Compile>
     <Compile Include="Models\EditPass.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="Models\Stats.cs" />
     <Compile Include="Models\TutorEditProfileModel.cs" />
     <Compile Include="Models\LocationsViewModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />

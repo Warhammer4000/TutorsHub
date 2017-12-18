@@ -1,4 +1,6 @@
-﻿
+﻿@model TutorsHub.Application.Models.Stats
+@model TutorsHub.Application.Models.SubjectsViewModel
+
 @{
     ViewBag.Title = "AdminDashboard";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -11,38 +13,15 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 
     <script>
         window.onload = function () {
-            var achart = new CanvasJS.Chart("activityChart", {
-                animationEnabled: true,
-                theme: "light2",
 
-                axisY: {
-                    includeZero: false
-                },
-                data: [{
-                    type: "line",
-                    dataPoints: [
-                        { x: new Date(2012, 01, 1), y: 26 },
-                        { x: new Date(2012, 01, 3), y: 38 },
-                        { x: new Date(2012, 01, 5), y: 43 },
-                        { x: new Date(2012, 01, 7), y: 29 },
-                        { x: new Date(2012, 01, 11), y: 41 },
-                        { x: new Date(2012, 01, 13), y: 54 },
-                        { x: new Date(2012, 01, 20), y: 66 },
-                        { x: new Date(2012, 01, 21), y: 60 },
-                        { x: new Date(2012, 01, 25), y: 53 },
-                        { x: new Date(2012, 01, 27), y: 60 }
-                    ]
-                }]
-            });
-
-            var schart = new CanvasJS.Chart("statChart", {
+             var schart = new CanvasJS.Chart("statChart", {
                 animationEnabled: true,
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
                 axisX: {
@@ -56,18 +35,39 @@
 
 
                     dataPoints: [
-                        { y: 4, label: "Admin" },
-                        { y: 20, label: "Tutor" },
-                        { y: 120, label: "Student" },
+                        { y: @Model.AdminStats, label: "Admin" },
+                        { y: @Model.TutorStats, label: "Tutor" },
+                        { y: @Model.StudentStats, label: "Student" },
 
                     ]
                 }]
             });
 
+             var options = {
+                 title: {
+                     text: "Website Traffic Source"
+                 },
+                 data: [{
+                     type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
 
-            schart.render();
-            achart.render();
+                    
+                     dataPoints: [
+                      @for (int i = 0; i < Model.Subjects.Count; i++)
+                          {
+                              { label: Model.Subjects[i].Name, y: 36 }
+                          }
+                     ]
+                         
+                 }]
+             };
 
+             schart.render();
+             $("#chartContainer").CanvasJSChart(options);
         }
     </script>
 
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div id="activityChart" style="height: 300px; width: 100%;"></div>
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
                 </div>
             </div>
