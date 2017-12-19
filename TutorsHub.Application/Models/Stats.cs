@@ -18,26 +18,28 @@ namespace TutorsHub.Application.Models
         
         
 
-        public readonly IDictionary<String, int> Locationstats = new Dictionary<string, int>();
-
+        public readonly IDictionary<string, int> Locationstats = new Dictionary<string, int>();
+        public readonly IDictionary<string, int> Subjectstats = new Dictionary<string, int>();
 
         public Stats()
         {
             List<Location> locations = new LocationService().GetAll();
             foreach (var location in locations)
             {
-                Locationstats.Add(location.Name, new SearchlogService().GetLocationSearchCount(location.Name));
+                
+                Locationstats.Add(location.Name, 
+                    new SearchlogService().GetLocationSearchCount(location.Name));
             }
 
             List<Subject> subjects = new SubjectService().GetAll();
             foreach(var subject in subjects)
             {
-                Subjectstats.Add(subject.Name, Subjectstats.Count);
+                Subjectstats.Add(subject.Name, new SearchlogService().GetSubjectSearchCount(subject.Name));
             }
 
         }
 
 
-        public readonly IDictionary<String, int> Subjectstats = new Dictionary<String, int>();
+    
     }
 }
