@@ -42,12 +42,27 @@ namespace BLL.LogRepository
 
         public double GetAverageMinSial()
         {
-            return GetUserLogs().Average(r => r.SalaryMin);
+            try
+            {
+                return GetUserLogs().Average(r => r.SalaryMin);
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+            
         }
 
         public double GetAverageMaxSial()
         {
-            return GetUserLogs().Average(r => r.SalaryMax);
+            try
+            {
+                return GetUserLogs().Average(r => r.SalaryMax);
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
         }
 
 

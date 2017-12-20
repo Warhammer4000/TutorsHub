@@ -199,6 +199,16 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public ActionResult StatisticsLog()
+        {
+
+            Stats all = new Stats();
+
+            return View(all);
+        }
+
         public RedirectToRouteResult Logout()
         {
             return RedirectToAction("Index", "Home");

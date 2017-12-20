@@ -19,26 +19,7 @@
    
     <script type="text/javascript">
         window.onload = function () {
-               var options = {
-                 title: {
-                   text: "Subject searched"
-                 },
-                 data: [{
-                   type: "pie",
-                     startAngle: 45,
-                     showInLegend: "true",
-                     legendText: "{label}",
-                     indexLabel: "{label} ({y})",
-                     yValueFormatString: "#,##0.#" % "",
-                     dataPoints: [
-                       @foreach (var subject in Model.Subjectstats)
-                       {
-                           <text> { label: "@subject.Key", y:@subject.Value }, </text>
-                       }                     
-                     ]
-
-                 }]
-            };
+           
 
             
 
@@ -68,7 +49,6 @@
 
 
              schart.render();
-             $("#chartContainer").CanvasJSChart(options);
         }
     </script>
 
@@ -76,27 +56,8 @@
 <body>
     <br>
     <div class="row">
-        <div class="col-sm-1">
+        <div class="col-sm-4">
 
-        </div>
-        <div class="col-lg-5">
-
-            <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            Subject Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-                </div>
-            </div>
         </div>
 
 

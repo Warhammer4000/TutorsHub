@@ -1,0 +1,288 @@
+﻿@model TutorsHub.Application.Models.Stats
+
+@{
+    ViewBag.Title = "StatisticsLog";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var subject = {
+                 title: {
+                   text: "Subject searched"
+                 },
+                 data: [{
+                   type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
+                     dataPoints: [
+                       @foreach (var subject in Model.Subjectstats)
+                       {
+                           <text> { label: "@subject.Key", y:@subject.Value }, </text>
+                       }
+                     ]
+
+                 }]
+            };
+
+            var location = {
+                 title: {
+                   text: "Location searched"
+                 },
+                 data: [{
+                   type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
+                     dataPoints: [
+                       @foreach (var loc in Model.Locationstats)
+                       {
+                           <text> { label: "@loc.Key", y:@loc.Value }, </text>
+                       }
+                     ]
+
+                 }]
+            };
+
+            var cls = {
+                 title: {
+                   text: "Class searched"
+                 },
+                 data: [{
+                   type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
+                     dataPoints: [
+                       @foreach (var kls in Model.Classstats)
+                       {
+                           <text> { label: "@kls.Key", y:@kls.Value }, </text>
+                       }
+                     ]
+
+                 }]
+            };
+
+
+            var gend = {
+                animationEnabled: true,
+                title: {
+                    text: "Mobile Phones Used For",
+                    fontColor: "Peru"
+                },
+                axisY: {
+                    tickThickness: 0,
+                    lineThickness: 0,
+                    valueFormatString: " ",
+                    gridThickness: 0
+                },
+                axisX: {
+                    tickThickness: 0,
+                    lineThickness: 0,
+                    labelFontSize: 18,
+                    labelFontColor: "Peru"
+                },
+                data: [{
+                    indexLabelFontSize: 26,
+                    toolTipContent: "<span style=\"color:#62C9C3\">{indexLabel}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
+                    indexLabelPlacement: "inside",
+                    indexLabelFontColor: "white",
+                    indexLabelFontWeight: 600,
+                    indexLabelFontFamily: "Verdana",
+                    color: "#62C9C3",
+                    type: "bar",
+                    dataPoints: [
+                        @foreach (var kls in Model.Genderstats)
+                        {
+                             <text> { y: @kls.Value, label: "@kls.Value%", indexLabel: "@kls.Key" }, </text>
+                        }
+
+
+                    ]
+                }]
+            };
+
+            var salary = {
+                animationEnabled: true,
+                title: {
+                    text: "Mobile Phones Used For",
+                    fontColor: "Peru"
+                },
+                axisY: {
+                    tickThickness: 0,
+                    lineThickness: 0,
+                    valueFormatString: " ",
+                    gridThickness: 0
+                },
+                axisX: {
+                    tickThickness: 0,
+                    lineThickness: 0,
+                    labelFontSize: 18,
+                    labelFontColor: "Peru"
+                },
+                data: [{
+                    indexLabelFontSize: 26,
+                    toolTipContent: "<span style=\"color:#62C9C3\">{indexLabel}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
+                    indexLabelPlacement: "inside",
+                    indexLabelFontColor: "white",
+                    indexLabelFontWeight: 600,
+                    indexLabelFontFamily: "Verdana",
+                    color: "#62C9C3",
+                    type: "bar",
+                    dataPoints: [
+                        @foreach (var sal in Model.Salarystats)
+                        {
+                             <text> { y: @sal.Value, label: "@sal.Value%", indexLabel: "@sal.Key" }, </text>
+                        }
+
+
+                    ]
+                }]
+            };
+
+            $("#subContainer").CanvasJSChart(subject);
+            $("#locContainer").CanvasJSChart(location);
+            $("#clsContainer").CanvasJSChart(cls);
+
+            $("#genContainer").CanvasJSChart(salary);
+            $("#genContainer").CanvasJSChart(gend);
+        }
+    </script>
+
+</head>
+<body>
+    <br>
+    <div class="row">
+   
+        <div class="col-lg-4">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            Subject Stats
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="subContainer" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User     Stats
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="locContainer" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User     Stats
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="clsContainer" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User     Stats
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="genContainer" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="panel panel-info card">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
+                            User     Stats
+                        </div>
+                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="salContainer" style="height: 300px; width: 100%;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
+
