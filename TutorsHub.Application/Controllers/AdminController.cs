@@ -204,7 +204,7 @@ namespace TutorsHub.Application.Controllers
         public ActionResult StatisticsLog()
         {
 
-            Stats all = new Stats();
+            SearchLogStats all = new SearchLogStats();
 
             return View(all);
         }

@@ -1,4 +1,4 @@
-﻿@model TutorsHub.Application.Models.Stats
+﻿@model TutorsHub.Application.Models.SearchLogStats
 
 @{
     ViewBag.Title = "StatisticsLog";
@@ -88,7 +88,7 @@
             var gend = {
                 animationEnabled: true,
                 title: {
-                    text: "Mobile Phones Used For",
+                    text: "Gender Searched",
                     fontColor: "Peru"
                 },
                 axisY: {
@@ -123,49 +123,44 @@
                 }]
             };
 
-            var salary = {
+
+            var options = {
                 animationEnabled: true,
                 title: {
-                    text: "Mobile Phones Used For",
-                    fontColor: "Peru"
-                },
-                axisY: {
-                    tickThickness: 0,
-                    lineThickness: 0,
-                    valueFormatString: " ",
-                    gridThickness: 0
+                    text: "User Traffic"
                 },
                 axisX: {
-                    tickThickness: 0,
-                    lineThickness: 0,
-                    labelFontSize: 18,
-                    labelFontColor: "Peru"
+                    valueFormatString: "MMM"
+                },
+                axisY: {
+                    title: "User Count",
+                    prefix: "$",
+                    includeZero: false
                 },
                 data: [{
-                    indexLabelFontSize: 26,
-                    toolTipContent: "<span style=\"color:#62C9C3\">{indexLabel}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
-                    indexLabelPlacement: "inside",
-                    indexLabelFontColor: "white",
-                    indexLabelFontWeight: 600,
-                    indexLabelFontFamily: "Verdana",
-                    color: "#62C9C3",
-                    type: "bar",
+                    yValueFormatString: "$#,###",
+                    xValueFormatString: "MMMM",
+                    type: "spline",
                     dataPoints: [
-                        @foreach (var sal in Model.Salarystats)
-                        {
-                             <text> { y: @sal.Value, label: "@sal.Value%", indexLabel: "@sal.Key" }, </text>
-                        }
+                       
+                            @foreach (var tr in Model.Traffic)
+                            {
+                             <text> {x: @tr.Key, y: @tr.Value}, </text>
+                             }
 
+
+                       
 
                     ]
                 }]
             };
 
+
             $("#subContainer").CanvasJSChart(subject);
             $("#locContainer").CanvasJSChart(location);
             $("#clsContainer").CanvasJSChart(cls);
 
-            $("#genContainer").CanvasJSChart(salary);
+            $("#trafficContainer").CanvasJSChart(options);
             $("#genContainer").CanvasJSChart(gend);
         }
     </script>
@@ -272,7 +267,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div id="salContainer" style="height: 300px; width: 100%;"></div>
+                    <div id="trafficContainer" style="height: 300px; width: 100%;"></div>
 
                 </div>
             </div>
