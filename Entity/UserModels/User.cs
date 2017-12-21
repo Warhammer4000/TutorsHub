@@ -13,8 +13,6 @@ namespace Entity.UserModels
         public Role Role { get; set; }
         public Status Status { get; set; }
 
-       
-
         [RegularExpression("^[a-zA-Z0-9._-]*$", ErrorMessage = "User Name can contain alpha numeric characters, period, dash or underscore only")]
         [MinLength(2)]
         public string Name { get; set; }
@@ -25,8 +23,6 @@ namespace Entity.UserModels
         [Display(Name = "Password")]
         [RegularExpression("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{8,}", ErrorMessage = "Password must contain one uppercase letter, one lowercase letter, one digit and one special character.")]
         public string Password { get; set; }
-
-       
 
         [Display(Name = "Email address")]
         [Required(ErrorMessage = "The email address is required")]
@@ -52,9 +48,6 @@ namespace Entity.UserModels
 
         //public DateTime? LastLogin { get; set; }
         public DateTime LastLogin { get; set; }
-
-
-       
 
         public virtual User Copy(User user)
         {
