@@ -184,22 +184,6 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
-        public ActionResult Statistics()
-        {
-
-            var loc = new SearchlogService();
-            var locationViewModel = new LocationsViewModel();
-            var stt = new Stats();
-
-
-            //foreach (int i = 0; i < locationViewModel.Locations.Count; i++)
-            //{
-            //    stt.Locationstats.Add(locationViewModel.Locations ,loc.GetLocationSearchCount((locationViewModel.Locations[i]).ToString()));
-            //}
-            return View();
-        }
-
-
         [HttpGet]
         public ActionResult StatisticsLog()
         {

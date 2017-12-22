@@ -84,79 +84,44 @@
                  }]
             };
 
+             var avgsal = {
+                 title: {
+                   text: "Class searched"
+                 },
+                 data: [{
+                   type: "pie",
+                     startAngle: 45,
+                     showInLegend: "true",
+                     legendText: "{label}",
+                     indexLabel: "{label} ({y})",
+                     yValueFormatString: "#,##0.#" % "",
+                     dataPoints: [
+                       @foreach (var sala in Model.AvgSalary)
+                       {
+                           <text> { label: "@sala.Key", y:@sala.Value }, </text>
+                       }
+                     ]
 
-            var gend = {
-                animationEnabled: true,
-                title: {
-                    text: "Gender Searched",
-                    fontColor: "Peru"
-                },
-                axisY: {
-                    tickThickness: 0,
-                    lineThickness: 0,
-                    valueFormatString: " ",
-                    gridThickness: 0
-                },
-                axisX: {
-                    tickThickness: 0,
-                    lineThickness: 0,
-                    labelFontSize: 18,
-                    labelFontColor: "Peru"
-                },
-                data: [{
-                    indexLabelFontSize: 26,
-                    toolTipContent: "<span style=\"color:#62C9C3\">{indexLabel}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
-                    indexLabelPlacement: "inside",
-                    indexLabelFontColor: "white",
-                    indexLabelFontWeight: 600,
-                    indexLabelFontFamily: "Verdana",
-                    color: "#62C9C3",
-                    type: "bar",
-                    dataPoints: [
-                        @foreach (var kls in Model.Genderstats)
-                        {
-                             <text> { y: @kls.Value, label: "@kls.Value%", indexLabel: "@kls.Key" }, </text>
-                        }
-
-
-                    ]
-                }]
+                 }]
             };
 
-            var options = {
-	        animationEnabled: true,
-	        title:{
-	        	text: "USER TRAFFIC"
+            var gdr = {
+	        title: {
+		    text: "Gender Searched"
 	        },
-	        axisX: {
-		        valueFormatString: "MMM"
-	        },
-	        axisY: {
-		        title: "User Count",
-		        prefix: "$",
-		        includeZero: false
-	            },
 	        data: [{
-	        	yValueFormatString: "$#,###",
-	            xValueFormatString: "MMMM",
-	        	type: "spline",
-               dataPoints: [
-                   { x: new Date(2017, 0), y: 25060 },
-                   { x: new Date(2017, 1), y: 27980 },
-                   { x: new Date(2017, 2), y: 33800 },
-                   { x: new Date(2017, 3), y: 49400 },
-                   { x: new Date(2017, 4), y: 40260 },
-                   { x: new Date(2017, 5), y: 33900 },
-                   { x: new Date(2017, 6), y: 48000 },
-                   { x: new Date(2017, 7), y: 31500 },
-                   { x: new Date(2017, 8), y: 32300 },
-                   { x: new Date(2017, 9), y: 42000 },
-                   { x: new Date(2017, 10), y: 52160 },
-                   { x: new Date(2017, 11), y: 49400 }
-    
-		]
-	}]
-};
+		        // Change type to "doughnut", "line", "splineArea", etc.
+		    type: "column",
+            dataPoints: [
+                @foreach (var g in Model.Genderstats)
+                    {
+                       <text> { label: "@g.Key",  y: @g.Value  }, </text>
+                    }
+		      ]
+	             }]
+            };
+
+
 
 
 
@@ -164,8 +129,8 @@
             $("#locContainer").CanvasJSChart(location);
             $("#clsContainer").CanvasJSChart(cls);
 
-            $("#trafficContainer").CanvasJSChart(options);
-            $("#genContainer").CanvasJSChart(gend);
+            $("#gendContainer").CanvasJSChart(gdr);
+            $("#salContainer").CanvasJSChart(avgsal);
         }
     </script>
 
@@ -177,16 +142,6 @@
         <div class="col-lg-4">
 
             <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            Subject Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
                     <div id="subContainer" style="height: 300px; width: 100%;"></div>
 
@@ -198,16 +153,6 @@
         <div class="col-lg-4">
 
             <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User     Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
                     <div id="locContainer" style="height: 300px; width: 100%;"></div>
 
@@ -218,16 +163,6 @@
         <div class="col-lg-4">
 
             <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User     Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
                     <div id="clsContainer" style="height: 300px; width: 100%;"></div>
 
@@ -240,18 +175,9 @@
         <div class="col-lg-4">
 
             <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User     Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="panel-body">
-                    <div id="genContainer" style="height: 300px; width: 100%;"></div>
+                    <div id="salContainer" style="height: 300px; width: 100%;"></div>
 
                 </div>
             </div>
@@ -260,18 +186,8 @@
         <div class="col-lg-4">
 
             <div class="panel panel-info card">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-5" style="padding-right: 0px;width: 175px;">
-                            User     Stats
-                        </div>
-                        <div class="col-sm-4 right" style="padding-right: 0px;width: 255px;">
-
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
-                    <div id="trafficContainer" style="height: 300px; width: 100%;"></div>
+                    <div id="gendContainer" style="height: 300px; width: 100%;"></div>
 
                 </div>
             </div>

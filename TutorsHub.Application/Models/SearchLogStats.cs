@@ -17,7 +17,7 @@ namespace TutorsHub.Application.Models
         public readonly IDictionary<string, int> Subjectstats = new Dictionary<string, int>();
         public readonly IDictionary<int, int> Classstats = new Dictionary<int, int>();
         public readonly IDictionary<string, int> Genderstats = new Dictionary<string, int>();
-        public readonly IDictionary<DateTime, int> Traffic = new Dictionary<DateTime, int>();
+        public readonly IDictionary<string, double> AvgSalary = new Dictionary<string, double>();
 
         public SearchLogStats()
         {
@@ -35,7 +35,12 @@ namespace TutorsHub.Application.Models
                 Subjectstats.Add(subject.Name, new SearchlogService().GetSubjectSearchCount(subject.Name));
             }
 
-            for (int i = 0; i < 12; i++)
+            AvgSalary.Add("Minimum Salary", new SearchlogService().GetAverageMinSial());
+            AvgSalary.Add("Maximum Salary", new SearchlogService().GetAverageMaxSial());
+
+
+
+            for (int i = 1; i <= 12; i++)
             {
                 Classstats.Add(i, new SearchlogService().GetClassSearchCount(i.ToString()));
             }
@@ -44,8 +49,6 @@ namespace TutorsHub.Application.Models
             Genderstats.Add("Female", new SearchlogService().GetGenderSearchCount("Female"));
 
            
-                Traffic.Add(new DateTime(2017, 12, 1), new UserLogService().GetUserCount(Role.Admin, new DateTime(2017, 12, 1)));
-
 
         }
 
