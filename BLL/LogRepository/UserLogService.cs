@@ -22,10 +22,11 @@ namespace BLL.LogRepository
 
         public int GetUserCount(Role role,DateTime date)
         {
+
             return GetUserLogs().Count(r => r.Role == role
-            && r.LogDateTime>=date
-            && r.LogDateTime<=date 
+            && r.LogDateTime.Day == date.Day
             );
+
         }
 
 

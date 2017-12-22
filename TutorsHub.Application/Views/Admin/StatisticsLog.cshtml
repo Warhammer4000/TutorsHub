@@ -84,26 +84,24 @@
                  }]
             };
 
-             var avgsal = {
-                 title: {
-                   text: "Average Salary Searched"
-                 },
-                 data: [{
-                   type: "pie",
-                     startAngle: 45,
-                     showInLegend: "true",
-                     legendText: "{label}",
-                     indexLabel: "{label} ({y})",
-                     yValueFormatString: "#,##0.#" % "",
-                     dataPoints: [
-                       @foreach (var sala in Model.AvgSalary)
-                       {
-                           <text> { label: "@sala.Key", y:@sala.Value }, </text>
-                       }
-                     ]
+            
 
-                 }]
+             var avgsal = {
+                title: {
+                    text: "Average Salary Searched"
+                },
+                data: [{
+                   
+                    type: "column",
+                    dataPoints: [
+                        @foreach (var g in Model.AvgSalary)
+                    {
+                       <text> { label: "@g.Key",  y: @g.Value  }, </text>
+                    }
+                    ]
+                }]
             };
+
 
             var gdr = {
 	        title: {

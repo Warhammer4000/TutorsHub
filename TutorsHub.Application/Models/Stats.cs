@@ -17,16 +17,25 @@ namespace TutorsHub.Application.Models
         public int StudentStats => new UserStatisticService<Student>().GetCount();
 
 
-        public readonly IDictionary<DateTime, int> Trafficad = new Dictionary<DateTime, int>();
+        public readonly IDictionary<DateTime, int> TutorTraffic = new Dictionary<DateTime, int>();
 
-        public readonly IDictionary<DateTime, int> Traffictut = new Dictionary<DateTime, int>();
+        public readonly IDictionary<DateTime, int> StudentTraffic = new Dictionary<DateTime, int>();
 
-        public readonly IDictionary<DateTime, int> Trafficstu = new Dictionary<DateTime, int>();
+        public readonly IDictionary<DateTime, int> AdminTraffic = new Dictionary<DateTime, int>();
 
         public Stats()
         {
-            
-                Trafficad.Add(new DateTime(2017,1,1), new UserLogService().GetUserCount(Role.Admin, new DateTime(2017, 1, 1)));
+            var first = DateTime.Today.AddDays(-15);
+            var counter = 0;
+            for (var current = first; counter<30; current = current.AddDays(1))
+            {
+                counter++;
+                TutorTraffic.Add(current, new UserLogService().GetUserCount(Role.Tutor, current));
+                StudentTraffic.Add(current, new UserLogService().GetUserCount(Role.Student, current));
+                AdminTraffic.Add(current, new UserLogService().GetUserCount(Role.Admin, current));
+            }
+           
+       
         }
 
     }
