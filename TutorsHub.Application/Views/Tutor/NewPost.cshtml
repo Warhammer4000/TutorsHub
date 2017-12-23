@@ -1,4 +1,5 @@
-﻿
+﻿@model Entity.BlogModel.Blog
+
 @{
     ViewBag.Title = "New Post";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
@@ -20,12 +21,14 @@
         <div id="content-row">
             <div class="form-group">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" style="height: 45px;margin-bottom: 10px;" placeholder="Title" />
-                    <textarea class="form-control" style="height: 300px;"></textarea>
-                    <div style="display:inline-block;float:right; margin-right:0px;margin-top:10px;">
-                        <button class="btn btn-success" style="height: 40px;width: 130px;margin-right: 15px;">Publish</button>
-                        <button class="btn btn-info" style="height: 40px;width: 130px;">Preview</button>
+                    <form method="post">
+                    <input name="Title" type="text" class="form-control" style="height: 45px; margin-bottom: 10px;" placeholder="Title" required="required"/>
+                    <textarea name="Content" class="form-control" style="height: 300px;"></textarea>
+                    <div style="display: inline-block; float: right; margin-right: 0px; margin-top: 10px;">
+                        <button type="submit" class="btn btn-success" style="height: 40px; width: 130px; margin-right: 15px;">Publish</button>
+                        <button class="btn btn-info" style="height: 40px; width: 130px;">Preview</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

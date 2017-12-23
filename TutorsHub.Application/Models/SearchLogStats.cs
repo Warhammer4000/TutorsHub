@@ -35,8 +35,8 @@ namespace TutorsHub.Application.Models
                 Subjectstats.Add(subject.Name, new SearchlogService().GetSubjectSearchCount(subject.Name));
             }
 
-            AvgSalary.Add("Minimum Salary", new SearchlogService().GetAverageMinSial());
-            AvgSalary.Add("Maximum Salary", new SearchlogService().GetAverageMaxSial());
+            AvgSalary.Add("Minimum Salary", new SearchlogService().AverageMinSial);
+            AvgSalary.Add("Maximum Salary", new SearchlogService().AverageMaxSal);
 
 
 

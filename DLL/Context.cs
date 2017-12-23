@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
+using Entity.BlogModel;
 using Entity.Data;
 using Entity.Logs;
 using Entity.QuestionModels;
@@ -29,6 +30,7 @@ namespace DLL
         public DbSet<Location> Locations { get; set; }
         public DbSet<UserLog> UserLogs { get; set; }
         public DbSet<SearchLog> SearchLogs { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
     }
 }

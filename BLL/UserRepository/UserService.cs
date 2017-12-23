@@ -9,30 +9,15 @@ namespace BLL.UserRepository
 {
     public class UserService<T> where T : User
     {
-        public T GetByEmail(string email)
-        {
-            return new UserRepository<T>().GetByEmail(email);
-        }
+        public T GetByEmail(string email) => new UserRepository<T>().GetByEmail(email);
 
-        public List<T> GetAll()
-        {
-            return new UserRepository<T>().GetAll();
-        }
+        public List<T> GetAll() => new UserRepository<T>().GetAll();
 
-        public bool Add(T t)
-        {
-            return new UserRepository<T>().Add(t);
-        }
+        public bool Add(T t) => new UserRepository<T>().Add(t);
 
-        public bool Update(T t)
-        {
-            return new UserRepository<T>().Update(t);
-        }
+        public bool Update(T t) => new UserRepository<T>().Update(t);
 
-        public bool Remove(string userName)
-        {
-            return new UserRepository<T>().Remove(userName);
-        }
+        public bool Remove(string userName) => new UserRepository<T>().Remove(userName);
 
         public bool ValidUser(string email, string password)
         {
@@ -49,13 +34,6 @@ namespace BLL.UserRepository
             return user.Password == password;
         }
 
-        public bool UpdatePassword(string email, string password)
-        {
-            return new UserRepository<T>().UpdatePassword(email,password);
-        }
-
-
-
-
+        public bool UpdatePassword(string email, string password) => new UserRepository<T>().UpdatePassword(email,password);
     }
 }

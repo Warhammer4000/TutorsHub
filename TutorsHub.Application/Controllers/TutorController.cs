@@ -3,7 +3,9 @@ using Entity.UserModels;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using BLL.BlogRepository;
 using BLL.UserRepository;
+using Entity.BlogModel;
 using Entity.Data;
 using TutorsHub.Application.Models;
 
@@ -48,7 +50,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult EditProfile()
         {
-            TutorEditProfileModel tutorEditProfileModel = new TutorEditProfileModel();
+            var tutorEditProfileModel = new TutorEditProfileModel();
             tutorEditProfileModel.GetTutor(Session["Key"] as string);
 
             return View(tutorEditProfileModel);
@@ -131,19 +133,20 @@ namespace TutorsHub.Application.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Blog()
         {
-
-            return View();
+            List<Blog> blogs= new BlogService().GetAll(Session["Key"] as string);
+            return View(blogs);
         }
 
 
         [HttpGet]
-        public ActionResult ViewPost(string id)
+        public ActionResult ViewPost(int id)
         {
-
-            return View();
+            Blog blog=new BlogService().GetById(id);
+            return View(blog);
         }
 
 
@@ -151,7 +154,27 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult NewPost()
         {
-            return View();
+            return View(new Blog());
+
+        }
+
+        [HttpPost]
+        public ActionResult NewPost(Blog blog)
+        {
+
+        
+            var tutor = new ServiceProvider().Create<Tutor>().GetByEmail(Session["Key"] as string);
+            blog.Author = tutor.Name;
+            blog.Date = DateTime.Now;
+            blog.Private = false;
+            blog.Key = Session["Key"] as string;
+
+            if (new BlogService().Add(blog))
+            {
+               return  RedirectToAction("Blog");
+            }
+
+            return View(blog);
 
         }
 

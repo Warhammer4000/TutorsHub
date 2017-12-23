@@ -10,26 +10,12 @@ namespace BLL.LogRepository
     public class UserLogService
     {
 
-        private List<UserLog> GetUserLogs()
-        {
-            return new UserLogRepository().Get();
-        }
+        private List<UserLog> GetUserLogs() => new UserLogRepository().Get();
 
-        public int GetUserCount(Role role)
-        {
-            return GetUserLogs().Count(r => r.Role == role);
-        }
+        public int GetUserCount(Role role) => GetUserLogs().Count(r => r.Role == role);
 
-        public int GetUserCount(Role role,DateTime date)
-        {
-
-            return GetUserLogs().Count(r => r.Role == role
-            && r.LogDateTime.Day == date.Day
-            );
-
-        }
-
-
-
+        public int GetUserCount(Role role,DateTime date) => GetUserLogs().Count(r => r.Role == role
+                                                                                     && r.LogDateTime.Day == date.Day
+        );
     }
 }
