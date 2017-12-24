@@ -10,9 +10,6 @@ namespace BLL.UserRepository
 {
     public class TutorService:UserService<Tutor>,IUserService<Tutor>
     {
-        public Tutor GetByEmailWithLists(string email)
-        {
-            return  new TutorRepository().GetByEmailWithLists(email);
-        }
+        public Tutor GetByEmailWithLists(string email) => new TutorRepository().GetByEmailWithLists(email);
     }
 }

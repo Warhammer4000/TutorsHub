@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Entity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using Entity.BlogModel;
 
 namespace Entity.UserModels
 {
@@ -54,6 +55,8 @@ namespace Entity.UserModels
             set => PreferredClasses = value.Split(',').ToList();
         }
 
+        public double AvailableBalance { get; set; }
+        public double OnHoldBalance { get; set; }
 
         public int ExpectedSalary { get; set; }
         public string Bio { get; set; }
@@ -63,6 +66,8 @@ namespace Entity.UserModels
         public List<Student> Students { get; set; }
         public List<Student> ActiveStudents { get; set; }
 
+        [NotMapped]
+        public List<Blog> Blogs { get; set; }
 
 
         public Tutor()

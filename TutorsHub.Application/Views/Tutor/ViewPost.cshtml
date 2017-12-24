@@ -1,4 +1,4 @@
-﻿
+﻿@model Entity.BlogModel.Blog
 @{
     ViewBag.Title = "ViewPost";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
@@ -29,47 +29,20 @@
                     <div class="post-container">
 
 
-                        <h1 style="color:black">Article title</h1>
+                        <h1 style="color:black">@Model.Title</h1>
 
                         <span class="by" style="color:black">
                             Posted by
-                            <strong>John Strong</strong> on
-                            <strong>March 15, 2017</strong>
+                            <strong>@Model.Author</strong> on
+                            <strong>@Model.Date.ToString("D")</strong>
                         </span>
                         <div class="post-body" style="color:black">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin viverra nec ligula vitae finibus.
-                                Phasellus finibus maximus sem a pellentesque. Pellentesque tristique sagittis odio, quis
-                                posuere ligula volutpat sed. In hac habitasse platea dictumst. Etiam molestie semper massa.
-                                Sed semper justo a tortor pulvinar, sit amet blandit massa pulvinar. Etiam non lorem ac nisi
-                                placerat tincidunt vel sit amet libero. Morbi vel suscipit nulla. Sed diam justo, vestibulum
-                                eu diam eget, egestas rhoncus est. In hac habitasse platea dictumst. Nam sodales velit vitae
-                                ex posuere tempus. Phasellus eu erat pharetra, varius eros eget, lobortis turpis. Donec iaculis
-                                massa ac interdum cursus.
-                            </p>
-
-                            <ul>
-                                <li>Pellentesque finibus pharetra sollicitudin.</li>
-                                <li>Duis bibendum ex nec blandit pulvinar.</li>
-                                <li>Phasellus aliquet vel ex eget hendrerit.</li>
-                            </ul>
-
-                            <p>
-                                Morbi venenatis varius urna efficitur tincidunt. Suspendisse dolor mi, congue eget commodo ac,
-                                congue quis odio. Sed neque elit, tempor ac tempus convallis, posuere feugiat ex. Duis ut
-                                nulla sem. Maecenas ultrices feugiat lacus, sit amet commodo tellus porttitor ac. Proin non
-                                mauris id est laoreet sodales. Curabitur ut purus lacus. Duis laoreet velit ac risus gravida
-                                aliquet. Sed nisi nibh, tempus vel cursus in, venenatis nec nulla. Nam mi sapien, rutrum
-                                quis arcu quis, sollicitudin ultrices dolor. Praesent at sapien enim. Aliquam erat volutpat.
-                                Integer quis nisl iaculis lectus feugiat viverra in et mauris. Fusce interdum eu dui et mattis.
+                                @Html.Raw(Model.Content)                             
                             </p>
                         </div>
 
                      
-                       
-
-
-
                         <div id="disqus_thread"></div>
                         <script type="text/javascript">
                         /* * * CONFIGURATION VARIABLES * * */

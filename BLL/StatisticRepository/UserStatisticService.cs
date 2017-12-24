@@ -7,15 +7,9 @@ namespace BLL.StatisticRepository
     public class UserStatisticService<T> where T:User
     {
 
-        private List<T> GetUsers()
-        {
-            return new UserRepository<T>().GetAll();
-        }
+        private List<T> GetUsers() => new UserRepository<T>().GetAll();
 
-        public int GetCount()
-        {
-            return new UserRepository<T>().GetAll().Count;
-        }
+        public int GetCount() => new UserRepository<T>().GetAll().Count;
 
 
 
