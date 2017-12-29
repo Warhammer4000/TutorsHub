@@ -25,7 +25,7 @@ namespace TutorsHub.Application.Models
 
         public Stats()
         {
-            var first = DateTime.Today.AddDays(-15);
+            var first = DateTime.Today.AddDays(-30);
             var counter = 0;
             for (var current = first; counter<30; current = current.AddDays(1))
             {
