@@ -8,8 +8,15 @@ using BLL;
 using BLL.DataRepositoryFolder;
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Web;
+using BLL.Exam;
 using BLL.LogRepository;
 using BLL.UserRepository;
+using Entity.QuestionModels;
+using Parser;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -121,8 +128,46 @@ namespace TutorsHub.Application.Controllers
 
         public ActionResult QuestionPaper()
         {
-            return View();
+            return View(new QuestionsViewModel());
         }
+
+
+        [HttpPost]
+        public ActionResult QuestionPaper(HttpPostedFileBase file)
+        {
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                try
+                {
+                    string csvText = new StreamReader(file.InputStream).ReadToEnd();
+                    List<Question> updatedQuestions = Converter.FromCsv(csvText);
+                    new QuestionService().UpdateExamQuestions(updatedQuestions);
+                }
+                catch (Exception)
+                {
+                   //
+
+                }
+              
+
+            }
+          
+            return View(new QuestionsViewModel());
+        }
+
+        [HttpGet]
+        public FileResult DownloadQuestion()
+        {
+            var questions = Converter.ToCsv(new QuestionService().GetQuestions());
+
+
+            var byteArray = Encoding.ASCII.GetBytes(questions);
+            var stream = new MemoryStream(byteArray);
+
+            return File(stream, "text/plain", "data.csv");
+        }
+
 
         [HttpGet]
         public ActionResult Locations()

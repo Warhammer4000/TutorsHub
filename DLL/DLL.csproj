@@ -60,6 +60,7 @@
     <Compile Include="LogContext\UserLogRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionContext\ExamScriptContext.cs" />
+    <Compile Include="QuestionContext\QuestionsRepository.cs" />
     <Compile Include="UserContext\AdminRepository.cs" />
     <Compile Include="UserContext\IUserRepository.cs" />
     <Compile Include="UserContext\StudentRepository.cs" />

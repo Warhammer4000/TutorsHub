@@ -10,7 +10,7 @@ namespace BLL.Exam
 {
     public class ExamService
     {
-        public int ValidateExamScript(List<ExamQuestion> examScript, Subject subject)
+        public int ValidateExamScript(List<ExamQuestion> examScript, string subject)
         {
             int score = 0;
            
@@ -29,7 +29,7 @@ namespace BLL.Exam
         }
 
 
-        public List<ExamQuestion> GetQuestionsBySubjectWithDifficulty(Subject subject,int difficulty)
+        public List<ExamQuestion> GetQuestionsBySubjectWithDifficulty(string subject,int difficulty)
         {
             
                 //Brings Questions Then converts it to ExamScript which is a list of questions without answer
@@ -45,10 +45,7 @@ namespace BLL.Exam
         }
 
 
-        public bool UpdateExamQuestions(List<Question> newQuestions,Subject subject)
-        {
-            return  new ExamScriptContext().UpdateExamScript(newQuestions,subject);
-        }
+      
 
 
     }

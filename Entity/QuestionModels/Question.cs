@@ -20,7 +20,7 @@ namespace Entity.QuestionModels
         public int Difficulty { get; set; }
 
         [Required]
-        public Subject Subject { get; set; }
+        public string Subject { get; set; }
 
         [Required]
         public string Q { get; set; }

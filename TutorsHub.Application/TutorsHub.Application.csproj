@@ -279,6 +279,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EditPass.cs" />
+    <Compile Include="Models\QuestionsViewModel.cs" />
     <Compile Include="Models\SearchLogStats.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\Stats.cs" />
@@ -312,6 +313,10 @@
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{D9328898-0BCA-4350-8F2A-E43A14A38B40}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parser\Parser.csproj">
+      <Project>{e350eaa9-21e7-474f-92b4-c147b73f3a74}</Project>
+      <Name>Parser</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
