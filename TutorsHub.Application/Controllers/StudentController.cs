@@ -146,8 +146,6 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(string key)
         {
             Tutor tutor = new TutorService().GetByEmail(key);
-            Session["email"] = tutor.Email;
-            Response.Redirect("SchedTutor.cshtml");
             return View(tutor);
         }
 
