@@ -48,6 +48,7 @@
     <Compile Include="DataRepositoryFolder\SubjectService.cs" />
     <Compile Include="Exam\ExamService.cs" />
     <Compile Include="Exam\QuestionService.cs" />
+    <Compile Include="Exam\ResultService.cs" />
     <Compile Include="LogRepository\SearchlogService.cs" />
     <Compile Include="LogRepository\UserLogService.cs" />
     <Compile Include="ServiceProvider.cs" />

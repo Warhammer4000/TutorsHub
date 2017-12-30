@@ -75,6 +75,7 @@
     <Compile Include="Logs\Log.cs" />
     <Compile Include="Logs\SearchLog.cs" />
     <Compile Include="Logs\UserLog.cs" />
+    <Compile Include="Others\ExamResult.cs" />
     <Compile Include="Others\Schedule.cs" />
     <Compile Include="QuestionModels\ExamQuestion.cs" />
     <Compile Include="QuestionModels\Question.cs" />

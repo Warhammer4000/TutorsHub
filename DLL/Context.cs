@@ -8,6 +8,7 @@ using Entity;
 using Entity.BlogModel;
 using Entity.Data;
 using Entity.Logs;
+using Entity.Others;
 using Entity.QuestionModels;
 using Entity.UserModels;
 
@@ -17,7 +18,7 @@ namespace DLL
     {
         public  Context():base("Name=TutorsHub")
         {
-            var ensureDLLIsCopied =
+            var unused =
                 System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
@@ -31,6 +32,6 @@ namespace DLL
         public DbSet<UserLog> UserLogs { get; set; }
         public DbSet<SearchLog> SearchLogs { get; set; }
         public DbSet<Blog> Blogs { get; set; }
-
+        public DbSet<ExamResult> Results { get; set; }
     }
 }

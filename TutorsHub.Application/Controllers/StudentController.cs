@@ -5,6 +5,7 @@ using BLL;
 using BLL.SearchRepository;
 using BLL.UserRepository;
 using Entity.UserModels;
+using Entity.Others;
 using TutorsHub.Application.Models;
 
 
@@ -60,6 +61,15 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        /*[HttpPost]
+        public ActionResult SchedTutor(Schedule sched)
+        {
+            Timings tm = new Timings();
+            string email = Session["email"].ToString();
+            
+            
+            return View(sched);
+        }*/
 
 
         [HttpGet]
