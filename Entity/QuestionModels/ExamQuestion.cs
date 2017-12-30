@@ -26,6 +26,12 @@ namespace Entity.QuestionModels
             B = question.B;
             C = question.C;
             D = question.D;
+            Answer = Id.ToString();
+        }
+
+        public ExamQuestion()
+        {
+         
         }
     }
 }

@@ -138,6 +138,7 @@ namespace TutorsHub.Application.Controllers
             // Verify that the user selected a file
             if (file != null && file.ContentLength > 0)
             {
+                
                 try
                 {
                     string csvText = new StreamReader(file.InputStream).ReadToEnd();

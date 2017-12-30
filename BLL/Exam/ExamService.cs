@@ -23,7 +23,7 @@ namespace BLL.Exam
                         where q.Answer == examQuestion.Answer
                         select examQuestion)
                     .Count();
-
+              //TODO Post score to DB
                 return score;
             
         }
