@@ -23,10 +23,10 @@
     <br />
     <form action="/Student/ViewSearch" method="post">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-2">
 
             </div>
-            <div class="col-lg-3" style="padding-left:0%; width:20%">
+            <div class="col-lg-3" style="padding-left:0%; width:20%; margin-left:40px">
                 <label>Location</label>
                 @Html.DropDownList("Location", new SelectList(Model.Locations, "Name", "Name"), new { @class = "btn btn-success" })
             </div>
@@ -48,7 +48,7 @@
             <div class="col-lg-3">
 
             </div>
-            <div class="col-lg-2" style="margin-left:5%">
+            <div class="col-lg-2" style="margin-left:20px">
                 <input type="number" class="form-control" name="minSal" placeholder=" Minimum Salary">
             </div>
             <div class="col-lg-1" style="width:45px;">
@@ -63,9 +63,9 @@
             <div class="col-lg-3">
 
             </div>
-            <div class="col-lg-4" style="margin-left:5%">
+            <div class="col-lg-4" style="margin-left:10px">
 
-                <span class="form-control btn-success" style="height:60%; padding-left:4%">
+                <span class="form-control btn-success" style="height:60%; padding-left:4%; width:124%">
                     @for (int i = 0; i < Model.Subjects.Count; i++)
             {
                         @Html.HiddenFor(x => Model.Subjects[i].Id)
@@ -83,9 +83,9 @@
 
         <div class="row">
             <div class="col-lg-5">
-
+   
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3" style="margin-left:5px">
 
                 <input type="submit" class="btn btn-info" />
 
