@@ -11,7 +11,7 @@ namespace DLL.QuestionContext
 {
     public class ExamScriptContext
     {
-        public List<Question> GetQuestionsBySubject(Subject subject)
+        public List<Question> GetQuestionsBySubject(string subject)
         {
             using (var context = new Context())
             {
@@ -20,7 +20,8 @@ namespace DLL.QuestionContext
             }
         }
 
-        public List<Question> GetQuestionsBySubjectWithDifficulty(Subject subject,int difficulty)
+
+        public List<Question> GetQuestionsBySubjectWithDifficulty(string subject,int difficulty)
         {
             using (var context = new Context())
             {
@@ -32,26 +33,7 @@ namespace DLL.QuestionContext
         }
 
 
-        public bool UpdateExamScript(List<Question> questions,Subject subject)
-        {
-            using (var context = new Context())
-            {
-                try
-                {
-                    List<Question> oldQuestionses= context.QuestionPapers.Where(r => r.Subject == subject).ToList();
-                    context.QuestionPapers.RemoveRange(oldQuestionses);
-                    context.QuestionPapers.AddRange(questions);
-                    context.SaveChanges();
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    return false;
-                    
-                }
-
-            }
-        }
+       
 
 
     }

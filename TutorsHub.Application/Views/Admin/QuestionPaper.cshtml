@@ -1,14 +1,21 @@
-﻿@{
+﻿@using Entity.QuestionModels
+@model TutorsHub.Application.Models.QuestionsViewModel
+@{
     ViewBag.Title = "Question";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 <div style="background-color:white; margin:0px 50px; border:1px solid green; width:90%">
-    <div style="padding:25px;">
-        <input name="" class="form-control in" type="file" value="" style="width:50%" />
-        <br />
-        <input type="submit" class="form-control btn-info" value="Update" style="width:20%" />
-        <br />
-        <input type="submit" class="form-control btn-success" value="Download" style="width:20%" />
+    <div style="padding: 25px;">
+        <form method="post" enctype="multipart/form-data">
+            <input name="file" class="form-control in" type="file" style="width: 50%" />
+            <br />
+            <input type="submit" class="form-control btn-info" value="Upload File" style="width: 20%" />
+        </form>
+        <br/>
+        <form action="/Admin/DownloadQuestion">
+            <input type="submit" class="form-control btn-success" value="Download" style="width: 20%" />
+        </form>
+        
     </div>
 
     <div>
@@ -26,66 +33,22 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach (var question in Model.Questions)
+            {
                 <tr>
-                    <td>001</td>
-                    <td>What is the Capital City of Bangladesh?</td>
-                    <td>Delhi</td>
-                    <td>Dhaka</td>
-                    <td>Chittagong</td>
-                    <td>Noakhali</td>
-                    <td>B</td>
-                    <td><strong>*</strong></td>
+                    <td>@question.Id</td>
+                    <td>@question.Q</td>
+                    <td>@question.A</td>
+                    <td>@question.B</td>
+                    <td>@question.C</td>
+                    <td>@question.D</td>
+                    <td>@question.Answer</td>
+                    <td><strong>@question.Difficulty</strong></td>
                 </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Who is the developer of the programming language C?</td>
-                    <td>Steve Job</td>
-                    <td>Mark Zuchkerberg</td>
-                    <td>Dennis Ritchie</td>
-                    <td>Jeff Bezos</td>
-                    <td>C</td>
-                    <td><strong>**</strong></td>
-                </tr>
-                <tr>
-                    <td>003</td>
-                    <td>What is the distance of Sun from Earth?</td>
-                    <td>149.6 million km</td>
-                    <td>193.2 million km</td>
-                    <td>120.2 million km</td>
-                    <td>110 million km</td>
-                    <td>A</td>
-                    <td><strong>***</strong></td>
-                </tr>
-                <tr>
-                    <td>004</td>
-                    <td>What is the Capital City of Bangladesh?</td>
-                    <td>Delhi</td>
-                    <td>Dhaka</td>
-                    <td>Chittagong</td>
-                    <td>Noakhali</td>
-                    <td>B</td>
-                    <td><strong>*</strong></td>
-                </tr>
-                <tr>
-                    <td>005</td>
-                    <td>Who is the developer of the programming language C?</td>
-                    <td>Steve Job</td>
-                    <td>Mark Zuchkerberg</td>
-                    <td>Dennis Ritchie</td>
-                    <td>Jeff Bezos</td>
-                    <td>C</td>
-                    <td><strong>**</strong></td>
-                </tr>
-                <tr>
-                    <td>006</td>
-                    <td>What is the distance of Sun from Earth?</td>
-                    <td>149.6 million km</td>
-                    <td>193.2 million km</td>
-                    <td>120.2 million km</td>
-                    <td>110 million km</td>
-                    <td>A</td>
-                    <td><strong>***</strong></td>
-                </tr>
+            }
+
+
+
             </tbody>
         </table>
     </div>

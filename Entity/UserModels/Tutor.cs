@@ -62,12 +62,17 @@ namespace Entity.UserModels
         public string Bio { get; set; }
         public string CurrentStatus { get; set; }
 
-
+        [NotMapped]
         public List<Student> Students { get; set; }
+        [NotMapped]
         public List<Student> ActiveStudents { get; set; }
 
         [NotMapped]
         public List<Blog> Blogs { get; set; }
+
+        public string Schedule { get; set; }
+        public string ActiveStudenList { get; set; }
+        public string StudentList { get; set; }
 
 
         public Tutor()

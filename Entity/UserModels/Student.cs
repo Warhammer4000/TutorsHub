@@ -1,11 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entity.UserModels
 {
     public class Student:User
     {
+        [NotMapped]
         public List<Tutor> Tutors { get; set; }
+        [NotMapped]
         public List<Tutor> ActiveTutors { get; set; }
+
+        public string TutorsList { get; set; }
+
+        public string ActiveTutorsList { get; set; }
+
+        public string Schedule { get; set; }
+
         public string Location { set; get; }
         public Student()
         {
