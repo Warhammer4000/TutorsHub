@@ -1,8 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 using BLL.Exam;
+using BLL.UserRepository;
+using Entity.Others;
 using Entity.QuestionModels;
+using Entity.UserModels;
 using TutorsHub.Application.Models;
 
 namespace TutorsHub.Application.Controllers
@@ -26,22 +31,57 @@ namespace TutorsHub.Application.Controllers
         public ActionResult QuestionPaper(string subject,int difficulty)
         {
             ViewBag.Exam = subject;
+            TempData["Difficulty"] = difficulty;
             List<ExamQuestion> questions =
                 new ExamService().GetQuestionsBySubjectWithDifficulty(subject,difficulty);
             return View(questions);
         }
 
         [HttpPost]
-        public ActionResult QuestionPaper(List<ExamQuestion> questions,string subject)
+        public RedirectToRouteResult QuestionPaper(List<ExamQuestion> questions,string subject)
         {
-            int Score= new ExamService().ValidateExamScript(questions,subject);
-            return View();
+            //Kinda dirty should update later 
+            int score= new ExamService().ValidateExamScript(questions,subject);
+            var examResult= new ResultService().Get(Session["Key"] as string);
+            if (examResult == null)
+            {
+                examResult = new ExamResult {Key = Session["Key"] as string};
+                examResult.TutorName=new UserService<Tutor>().GetByEmail(examResult.Key).Email;
+            }
+            try
+            {
+                if (examResult.Results
+                    .Find(r => r.SubjectName == subject && r.Difficulty == (int) TempData["Difficulty"]).Score <=score)
+                {
+                    examResult.Results
+                            .Find(r => r.SubjectName == subject && r.Difficulty == (int) TempData["Difficulty"]).Score =
+                        score;
+                }
+            }
+            catch (Exception)
+            {
+                examResult.Results.Add(new ResultData()
+                {
+                    Score = score,
+                    SubjectName = subject,
+                    Difficulty = (int)TempData["Difficulty"]
+                });
+            }
+         
+
+            if (!new ResultService().UpdateResult(examResult))
+            {
+                //show error
+            }
+
+            return RedirectToAction("Result","Exam");
         }
 
         [HttpGet]
         public ActionResult Result()
         {
-            return View();
+            var examResult = new ResultService().Get(Session["Key"] as string) ?? new ExamResult();
+            return View(examResult);
         }
 
         [HttpGet]

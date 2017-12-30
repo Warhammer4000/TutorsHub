@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entity.Data;
 using Entity.QuestionModels;
 
-namespace DLL.QuestionContext
+namespace DLL.ExamContext
 {
-    public class ExamScriptContext
+    public class ExamScripRepository
     {
         public List<Question> GetQuestionsBySubject(string subject)
         {

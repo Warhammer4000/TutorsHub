@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Entity.QuestionModels;
 
-namespace DLL.QuestionContext
+namespace DLL.ExamContext
 {
     public class QuestionsRepository
     {

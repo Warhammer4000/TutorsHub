@@ -1,4 +1,4 @@
-﻿
+﻿@model Entity.Others.ExamResult
 @{
     ViewBag.Title = "Result";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
@@ -8,32 +8,22 @@
     <legend style="font-size: 40px;">Result</legend>
     <table border="1" style="width:100%; font-size:20px;">
         <thead>
-            <tr>
-                <td><strong>Subject</strong></td>
-                <td><strong>Marks</strong></td>
-                <td><strong>Status</strong></td>
-                <td><strong>Exam</strong></td>
-            </tr>
+        <tr>
+            <td><strong>Subject</strong></td>
+            <td><strong>Difficulty</strong></td>
+            <td><strong>Score</strong></td>
+            <td><strong>Exam</strong></td>
+        </tr>
         </thead>
-        <tr>
-            <td>Bangla</td>
-            <td>90</td>
-            <td>very good</td>
-            <td><a href="/Exam/QuestionPaper">take exam</a></td>
-        </tr>
-        <tr>
-            <td>English</td>
-            <td>70</td>
-            <td>avarage</td>
-            <td><a href="/Exam/QuestionPaper">take exam</a></td>
-        </tr>
-        <tr>
-            <td>Math</td>
-            <td>100</td>
-            <td>very good</td>
-            <td><a href="/Exam/QuestionPaper">take exam</a></td>
-        </tr>
-
+        @foreach (var subject in Model.Results)
+        {
+            <tr>
+                <td>@subject.SubjectName</td>
+                <td>@subject.Difficulty</td>
+                <td>@subject.Score</td>
+                <td>@Html.ActionLink("Retake Exam","QuestionPaper","Exam", new{subject=subject.SubjectName, difficulty=subject.Difficulty }, null)</td>
+            </tr>
+        }
 
     </table>
 
