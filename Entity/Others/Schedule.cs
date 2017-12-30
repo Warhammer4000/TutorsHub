@@ -20,14 +20,15 @@ namespace Entity.Others
             WeekDays.Add("Thursday", new Timings());
             WeekDays.Add("Friday", new Timings());
         }
-
-
-
     }
 
     public class Timings
     {
         public Dictionary<string, string> Times { get; set; }
         //Keys will have time as string and values would be user's key[For now Email]
+
+        public string tim { get; set; } 
+        
+
     }
 }
