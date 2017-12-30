@@ -146,7 +146,7 @@
     <Content Include="Views\CSS\bootstrap-theme.min.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\style.css" />
-    <Content Include="Views\Exam\QuestionDifficulty.cshtml" />
+    <Content Include="Views\Exam\TakeExam.cshtml" />
     <Content Include="Views\Exam\QuestionPaper.cshtml" />
     <Content Include="Views\Exam\Ranking.cshtml" />
     <Content Include="Views\Exam\Result.cshtml" />
@@ -283,6 +283,7 @@
     <Compile Include="Models\SearchLogStats.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\TakeExamViewModel.cs" />
     <Compile Include="Models\TutorEditProfileModel.cs" />
     <Compile Include="Models\LocationsViewModel.cs" />
     <Compile Include="Models\RegistrationViewModel.cs" />

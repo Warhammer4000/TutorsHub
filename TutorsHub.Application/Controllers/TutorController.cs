@@ -47,6 +47,8 @@ namespace TutorsHub.Application.Controllers
 
             return View();
         }
+
+
         [HttpGet]
         public ActionResult EditProfile()
         {
@@ -180,6 +182,7 @@ namespace TutorsHub.Application.Controllers
 
         public RedirectToRouteResult Logout()
         {
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 
