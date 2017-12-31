@@ -282,6 +282,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EditPass.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\QuestionsViewModel.cs" />
     <Compile Include="Models\SearchLogStats.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
