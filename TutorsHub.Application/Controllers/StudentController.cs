@@ -58,18 +58,18 @@ namespace TutorsHub.Application.Controllers
         public ActionResult SchedTutor()
         {
 
-            return View();
+            return View(new Schedule());
         }
 
-        /*[HttpPost]
-        public ActionResult SchedTutor(Schedule sched)
+        [HttpPost]
+        public ActionResult SchedTutor(Schedule schedule)
         {
-            Timings tm = new Timings();
-            string email = Session["email"].ToString();
+         
             
             
-            return View(sched);
-        }*/
+            
+            return View();
+        }
 
 
         [HttpGet]
