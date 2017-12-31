@@ -202,6 +202,12 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        public ActionResult ScheduleProp()
+        {
+            return View();
+
+        }
+
 
     }
 }
