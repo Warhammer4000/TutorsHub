@@ -8,6 +8,7 @@ using BLL.UserRepository;
 using Entity.BlogModel;
 using Entity.Data;
 using TutorsHub.Application.Models;
+using Entity.Others;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -202,12 +203,20 @@ namespace TutorsHub.Application.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ScheduleProp()
         {
-            return View();
+            return View(new Schedule());
 
         }
 
+
+        [HttpPost]
+        public ActionResult ScheduleProp(Schedule schedule)
+        {
+
+            return View();
+        }
 
     }
 }

@@ -187,6 +187,7 @@
     <Content Include="Views\Tutor\Notification.cshtml" />
     <Content Include="Views\Tutor\Payment.cshtml" />
     <Content Include="Views\Tutor\Schedule.cshtml" />
+    <Content Include="Views\Tutor\ScheduleProp.cshtml" />
     <Content Include="Views\Tutor\SearchUser.cshtml" />
     <Content Include="Views\Tutor\StudentList.cshtml" />
     <Content Include="Views\Tutor\UploadMaterial.cshtml" />
@@ -297,7 +298,6 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Admin\StatisticsLog.cshtml" />
-    <Content Include="Views\Tutor\ScheduleProp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

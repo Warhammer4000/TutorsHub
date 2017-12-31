@@ -38,8 +38,5 @@ namespace Entity.Others
         public int StartTime { get; set; }
         public int EndTime { get; set; }
         public string Meridium { get; set; }
-
-        
-
     }
-}
+    }
