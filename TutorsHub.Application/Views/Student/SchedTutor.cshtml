@@ -1,4 +1,5 @@
-﻿
+﻿@model Entity.Others.Schedule
+
 @{
     ViewBag.Title = "SchedTutor";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
@@ -195,7 +196,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="time" onchange="myfunc()">
+            <select name="WeekDays['Saturday'].StartTime" class="form-control" id="time" onchange="myfunc()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -211,11 +212,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show"></label>
+            <label name="WeekDays['Saturday'].EndTime" class="form-control" id="show"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Saturday'].Meridium" value="AM" >AM
+            <input type="radio" name="WeekDays['Saturday'].Meridium" value="PM" checked="checked">PM
         </div>
 
     </div>
@@ -232,7 +233,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="stime" onchange="myfunc2()">
+            <select name="WeekDays['Sunday'].StartTime" class="form-control" id="stime" onchange="myfunc2()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -248,11 +249,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show1"></label>
+            <label name="WeekDays['Sunday'].EndTime" class="form-control" id="show1"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input  type="radio" name="WeekDays['Sunday'].Meridium" value="AM" >AM
+            <input type="radio" name="WeekDays['Sunday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -269,7 +270,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="mtime" onchange="myfunc3()">
+            <select name="WeekDays['Mondy'].StartTime" class="form-control" id="mtime" onchange="myfunc3()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -285,11 +286,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show2"></label>
+            <label name="WeekDays['Monday'].EndTime" class="form-control" id="show2"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Monday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Monday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -306,7 +307,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="ttime" onchange="myfunc4()">
+            <select name="WeekDays['Tuesday'].StartTime" class="form-control" id="ttime" onchange="myfunc4()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -322,11 +323,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show3"></label>
+            <label name="WeekDays['Tuesday'].EndTime" class="form-control" id="show3"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Tuesday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Tuesday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -343,7 +344,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="wtime" onchange="myfunc5()">
+            <select name="WeekDays['Wednesday'].StartTime" class="form-control" id="wtime" onchange="myfunc5()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -359,11 +360,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show4"></label>
+            <label name="WeekDays['Wednesday'].EndTime" class="form-control" id="show4"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Wednesday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Wednesday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -380,7 +381,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="thtime" onchange="myfunc6()">
+            <select name="WeekDays['Thursday'].StartTime" class="form-control" id="thtime" onchange="myfunc6()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -396,11 +397,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show5"></label>
+            <label name="WeekDays['Thursday'].EndTime" class="form-control" id="show5"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Thursday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Thursday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -417,7 +418,7 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <select class="form-control" id="ftime" onchange="myfunc7()">
+            <select name="WeekDays['Friday'].StartTime" class="form-control" id="ftime" onchange="myfunc7()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -433,11 +434,11 @@
             </select>
         </div>
         <div class="col-lg-2">
-            <label class="form-control" id="show6"></label>
+            <label name="WeekDays['Friday'].EndTime" class="form-control" id="show6"></label>
         </div>
         <div class="col-lg-2">
-            <input type="radio" name="dn" value="AM">AM
-            <input type="radio" name="dn" value="PM">PM
+            <input type="radio" name="WeekDays['Friday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Friday'].Meridium" value="PM" checked="checked">PM
         </div>
     </div>
 
@@ -454,7 +455,8 @@
 
         </div>
         <div class="col-lg-2">
-            @Html.ActionLink("Hire", "HireTutor", "Student", null, new { @class = "btn btn-success" })
+            <input type="submit" class="btn btn-success" value="Send Request"/>
+           
         </div>
     </div>
 
