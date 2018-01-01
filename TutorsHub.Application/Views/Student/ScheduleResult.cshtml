@@ -1,0 +1,468 @@
+﻿
+@{
+    ViewBag.Title = "ScheduleResult";
+    Layout = "~/Views/Shared/StudentLayout.cshtml";
+}
+
+<head>
+    <script type="text/javascript">
+        function myfunc() {
+            var y = document.getElementById("mySelect").value;
+            var x = document.getElementById("time").value;
+            var z = parseInt(x) + parseInt(y);
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show").value = z;
+            }
+        }
+        function myfunc2() {
+            var y = document.getElementById("sundaytime").value;
+            var x = document.getElementById("stime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show1").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show1").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show1").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show1").value = z;
+            }
+        }
+        function myfunc3() {
+            var y = document.getElementById("mondaytime").value;
+            var x = document.getElementById("mtime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show2").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show2").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show2").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show2").value = z;
+            }
+        }
+        function myfunc4() {
+            var y = document.getElementById("tuesdaytime").value;
+            var x = document.getElementById("ttime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show3").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show3").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show3").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show3").value = z;
+            }
+        }
+        function myfunc5() {
+            var y = document.getElementById("wedtime").value;
+            var x = document.getElementById("wtime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show4").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show4").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show4").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show4").value = z;
+            }
+        }
+        function myfunc6() {
+            var y = document.getElementById("thurtime").value;
+            var x = document.getElementById("thtime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show5").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show5").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show5").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show5").value = z;
+            }
+        }
+        function myfunc7() {
+            var y = document.getElementById("fritime").value;
+            var x = document.getElementById("ftime").value;
+            var z = parseInt(x) + parseInt(y);
+
+            if (z > 12) {
+                switch (z) {
+                    case 13:
+                        document.getElementById("show6").value = 1;
+                        break;
+                    case 14:
+                        document.getElementById("show6").value = 2;
+                        break;
+                    case 15:
+                        document.getElementById("show6").value = 3;
+                }
+            }
+            else {
+                document.getElementById("show6").value = z;
+            }
+        }
+    </script>
+</head>
+
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-lg-2">
+        <label class="form-control btn-info">Day</label>
+    </div>
+
+    <div class="col-lg-2">
+        <label class="form-control btn-info">Hours</label>
+    </div>
+
+    <div class="col-lg-2">
+        <label class="form-control btn-info">Start</label>
+    </div>
+    <div class="col-lg-2">
+        <label class="form-control btn-info">End</label>
+    </div>
+    <div class="col-lg-2">
+        <label class="form-control btn-info">AM/PM</label>
+    </div>
+</div>
+
+<form method="post">
+
+
+    <!--Saturday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Saturday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="mySelect" onchange="myfunc()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Saturday'].StartTime" class="form-control" id="time" onchange="myfunc()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Saturday'].EndTime" class="form-control" id="show" />
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Saturday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Saturday'].Meridium" value="PM" checked="checked">PM
+        </div>
+
+    </div>
+    <!--Sunday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Sunday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="sundaytime" onchange="myfunc2()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Sunday'].StartTime" class="form-control" id="stime" onchange="myfunc2()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Sunday'].EndTime" class="form-control" id="show1" />
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Sunday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Sunday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+
+    <!---Monday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Monday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="mondaytime" onchange="myfunc3()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Mondy'].StartTime" class="form-control" id="mtime" onchange="myfunc3()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Monday'].EndTime" class="form-control" id="show2">
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Monday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Monday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+
+    <!--Tuesday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Tuesday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="tuesdaytime" onchange="myfunc4()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Tuesday'].StartTime" class="form-control" id="ttime" onchange="myfunc4()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Tuesday'].EndTime" class="form-control" id="show3" />
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Tuesday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Tuesday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+
+    <!--Wednessday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Wednessday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="wedtime" onchange="myfunc5()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Wednesday'].StartTime" class="form-control" id="wtime" onchange="myfunc5()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Wednesday'].EndTime" class="form-control" id="show4" />
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Wednesday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Wednesday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+
+    <!---Thursday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Thursday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="thurtime" onchange="myfunc6()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Thursday'].StartTime" class="form-control" id="thtime" onchange="myfunc6()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Thursday'].EndTime" class="form-control" id="show5" />
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Thursday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Thursday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+
+    <!--Friday-->
+    <div class="row">
+        <div class="col-lg-2">
+            <label class="form-control btn-success">Friday</label>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" id="fritime" onchange="myfunc7()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select name="WeekDays['Friday'].StartTime" class="form-control" id="ftime" onchange="myfunc7()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <input name="WeekDays['Friday'].EndTime" class="form-control" id="show6"></input>
+        </div>
+        <div class="col-lg-2">
+            <input type="radio" name="WeekDays['Friday'].Meridium" value="AM">AM
+            <input type="radio" name="WeekDays['Friday'].Meridium" value="PM" checked="checked">PM
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-8">
+
+        </div>
+        <div class="col-lg-2" style="width:140px; margin-left:30px">
+            <input type="submit" class="btn btn-info" value="Counter Propose" />
+        </div>
+    </div>
+
+</form>
+<br />
+
+<div class="row">
+    <div class="col-lg-8">
+
+    </div>
+    <div class="col-lg-2" style="width:80px; margin-left:20px">
+        <input type="submit" class="btn btn-success" value="Accpet" />
+    </div>
+    <div class="col-lg-2">
+        <input type="submit" class="btn btn-danger" value="Reject" />
+    </div>
+</div>
+
+
