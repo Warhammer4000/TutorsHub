@@ -206,13 +206,13 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult ScheduleProp()
         {
-            return View(new Schedule());
+            return View(new ProposedSchedule());
 
         }
 
 
         [HttpPost]
-        public ActionResult ScheduleProp(Schedule schedule)
+        public ActionResult ScheduleProp(ProposedSchedule schedule)
         {
 
             return View();

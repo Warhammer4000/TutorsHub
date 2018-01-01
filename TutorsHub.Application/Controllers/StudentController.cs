@@ -58,16 +58,17 @@ namespace TutorsHub.Application.Controllers
         public ActionResult SchedTutor()
         {
 
-            return View(new Schedule());
+            return View(new ProposedSchedule());
         }
 
         [HttpPost]
-        public ActionResult SchedTutor(Schedule schedule)
+        public ActionResult SchedTutor(ProposedSchedule schedule)
         {
          
-            
-            
-            
+            schedule.UserName=TempData["SearchedTutor"] as string;
+            schedule.UserEmail = TempData["SearchedTutorEmail"] as string;
+            //send a notification to tutor
+
             return View();
         }
 
@@ -146,6 +147,8 @@ namespace TutorsHub.Application.Controllers
         public ActionResult ViewProfile(string key)
         {
             Tutor tutor = new TutorService().GetByEmail(key);
+            TempData["SearchedTutor"] = tutor.Name;
+            TempData["SearchedTutorEmail"] = tutor.Email;
             return View(tutor);
         }
 
