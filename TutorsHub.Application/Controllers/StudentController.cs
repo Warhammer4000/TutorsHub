@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using BLL;
+using BLL.NotificationRepository;
 using BLL.SearchRepository;
 using BLL.UserRepository;
 using Entity.UserModels;
@@ -64,10 +65,34 @@ namespace TutorsHub.Application.Controllers
         [HttpPost]
         public ActionResult SchedTutor(ProposedSchedule schedule)
         {
-         
+            
             schedule.UserName=TempData["SearchedTutor"] as string;
             schedule.UserEmail = TempData["SearchedTutorEmail"] as string;
+            
+
+            var notification = new Notification()
+            {
+                Notificationtype = Notificationtype.ScheduleProposiotion,
+                NotificationData = schedule.ScheduleAsString,
+                Message = "You have been hired",
+                ActionLink = "/Home/Index",
+                Key = schedule.UserEmail
+            };
+
+            if (new NotificationService().Add(notification))
+            {
+          
+            }
+
             //send a notification to tutor
+            Tutor t = new ServiceProvider().Create<Tutor>().GetByEmail(schedule.UserEmail);
+            t.Students.Add(new ServiceProvider().Create<Student>().GetByEmail(Session["Key"] as string));
+            t.Schedules.Add(schedule);
+            if (new ServiceProvider().Create<Tutor>().Update(t))
+            {
+                return RedirectToAction("HireTutor", "Student");
+            }
+
 
             return View();
         }
@@ -92,6 +117,12 @@ namespace TutorsHub.Application.Controllers
         public ActionResult HireTutor()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult HireTutor(string action)
+        {
+            return RedirectToAction("DashBoard", "Student");
         }
         [HttpGet]
         public ActionResult StudentProfile()
@@ -127,7 +158,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult Notification()
         {
-            return View();
+            return View(new NotificationViewModel(Session["Key"] as string));
         }
         [HttpGet]
         public ActionResult TutorSearch()

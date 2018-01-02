@@ -1,10 +1,9 @@
-﻿
+﻿@using Entity.Others
+@model TutorsHub.Application.Models.NotificationViewModel
 @{
-    ViewBag.Title = "Dashboard";
+    ViewBag.Title = "Detailed";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
-
-
 <html>
 <head>
     <title>Profile</title>
@@ -28,22 +27,34 @@
                 <div class="panel-body">
 
                     <div class="row">
-                         <div class="col-lg-2">
+                        <div class="col-lg-2">
 
-                         </div>
+                        </div>
                         <div class="col-lg-8">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     Reports
                                 </div>
-                                <div class="panel-body">
+                                @foreach (Notification notification in Model.Notifications)
+                                {
+                                    <div class="panel-body">
 
-                                    <div class="well">
-                                        Jon is not coming to tutor properly and is not preparing studying materials.
-                                        @Html.ActionLink("See Message", "ScheduleProp", "Tutor", null)
+                                        <div class="well">
+                                            @notification.Message
+                                            @if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
+                                            {
+                                                @Html.ActionLink("Details", "ScheduleProp", "Tutor", new
+                                                {
+                                                    scheduleString = notification.NotificationData
+                                                }
+                                                         , null)
+                                            }
+
+                                        </div>
+
                                     </div>
+                                }
 
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -55,6 +66,5 @@
     </div>
 </body>
 </html>
-
 
 

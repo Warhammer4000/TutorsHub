@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using BLL.BlogRepository;
+using BLL.NotificationRepository;
 using BLL.UserRepository;
 using Entity.BlogModel;
 using Entity.Data;
 using TutorsHub.Application.Models;
 using Entity.Others;
+using Newtonsoft.Json;
 
 namespace TutorsHub.Application.Controllers
 {
@@ -18,7 +20,8 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         {
-            return View();
+            NotificationViewModel notification = (new NotificationViewModel(Session["Key"] as string));
+            return View(notification);
         }
 
         [HttpGet]
@@ -111,9 +114,10 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult StudentList(int? id)
+        public ActionResult StudentList()
         {
-            return View();
+            List<Student> studentList= new ServiceProvider().Create<Tutor>().GetByEmail(Session["Key"] as string).Students;
+            return View(studentList);
         }
         [HttpGet]
         public ActionResult ViewProfile()
@@ -125,11 +129,7 @@ namespace TutorsHub.Application.Controllers
         }
 
        
-        [HttpGet]
-        public ActionResult Notification()
-        {
-            return View();
-        }
+      
 
         [HttpGet]
         public ActionResult Chat()
@@ -204,9 +204,10 @@ namespace TutorsHub.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult ScheduleProp()
+        public ActionResult ScheduleProp(string scheduleString)
         {
-            return View(new ProposedSchedule());
+            ProposedSchedule proposedSchedule = JsonConvert.DeserializeObject<ProposedSchedule>(scheduleString);
+            return View(proposedSchedule);
 
         }
 

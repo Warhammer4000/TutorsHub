@@ -51,6 +51,7 @@
     <Compile Include="Exam\ResultService.cs" />
     <Compile Include="LogRepository\SearchlogService.cs" />
     <Compile Include="LogRepository\UserLogService.cs" />
+    <Compile Include="NotificationRepository\NotificationService.cs" />
     <Compile Include="ServiceProvider.cs" />
     <Compile Include="SearchRepository\PublicSearch.cs" />
     <Compile Include="StatisticRepository\UserStatisticService.cs" />

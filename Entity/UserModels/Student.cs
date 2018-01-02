@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Entity.Others;
+using Newtonsoft.Json;
 
 namespace Entity.UserModels
 {
@@ -13,8 +15,15 @@ namespace Entity.UserModels
         public string TutorsList { get; set; }
 
         public string ActiveTutorsList { get; set; }
-
-        public string Schedule { get; set; }
+        [NotMapped]
+        public List<ProposedSchedule> Schedules { get; set; }
+        public string Schedule
+        {
+            get => JsonConvert.SerializeObject(Schedules);
+            set => Schedules = value == null
+                ? new List<ProposedSchedule>()
+                : JsonConvert.DeserializeObject<List<ProposedSchedule>>(value);
+        }
 
         public string Location { set; get; }
         public Student()
@@ -22,6 +31,7 @@ namespace Entity.UserModels
             Role=Role.Student;
             Tutors=new List<Tutor>();
             ActiveTutors= new List<Tutor>();
+            Schedules = new List<ProposedSchedule>();
         }
 
         public override User Copy(User user)

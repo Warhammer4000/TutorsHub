@@ -5,6 +5,8 @@ using Entity.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Entity.BlogModel;
+using Entity.Others;
+using Newtonsoft.Json;
 
 namespace Entity.UserModels
 {
@@ -70,10 +72,24 @@ namespace Entity.UserModels
         [NotMapped]
         public List<Blog> Blogs { get; set; }
 
-        public string Schedule { get; set; }
-        public string ActiveStudenList { get; set; }
-        public string StudentList { get; set; }
+        [NotMapped]
+        public List<ProposedSchedule> Schedules { get; set; }
+        public string Schedule
+        {
+            get => JsonConvert.SerializeObject(Schedules);
+            set => Schedules = string.IsNullOrEmpty(value) ? new List<ProposedSchedule>() : JsonConvert.DeserializeObject<List<ProposedSchedule>>(value);
+        }
 
+        public string ActiveStudenList {
+            get => JsonConvert.SerializeObject(ActiveStudents);
+            set => ActiveStudents = string.IsNullOrEmpty(value) ? new List<Student>() : JsonConvert.DeserializeObject<List<Student>>(value);
+        }
+        public string StudentList {
+            get => JsonConvert.SerializeObject(Students);
+            set => Students = string.IsNullOrEmpty(value) ? new List<Student>() : JsonConvert.DeserializeObject<List<Student>>(value);
+        }
+
+      
 
         public Tutor()
         {
@@ -84,6 +100,7 @@ namespace Entity.UserModels
             PreferredSubjects = new List<string>();
             Students= new List<Student>();
             ActiveStudents= new List<Student>();
+            Schedules= new List<ProposedSchedule>();
         }
 
        
@@ -103,6 +120,9 @@ namespace Entity.UserModels
             ExpectedSalary = tutor.ExpectedSalary;
             Bio = tutor.Bio;
             CurrentStatus = tutor.CurrentStatus;
+            Schedule = tutor.Schedule;
+            Students = tutor.Students;
+            ActiveStudents = tutor.ActiveStudents;
             return this;
          }
 

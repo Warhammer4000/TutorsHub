@@ -1,45 +1,38 @@
-﻿
-@{
-    ViewBag.Title = "StudentList";
-    Layout = "~/Views/Shared/TutorLayout.cshtml";
-}
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <form>
-                <h2><label>Student List</label> <br></h2>
-            </form>
-            <br>
-            <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th><h3>Name</h3></th>
-                        <th><h3>Email</h3></th>
-                        <th><h3>Class</h3></th>
-                        <th><h3>Active</h3></th>
-                    </tr>
-                    <tr style="font-size:large">
-                        <td><a href="#">Tanzim</a></td>
-                        <td>tanzim@gmail.com</td>
-                        <td>Class 6</td>
-                        <td>2 hours ago</td>
-                    </tr>
-                    <tr style="font-size:large">
-                        <td><a href="#">Sajib</a></td>
-                        <td>sajib@gmail.com</td>
-                        <td>Class 9</td>
-                        <td>online</td>
-                    </tr>
-                    <tr style="font-size:large">
-                        <td><a href="#">Jon</a></td>
-                        <td>jon@gmail.com</td>
-                        <td>Class 7</td>
-                        <td>30 min ago</td>
-                    </tr>
-                </table>
+﻿@model List<Entity.UserModels.Student>
+    @{
+        ViewBag.Title = "StudentList";
+        Layout = "~/Views/Shared/TutorLayout.cshtml";
+    }
+ 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form>
+                    <h2><label>Student List</label> <br></h2>
+                </form>
+                <br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th><h3>Name</h3></th>
+                            <th><h3>Email</h3></th>
+                       
+                     
+                        </tr>
+                        @foreach (var student in Model)
+                        {
+                            <tr style="font-size:large">
+                                <td>
+                                    @*<a href="#">*@@student.Name
+                                        @*</a>*@
+                                </td>
+                                <td>@student.Email</td>
+                          
+                            </tr>
+                        }
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
