@@ -33,5 +33,6 @@ namespace DLL
         public DbSet<SearchLog> SearchLogs { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<ExamResult> Results { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
     }
 }

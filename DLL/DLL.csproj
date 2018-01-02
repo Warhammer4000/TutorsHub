@@ -59,6 +59,7 @@
     <Compile Include="LogContext\LogRepository.cs" />
     <Compile Include="LogContext\SearchLogRepository.cs" />
     <Compile Include="LogContext\UserLogRepository.cs" />
+    <Compile Include="NotificationContext\NotificationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExamContext\ExamScripRepository.cs" />
     <Compile Include="ExamContext\QuestionsRepository.cs" />
