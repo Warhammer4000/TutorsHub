@@ -228,7 +228,7 @@ namespace TutorsHub.Application.Controllers
 
         public ActionResult Notification()
         {
-            return View();
+            return View(new NotificationViewModel(Session["Key"] as string));
         }
 
         [HttpGet]

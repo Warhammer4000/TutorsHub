@@ -1,4 +1,6 @@
-﻿
+﻿@using Entity.Others
+
+@model TutorsHub.Application.Models.NotificationViewModel
 @{
     ViewBag.Title = "Notification";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -11,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=.9">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -20,7 +21,7 @@
         <div class="col-sm-1">
 
         </div>
-        <div class="col-lg-11">
+        <div class="col-lg-10">
 
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -29,56 +30,35 @@
                 <div class="panel-body">
 
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    Reports
-                                </div>
-                                <div class="panel-body">
+                        <div class="col-lg-2">
 
-                                    <div class="well">
-                                        <a href="#"><strong>Tanim</strong></a> Reported <a href="#">
-                                            <strong>Jon</strong>
-
-                                        </a>
-                                        <br>
-                                        <a href="#">See Message...</a>
-                                    </div>
-
-                                    <div class="well">
-                                        <a href="#"><strong>Sajib</strong></a> Reported <a href="#">
-                                            <strong>Jon</strong>
-
-                                        </a>
-                                        <br>
-                                        <a href="#">See Message...</a>
-                                    </div>
-
-                                    <div class="well">
-                                        <a href="#"><strong>Baiching</strong></a> Reported <a href="#">
-                                            <strong>Jon</strong>
-
-                                        </a>
-                                        <br>
-                                        <a href="#">See Message...</a>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
-
                         <div class="col-lg-8">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    Reports
-                                </div>
-                                <div class="panel-body">
+                                @foreach (Notification notification in Model.Notifications)
+                                {
+                                    <div class="panel-body">
 
-                                    <div class="well">
-                                        Jon is not coming to tutor properly and is not preparing studying materials.
+                                        <div class="well">
+                                            @notification.Message
+                                            @*@if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
+                                                {
+                                                    @Html.ActionLink("Details", "ScheduleProp", "Tutor", new
+                                                    {
+                                                        scheduleString = notification.NotificationData
+                                                    }
+                                                        , null)
+                                                }*@
+                                            @if (notification.Notificationtype == Notificationtype.Message)
+                                            {
+                                                <text>---From @notification.ActionLink</text>
+                                            }
+
+                                        </div>
+
                                     </div>
+                                }
 
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,10 +68,6 @@
         </div>
 
     </div>
-
-
-
-
 </body>
 </html>
 
