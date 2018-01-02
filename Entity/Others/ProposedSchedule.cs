@@ -7,15 +7,16 @@ using Newtonsoft.Json;
 
 namespace Entity.Others
 {
-    public class Schedule
+    public class ProposedSchedule
     {
         public Dictionary<string,Timings> WeekDays { get; set; }
-
+        public string UserName { get; set; }
+        public string UserEmail { get; set; }
         public string ScheduleAsString {
             get => JsonConvert.SerializeObject(WeekDays);
             set => WeekDays = JsonConvert.DeserializeObject<Dictionary<string, Timings>>(value);
         }
-        public Schedule()
+        public ProposedSchedule()
         {
             WeekDays = new Dictionary<string, Timings>
             {
@@ -31,12 +32,15 @@ namespace Entity.Others
 
 
 
+
+
     }
 
     public class Timings
     {
+       
         public int StartTime { get; set; }
         public int EndTime { get; set; }
         public string Meridium { get; set; }
     }
-    }
+}
