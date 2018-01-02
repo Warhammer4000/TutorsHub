@@ -1,71 +1,32 @@
-﻿@using Entity.Others
-@model TutorsHub.Application.Models.NotificationViewModel
+﻿@model Entity.UserModels.Tutor
+
 @{
     ViewBag.Title = "Detailed";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
 }
-<html>
-<head>
-    <title>Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=.9">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-</head>
-<body>
-    <div class="row">
-        <div class="col-sm-1">
-
-        </div>
-        <div class="col-lg-10">
-
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Notification
-                </div>
-                <div class="panel-body">
-
-                    <div class="row">
-                        <div class="col-lg-2">
-
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="panel panel-primary">
-                                @foreach (Notification notification in Model.Notifications)
-                                {
-                                    <div class="panel-body">
-
-                                        <div class="well">
-                                            @notification.Message
-                                            @*@if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
-                                            {
-                                                @Html.ActionLink("Details", "ScheduleProp", "Tutor", new
-                                                {
-                                                    scheduleString = notification.NotificationData
-                                                }
-                                                         , null)
-                                            }*@
-                                            @if (notification.Notificationtype == Notificationtype.Message)
-                                            {
-                                                <text>---From @notification.ActionLink</text>
-                                            }
-
-                                        </div>
-
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-</body>
-</html>
-
-
+<style>
+    table > tbody > tr > th {
+        height: 55px;
+    }
+</style>
+<br />
+<br />
+<div style="background-color:white; border:1px solid green;margin:0px 50px">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Today</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var re in @Model.Schedules)
+            {
+                <tr>
+                    <td>@re.ScheduleAsString</td>
+                    <td>@re.UserName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Entity.UserModels.Tutor
+
+@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
@@ -14,86 +16,17 @@
         <thead>
             <tr>
                 <th scope="col">Time</th>
-                <th scope="col">Saturday</th>
-                <th scope="col">Sunday</th>
-                <th scope="col">Monday</th>
-                <th scope="col">Tuesday</th>
-                <th scope="col">Wednesday</th>
-                <th scope="col">Thursday</th>
-                <th scope="col">Friday</th>
+                <th scope="col">Today</th>
             </tr>
         </thead>
         <tbody>
+            @foreach (var re in @Model.Schedules)
+            {
             <tr>
-                <th scope="row">8AM - 10AM</th>
-                <td>Hiron</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sofiq</td>
-                <td></td>
+                <td>@re.ScheduleAsString</td>
+                <td>@re.UserName</td>
             </tr>
-            <tr>
-                <th scope="row">10AM - 12PM</th>
-                <td></td>
-                <td></td>
-                <td>Nisu</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">12PM - 02PM</th>
-                <td>Hiron</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sofiq</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">02PM - 04PM</th>
-                <td>Mark</td>
-                <td>Nisu</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">04PM - 06PM</th>
-                <td>Hiron</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sofiq</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">06PM - 08PM</th>
-                <td></td>
-                <td>Nisu</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row">08PM - 10PM</th>
-                <td>Hiron</td>
-                <td>Nisu</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sofiq</td>
-                <td></td>
-            </tr>
+            }
         </tbody>
     </table>
 </div>

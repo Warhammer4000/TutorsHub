@@ -21,8 +21,8 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult Dashboard()
         {
-            NotificationViewModel notification = (new NotificationViewModel(Session["Key"] as string));
-            return View(notification);
+            
+            return View(new Tutor());
         }
 
         [HttpGet]

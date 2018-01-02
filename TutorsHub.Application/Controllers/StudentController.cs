@@ -18,7 +18,7 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult DashBoard()
         {
-            return View();
+            return View(new Tutor());
         }
         [HttpGet]
         public RedirectToRouteResult Logout()
