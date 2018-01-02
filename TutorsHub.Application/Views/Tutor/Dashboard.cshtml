@@ -32,22 +32,23 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    Reports
-                                </div>
                                 @foreach (Notification notification in Model.Notifications)
                                 {
                                     <div class="panel-body">
 
                                         <div class="well">
                                             @notification.Message
-                                            @if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
+                                            @*@if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
                                             {
                                                 @Html.ActionLink("Details", "ScheduleProp", "Tutor", new
                                                 {
                                                     scheduleString = notification.NotificationData
                                                 }
                                                          , null)
+                                            }*@
+                                            @if (notification.Notificationtype == Notificationtype.Message)
+                                            {
+                                                <text>---From @notification.ActionLink</text>
                                             }
 
                                         </div>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Entity.Others
+@{
     ViewBag.Title = "Detailed";
     Layout = "~/Views/Shared/StudentLayout.cshtml";
 }
@@ -12,44 +13,57 @@
 
 </head>
 <body>
-    <div class="row">
-        <div class="col-sm-1">
+<div class="row">
+    <div class="col-sm-1">
 
-        </div>
-        <div class="col-lg-10">
+    </div>
+    <div class="col-lg-10">
 
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Notification
-                </div>
-                <div class="panel-body">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Notification
+            </div>
+            <div class="panel-body">
 
-                    <div class="row">
-                        <div class="col-lg-2">
+                <div class="row">
+                    <div class="col-lg-2">
 
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    Reports
-                                </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary">
+                            @foreach (Notification notification in Model.Notifications)
+                            {
                                 <div class="panel-body">
 
                                     <div class="well">
-                                        Jon is not coming to tutor properly and is not preparing studying materials.
-                                        @Html.ActionLink("See Message", "ScheduleResult", "Student", null)
+                                        @notification.Message
+                                        @*@if (notification.Notificationtype == Notificationtype.ScheduleProposiotion)
+                                        {
+                                            @Html.ActionLink("Details", "ScheduleProp", "Tutor", new
+                                            {
+                                                scheduleString = notification.NotificationData
+                                            }
+                                                , null)
+                                        }*@
+                                        @if (notification.Notificationtype == Notificationtype.Message)
+                                        {
+                                            <text>---From @notification.ActionLink</text>
+                                        }
+                                        
                                     </div>
 
                                 </div>
-                            </div>
+                            }
+
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
-
     </div>
+
+</div>
 </body>
 </html>
 

@@ -12,9 +12,17 @@ namespace Entity.UserModels
         [NotMapped]
         public List<Tutor> ActiveTutors { get; set; }
 
-        public string TutorsList { get; set; }
+        public string TutorsList
+        {
+            get => JsonConvert.SerializeObject(Tutors);
+            set => Tutors = string.IsNullOrEmpty(value) ? new List<Tutor>() : JsonConvert.DeserializeObject<List<Tutor>>(value);
+        }
 
-        public string ActiveTutorsList { get; set; }
+        public string ActiveTutorsList
+        {
+            get => JsonConvert.SerializeObject(ActiveTutors);
+            set => ActiveTutors = string.IsNullOrEmpty(value) ? new List<Tutor>() : JsonConvert.DeserializeObject<List<Tutor>>(value);
+        }
         [NotMapped]
         public List<ProposedSchedule> Schedules { get; set; }
         public string Schedule
@@ -41,6 +49,9 @@ namespace Entity.UserModels
             Location = student.Location;
             ProfilePictureUrl = student.ProfilePictureUrl;
             Mobilenumber = student.Mobilenumber;
+            Schedule = student.Schedule;
+            TutorsList = student.TutorsList;
+            ActiveTutorsList = student.ActiveTutorsList;
             return student;
         }
     }

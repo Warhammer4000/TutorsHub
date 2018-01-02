@@ -1,5 +1,5 @@
 ﻿@using Entity.BlogModel
-@model List<Entity.BlogModel.Blog>
+@model List<Blog>
 @{
     ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/TutorLayout.cshtml";
@@ -48,39 +48,43 @@
 
 <body>
 
+<fieldset>
+    <legend>My Blogs</legend>
+    <div class="post">
 
-<div class="post">
+        <div class="post-header">
 
-    <div class="post-header">
+        </div>
+        @foreach (var blog in Model)
+        {
+            <article>
+                <font class="retitle">
+                    <h2 >
+                        <a href="/Tutor/ViewPost/@blog.Id">
+                            @blog.Title
+                        </a>
+                    </h2>
+                </font>
+                <div class="date-header">
+                    <div id="meta-post">
+
+                        <a href="https://plus.google.com/117087522982435008929" rel="author" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+                            <span itemprop="name">@blog.Author</span>
+                        </a>
+                        <i></i>
+                        <span>@blog.Date.ToString("D")</span>
+                    </div>
+                    <div >
+                        <span>@Html.Raw(blog.Content) </span>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </article>
+        }
+
     </div>
-    @foreach (var blog in Model)
-    {
-        <article>
-            <font class="retitle">
-                <h2 >
-                    <a href="/Tutor/ViewPost/@blog.Id">
-                        @blog.Title
-                    </a>
-                </h2>
-            </font>
-            <div class="date-header">
-                <div id="meta-post">
-                
-                    <a  href="https://plus.google.com/117087522982435008929" rel="author"  data-gapiscan="true" data-onload="true" data-gapiattached="true">
-                        <span itemprop="name">@blog.Author</span>
-                    </a>
-                    <i></i>
-                    <span>@blog.Date.ToString("D")</span>
-                </div>
-                <div >
-                    <span>@Html.Raw( blog.Content)  </span>
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-        </article>
-    }
+</fieldset>
 
-</div>
 
 
 </body>

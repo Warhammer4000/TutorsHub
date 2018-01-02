@@ -10,7 +10,8 @@ namespace TutorsHub.Application.Models
     {
         public List<User> Users { get; set; }
         public string Subject { get; set; }
-        public string Body { get; set; }
+        public string Message { get; set; }
+        public string UserKey { get; set; }
         public ChatViewModel()
         {
             Users=new List<User>();

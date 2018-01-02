@@ -10,19 +10,18 @@
 <div style="background-color:white; border:1px solid green;margin-left:53px; padding-left:50px; width:70%;">
     <div class="container" style="margin-top:20px;">
         <div class="form-group" style="width:50%">
-            <select class="form-control" id="sel1">
-                @foreach (var student in Model.Users)
+            <select name="UserKey" class="form-control" id="sel1">
+                @foreach (var user in Model.Users)
                 {
-                    <option value="@student.Name">@student.Name</option>
+                    <option value="@user.Email">@user.Name</option>
                    
                 }
-              
             </select>
-            <br />
-            <input class="form-control input-sm" id="subject" type="text" placeholder="Subject:">
+           
+          
         </div>
         <div class="form-group" id="body">
-            <textarea rows="14" cols="78" placeholder="Write here..."></textarea>
+            <textarea name="Message" rows="14" cols="78" placeholder="Write here..."></textarea>
         </div>
         <button type="submit" class="btn btn-info" style="margin-left:512px">Send</button>
         <br />

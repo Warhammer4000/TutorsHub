@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BLL;
 using BLL.NotificationRepository;
@@ -85,24 +86,66 @@ namespace TutorsHub.Application.Controllers
             }
 
             //send a notification to tutor
-            Tutor t = new ServiceProvider().Create<Tutor>().GetByEmail(schedule.UserEmail);
-            t.Students.Add(new ServiceProvider().Create<Student>().GetByEmail(Session["Key"] as string));
+            var t = new ServiceProvider().Create<Tutor>().GetByEmail(schedule.UserEmail);
+            var student = new ServiceProvider().Create<Student>().GetByEmail(Session["Key"] as string);
+            
+
+            if (!t.Students.Contains(student))
+            {
+                t.Students.Add(student);
+            }
+            
             t.Schedules.Add(schedule);
             if (new ServiceProvider().Create<Tutor>().Update(t))
             {
-                return RedirectToAction("HireTutor", "Student");
+                
+               
+            }
+
+            student = new ServiceProvider().Create<Student>().GetByEmail(Session["Key"] as string);
+            student.Schedules.Add(schedule);
+            if (!student.Tutors.Contains(t))
+            {
+                student.Tutors.Add(t);
+                
+                new ServiceProvider().Create<Student>().Update(student);
             }
 
 
-            return View();
+            return RedirectToAction("HireTutor", "Student");
         }
 
 
         [HttpGet]
         public ActionResult SendMessage()
         {
-            return View();
+            IUserService<Student> userService = new ServiceProvider().Create<Student>();
+            ChatViewModel chatViewModel = new ChatViewModel();
+            chatViewModel.Users = userService.GetByEmail(Session["Key"] as string).Tutors.ToList<User>();
+            return View(chatViewModel);
         }
+
+
+        [HttpPost]
+        public ActionResult SendMessage(ChatViewModel chatViewModel)
+        {
+            var notification = new Notification
+            {
+                Message = chatViewModel.Message,
+                Key = chatViewModel.UserKey,
+                Notificationtype = Notificationtype.Message,
+                ActionLink = new ServiceProvider().Create<Student>().GetByEmail(Session["Key"] as string).Name
+            };
+
+            if (new NotificationService().Add(notification))
+            {
+
+            }
+
+            return RedirectToAction("DashBoard","Student");
+        }
+
+
         [HttpGet]
         public ActionResult StudyMaterial()
         {

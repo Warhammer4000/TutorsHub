@@ -2,6 +2,7 @@
 using Entity.UserModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using BLL.BlogRepository;
 using BLL.NotificationRepository;
@@ -134,8 +135,32 @@ namespace TutorsHub.Application.Controllers
         [HttpGet]
         public ActionResult Chat()
         {
-            return View();
+            IUserService<Tutor> userService= new ServiceProvider().Create<Tutor>();
+            ChatViewModel chatViewModel = new ChatViewModel();
+            chatViewModel.Users = userService.GetByEmail(Session["Key"] as string).Students.ToList<User>();
+            return View(chatViewModel);
         }
+
+
+        [HttpPost]
+        public ActionResult Chat(ChatViewModel chatViewModel)
+        {
+            var notification = new Notification
+            {
+                Message = chatViewModel.Message,
+                Key = chatViewModel.UserKey,
+                Notificationtype = Notificationtype.Message
+                ,ActionLink = new ServiceProvider().Create<Tutor>().GetByEmail(Session["Key"] as string).Name
+            };
+
+            if (new NotificationService().Add(notification))
+            {
+                
+            }
+
+            return RedirectToAction("Dashboard", "Tutor");
+        }
+
 
         [HttpGet]
         public ActionResult Blog()
